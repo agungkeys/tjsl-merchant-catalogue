@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { Button, Card, Container, Grid, Text } from '@nextui-org/react';
+import { Button, Card, Container, Grid, Link, Spacer, Text } from '@nextui-org/react';
 
 export default function Home() {
   return (
@@ -12,24 +12,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Container css={{ d: 'flex', mt: '1em'}}>
+        <Container fluid css={{ d: 'flex', mt: '1em', fontFamily: '$sans'}}>
           <Card css={{ $$cardColor: '$colors$gradient'}}>
             <Card.Body>
-            <Grid.Container gap={1} justify="start" alignItems="center">
+            <Grid.Container justify="start" alignItems="center">
               <Grid>
                 <Text h6 size={20} color="white" css={{ m: 0, fontWeight: 'bold' }}>Mitra Merchant TJSL</Text>
               </Grid>
-              <Grid css={{ ml: '1.5em'}}>
-                <Button size="lg" color="white">Beranda</Button>
-              </Grid>
+              <Spacer x={4} />
               <Grid>
-                <Button size="lg" color="white">Berita</Button>
+                <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERANDA</Link>
               </Grid>
+              <Spacer x={1} />
               <Grid>
-                <Button size="lg" color="white">Mitra</Button>
+                <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERITA TERKINI</Link>
               </Grid>
+              <Spacer x={1} />
               <Grid>
-                <Button size="lg" color="white">Kontak Kami</Button>
+                <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>PRODUK MITRA UMKM</Link>
               </Grid>
             </Grid.Container>
             </Card.Body>
