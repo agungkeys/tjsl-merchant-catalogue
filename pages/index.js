@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { Button, Card, Container, Grid, Link, Spacer, Text } from '@nextui-org/react';
+import { Button, Card, Container, Grid, Link, Spacer, Text, Image } from '@nextui-org/react';
 
 export default function Home() {
   return (
@@ -12,28 +11,225 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Container fluid css={{ d: 'flex', mt: '1em', fontFamily: '$sans'}}>
-          <Card css={{ $$cardColor: '$colors$gradient'}}>
+        <Container xl css={{ d: 'flex', fontFamily: '$sans', w: '100%'}}>
+          <Card css={{ $$cardColor: '$colors$gradient', mw: '100%', borderTopLeftRadius: '0', borderTopRightRadius: '0'}}>
             <Card.Body>
-            <Grid.Container justify="start" alignItems="center">
-              <Grid>
-                <Text h6 size={20} color="white" css={{ m: 0, fontWeight: 'bold' }}>Mitra Merchant TJSL</Text>
-              </Grid>
-              <Spacer x={4} />
-              <Grid>
-                <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERANDA</Link>
-              </Grid>
-              <Spacer x={1} />
-              <Grid>
-                <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERITA TERKINI</Link>
-              </Grid>
-              <Spacer x={1} />
-              <Grid>
-                <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>PRODUK MITRA UMKM</Link>
-              </Grid>
-            </Grid.Container>
+              <Grid.Container justify="start" alignItems="center">
+                <Grid>
+                  <Text h6 size={18} color="white" css={{ m: 0, fontWeight: 'bold' }}>Mitra Merchant TJSL</Text>
+                </Grid>
+                <Spacer x={4} />
+                <Grid>
+                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERANDA</Link>
+                </Grid>
+                <Spacer x={1} />
+                <Grid>
+                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERITA TERKINI</Link>
+                </Grid>
+                <Spacer x={1} />
+                <Grid>
+                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>PRODUK MITRA UMKM</Link>
+                </Grid>
+              </Grid.Container>
             </Card.Body>
           </Card>
+          <Spacer y={2} />
+          <Grid.Container gap={2} justify="center" alignItems="center">
+            <Grid>
+              <Card css={{ p: "$6", mw: "400px" }} isPressable isHoverable>
+                <Card.Header>
+                  <Image
+                    alt="nextui logo"
+                    src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+
+                    width="34px"
+                    height="34px"
+                  />
+                  <Grid.Container css={{ pl: "$6" }}>
+                    <Grid xs={12}>
+                      <Text h4 css={{ lineHeight: "$xs" }}>
+                        Warung Bucu
+                      </Text>
+                    </Grid>
+                    <Grid xs={12}>
+                      <Text css={{ color: "$accents8" }}>Makanan & minuman</Text>
+                    </Grid>
+                  </Grid.Container>
+                </Card.Header>
+                <Card.Body css={{ py: "$2" }}>
+                  <Text>
+                    Mitra binaan TJSL PT. Pupuk Kaltim yang telah berdiri sejak 2016
+                  </Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Link
+                    icon
+                    color="primary"
+                    target="_blank"
+                    href="https://borneos.co"
+                  >
+                    Katalog Online
+                  </Link>
+                </Card.Footer>
+              </Card>
+            </Grid>
+            
+            <Grid>
+              <Card css={{ p: "$6", mw: "400px" }} isPressable isHoverable>
+                <Card.Header>
+                  <Image
+                    alt="nextui logo"
+                    src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+
+                    width="34px"
+                    height="34px"
+                  />
+                  <Grid.Container css={{ pl: "$6" }}>
+                    <Grid xs={12}>
+                      <Text h4 css={{ lineHeight: "$xs" }}>
+                        Warung Bucu
+                      </Text>
+                    </Grid>
+                    <Grid xs={12}>
+                      <Text css={{ color: "$accents8" }}>Makanan & minuman</Text>
+                    </Grid>
+                  </Grid.Container>
+                </Card.Header>
+                <Card.Body css={{ py: "$2" }}>
+                  <Text>
+                    Mitra binaan TJSL PT. Pupuk Kaltim yang telah berdiri sejak 2016
+                  </Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Link
+                    icon
+                    color="primary"
+                    target="_blank"
+                    href="https://borneos.co"
+                  >
+                    Katalog Online
+                  </Link>
+                </Card.Footer>
+              </Card>
+            </Grid>
+
+            <Grid>
+              <Card css={{ p: "$6", mw: "400px" }} isPressable isHoverable>
+                <Card.Header>
+                  <Image
+                    alt="nextui logo"
+                    src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+
+                    width="34px"
+                    height="34px"
+                  />
+                  <Grid.Container css={{ pl: "$6" }}>
+                    <Grid xs={12}>
+                      <Text h4 css={{ lineHeight: "$xs" }}>
+                        Warung Bucu
+                      </Text>
+                    </Grid>
+                    <Grid xs={12}>
+                      <Text css={{ color: "$accents8" }}>Makanan & minuman</Text>
+                    </Grid>
+                  </Grid.Container>
+                </Card.Header>
+                <Card.Body css={{ py: "$2" }}>
+                  <Text>
+                    Mitra binaan TJSL PT. Pupuk Kaltim yang telah berdiri sejak 2016
+                  </Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Link
+                    icon
+                    color="primary"
+                    target="_blank"
+                    href="https://borneos.co"
+                  >
+                    Katalog Online
+                  </Link>
+                </Card.Footer>
+              </Card>
+            </Grid>
+
+            <Grid>
+              <Card css={{ p: "$6", mw: "400px" }} isPressable isHoverable>
+                <Card.Header>
+                  <Image
+                    alt="nextui logo"
+                    src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+
+                    width="34px"
+                    height="34px"
+                  />
+                  <Grid.Container css={{ pl: "$6" }}>
+                    <Grid xs={12}>
+                      <Text h4 css={{ lineHeight: "$xs" }}>
+                        Warung Bucu
+                      </Text>
+                    </Grid>
+                    <Grid xs={12}>
+                      <Text css={{ color: "$accents8" }}>Makanan & minuman</Text>
+                    </Grid>
+                  </Grid.Container>
+                </Card.Header>
+                <Card.Body css={{ py: "$2" }}>
+                  <Text>
+                    Mitra binaan TJSL PT. Pupuk Kaltim yang telah berdiri sejak 2016
+                  </Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Link
+                    icon
+                    color="primary"
+                    target="_blank"
+                    href="https://borneos.co"
+                  >
+                    Katalog Online
+                  </Link>
+                </Card.Footer>
+              </Card>
+            </Grid>
+
+            <Grid>
+              <Card css={{ p: "$6", mw: "400px" }} isPressable isHoverable>
+                <Card.Header>
+                  <Image
+                    alt="nextui logo"
+                    src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+
+                    width="34px"
+                    height="34px"
+                  />
+                  <Grid.Container css={{ pl: "$6" }}>
+                    <Grid xs={12}>
+                      <Text h4 css={{ lineHeight: "$xs" }}>
+                        Warung Bucu
+                      </Text>
+                    </Grid>
+                    <Grid xs={12}>
+                      <Text css={{ color: "$accents8" }}>Makanan & minuman</Text>
+                    </Grid>
+                  </Grid.Container>
+                </Card.Header>
+                <Card.Body css={{ py: "$2" }}>
+                  <Text>
+                    Mitra binaan TJSL PT. Pupuk Kaltim yang telah berdiri sejak 2016
+                  </Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Link
+                    icon
+                    color="primary"
+                    target="_blank"
+                    href="https://borneos.co"
+                  >
+                    Katalog Online
+                  </Link>
+                </Card.Footer>
+              </Card>
+            </Grid>
+          </Grid.Container>
         </Container>
       </main>
       <footer></footer>
