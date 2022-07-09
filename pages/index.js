@@ -1,8 +1,31 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Button, Card, Container, Grid, Link, Spacer, Text, Image } from '@nextui-org/react';
+import { Carousel } from '../components';
 
 export default function Home() {
+  const itemBanners = [
+    {
+      id: 0,
+      image: "https://static.sehatq.com/cdn-cgi/image/f=auto,width=760,height=203,fit=pad,background=white,quality=100/cms/banner/1652020838.jpeg",
+      title: "image-banner-0"
+    },
+    {
+      id: 1,
+      image: "https://static.sehatq.com/cdn-cgi/image/f=auto,width=760,height=203,fit=pad,background=white,quality=100/cms/banner/1656608647.jpeg",
+      title: "image-banner-1"
+    },
+    {
+      id: 2,
+      image: "https://static.sehatq.com/cdn-cgi/image/f=auto,width=760,height=203,fit=pad,background=white,quality=100/cms/banner/1651336089.jpeg",
+      title: "image-banner-2"
+    },
+    {
+      id: 3,
+      image: "https://static.sehatq.com/cdn-cgi/image/f=auto,width=760,height=203,fit=pad,background=white,quality=100/cms/banner/1650353907.jpeg",
+      title: "image-banner-3"
+    }
+  ]
   return (
     <div>
       <Head>
@@ -12,28 +35,43 @@ export default function Home() {
       </Head>
       <main>
         <Container xl css={{ d: 'flex', fontFamily: '$sans', w: '100%'}}>
-          <Card css={{ $$cardColor: '$colors$gradient', mw: '100%', borderTopLeftRadius: '0', borderTopRightRadius: '0'}}>
+          <Card 
+            variants="shadow" 
+            css={{ 
+              bg: "white",
+              // bgBlur: "linear-gradient(110deg, rgba(255, 144, 104, 0.6) 10%, rgba(255, 75, 31, 0.6) 100%)", 
+              position: "sticky", 
+              top: 0, 
+              zIndex: 999, 
+              mw: '100%', 
+              borderTopLeftRadius: '0', 
+              borderTopRightRadius: '0'
+            }}
+          >
             <Card.Body>
               <Grid.Container justify="start" alignItems="center">
                 <Grid>
-                  <Text h6 size={18} color="white" css={{ m: 0, fontWeight: 'bold' }}>Mitra Merchant TJSL</Text>
+                  <Text h6 size={18} color="$yellow600" css={{ m: 0, ml: 20, fontWeight: 'bold' }}>UMKDEMI</Text>
                 </Grid>
-                <Spacer x={4} />
+                <Spacer x={3} />
                 <Grid>
-                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERANDA</Link>
-                </Grid>
-                <Spacer x={1} />
-                <Grid>
-                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>BERITA TERKINI</Link>
+                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$gray600', '&:hover': { color: '$blue700', textDecoration: 'none'}}}>BERANDA</Link>
                 </Grid>
                 <Spacer x={1} />
                 <Grid>
-                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$white', '&:hover': { color: '$red700', textDecoration: 'none'}}}>PRODUK MITRA UMKM</Link>
+                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$gray600', '&:hover': { color: '$blue700', textDecoration: 'none'}}}>MITRA UMKM</Link>
+                </Grid>
+                <Spacer x={1} />
+                <Grid>
+                  <Link href="#" underline css={{ fontSize: '18px', fontWeight: '500', color: '$gray600', '&:hover': { color: '$blue700', textDecoration: 'none'}}}>BERITA TERKINI</Link>
                 </Grid>
               </Grid.Container>
             </Card.Body>
           </Card>
-          <Spacer y={2} />
+          <Spacer y={1} />
+
+          <Carousel items={itemBanners} />
+
           <Grid.Container gap={2} justify="center" alignItems="center">
             <Grid>
               <Card css={{ p: "$6", mw: "400px" }} isPressable isHoverable>
