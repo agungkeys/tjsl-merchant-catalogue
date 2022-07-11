@@ -21,6 +21,27 @@ function Home() {
     }
   ];
 
+  const itemServices = [
+    {
+      id: 0,
+      image: "service_1.png",
+      name: "Manfaat",
+      description: "Memberikan kemanfaatan bagi pembangunan ekonomi, sosial, lingkungan, hukum dan tata kelola bagi perusahaan."
+    },
+    {
+      id: 1,
+      image: "service_2.png",
+      name: "Kontribusi",
+      description: "Berkontribusi meningkatkan nilai tambah dengan prinsip yang terintegrasi, terarah dan terukur dampaknya serta akuntabel."
+    },
+    {
+      id: 2,
+      image: "service_3.png",
+      name: "Pembinaan",
+      description: "Membina usaha mikro dan usaha kecil agar lebih tangguh dan mandiri serta masyarakat sekitar perusahaan."
+    }
+  ]
+
   const itemCategories = [
     {
       id: 0,
@@ -32,17 +53,17 @@ function Home() {
       id: 1,
       image: "https://res.cloudinary.com/borneos-co/image/upload/v1650784158/images/categories/xfx103dzxgsmhklumm5k.png",
       name: "Pertanian",
-      description: "Kategori Bidang Pertanian"
+      description: "Kategori Pertanian"
     },
     {
       id: 2,
       image: "https://res.cloudinary.com/borneos-co/image/upload/v1650784098/images/categories/pfh9klzrjkut442o24ae.png",
       name: "Fashion",
-      description: "Kategori Fashion"
+      description: "Kategori Fashion & Kain"
     },
     {
       id: 3,
-      image: "https://res.cloudinary.com/borneos-co/image/upload/v1650784136/images/categories/ihdxa5ruao66pszch90m.png",
+      image: "https://res.cloudinary.com/borneos-co/image/upload/v1650784487/images/categories/jrgbaz2nm2cgrxyufwjt.png",
       name: "Perdagangan",
       description: "Kategori Perdagangan"
     }
@@ -60,6 +81,30 @@ function Home() {
           <Header />
           <Spacer y={1} />
           <Carousel items={itemBanners} />
+          <Container md css={{ marginTop: '1em' }}>
+            <Grid.Container gap={1} justify="start" alignItems="center" css={{}}>
+              {itemServices && itemServices.length && itemServices.map(item => 
+                <Grid key={item.id} xs={4} css={{ height: "100%"}}>
+                  <Card isPressable isHoverable variant="bordered" css={{ p: "$4", "&:hover" : { borderColor: "$blue400", borderWidth: "2px"} }}>
+                    <Grid.Container css={{ overflow: "hidden"}}>
+                      <Grid key={item.id} xs={3}>
+                        <Image
+                          alt={item.name || ''}
+                          src={item.image || ''}
+                        />
+                      </Grid>
+                      <Grid key={item.id} xs={9}>
+                        <Card variant="flat" css={{ background: '#fff', p: "$0", ml: "$4", borderRadius: "$0" }}>
+                          <Text color="$gray800" h4 css={{ lineHeight: "$xs", mb: 5}}>{item.name || ''}</Text>
+                          <Text color="$gray700" size={14}>{item.description || ''}</Text>
+                        </Card>
+                      </Grid>
+                    </Grid.Container>
+                  </Card>
+                </Grid>
+              )}
+            </Grid.Container>
+          </Container>
           <Container md css={{ marginTop: '.5em', paddingBottom: '1em'}}>
             <Text 
               h1
@@ -73,7 +118,7 @@ function Home() {
               }}
               weight="bold"
             >Kategori Mitra Binaan TJSL PT. Pupuk Kaltim</Text>
-            <Grid.Container gap={1} justify="start" alignItems="center">
+            <Grid.Container gap={1} justify="start" alignItems="center" css={{marginTop: "5px"}}>
               {itemCategories && itemCategories.length && itemCategories.map(item => 
                 <Grid key={item.id} xs={2} css={{ m: '0'}}>
                   <Category item={item} />

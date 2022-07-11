@@ -4,7 +4,7 @@ import { Card, Grid, Image, Text, Link } from '@nextui-org/react';
 function Category(props) {
   const { item } = props;
   return (
-    <Card css={{ p: "$0", mw: "400px" }} variant="bordered" isPressable isHoverable>
+    <Card css={{ p: "$2", mw: "400px" }} variant="bordered" isPressable isHoverable>
       <Card.Header>
         <Image
           alt="nextui logo"
@@ -14,7 +14,7 @@ function Category(props) {
         />
         <Grid.Container css={{ pl: "$6" }}>
           <Grid xs={12}>
-            <Text h4 size={14} css={{ lineHeight: "$xs" }}>
+            <Text h4 size={16} css={{ lineHeight: "$xs" }}>
               {item.name || ''}
             </Text>
           </Grid>
