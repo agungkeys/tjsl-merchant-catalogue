@@ -12,14 +12,13 @@ function Header() {
         top: 0, 
         zIndex: 999, 
         mw: '100%', 
-        borderTopLeftRadius: '0', 
-        borderTopRightRadius: '0',
+        borderRadius: 0,
       }}
     >
       <Card.Body>
         <Grid.Container justify="start" alignItems="center">
           <Grid>
-            <Text h6 size={18} color="$yellow600" css={{ m: 0, ml: 20, fontWeight: 'bold' }}>UMKDEMI</Text>
+            <Text h6 size={18} css={{ m: 0, ml: 20, fontWeight: 'bold', color: "$yellow600" }}>[BRAND TJSL]</Text>
           </Grid>
           <Spacer x={3} />
           <Grid>
@@ -31,7 +30,7 @@ function Header() {
           </Grid>
           <Spacer x={1} />
           <Grid>
-            <Link href="#" underline css={{ fontSize: '16px', fontWeight: '500', color: '$gray600', '&:hover': { color: '$blue700', textDecoration: 'none'}}}>BERITA TERKINI</Link>
+            <Link href="#" underline css={{ fontSize: '16px', fontWeight: '500', color: '$gray600', '&:hover': { color: '$blue700', textDecoration: 'none'}}}>BLOG [BRAND TJSL]</Link>
           </Grid>
         </Grid.Container>
       </Card.Body>

@@ -33,8 +33,8 @@ const theme = createTheme({
     },
     space: {},
     fonts: {
-      sans: "'Raleway', sans-serif",
-      mono: "'Raleway', sans-serif"
+      sans: "'Mulish', sans-serif",
+      mono: "'Mulish', sans-serif"
     }
   }
 })
