@@ -6,17 +6,17 @@ function Home() {
   const itemBanners = [
     {
       id: 0,
-      image: "banner_2.png",
+      image: "https://res.cloudinary.com/borneos-co/image/upload/v1660137793/images/banners/cy1iztwb4bf6xbp89x1g.webp",
       title: "image-banner-0"
     },
     {
       id: 1,
-      image: "banner_3.png",
+      image: "https://res.cloudinary.com/borneos-co/image/upload/v1660137643/images/banners/v3pxsshr9tybdalab3js.webp",
       title: "image-banner-1"
     },
     {
       id: 2,
-      image: "banner_4.png",
+      image: "https://res.cloudinary.com/borneos-co/image/upload/v1660137500/images/banners/j6ptjrhj8szcrp3r0xpi.webp",
       title: "image-banner-2"
     }
   ];
