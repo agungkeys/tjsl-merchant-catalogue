@@ -58,8 +58,8 @@
 	right: 3%;
 	top: 37%;
 	background: #fce4ec;
-	border-radius: 2em;
-	padding: .3em;
+	border-radius: 2em !important;
+	padding: .6em;
 	color: #1a63ab;
 	font-size: 1.5em;
 }
@@ -72,8 +72,8 @@
 	left: 3%;
 	top: 37%;
 	background: #fce4ec;
-	border-radius: 2em;
-	padding: 0.3em;
+	border-radius: 2em !important;
+	padding: .6em;
 	color: #1a63ab;
 	font-size: 1.5em;
 }

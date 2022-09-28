@@ -24,32 +24,79 @@ function Header(props) {
       <Box
         position={headerPosition}
         boxShadow="lg"
-        padding="26px"
+        padding="20px"
         zIndex="999"
         backdropFilter="blur(100px)"
         width="100%"
       >
         <Container maxW="container.xl">
           <Flex width="100%">
-            
             <Flex
               marginX="16px"
               justifyContent="space-between"
-              color="#F57921"
-              gap={10}
+              gap={4}
+              alignItems='center'
             >
-              <Text>Logo</Text>
+              <Text mr={5} fontSize='xl' fontWeight='bold'>KamiUMKM</Text>
               <NextLink link="/">
-                <Text>Beranda</Text>
+                <Text 
+                  fontSize='lg'
+                  color="gray.60" 
+                  p={2}
+                  px={3}
+                  borderRadius='8px' 
+                  sx={{ 
+                    _hover: { 
+                        bg: 'blue.10',
+                        color: 'gray.80'
+                      }
+                    }}
+                  >Beranda</Text>
               </NextLink>
               <NextLink link="/mitra">
-                <Text>Mitra</Text>
-              </NextLink>
-              <NextLink link="/tentang">
-                <Text>Tentang</Text>
+                <Text
+                  fontSize='lg'
+                  color="gray.60" 
+                  p={2}
+                  px={3}
+                  borderRadius='8px' 
+                  sx={{ 
+                    _hover: { 
+                        bg: 'blue.10',
+                        color: 'gray.80'
+                      }
+                    }}
+                >Mitra Kami</Text>
               </NextLink>
               <NextLink link="/blog">
-                <Text>Blog</Text>
+                <Text
+                  fontSize='lg'
+                  color="gray.60" 
+                  p={2}
+                  px={3}
+                  borderRadius='8px' 
+                  sx={{ 
+                    _hover: { 
+                      bg: 'blue.10',
+                      color: 'gray.80'
+                    }
+                  }}
+                >Blog Kami</Text>
+              </NextLink>
+              <NextLink link="/tentang">
+                <Text
+                  fontSize='lg'
+                  color="gray.60" 
+                  p={2}
+                  px={3}
+                  borderRadius='8px' 
+                  sx={{ 
+                    _hover: { 
+                      bg: 'blue.10',
+                      color: 'gray.80'
+                    }
+                  }}
+                >Kontak</Text>
               </NextLink>
             </Flex>
           </Flex>

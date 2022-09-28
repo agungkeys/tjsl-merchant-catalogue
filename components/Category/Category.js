@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Image, Flex, Text } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
 
 function Category(props) {
   const { item } = props;
@@ -29,5 +30,9 @@ function Category(props) {
     // </Card>
   )
 }
+
+Category.propTypes = {
+  item: PropTypes.array,
+};
 
 export default Category;
