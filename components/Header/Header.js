@@ -31,7 +31,7 @@ function Header(props) {
       >
         <Container maxW="container.xl">
           <Flex width="100%">
-            <Text>Logo</Text>
+            <Text>[Logo Brand TJSL]</Text>
             <Flex
               marginX="16px"
               justifyContent="space-between"
