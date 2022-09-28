@@ -122,9 +122,9 @@ const colors = {
 
 const fonts = {
 	...chakraTheme.fonts,
-	body: "'Poppins', sans-serif",
-	heading: "'Poppins', sans-serif",
-	monospace: "'Poppins', sans-serif",
+	body: "'Nunito', sans-serif",
+	heading: "'Nunito', sans-serif",
+	monospace: "'Nunito', sans-serif",
 };
 
 const spacing = {

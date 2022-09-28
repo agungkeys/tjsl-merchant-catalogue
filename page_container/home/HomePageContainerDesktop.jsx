@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Container,
   Flex,
   Grid,
@@ -95,23 +96,22 @@ function HomePageContainerDesktop() {
       alignItems="center"
     >
       <GridItem>
-        <Box marginBottom="12px">
+        <Box marginBottom="8px">
           <Text
-            fontWeight="semibold"
-            textTransform="uppercase"
-            textDecoration=""
+            fontWeight="extrabold"
             fontSize="48px"
             color="#F57921"
+            lineHeight={1}
           >
-            Pupuk Kaltim
+            KamiUMKM
           </Text>
           <Text
-            fontSize="32px"
-            fontWeight="semibold"
+            fontSize="3xl"
+            fontWeight="bold"
             textTransform="uppercase"
             color="#0D5099"
           >
-            UMKM Akademi
+            Katalog Mitra UMKM
           </Text>
         </Box>
         <Text fontSize="16px" fontWeight="regular">
@@ -168,42 +168,41 @@ function HomePageContainerDesktop() {
   );
 
   const MerchantSection = () => (
-    <Flex justifyContent="space-between" width="100%">
-      {[...Array(3)].map((item, idx) => (
+    <Flex gap={8} width="100%">
+      {[...Array(2)].map((item, idx) => (
         <Box
           key={idx}
           marginY="32px"
           borderRadius="16px"
-          height="450px"
           boxShadow="lg"
-          width="400px"
+          w='100%'
         >
           <Box
             backgroundColor="#0D5099"
             borderTopRadius="16px"
             height="100px"
           ></Box>
-          <Flex paddingX="32px" width="100%" justifyContent="space-between">
-            <Flex
-              alignItems="center"
-              justifyContent="center"
+          <Flex paddingX="32px" width="100%" gap={4}>
+            <Center
               rounded="full"
               boxSize="100px"
               backgroundColor="#fff"
               marginTop="-50px"
               boxShadow="lg"
+              w='128px'
             >
-              <Image boxSize="64px" src="/home.png" alt="" />
-            </Flex>
+              <Image boxSize="84px" src="/home.png" alt="" />
+            </Center>
             <Box
               alignItems="center"
               justifyContent="center"
-              width="220px"
               height="100px"
               backgroundColor="#fff"
               marginTop="-50px"
               boxShadow="lg"
               padding="12px"
+              w='100%'
+              borderRadius='10px'
             >
               <Text fontWeight="bold" fontSize="16px">
                 Rumah Habati
@@ -216,18 +215,17 @@ function HomePageContainerDesktop() {
               </Text>
             </Box>
           </Flex>
-          <Grid
-            templateColumns="repeat(2, 1fr)"
+          <Flex
+            justifyContent='space-between'
             gap={6}
-            marginX="32px"
-            marginY="32px"
+            p={8}
           >
-            {[...Array(2)].map((item, idx) => (
-              <GridItem key={idx}>
+            {[...Array(3)].map((item, idx) => (
+              <Box key={idx}>
                 <Product onMerchant />
-              </GridItem>
+              </Box>
             ))}
-          </Grid>
+          </Flex>
         </Box>
       ))}
     </Flex>

@@ -9,8 +9,7 @@ function ProductDesktop(props) {
       {onMerchant ? (
         <Box
           borderRadius="16px"
-          width="150px"
-          height="220px"
+          width="100%"
           boxShadow="md"
           transition="all 0.5s ease-in-out"
           _hover={{
@@ -23,13 +22,12 @@ function ProductDesktop(props) {
             borderTopRadius="16px"
             width="100%"
             objectFit="cover"
-            height="120px"
           />
-          <Box marginY="12px" padding="12px">
-            <Text fontSize="14px" fontWeight="semibold">
-              Pancake Coklat
+          <Box my="0px" p="12px">
+            <Text fontSize="14px" fontWeight="bold" noOfLines={2}>
+              Pancake Coklat Lezat, enak dan bergizi
             </Text>
-            <Text fontWeight="light">{priceFormat(20000)}</Text>
+            <Text pt={1} fontWeight="light">{priceFormat(20000)}</Text>
           </Box>
         </Box>
       ) : (
