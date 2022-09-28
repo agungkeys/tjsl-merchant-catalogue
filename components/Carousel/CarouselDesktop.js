@@ -1,27 +1,31 @@
-import React from 'react';
-import { useState } from 'react';
-import { Image, Box } from '@chakra-ui/react';
-import Slider from 'react-slick';
-import NextLink from '../NextLink';
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import { populateAdditionalImage } from '../../helpers/utils';
-import PropTypes from 'prop-types';
+import React from "react";
+import { useState } from "react";
+import { Image, Box } from "@chakra-ui/react";
+import Slider from "react-slick";
+import NextLink from "../NextLink";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { populateAdditionalImage } from "../../helpers/utils";
+import PropTypes from "prop-types";
 
 function CarouselDesktop(props) {
   const { items } = props;
+  console.log(
+    "🚀 ~ file: CarouselDesktop.js ~ line 12 ~ CarouselDesktop ~ items",
+    items
+  );
 
   const NextArrow = ({ onClick }) => {
     return (
       <Box
         sx={{
-          backgroundColor: '#fafafa',
-          borderRadius: '4px',
-          height: 'auto',
+          backgroundColor: "#fafafa",
+          borderRadius: "4px",
+          height: "auto",
         }}
         className="arrow next"
         onClick={onClick}
       >
-        <Box sx={{ height: '1em', display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ height: "1em", display: "flex", alignItems: "center" }}>
           <BiChevronRight />
         </Box>
       </Box>
@@ -31,14 +35,14 @@ function CarouselDesktop(props) {
     return (
       <Box
         sx={{
-          backgroundColor: '#fafafa',
-          borderRadius: '4',
-          height: 'auto',
+          backgroundColor: "#fafafa",
+          borderRadius: "4",
+          height: "auto",
         }}
         className="arrow prev"
         onClick={onClick}
       >
-        <Box sx={{ height: '1em', display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ height: "1em", display: "flex", alignItems: "center" }}>
           <BiChevronLeft />
         </Box>
       </Box>
@@ -55,9 +59,9 @@ function CarouselDesktop(props) {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
-    className: 'carousel center',
+    className: "carousel center",
     centerMode: true,
-    centerPadding: '320px',
+    centerPadding: "320px",
     slidesToShow: 1,
     responsive: [
       {
@@ -65,7 +69,7 @@ function CarouselDesktop(props) {
         settings: {
           arrows: false,
           centerMode: true,
-          centerPadding: '0px',
+          centerPadding: "0px",
           slidesToShow: 1,
         },
       },
@@ -74,7 +78,7 @@ function CarouselDesktop(props) {
         settings: {
           arrows: false,
           centerMode: true,
-          centerPadding: '0px',
+          centerPadding: "0px",
           slidesToShow: 1,
         },
       },
@@ -86,17 +90,18 @@ function CarouselDesktop(props) {
       <Slider {...settings}>
         {items &&
           items.map((banner, idx) => (
-            <NextLink key={idx} link={banner.link} style={{ width: '100%' }}>
+            <NextLink key={idx} link={banner.link} style={{ width: "100%" }}>
               <Box
-                className={idx === imageIndex ? 'slide activeSlide' : 'slide'}
+                className={idx === imageIndex ? "slide activeSlide" : "slide"}
               >
                 <Image
-                  src={populateAdditionalImage({
-                    ...banner?.additionalImage,
-                    height: 283,
-                    width: 803,
-                    extension: 'webp',
-                  })}
+                  // src={populateAdditionalImage({
+                  //   ...banner?.additionalImage,
+                  //   height: 283,
+                  //   width: 803,
+                  //   extension: 'webp',
+                  // })}
+                  src={banner.image}
                   alt={banner.title}
                   p={1}
                   variant="banner"
