@@ -24,20 +24,21 @@ function Header(props) {
       <Box
         position={headerPosition}
         boxShadow="lg"
-        padding="16px"
+        padding="26px"
         zIndex="999"
         backdropFilter="blur(100px)"
         width="100%"
       >
         <Container maxW="container.xl">
           <Flex width="100%">
-            <Text>Logo</Text>
+            
             <Flex
               marginX="16px"
               justifyContent="space-between"
               color="#F57921"
-              width="30%"
+              gap={10}
             >
+              <Text>Logo</Text>
               <NextLink link="/">
                 <Text>Beranda</Text>
               </NextLink>
