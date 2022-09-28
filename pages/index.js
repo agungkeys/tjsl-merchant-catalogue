@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { Button, Card, Container, Grid, Link, Spacer, Text, Image } from '@nextui-org/react';
+// import { Button, Card, Container, Grid, Link, Spacer, Text, Image } from '@nextui-org/react';
+import { Button, Card, Container, Flex, Image, Text } from '@chakra-ui/react';
 import { Carousel, Category, Header } from '../components';
 
 function Home() {
@@ -79,8 +80,7 @@ function Home() {
       <main>
         <Header />
         <Container xl css={{ d: 'flex', fontFamily: '$sans', w: '100%'}}>
-          <Spacer y={1} />
-          <Carousel items={itemBanners} />
+          {/* <Carousel items={itemBanners} /> */}
           <Container md css={{ marginTop: '1em' }}>
             {/* <Grid.Container gap={4} justify="start" alignItems="center" css={{}}>
               {itemServices && itemServices.length && itemServices.map(item => 
@@ -105,7 +105,7 @@ function Home() {
               )}
             </Grid.Container> */}
           </Container>
-          <Grid.Container css={{marginTop: "1em", marginBottom: "1em"}} gap={2} alignItems="center">
+          {/* <Grid.Container css={{marginTop: "1em", marginBottom: "1em"}} gap={2} alignItems="center">
             <Grid xs={6}>
               <div>
                 <Text
@@ -140,13 +140,13 @@ function Home() {
                 objectFit="cover"
               />
             </Grid>
-          </Grid.Container>
+          </Grid.Container> */}
         </Container>
 
         <div style={{ background: "#f0f8ff", padding: '2em'}}>
           <Container md>
             <Text css={{ marginLeft: "12px"}} color="#2667a2" weight="bold" size="1.25em">Nilai-Nilai [BRAND TJSL]</Text>
-            <Grid.Container gap={2}>
+            {/* <Grid.Container gap={2}>
               <Grid xs={4}>
                 <Card css={{ p: "2em", textAlign: "center"}}>
                   <Text h4>Mau Maju dan Berkontribusi</Text>
@@ -162,7 +162,7 @@ function Home() {
                   <Text h4>Bersama Meraih Sukses</Text>
                 </Card>
               </Grid>
-            </Grid.Container>
+            </Grid.Container> */}
           </Container>
         </div>
 
@@ -180,17 +180,17 @@ function Home() {
               }}
               weight="bold"
             >Kategori Mitra Binaan TJSL PT. Pupuk Kaltim</Text>
-            <Grid.Container gap={1} justify="start" alignItems="center" css={{marginTop: "5px"}}>
+            {/* <Grid.Container gap={1} justify="start" alignItems="center" css={{marginTop: "5px"}}>
               {itemCategories && itemCategories.length && itemCategories.map(item => 
                 <Grid key={item.id} xs={2} css={{ m: '0'}}>
                   <Category item={item} />
                 </Grid>
               ) || null}
-            </Grid.Container>
+            </Grid.Container> */}
           </Container>
           
           
-          <Grid.Container gap={2} alignItems="center">
+          {/* <Grid.Container gap={2} alignItems="center">
             <Grid>
               <Card css={{ p: "$6", mw: "400px" }} isPressable isHoverable>
                 <Card.Header>
@@ -229,7 +229,7 @@ function Home() {
               </Card>
             </Grid>
             
-          </Grid.Container>
+          </Grid.Container> */}
         </Container>
       </main>
       <footer style={{ background: '#135690', padding: '1em'}}>

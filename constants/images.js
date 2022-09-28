@@ -1,0 +1,36 @@
+export default {
+  ADS_LANDING_DESKTOP:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_1248,h_192,c_fill/v1659883434/images/banners/ads-borneos_ujzy4p.webp',
+  ADS_LANDING_MOBILE:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_390,h_68,c_fill/v1659883434/images/banners/ads-borneos_ujzy4p.webp',
+  BRI_LOGO:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_84,h_20,c_fill/images/bank/Logo_BRI_m47bzf.webp',
+  BPD_LOGO:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_47,h_24,c_fill/images/bank/Logo_Bankaltimtara_1_bwsoxt.webp',
+  CONFIRM_ORDER:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1662183314/images/icons/confirm-order_xwt1mc.webp',
+  CONFIRM_ORDER_FINISH:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1662183313/images/icons/confirm-order-finish_kff8lh.webp',
+  CONFIRM_ORDER_MODAL:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1663253671/images/icons/Frame_352_sxkegl.webp',
+  CUSTOMER_SERVICE:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1656743626/images/icons/cs_cejpwp.webp',
+  EMPTY_CART:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_387,h_320,c_fill/v1661011809/images/icons/cart-empty_xrm3ks.webp',
+  LOGO_HEADER_DESKTOP:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_93,h_50,c_fill/images/logo-borneos_k2wta0.webp',
+  LOGO_HEADER_MOBILE:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_65,h_79,c_fit/images/borneos_b9j4gk.webp',
+  LOGO_FOOTER:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_148,h_79,c_fill/images/logo-borneos_k2wta0.webp',
+  MANDIRI_LOGO:
+    'https://res.cloudinary.com/borneos-co/image/upload/w_76,h_24,c_fill/images/bank/Mandiri_logo_1_v3htzp.webp',
+  TRUCK:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1656743705/images/icons/truck_oimi0b.webp',
+  WALLET:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1656743662/images/icons/wallet_waaorw.webp',
+  ERROR_404:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1663571313/images/404/404_Desktop_hecebw.webp',
+  IMAGE_404_MOBILE:
+    'https://res.cloudinary.com/borneos-co/image/upload/v1663556720/images/404/404_mobile_zfncc4.webp',
+};
