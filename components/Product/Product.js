@@ -1,5 +1,6 @@
-import ProductDesktop from "./ProductDesktop";
-import ProductMobile from "./ProductMobile";
+import ProductDesktop from './ProductDesktop';
+import ProductMobile from './ProductMobile';
+import PropTypes from 'prop-types';
 
 function Product(props) {
   const { isMobile, onMerchant } = props;
@@ -10,5 +11,10 @@ function Product(props) {
     return <ProductDesktop {...props} />;
   }
 }
+
+Product.propTypes = {
+  isMobile: PropTypes.bool,
+  onMerchant: PropTypes.bool,
+};
 
 export default Product;

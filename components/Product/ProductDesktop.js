@@ -1,6 +1,6 @@
-import { Box, Image, Text } from "@chakra-ui/react";
-import PropTypes from "prop-types";
-import { priceFormat } from "../../helpers/utils";
+import { Box, Image, Text } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
+import { priceFormat } from '../../helpers/utils';
 
 function ProductDesktop(props) {
   const { onMerchant } = props;
@@ -13,7 +13,7 @@ function ProductDesktop(props) {
           boxShadow="md"
           transition="all 0.5s ease-in-out"
           _hover={{
-            transform: "translate(-0.5rem, -0.5rem)",
+            transform: 'translate(-0.5rem, -0.5rem)',
           }}
         >
           <Image
@@ -27,7 +27,9 @@ function ProductDesktop(props) {
             <Text fontSize="14px" fontWeight="bold" noOfLines={2}>
               Pancake Coklat Lezat, enak dan bergizi
             </Text>
-            <Text pt={1} fontWeight="light">{priceFormat(20000)}</Text>
+            <Text pt={1} fontWeight="light">
+              {priceFormat(20000)}
+            </Text>
           </Box>
         </Box>
       ) : (
@@ -62,13 +64,13 @@ function ProductDesktop(props) {
         //     <Text fontWeight="light">{priceFormat(20000)}</Text>
         //   </Box>
         // </>
-        "tes"
+        'tes'
       )}
     </>
   );
 }
 
-ProductDesktop.PropTypes = {
+ProductDesktop.propTypes = {
   onMerchant: PropTypes.bool,
 };
 
