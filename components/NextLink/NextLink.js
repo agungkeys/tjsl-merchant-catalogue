@@ -69,14 +69,15 @@ function NextLink(props) {
 }
 
 NextLink.propTypes = {
-  link: PropTypes.any,
-  children: PropTypes.element,
-  disabled: PropTypes.any,
+  link: PropTypes.string,
+  children: PropTypes.node,
   className: PropTypes.string,
+  passHref: PropTypes.string,
   onClick: PropTypes.func,
   onMouseLeave: PropTypes.func,
   onMouseOver: PropTypes.func,
   style: PropTypes.object,
+  disabled: PropTypes.bool,
 };
 
 export default NextLink;
