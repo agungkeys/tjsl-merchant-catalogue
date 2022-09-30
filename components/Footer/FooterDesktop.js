@@ -1,22 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Container, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Container, Flex, Text } from '@chakra-ui/react';
 import NextLink from '../NextLink';
+import {
+  FaFacebookSquare,
+  FaLinkedin,
+  FaInstagram,
+  FaTwitter,
+} from 'react-icons/fa';
 
 function FooterDesktop(props) {
   return (
     <Flex
-      backgroundColor="#135690"
+      backgroundColor="#00264d"
       color="#fff"
       alignItems="center"
-      paddingY="24px"
+      paddingY="42px"
     >
       <Container maxW="container.xl">
-        <Flex justifyContent="space-between" alignItems="center">
-          <Text fontWeight="semibold" fontSize="32px">
-            KamiUMKM
-          </Text>
-          <Box>
+        <Flex justifyContent="space-between">
+          <Flex flexDirection="column" gap={4} width="300px">
+            <Text fontWeight="semibold" fontSize="3xl">
+              KamiUMKM
+            </Text>
+            <Text fontWeight="light" fontSize="md">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Text>
+          </Flex>
+          <Flex flexDirection="column" gap={4}>
+            <Text fontWeight="semibold" fontSize="3xl">
+              Tautan Cepat
+            </Text>
             <NextLink link={'/'}>
               <Text>Beranda</Text>
             </NextLink>
@@ -26,19 +41,51 @@ function FooterDesktop(props) {
             <NextLink link={'/'}>
               <Text>Informasi</Text>
             </NextLink>
-          </Box>
-          <Box width="400px">
-            <Text>Alamat Kantor</Text>
-            <Text>
+          </Flex>
+          <Flex flexDirection="column" gap={4} width="300px">
+            <Text fontWeight="semibold" fontSize="3xl">
+              Alamat Kantor
+            </Text>
+            <Text fontWeight="light" fontSize="md">
               Jl. James Simanjuntak Simandjuntak No.1, Guntung, Kec. Bontang
               Utara, Kota Bontang, Kalimantan Timur 75313
             </Text>
-          </Box>
-          <Box>
-            <Flex>
-              <Text>+628123131</Text>
+          </Flex>
+          <Flex flexDirection="column" gap={4} width="300px">
+            <Text fontWeight="semibold" fontSize="3xl">
+              Ikuti Kami
+            </Text>
+            <Flex width="100%" justifyContent="space-between">
+              <NextLink link="">
+                <Center w="48px" h="48px" borderRadius="8px">
+                  <Button h="full" color="#718096" variant="unstyled">
+                    <FaFacebookSquare />
+                  </Button>
+                </Center>
+              </NextLink>
+              <NextLink link="">
+                <Center w="48px" h="48px" borderRadius="8px">
+                  <Button h="full" color="#718096" variant="unstyled">
+                    <FaLinkedin />
+                  </Button>
+                </Center>
+              </NextLink>
+              <NextLink link="">
+                <Center w="48px" h="48px" borderRadius="8px">
+                  <Button h="full" color="#718096" variant="unstyled">
+                    <FaInstagram />
+                  </Button>
+                </Center>
+              </NextLink>
+              <NextLink link="">
+                <Center w="48px" h="48px" borderRadius="8px">
+                  <Button h="full" color="#718096" variant="unstyled">
+                    <FaTwitter />
+                  </Button>
+                </Center>
+              </NextLink>
             </Flex>
-          </Box>
+          </Flex>
         </Flex>
       </Container>
     </Flex>

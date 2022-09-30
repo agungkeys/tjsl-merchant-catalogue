@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   Container,
   Flex,
@@ -10,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { BiChevronRight } from 'react-icons/bi';
 import { Carousel, Header, NextLink } from '../../components';
+import BlogCard from '../../components/BlogCard/BlogCard';
 import Footer from '../../components/Footer';
 import Product from '../../components/Product';
 
@@ -170,12 +172,12 @@ function HomePageContainerDesktop() {
   );
 
   const CategoriesSection = () => (
-    <Box paddingY="16px" marginY="32px">
+    <Box paddingY="16px" marginY="64px">
       <Text fontWeight="extrabold" fontSize="32px">
-        Kategori Mitra Binaan TJSL Pupuk Kaltim
+        Kategori Mitra Binaan KAMI
       </Text>
       <Flex gap={6}>
-        {[...Array(4)].map((item, idx) => (
+        {[...Array(5)].map((item, idx) => (
           <Box key={idx} marginY="16px">
             <Category />
           </Box>
@@ -187,7 +189,10 @@ function HomePageContainerDesktop() {
   const Category = () => (
     <>
       <NextLink>
-        <Box
+        <Flex
+          flexDirection="column"
+          alignItems="end"
+          textAlign="end"
           boxShadow="lg"
           padding="24px"
           _hover={{
@@ -203,81 +208,105 @@ function HomePageContainerDesktop() {
             Kuliner
           </Text>
           <Text fontWeight="light" fontSize="16px">
-            Berbagai macam pilihan makanan dan minuman produk mitra binaan TJSL
-            Pupuk Kaltim
+            Berbagai macam pilihan makanan dan minuman
           </Text>
           <Flex justifyContent="end">
             <Box>
               <BiChevronRight />
             </Box>
           </Flex>
-        </Box>
+        </Flex>
       </NextLink>
     </>
   );
 
   const MerchantSection = () => (
-    <Flex gap={8} width="100%">
-      {[...Array(2)].map((item, idx) => (
-        <Box
-          key={idx}
-          marginY="32px"
-          borderRadius="16px"
-          boxShadow="lg"
-          w="100%"
-        >
+    <>
+      <Text fontWeight="extrabold" fontSize="32px">
+        Daftar Mitra Unggulan KAMI
+      </Text>
+      <Flex gap={8} width="100%">
+        {[...Array(3)].map((item, idx) => (
           <Box
-            backgroundColor="#0D5099"
-            borderTopRadius="16px"
-            height="100px"
-          ></Box>
-          <Flex paddingX="32px" width="100%" gap={4}>
-            <Center
-              rounded="full"
-              boxSize="100px"
-              backgroundColor="#fff"
-              marginTop="-50px"
-              boxShadow="lg"
-              w="128px"
-            >
-              <Image boxSize="84px" src="/home.png" alt="" />
-            </Center>
+            key={idx}
+            marginY="32px"
+            borderRadius="16px"
+            boxShadow="lg"
+            w="100%"
+          >
             <Box
-              alignItems="center"
-              justifyContent="center"
+              backgroundColor="#0D5099"
+              borderTopRadius="16px"
               height="100px"
-              backgroundColor="#fff"
-              marginTop="-50px"
-              boxShadow="lg"
-              padding="12px"
-              w="100%"
-              borderRadius="10px"
-            >
-              <Text fontWeight="bold" fontSize="16px">
-                Rumah Habati
-              </Text>
-              <Text fontWeight="light" fontSize="12px">
-                Jl Gunung Arjuna No.3 BSD, Rumah Habati
-              </Text>
-              <Text fontWeight="semibold" fontSize="10px">
-                Kategori Makanan dan Minuman
-              </Text>
-            </Box>
-          </Flex>
-          <Flex justifyContent="space-between" gap={6} p={8}>
-            {[...Array(3)].map((item, idx) => (
-              <Box key={idx}>
-                <Product onMerchant />
+            ></Box>
+            <Flex paddingX="32px" width="100%" gap={4}>
+              <Center
+                rounded="full"
+                boxSize="100px"
+                backgroundColor="#fff"
+                marginTop="-50px"
+                boxShadow="lg"
+                w="128px"
+              >
+                <Image boxSize="84px" src="/home.png" alt="" />
+              </Center>
+              <Box
+                alignItems="center"
+                justifyContent="center"
+                height="100px"
+                backgroundColor="#fff"
+                marginTop="-50px"
+                boxShadow="lg"
+                padding="12px"
+                w="100%"
+                borderRadius="10px"
+              >
+                <Text fontWeight="bold" fontSize="16px">
+                  Rumah Habati
+                </Text>
+                <Text fontWeight="light" fontSize="12px">
+                  Jl Gunung Arjuna No.3 BSD, Rumah Habati
+                </Text>
+                <Text fontWeight="semibold" fontSize="10px">
+                  Kategori Makanan dan Minuman
+                </Text>
               </Box>
-            ))}
-          </Flex>
-        </Box>
-      ))}
-    </Flex>
+            </Flex>
+            <Flex justifyContent="space-between" gap={3} p={8}>
+              {[...Array(3)].map((item, idx) => (
+                <Box key={idx}>
+                  <Product isLanding />
+                </Box>
+              ))}
+            </Flex>
+          </Box>
+        ))}
+      </Flex>
+    </>
+  );
+
+  const BlogSection = () => (
+    <>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Text fontWeight="extrabold" fontSize="32px">
+          Artikel
+        </Text>
+        <Button color="#fff" fontWeight="bold" colorScheme="blue">
+          Lihat semua artikel
+        </Button>
+      </Flex>
+      <Flex gap={6}>
+        {[...Array(3)].map((item, idx) => (
+          <Box key={idx}>
+            <BlogCard />
+          </Box>
+        ))}
+      </Flex>
+    </>
   );
 
   return (
-    <>
+    <Box>
       <Header />
       <Carousel items={itemBanners} />
       <Container maxW="container.xl">
@@ -299,8 +328,17 @@ function HomePageContainerDesktop() {
       <Container maxW="container.xl">
         <MerchantSection />
       </Container>
+      <Box
+        backgroundImage="linear-gradient(#f0f8ff, white)"
+        marginY="32px"
+        paddingY="24px"
+      >
+        <Container maxW="container.xl">
+          <BlogSection />
+        </Container>
+      </Box>
       <Footer />
-    </>
+    </Box>
   );
 }
 
