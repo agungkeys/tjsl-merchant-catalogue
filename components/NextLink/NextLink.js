@@ -1,12 +1,13 @@
-import Link from 'next/link';
+import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 function NextLink(props) {
   const {
     link = { pathname: '/', query: {}, asPath: '/' },
     children,
+    disabled,
     className,
-    passHref,
     onClick,
     onMouseLeave,
     onMouseOver,
@@ -21,6 +22,23 @@ function NextLink(props) {
     onMouseOver,
   };
 
+  // Must add passHref to Link
+  // let link;
+  // if (href === undefined || href === '') {
+  //   link = <a className={className}>{children}</a>;
+  // }
+  // if (href) {
+  //   link = (
+  //     <Link href={href} passHref>
+  //       <a className={className}>{children}</a>
+  //     </Link>
+  //   )
+  // }
+
+  if (disabled) {
+    return <>{children}</>;
+  }
+
   if (typeof link === 'string') {
     return (
       <a style={style} href={link} {...anchorProps} {...rest}>
@@ -31,7 +49,7 @@ function NextLink(props) {
 
   if (typeof onClick === 'function') {
     return (
-      <a style={style} {...anchorProps} {...rest}>
+      <a style={{ ...style, cursor: 'pointer' }} {...anchorProps} {...rest}>
         {children}
       </a>
     );
@@ -59,6 +77,7 @@ NextLink.propTypes = {
   onMouseLeave: PropTypes.func,
   onMouseOver: PropTypes.func,
   style: PropTypes.object,
+  disabled: PropTypes.bool,
 };
 
 export default NextLink;

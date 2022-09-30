@@ -66,7 +66,7 @@ function ProductDesktop(props) {
         //     <Text fontWeight="light">{priceFormat(20000)}</Text>
         //   </Box>
         // </>
-        'tes'
+        <Text>tes</Text>
       )}
     </>
   );
