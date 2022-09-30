@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 // import { Button, Card, Container, Grid, Link, Spacer, Text, Image } from '@nextui-org/react';
 import {
   Box,
@@ -8,10 +8,11 @@ import {
   Flex,
   Image,
   Text,
-} from "@chakra-ui/react";
-import { Carousel, Category, Header } from "../components";
-import PropTypes from "prop-types";
-import HomePageContainer from "../page_container/home/HomePageContainer";
+} from '@chakra-ui/react';
+import { Carousel, Category, Header } from '../components';
+import PropTypes from 'prop-types';
+import HomePageContainer from '../page_container/home/HomePageContainer';
+import Footer from '../components/Footer';
 
 function Home(props) {
   const { isMobile } = props;
@@ -28,8 +29,6 @@ function Home(props) {
       </Head>
       <main>
         <Box minHeight="100vh">
-          <Header />
-
           <HomePageContainer {...props} />
           {/* <Container md css={{ marginTop: "1em" }}>
             <Grid.Container gap={4} justify="start" alignItems="center" css={{}}>
@@ -193,13 +192,13 @@ function Home(props) {
           </Grid.Container> */}
         </Box>
       </main>
-      <footer style={{ background: "#135690", padding: "1em" }}>
+      {/* <footer style={{ background: "#135690", padding: "1em" }}>
         <Container xl>
           <Text weight="semibold" color="#fff">
             [BRAND TJSL] &copy; 2022 All Right Reserved
           </Text>
         </Container>
-      </footer>
+      </footer> */}
     </div>
   );
 }
