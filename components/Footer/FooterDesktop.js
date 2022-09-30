@@ -1,13 +1,12 @@
+import { Button, Center, Container, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Box, Button, Center, Container, Flex, Text } from '@chakra-ui/react';
-import NextLink from '../NextLink';
 import {
   FaFacebookSquare,
-  FaLinkedin,
   FaInstagram,
+  FaLinkedin,
   FaTwitter,
 } from 'react-icons/fa';
+import NextLink from '../NextLink';
 
 function FooterDesktop(props) {
   return (
