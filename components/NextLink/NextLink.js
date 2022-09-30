@@ -1,52 +1,82 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 function NextLink(props) {
-	const {
-		link = { pathname: '/', query: {}, asPath: '/' },
-		children,
-		className,
-		passHref,
-		onClick,
-		onMouseLeave,
-		onMouseOver,
-		style,
-		...rest
-	} = props;
+  const {
+    link = { pathname: '/', query: {}, asPath: '/' },
+    children,
+    disabled,
+    className,
+    onClick,
+    onMouseLeave,
+    onMouseOver,
+    style,
+    ...rest
+  } = props;
 
-	const anchorProps = {
-		className,
-		onClick,
-		onMouseLeave,
-		onMouseOver,
-	};
+  const anchorProps = {
+    className,
+    onClick,
+    onMouseLeave,
+    onMouseOver,
+  };
 
-	if (typeof link === 'string') {
-		return (
-			<a style={style} href={link} {...anchorProps} {...rest}>
-				{children}
-			</a>
-		);
-	}
+  // Must add passHref to Link
+  // let link;
+  // if (href === undefined || href === '') {
+  //   link = <a className={className}>{children}</a>;
+  // }
+  // if (href) {
+  //   link = (
+  //     <Link href={href} passHref>
+  //       <a className={className}>{children}</a>
+  //     </Link>
+  //   )
+  // }
 
-	if (typeof onClick === 'function') {
-		return (
-			<a style={style} {...anchorProps} {...rest}>
-				{children}
-			</a>
-		);
-	}
+  if (disabled) {
+    return <>{children}</>;
+  }
 
-	return (
-		<Link
-			as={link.asPath}
-			href={{ pathname: link.pathname, query: link.query }}
-			passHref
-		>
-			<a {...anchorProps} {...rest} style={style}>
-				{children}
-			</a>
-		</Link>
-	);
+  if (typeof link === 'string') {
+    return (
+      <a style={style} href={link} {...anchorProps} {...rest}>
+        {children}
+      </a>
+    );
+  }
+
+  if (typeof onClick === 'function') {
+    return (
+      <a style={{ ...style, cursor: 'pointer' }} {...anchorProps} {...rest}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      as={link.asPath}
+      href={{ pathname: link.pathname, query: link.query }}
+      passHref
+    >
+      <a {...anchorProps} {...rest} style={style}>
+        {children}
+      </a>
+    </Link>
+  );
 }
+
+NextLink.propTypes = {
+  link: PropTypes.any,
+  children: PropTypes.element,
+  disabled: PropTypes.any,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  style: PropTypes.object,
+};
 
 export default NextLink;

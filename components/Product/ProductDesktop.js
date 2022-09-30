@@ -62,14 +62,14 @@ function ProductDesktop(props) {
         //     <Text fontWeight="light">{priceFormat(20000)}</Text>
         //   </Box>
         // </>
-        "tes"
+        <Text>tes</Text>
       )}
     </>
   );
 }
 
-ProductDesktop.PropTypes = {
-  onMerchant: PropTypes.bool,
+ProductDesktop.propTypes = {
+  onMerchant: PropTypes.bool.isRequired,
 };
 
 export default ProductDesktop;
