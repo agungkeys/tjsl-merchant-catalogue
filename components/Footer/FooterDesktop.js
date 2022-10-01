@@ -55,7 +55,7 @@ function FooterDesktop(props) {
               <Text fontWeight="semibold" fontSize="3xl">
                 Ikuti Kami
               </Text>
-              <Flex width="100%" justifyContent="space-between">
+              <Flex gap={2}>
                 <NextLink link="">
                   <Center w="48px" h="48px" borderRadius="8px">
                     <Button h="full" color="#718096" variant="unstyled">
@@ -85,12 +85,13 @@ function FooterDesktop(props) {
                   </Center>
                 </NextLink>
               </Flex>
+              <Text>Hotline</Text>
             </Flex>
           </Flex>
         </Container>
       </Flex>
       <Flex
-        bgColor="blue.100"
+        bgColor="f0f8ff"
         paddingY={2}
         justifyContent="center"
         alignItems="center"

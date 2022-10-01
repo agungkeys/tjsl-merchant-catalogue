@@ -7,7 +7,7 @@ import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 
 import { populateAdditionalImage } from '../../helpers/utils';
 function CarouselMobile(props) {
-  const { items } = props;
+  const { items, isMerchant, children } = props;
 
   const NextArrow = ({ onClick }) => {
     return (
@@ -81,6 +81,7 @@ function CarouselMobile(props) {
     <Box className="banner-container-mobile">
       {items && (
         <Slider {...settings}>
+          {isMerchant && children}
           {items &&
             items.length > 0 &&
             items.map((banner, idx) => (
@@ -93,15 +94,11 @@ function CarouselMobile(props) {
                   className={idx === imageIndex ? 'slide activeSlide' : 'slide'}
                 >
                   <Image
-                    src={populateAdditionalImage({
-                      ...banner?.additionalImage,
-                      height: 134,
-                      width: 390,
-                      extension: 'webp',
-                    })}
+                    src={banner.image}
                     alt={banner.title}
                     variant="banner"
                     w="100%"
+                    borderRadius="8px"
                     fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_390,h_134,c_fill/v1644554350/images/item-empty_iiuizg.webp"
                   />
                 </Box>
@@ -116,6 +113,8 @@ function CarouselMobile(props) {
 CarouselMobile.propTypes = {
   items: PropTypes.array,
   onClick: PropTypes.func,
+  isMerchant: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default CarouselMobile;
