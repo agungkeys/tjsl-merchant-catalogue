@@ -34,8 +34,9 @@ function BlogCardDesktop(props) {
           <Text fontSize="xl" fontWeight="extrabold">
             Apa itu KamiUMKM?
           </Text>
-          <Text fontWeight="light" marginTop="12px" fontSize="md">
+          <Text fontWeight="light" marginTop="12px" fontSize="md" noOfLines={2}>
             KamiUMKM merupakan Katalog Mitra UMKM Binaan TJSL PT. PUPUK KALTIM
+            Mitra UMKM Binaan TJSL PT. PUPUK KALTIM
           </Text>
           <Flex justifyContent="space-between" marginTop="12px">
             <Text fontSize="sm">30 September 2022</Text>

@@ -223,7 +223,7 @@ function HomePageContainerDesktop() {
   const MerchantSection = () => (
     <>
       <Text fontWeight="extrabold" fontSize="32px">
-        Daftar Mitra Unggulan KAMI
+        Mitra Unggulan KAMI
       </Text>
       <Flex gap={8} width="100%">
         {[...Array(3)].map((item, idx) => (
@@ -246,7 +246,7 @@ function HomePageContainerDesktop() {
                 backgroundColor="#fff"
                 marginTop="-50px"
                 boxShadow="lg"
-                w="128px"
+                w="156px"
               >
                 <Image boxSize="84px" src="/home.png" alt="" />
               </Center>
