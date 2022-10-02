@@ -9,13 +9,24 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
+import PropTypes from "prop-types";
 import { BiChevronRight } from 'react-icons/bi';
 import { Carousel, Header, NextLink } from '../../components';
 import BlogCard from '../../components/BlogCard/BlogCard';
 import Footer from '../../components/Footer';
 import Product from '../../components/Product';
 
-function HomePageContainerDesktop() {
+import { populateAdditionalImage } from '../../helpers/utils';
+
+function HomePageContainerDesktop(props) {
+  const {
+    dataCategories,
+    isErrorCategories,
+    isLoadingCategories,
+    isFetchingCategories,
+    isSuccessCategories
+  } = props;
+    console.log("🚀 ~ file: HomePageContainerDesktop.jsx ~ line 27 ~ HomePageContainerDesktop ~ dataCategories", dataCategories)
   const itemBanners = [
     {
       id: 0,
@@ -176,17 +187,17 @@ function HomePageContainerDesktop() {
       <Text fontWeight="extrabold" fontSize="32px">
         Kategori Mitra Binaan KAMI
       </Text>
-      <Flex gap={6}>
-        {[...Array(5)].map((item, idx) => (
+      <Flex gap={6} justifyContent='center'>
+        {dataCategories?.data?.map((item, idx) => (
           <Box key={idx} marginY="16px">
-            <Category />
+            <Category {...item} />
           </Box>
         ))}
       </Flex>
     </Box>
   );
 
-  const Category = () => (
+  const Category = (item) => (
     <>
       <NextLink>
         <Flex
@@ -200,19 +211,25 @@ function HomePageContainerDesktop() {
           }}
           transition="all 0.5s ease-in-out"
           borderRadius="16px"
+          w='230px'
+          h='100%'
         >
           <Box boxSize="64px">
-            <Image src="./service_1.png" alt="" />
+            <Image 
+              src={populateAdditionalImage({...item.additional_image, height: 64, width: 64, extension: 'webp'})} 
+              alt={item?.name || ''}
+              fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+            />
           </Box>
-          <Text fontWeight="extrabold" fontSize="24px">
-            Kuliner
+          <Text fontWeight="extrabold" fontSize="xl" color='gray.70'>
+            {item?.name || ''}
           </Text>
           <Text fontWeight="light" fontSize="16px">
-            Berbagai macam pilihan makanan dan minuman
+          {item?.description || ''}
           </Text>
           <Flex justifyContent="end">
             <Box>
-              <BiChevronRight />
+              {/* <BiChevronRight /> */}
             </Box>
           </Flex>
         </Flex>
@@ -341,5 +358,15 @@ function HomePageContainerDesktop() {
     </Box>
   );
 }
+
+HomePageContainerDesktop.propTypes = {
+  isMobile: PropTypes.bool,
+  dataCategories: PropTypes.object,
+  isErrorCategories: PropTypes.bool,
+  isLoadingCategories: PropTypes.bool,
+  isFetchingCategories: PropTypes.bool,
+  isSuccessCategories: PropTypes.bool
+};
+
 
 export default HomePageContainerDesktop;
