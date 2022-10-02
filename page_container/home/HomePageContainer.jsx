@@ -20,7 +20,7 @@ function HomePageContainer(props) {
       staleTime: 0,
 		},
   );
-
+    
   props = {
     ...props,
     dataCategories,

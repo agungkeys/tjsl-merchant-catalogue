@@ -30,6 +30,7 @@ function HomePageContainerDesktop(props) {
     isFetchingCategories,
     isSuccessCategories
   } = props;
+
   const itemBanners = [
     {
       id: 0,
@@ -72,37 +73,6 @@ function HomePageContainerDesktop(props) {
       name: 'Pembinaan',
       description:
         'Membina usaha mikro dan usaha kecil agar lebih tangguh dan mandiri serta masyarakat sekitar perusahaan.',
-    },
-  ];
-
-  const itemCategories = [
-    {
-      id: 0,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1644567865/images/categories/Semua_eiizmq.svg',
-      name: 'Semua',
-      description: 'Semua Kategori',
-    },
-    {
-      id: 1,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1650784158/images/categories/xfx103dzxgsmhklumm5k.png',
-      name: 'Pertanian',
-      description: 'Kategori Pertanian',
-    },
-    {
-      id: 2,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1650784098/images/categories/pfh9klzrjkut442o24ae.png',
-      name: 'Fashion',
-      description: 'Kategori Fashion & Kain',
-    },
-    {
-      id: 3,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1650784487/images/categories/jrgbaz2nm2cgrxyufwjt.png',
-      name: 'Perdagangan',
-      description: 'Kategori Perdagangan',
     },
   ];
 
@@ -191,7 +161,7 @@ function HomePageContainerDesktop(props) {
         Kategori Mitra Binaan KAMI
       </Text>
       <Flex gap={6} justifyContent='center'>
-        {dataCategories?.data?.map((item, idx) => (
+        {isSuccessCategories && dataCategories?.data?.map((item, idx) => (
           <Box key={idx} marginY="16px">
             <Category {...item} />
           </Box>
@@ -211,6 +181,7 @@ function HomePageContainerDesktop(props) {
           padding="24px"
           _hover={{
             transform: 'translate(-0.5rem, -0.5rem)',
+            bg: '#f0f8ff'
           }}
           transition="all 0.5s ease-in-out"
           borderRadius="16px"
@@ -219,6 +190,7 @@ function HomePageContainerDesktop(props) {
         >
           <Box boxSize="64px">
             <Image 
+              boxSize='64px'
               src={populateAdditionalImage({...item.additional_image, height: 64, width: 64, extension: 'webp'})} 
               alt={item?.name || ''}
               fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
