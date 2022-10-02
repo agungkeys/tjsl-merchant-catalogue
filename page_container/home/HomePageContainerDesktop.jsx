@@ -11,10 +11,14 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from "prop-types";
 import { BiChevronRight } from 'react-icons/bi';
-import { Carousel, Header, NextLink } from '../../components';
-import BlogCard from '../../components/BlogCard/BlogCard';
-import Footer from '../../components/Footer';
-import Product from '../../components/Product';
+import { 
+  BlogCard,
+  Carousel, 
+  Category, 
+  Header, 
+  NextLink,
+  Product,
+} from '../../components';
 
 import { populateAdditionalImage } from '../../helpers/utils';
 
@@ -26,7 +30,6 @@ function HomePageContainerDesktop(props) {
     isFetchingCategories,
     isSuccessCategories
   } = props;
-    console.log("🚀 ~ file: HomePageContainerDesktop.jsx ~ line 27 ~ HomePageContainerDesktop ~ dataCategories", dataCategories)
   const itemBanners = [
     {
       id: 0,
@@ -324,7 +327,6 @@ function HomePageContainerDesktop(props) {
 
   return (
     <Box>
-      <Header />
       <Carousel items={itemBanners} />
       <Container maxW="container.xl">
         <HeroSection />
@@ -354,7 +356,6 @@ function HomePageContainerDesktop(props) {
           <BlogSection />
         </Container>
       </Box>
-      <Footer />
     </Box>
   );
 }

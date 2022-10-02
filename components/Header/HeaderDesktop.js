@@ -57,7 +57,7 @@ function HeaderDesktop(props) {
                   Beranda
                 </Text>
               </NextLink>
-              <NextLink link="/mitra">
+              <NextLink link="/merchants">
                 <Text
                   fontSize="lg"
                   color="gray.60"
