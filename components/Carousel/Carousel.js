@@ -7,14 +7,14 @@ import CarouselSkeletonDesktop from './CarouselSkeletonDesktop';
 import CarouselSkeletonMobile from './CarouselSkeletonMobile';
 
 function Carousel(props) {
-  const { isMobile, isSkeleton } = props;
+  const { isMobile, isMerchant, isSkeleton, children } = props;
 
   if (isMobile) {
     // Mobile
     if (isSkeleton) {
       return <CarouselSkeletonMobile {...props} />;
     } else {
-      return <CarouselMobile {...props} />;
+      return <CarouselMobile {...props}>{children}</CarouselMobile>;
     }
   } else {
     // Desktop
@@ -29,6 +29,8 @@ function Carousel(props) {
 Carousel.propTypes = {
   isMobile: PropTypes.bool,
   isSkeleton: PropTypes.bool,
+  isMerchant: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default Carousel;
