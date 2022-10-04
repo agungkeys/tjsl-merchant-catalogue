@@ -8,8 +8,8 @@ function MainLayout(props) {
   return (
     <Box>
       <Header {...props} />
-      <Box minH='580px'>{children}</Box>
-      <Footer />
+      <Box>{children}</Box>
+      <Footer {...props} />
     </Box>
   );
 }

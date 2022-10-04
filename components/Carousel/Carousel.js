@@ -5,16 +5,21 @@ import CarouselMobile from './CarouselMobile';
 import CarouselDesktop from './CarouselDesktop';
 import CarouselSkeletonDesktop from './CarouselSkeletonDesktop';
 import CarouselSkeletonMobile from './CarouselSkeletonMobile';
+import CarouselMerchant from './CarouselMerchant';
 
 function Carousel(props) {
-  const { isMobile, isMerchant, isSkeleton, children } = props;
+  const { isMobile, isMerchant, isSkeleton } = props;
 
   if (isMobile) {
     // Mobile
     if (isSkeleton) {
       return <CarouselSkeletonMobile {...props} />;
     } else {
-      return <CarouselMobile {...props}>{children}</CarouselMobile>;
+      return <CarouselMobile {...props} />;
+    }
+
+    if (isMerchant) {
+      return <CarouselMerchant {...props} />;
     }
   } else {
     // Desktop

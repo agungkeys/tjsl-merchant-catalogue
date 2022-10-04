@@ -7,12 +7,21 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
 import { BiChevronRight } from 'react-icons/bi';
-import { Carousel, NextLink, Product } from '../../components';
+import { BlogCard, Carousel, NextLink, Product } from '../../components';
+import CarouselMerchant from '../../components/Carousel/CarouselMerchant';
+import { populateAdditionalImage } from '../../helpers/utils';
 
-import Header from '../../components/Header/Header';
+function HomePageContainerMobile(props) {
+  const {
+    dataCategories,
+    isErrorCategories,
+    isLoadingCategories,
+    isFetchingCategories,
+    isSuccessCategories,
+  } = props;
 
-function HomePageContainerMobile() {
   const itemBanners = [
     {
       id: 0,
@@ -55,6 +64,73 @@ function HomePageContainerMobile() {
       name: 'Pembinaan',
       description:
         'Membina usaha mikro dan usaha kecil agar lebih tangguh dan mandiri serta masyarakat sekitar perusahaan.',
+    },
+  ];
+
+  const itemMerchant = [
+    {
+      id: 0,
+      name: 'Geprek Legenda',
+      address: 'Pisangan',
+      category: 'Makanan dan Minuman',
+      product: [
+        {
+          id: 0,
+          productName: 'Geprek Mozarella',
+          image: './pancake.jpg',
+        },
+        {
+          id: 1,
+          productName: 'Geprek Tanpa Tulang',
+          image: './pancake.jpg',
+        },
+      ],
+    },
+    {
+      id: 1,
+      name: 'Japanese Pancake',
+      address: 'Pisangan',
+      category: 'Makanan dan Minuman',
+      product: [
+        {
+          id: 0,
+          productName: 'Pancake Choco',
+          image: './pancake.jpg',
+        },
+        {
+          id: 1,
+          productName: 'Pancake Cheese',
+          image: './pancake.jpg',
+        },
+        {
+          id: 2,
+          productName: 'Pancake Matcha',
+          image: './pancake.jpg',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Es Coka Coka',
+      address: 'Jl Loktuan Raya No.12, Loktuan',
+      category: 'Makanan dan Minuman',
+      product: [
+        {
+          id: 0,
+          productName: 'Es Choco',
+          image: './pancake.jpg',
+        },
+        {
+          id: 1,
+          productName: 'Es Oreo',
+          image: './pancake.jpg',
+        },
+        {
+          id: 2,
+          productName: 'Es Susu',
+          image: './pancake.jpg',
+        },
+      ],
     },
   ];
 
@@ -139,16 +215,17 @@ function HomePageContainerMobile() {
         Kategori Mitra Binaan KAMI
       </Text>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-        {[...Array(6)].map((item, idx) => (
-          <Box key={idx}>
-            <Category />
-          </Box>
-        ))}
+        {isSuccessCategories &&
+          dataCategories?.data?.map((item, idx) => (
+            <Box key={idx}>
+              <Category {...item} />
+            </Box>
+          ))}
       </Grid>
     </Box>
   );
 
-  const Category = () => (
+  const Category = (item) => (
     <NextLink>
       <Flex
         flexDirection="column"
@@ -161,15 +238,27 @@ function HomePageContainerMobile() {
         }}
         transition="all 0.5s ease-in-out"
         borderRadius="16px"
+        height="300px"
+        justifyContent="space-between"
       >
         <Box boxSize="64px">
-          <Image src="./service_1.png" alt="" />
+          <Image
+            boxSize="64px"
+            src={populateAdditionalImage({
+              ...item.additional_image,
+              height: 64,
+              width: 64,
+              extension: 'webp',
+            })}
+            alt={item?.name || ''}
+            fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+          />
         </Box>
         <Text fontWeight="extrabold" fontSize="24px">
-          Kuliner
+          {item?.name || ''}
         </Text>
         <Text fontWeight="light" fontSize="16px">
-          Berbagai macam pilihan makanan dan minuman
+          {item?.description || ''}
         </Text>
         <Flex justifyContent="end">
           <Box>
@@ -245,9 +334,17 @@ function HomePageContainerMobile() {
     </>
   );
 
+  const BlogSection = () => (
+    <>
+      <Text fontWeight="extrabold" fontSize="24px" marginBottom="16px">
+        Artikel
+      </Text>
+      <BlogCard isMobile />
+    </>
+  );
+
   return (
-    <Box height="100vh">
-      <Header isMobile />
+    <Box>
       <Carousel items={itemBanners} isMobile />
       <Container maxW="container.xl">
         <HeroSection />
@@ -259,12 +356,28 @@ function HomePageContainerMobile() {
       </Box>
       <Container>
         <CategoriesSection />
-        <Carousel isMerchant isMobile>
-          <MerchantSection />
-        </Carousel>
+        <CarouselMerchant items={itemMerchant} />
       </Container>
+      <Box
+        backgroundImage="linear-gradient(#f0f8ff, white)"
+        marginY="32px"
+        paddingY="24px"
+      >
+        <Container maxW="container.xl">
+          <BlogSection />
+        </Container>
+      </Box>
     </Box>
   );
 }
+
+HomePageContainerMobile.propTypes = {
+  isMobile: PropTypes.bool,
+  dataCategories: PropTypes.object,
+  isErrorCategories: PropTypes.bool,
+  isLoadingCategories: PropTypes.bool,
+  isFetchingCategories: PropTypes.bool,
+  isSuccessCategories: PropTypes.bool,
+};
 
 export default HomePageContainerMobile;
