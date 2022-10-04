@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { priceFormat } from '../../helpers/utils';
 
 function ProductDesktop(props) {
-  const { isLanding, isShowPrice } = props;
+  const { isLanding, isShowPrice, isDetail } = props;
   return (
     <>
       {isLanding ? (
@@ -17,7 +17,8 @@ function ProductDesktop(props) {
           }}
         >
           <Image
-            src="./pancake.jpg"
+            // src="./pancake.jpg"
+            src={isDetail ? '../../pancake.jpg' : './pancake.jpg'}
             alt=""
             borderTopRadius="16px"
             width="100%"
