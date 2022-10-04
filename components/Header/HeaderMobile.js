@@ -8,6 +8,7 @@ import {
   DrawerContent,
   DrawerOverlay,
   Flex,
+  Image,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -30,10 +31,13 @@ function HeaderMobile(props) {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerBody padding="32px">
-            <Flex flexDirection="column" gap={3} alignItems="center">
-              <Text fontWeight="bold" fontSize="xl">
-                KamiUMKM
-              </Text>
+            <Flex flexDirection="column" gap={3} alignItems="start">
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1664872088/tjsl-core/icon-logo/kamiumkm_g0bnvq.png"
+                alt=""
+                height="50px"
+                objectFit="cover"
+              />
               <NextLink link="/">
                 <Button
                   variant={router.pathname === '/' ? 'secondary' : ''}

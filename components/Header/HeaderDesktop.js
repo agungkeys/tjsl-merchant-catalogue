@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 // import { Card, Grid, Link, Text, Spacer } from "@nextui-org/react";
-import { Box, Container, Flex, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Image, Text } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import NextLink from '../NextLink';
+import { populateAdditionalImage } from '../../helpers/utils';
 
 function HeaderDesktop(props) {
   const [headerPosition, setHeaderPosition] = useState('');
@@ -37,9 +38,12 @@ function HeaderDesktop(props) {
               gap={4}
               alignItems="center"
             >
-              <Text mr={5} fontSize="xl" fontWeight="bold">
-                KamiUMKM
-              </Text>
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1664872088/tjsl-core/icon-logo/kamiumkm_g0bnvq.png"
+                alt=""
+                height="50px"
+                objectFit="cover"
+              />
               <NextLink link="/">
                 <Text
                   fontSize="lg"

@@ -9,13 +9,14 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { BiChevronRight } from 'react-icons/bi';
-import { 
+import {
   BlogCard,
-  Carousel, 
-  Category, 
-  Header, 
+  Carousel,
+  Category,
+  Footer,
+  Header,
   NextLink,
   Product,
 } from '../../components';
@@ -28,7 +29,7 @@ function HomePageContainerDesktop(props) {
     isErrorCategories,
     isLoadingCategories,
     isFetchingCategories,
-    isSuccessCategories
+    isSuccessCategories,
   } = props;
 
   const itemBanners = [
@@ -160,12 +161,13 @@ function HomePageContainerDesktop(props) {
       <Text fontWeight="extrabold" fontSize="32px">
         Kategori Mitra Binaan KAMI
       </Text>
-      <Flex gap={6} justifyContent='center'>
-        {isSuccessCategories && dataCategories?.data?.map((item, idx) => (
-          <Box key={idx} marginY="16px">
-            <Category {...item} />
-          </Box>
-        ))}
+      <Flex gap={6} justifyContent="center">
+        {isSuccessCategories &&
+          dataCategories?.data?.map((item, idx) => (
+            <Box key={idx} marginY="16px">
+              <Category {...item} />
+            </Box>
+          ))}
       </Flex>
     </Box>
   );
@@ -181,31 +183,34 @@ function HomePageContainerDesktop(props) {
           padding="24px"
           _hover={{
             transform: 'translate(-0.5rem, -0.5rem)',
-            bg: '#f0f8ff'
+            bg: '#f0f8ff',
           }}
           transition="all 0.5s ease-in-out"
           borderRadius="16px"
-          w='230px'
-          h='100%'
+          w="230px"
+          h="100%"
         >
           <Box boxSize="64px">
-            <Image 
-              boxSize='64px'
-              src={populateAdditionalImage({...item.additional_image, height: 64, width: 64, extension: 'webp'})} 
+            <Image
+              boxSize="64px"
+              src={populateAdditionalImage({
+                ...item.additional_image,
+                height: 64,
+                width: 64,
+                extension: 'webp',
+              })}
               alt={item?.name || ''}
               fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
             />
           </Box>
-          <Text fontWeight="extrabold" fontSize="xl" color='gray.70'>
+          <Text fontWeight="extrabold" fontSize="xl" color="gray.70">
             {item?.name || ''}
           </Text>
           <Text fontWeight="light" fontSize="16px">
-          {item?.description || ''}
+            {item?.description || ''}
           </Text>
           <Flex justifyContent="end">
-            <Box>
-              {/* <BiChevronRight /> */}
-            </Box>
+            <Box>{/* <BiChevronRight /> */}</Box>
           </Flex>
         </Flex>
       </NextLink>
@@ -338,8 +343,7 @@ HomePageContainerDesktop.propTypes = {
   isErrorCategories: PropTypes.bool,
   isLoadingCategories: PropTypes.bool,
   isFetchingCategories: PropTypes.bool,
-  isSuccessCategories: PropTypes.bool
+  isSuccessCategories: PropTypes.bool,
 };
-
 
 export default HomePageContainerDesktop;
