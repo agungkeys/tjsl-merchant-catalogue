@@ -21,7 +21,7 @@ function BlogCardDesktop(props) {
           Sosial
         </Text>
       </Box>
-      <Box borderRadius="8px" boxShadow="lg">
+      <Box borderRadius="8px" boxShadow="lg" width="385px">
         <Image
           borderTopRadius="8px"
           src="./pancake.jpg"
