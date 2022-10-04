@@ -76,6 +76,7 @@ function ProductDesktop(props) {
 ProductDesktop.propTypes = {
   isLanding: PropTypes.bool,
   isShowPrice: PropTypes.bool,
+  isDetail: PropTypes.bool,
 };
 
 export default ProductDesktop;
