@@ -1,7 +1,7 @@
 function Map() {
   return (
-    <div class="mapOuter">
-      <div class="gmapCanvas" width="100%">
+    <div className="mapOuter">
+      <div className="gmapCanvas" width="100%">
         <iframe
           width="1024"
           height="200"
