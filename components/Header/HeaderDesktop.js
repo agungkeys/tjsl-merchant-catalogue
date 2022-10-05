@@ -95,7 +95,7 @@ function HeaderDesktop(props) {
                   Blog Kami
                 </Text>
               </NextLink>
-              <NextLink link="/tentang">
+              <NextLink link="/contact">
                 <Text
                   fontSize="lg"
                   color="gray.60"
