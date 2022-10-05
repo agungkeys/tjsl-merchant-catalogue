@@ -1,4 +1,4 @@
-import { Button, Center, Container, Flex, Text } from '@chakra-ui/react';
+import { Button, Center, Container, Flex, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 import {
   FaFacebookSquare,
@@ -20,9 +20,10 @@ function FooterDesktop(props) {
         <Container maxW="container.xl">
           <Flex justifyContent="space-between">
             <Flex flexDirection="column" gap={4} width="300px">
-              <Text fontWeight="semibold" fontSize="3xl">
-                KamiUMKM
-              </Text>
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1664949490/tjsl-core/icon-logo/kamiumkm_white_gfc8kf.png"
+                alt=""
+              />
               <Text fontWeight="light" fontSize="md">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
