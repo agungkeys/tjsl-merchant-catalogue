@@ -8,7 +8,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
-import Map from '../../components/Map';
+import Map from '../../components/Map/Map';
 
 function ContactPageContainerDesktop(props) {
   return (
