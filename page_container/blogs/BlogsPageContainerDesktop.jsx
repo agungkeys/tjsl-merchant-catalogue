@@ -12,7 +12,7 @@ import { BlogCard } from '../../components';
 
 function BlogsPageContainerDesktop() {
   return (
-    <Box minHeight="100vh">
+    <Box>
       <Container maxW="container.xl" paddingY="32px">
         <Text marginY="24px" fontWeight="extrabold" fontSize="5xl">
           Artikel
