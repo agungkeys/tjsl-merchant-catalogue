@@ -95,7 +95,7 @@ export default class HeadGeneral extends Component {
           rel="shortcut icon"
           type="image/x-icon"
           sizes="16x16"
-          href="https://www.borneos.co/favicon.ico?v=1"
+          href="https://res.cloudinary.com/borneos-co/image/upload/v1664949691/tjsl-core/icon-logo/favicon_cen5ia.ico"
         />
         <meta
           property="og:twitter:title"

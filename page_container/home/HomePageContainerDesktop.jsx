@@ -293,7 +293,7 @@ function HomePageContainerDesktop(props) {
         </Button>
       </Flex>
       <Flex gap={6}>
-        {[...Array(3)].map((item, idx) => (
+        {[...Array(4)].map((item, idx) => (
           <Box key={idx}>
             <BlogCard />
           </Box>
