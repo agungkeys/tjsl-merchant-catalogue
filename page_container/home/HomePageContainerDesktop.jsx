@@ -177,8 +177,8 @@ function HomePageContainerDesktop(props) {
       <NextLink>
         <Flex
           flexDirection="column"
-          alignItems="end"
-          textAlign="end"
+          alignItems="start"
+          textAlign="start"
           boxShadow="lg"
           padding="24px"
           _hover={{
@@ -189,6 +189,9 @@ function HomePageContainerDesktop(props) {
           borderRadius="16px"
           w="230px"
           h="100%"
+          backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665033486/tjsl-core/categories/bg-top-campaign_1_vjtn2j.svg"
+          backgroundRepeat="no-repeat"
+          backgroundSize="contain"
         >
           <Box boxSize="64px">
             <Image
@@ -206,7 +209,7 @@ function HomePageContainerDesktop(props) {
           <Text fontWeight="extrabold" fontSize="xl" color="gray.70">
             {item?.name || ''}
           </Text>
-          <Text fontWeight="light" fontSize="16px">
+          <Text fontWeight="light" fontSize="sm">
             {item?.description || ''}
           </Text>
           <Flex justifyContent="end">
@@ -292,13 +295,13 @@ function HomePageContainerDesktop(props) {
           Lihat semua artikel
         </Button>
       </Flex>
-      <Flex gap={6}>
+      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {[...Array(3)].map((item, idx) => (
-          <Box key={idx}>
+          <GridItem key={idx}>
             <BlogCard />
-          </Box>
+          </GridItem>
         ))}
-      </Flex>
+      </Grid>
     </>
   );
 

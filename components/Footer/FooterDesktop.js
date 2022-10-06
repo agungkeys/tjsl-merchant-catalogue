@@ -22,7 +22,8 @@ function FooterDesktop(props) {
             <Flex flexDirection="column" gap={4} width="300px">
               <Image
                 src="https://res.cloudinary.com/borneos-co/image/upload/v1664949490/tjsl-core/icon-logo/kamiumkm_white_gfc8kf.png"
-                alt=""
+                alt="Logo KamiUMKM"
+                width="250px"
               />
               <Text fontWeight="light" fontSize="md">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
