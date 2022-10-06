@@ -97,13 +97,13 @@ function HomePageContainerMobile(props) {
       >
         Katalog Mitra UMKM
       </Text>
-      <Text fontSize="sm" fontWeight="regular">
+      <Text fontSize="14px" fontWeight="regular">
         Merupakan suatu program persembahan Pupuk Kaltim dalam hal menghimpun
         seluruh UMKM binaan unggulan PT Pupuk Kaltim dalam suatu wadah digital.
         Dengan tujuan mempromosikan dan memperkenalkan produk UMKM lokal ke
         masyarakat luas.
       </Text>
-      <Text fontSize="sm" fontWeight="regular">
+      <Text fontSize="14px" fontWeight="regular">
         <b>KamiUMKM</b> adalah bentuk kontribusi nyata PT Pupuk Kaltim terhadap
         pertumbuhan dan kemajuan UMKM di seluruh Indonesia, khususnya Kalimantan
         Timur dengan berkolaborasi bersama para profesional dan pemangku
@@ -189,6 +189,7 @@ function HomePageContainerMobile(props) {
         backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665033486/tjsl-core/categories/bg-top-campaign_1_vjtn2j.svg"
         backgroundRepeat="no-repeat"
         backgroundSize="contain"
+        height="100%"
       >
         <Box boxSize="64px">
           <Image
@@ -206,7 +207,7 @@ function HomePageContainerMobile(props) {
         <Text fontWeight="extrabold" fontSize="md">
           {item?.name || ''}
         </Text>
-        <Text fontWeight="light" fontSize="sm">
+        <Text fontWeight="light" fontSize="sm" noOfLines={2}>
           {item?.description || ''}
         </Text>
       </Flex>
