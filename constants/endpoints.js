@@ -3,6 +3,7 @@ const ENDPOINTS = {
 
   // B
   BANNERS: '/banners',
+  BLOGS: '/blogs',
   // C
   CART_ORDER: '/orders',
   CART_ORDER_DETAIL: (prefix) => `/orders/${prefix}`,
