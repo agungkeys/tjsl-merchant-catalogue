@@ -23,11 +23,10 @@ function CarouselMerchant(props) {
         Mitra Unggulan KAMI
       </Text>
       <Box className="banner-container-mobile">
-        {items && (
+        {items?.data && (
           <Slider {...settings}>
-            {items &&
-              items.length > 0 &&
-              items.map((item, idx) => (
+            {items?.data &&
+              items?.data?.slice(0, 3).map((item, idx) => (
                 <Box
                   key={idx}
                   marginY="32px"
@@ -49,11 +48,25 @@ function CarouselMerchant(props) {
                       boxShadow="lg"
                       w="192px"
                     >
-                      <Image boxSize="84px" src="/home.png" alt="" />
+                      {item?.image ? (
+                        <Image
+                          boxSize="84px"
+                          borderRadius="full"
+                          src={item?.image}
+                          alt={item?.name}
+                        />
+                      ) : (
+                        <Image
+                          boxSize="84px"
+                          borderRadius="full"
+                          src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
+                          alt=""
+                        />
+                      )}
                     </Center>
-                    <Box
-                      alignItems="center"
-                      justifyContent="center"
+                    <Flex
+                      flexDirection="column"
+                      justifyContent="space-between"
                       height="100px"
                       backgroundColor="#fff"
                       marginTop="-50px"
@@ -62,16 +75,16 @@ function CarouselMerchant(props) {
                       w="100%"
                       borderRadius="10px"
                     >
-                      <Text fontWeight="bold" fontSize="16px">
-                        {item?.name}
+                      <Text fontWeight="bold" fontSize="sm">
+                        {item?.name || ''}
                       </Text>
-                      <Text fontWeight="light" fontSize="12px">
-                        {item?.address}
+                      <Text fontWeight="light" fontSize="xs" noOfLines={2}>
+                        {item?.address || ''}
                       </Text>
-                      <Text fontWeight="semibold" fontSize="10px">
-                        {item?.category}
+                      <Text fontWeight="semibold" fontSize="xs">
+                        Kategori {item?.category?.name || ''}
                       </Text>
-                    </Box>
+                    </Flex>
                   </Flex>
                   <Flex gap={3} p={4}>
                     {item?.product?.slice(0, 2).map((product, idx) => (
@@ -90,7 +103,7 @@ function CarouselMerchant(props) {
 }
 
 CarouselMerchant.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.object,
 };
 
 export default CarouselMerchant;

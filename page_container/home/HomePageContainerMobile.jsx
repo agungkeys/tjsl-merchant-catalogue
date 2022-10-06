@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   Container,
   Flex,
@@ -20,6 +21,10 @@ function HomePageContainerMobile(props) {
     isLoadingCategories,
     isFetchingCategories,
     isSuccessCategories,
+    dataMerchants,
+    isSuccessMerchants,
+    dataBlogs,
+    isSuccessBlogs,
   } = props;
 
   const itemBanners = [
@@ -67,76 +72,15 @@ function HomePageContainerMobile(props) {
     },
   ];
 
-  const itemMerchant = [
-    {
-      id: 0,
-      name: 'Geprek Legenda',
-      address: 'Pisangan',
-      category: 'Makanan dan Minuman',
-      product: [
-        {
-          id: 0,
-          productName: 'Geprek Mozarella',
-          image: './pancake.jpg',
-        },
-        {
-          id: 1,
-          productName: 'Geprek Tanpa Tulang',
-          image: './pancake.jpg',
-        },
-      ],
-    },
-    {
-      id: 1,
-      name: 'Japanese Pancake',
-      address: 'Pisangan',
-      category: 'Makanan dan Minuman',
-      product: [
-        {
-          id: 0,
-          productName: 'Pancake Choco',
-          image: './pancake.jpg',
-        },
-        {
-          id: 1,
-          productName: 'Pancake Cheese',
-          image: './pancake.jpg',
-        },
-        {
-          id: 2,
-          productName: 'Pancake Matcha',
-          image: './pancake.jpg',
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Es Coka Coka',
-      address: 'Jl Loktuan Raya No.12, Loktuan',
-      category: 'Makanan dan Minuman',
-      product: [
-        {
-          id: 0,
-          productName: 'Es Choco',
-          image: './pancake.jpg',
-        },
-        {
-          id: 1,
-          productName: 'Es Oreo',
-          image: './pancake.jpg',
-        },
-        {
-          id: 2,
-          productName: 'Es Susu',
-          image: './pancake.jpg',
-        },
-      ],
-    },
-  ];
-
   const HeroSection = () => (
     <Flex gap={4} marginY="42px" flexDirection="column">
-      <Image src="/home.png" alt="" width="250px" alignSelf="center" />
+      <Image
+        src="/home.png"
+        alt=""
+        width="250px"
+        alignSelf="center"
+        marginY="24px"
+      />
       <Text
         fontWeight="extrabold"
         fontSize="48px"
@@ -235,8 +179,6 @@ function HomePageContainerMobile(props) {
     <NextLink>
       <Flex
         flexDirection="column"
-        alignItems="end"
-        textAlign="end"
         boxShadow="lg"
         padding="24px"
         _hover={{
@@ -261,92 +203,36 @@ function HomePageContainerMobile(props) {
             fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
           />
         </Box>
-        <Text fontWeight="extrabold" fontSize="18px">
+        <Text fontWeight="extrabold" fontSize="md">
           {item?.name || ''}
         </Text>
-        <Text fontWeight="light" fontSize="12px">
+        <Text fontWeight="light" fontSize="sm">
           {item?.description || ''}
         </Text>
-        <Flex justifyContent="end">
-          <Box>
-            <BiChevronRight />
-          </Box>
-        </Flex>
       </Flex>
     </NextLink>
   );
 
-  const MerchantSection = () => (
-    <>
-      <Text fontWeight="extrabold" fontSize="32px">
-        Mitra Unggulan KAMI
-      </Text>
-      <Flex gap={8} width="100%">
-        {[...Array(3)].map((item, idx) => (
-          <Box
-            key={idx}
-            marginY="32px"
-            borderRadius="16px"
-            boxShadow="lg"
-            w="100%"
-          >
-            <Box
-              backgroundColor="#0D5099"
-              borderTopRadius="16px"
-              height="100px"
-            ></Box>
-            <Flex paddingX="32px" width="100%" gap={4}>
-              <Center
-                rounded="full"
-                boxSize="100px"
-                backgroundColor="#fff"
-                marginTop="-50px"
-                boxShadow="lg"
-                w="156px"
-              >
-                <Image boxSize="84px" src="/home.png" alt="" />
-              </Center>
-              <Box
-                alignItems="center"
-                justifyContent="center"
-                height="100px"
-                backgroundColor="#fff"
-                marginTop="-50px"
-                boxShadow="lg"
-                padding="12px"
-                w="100%"
-                borderRadius="10px"
-              >
-                <Text fontWeight="bold" fontSize="16px">
-                  Rumah Habati
-                </Text>
-                <Text fontWeight="light" fontSize="12px">
-                  Jl Gunung Arjuna No.3 BSD, Rumah Habati
-                </Text>
-                <Text fontWeight="semibold" fontSize="10px">
-                  Kategori Makanan dan Minuman
-                </Text>
-              </Box>
-            </Flex>
-            <Flex justifyContent="space-between" gap={3} p={8}>
-              {[...Array(3)].map((item, idx) => (
-                <Box key={idx}>
-                  <Product isLanding />
-                </Box>
-              ))}
-            </Flex>
-          </Box>
-        ))}
-      </Flex>
-    </>
-  );
-
   const BlogSection = () => (
     <>
-      <Text fontWeight="extrabold" fontSize="24px" marginBottom="16px">
-        Artikel
-      </Text>
-      <BlogCard isMobile />
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text fontWeight="extrabold" fontSize="24px">
+          Artikel
+        </Text>
+        <NextLink link="/blog">
+          <Button variant="link" rightIcon={<BiChevronRight />}>
+            Lihat semua
+          </Button>
+        </NextLink>
+      </Flex>
+      <Flex flexDirection="column">
+        {isSuccessBlogs &&
+          dataBlogs?.data?.slice(0, 3).map((item, idx) => (
+            <Box key={idx}>
+              <BlogCard {...item} isMobile />
+            </Box>
+          ))}
+      </Flex>
     </>
   );
 
@@ -363,7 +249,7 @@ function HomePageContainerMobile(props) {
       </Box>
       <Container>
         <CategoriesSection />
-        <CarouselMerchant items={itemMerchant} />
+        <CarouselMerchant items={dataMerchants} />
       </Container>
       <Box
         backgroundImage="linear-gradient(#f0f8ff, white)"
@@ -385,6 +271,10 @@ HomePageContainerMobile.propTypes = {
   isLoadingCategories: PropTypes.bool,
   isFetchingCategories: PropTypes.bool,
   isSuccessCategories: PropTypes.bool,
+  dataMerchants: PropTypes.object,
+  isSuccessMerchants: PropTypes.bool,
+  dataBlogs: PropTypes.object,
+  isSuccessBlogs: PropTypes.bool,
 };
 
 export default HomePageContainerMobile;

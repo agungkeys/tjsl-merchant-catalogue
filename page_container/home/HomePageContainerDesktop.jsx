@@ -10,7 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { BiChevronRight } from 'react-icons/bi';
+import { BiChevronRight, BiChevronRightCircle } from 'react-icons/bi';
 import {
   BlogCard,
   Carousel,
@@ -35,8 +35,14 @@ function HomePageContainerDesktop(props) {
     dataBlogs,
     isSuccessBlogs,
   } = props;
-    console.log("🚀 ~ file: HomePageContainerDesktop.jsx ~ line 38 ~ HomePageContainerDesktop ~ dataBlogs", dataBlogs)
-    console.log("🚀 ~ file: HomePageContainerDesktop.jsx ~ line 39 ~ HomePageContainerDesktop ~ dataMerchants", dataMerchants)
+  console.log(
+    '🚀 ~ file: HomePageContainerDesktop.jsx ~ line 38 ~ HomePageContainerDesktop ~ dataBlogs',
+    dataBlogs,
+  );
+  console.log(
+    '🚀 ~ file: HomePageContainerDesktop.jsx ~ line 39 ~ HomePageContainerDesktop ~ dataMerchants',
+    dataMerchants,
+  );
 
   const itemBanners = [
     {
@@ -235,66 +241,76 @@ function HomePageContainerDesktop(props) {
         Mitra Unggulan KAMI
       </Text>
       <Flex gap={8} width="100%">
-        {isSuccessMerchants && dataMerchants?.data?.slice(0, 3).map(item => (
-          <Box
-            key={item?.id}
-            marginY="32px"
-            borderRadius="16px"
-            boxShadow="lg"
-            w="100%"
-          >
+        {isSuccessMerchants &&
+          dataMerchants?.data?.slice(0, 3).map((item) => (
             <Box
-              backgroundColor="#0D5099"
-              borderTopRadius="16px"
-              height="100px"
-            ></Box>
-            <Flex paddingX="32px" width="100%" gap={4}>
-              <Center
-                rounded="full"
-                boxSize="100px"
-                backgroundColor="#fff"
-                marginTop="-50px"
-                boxShadow="lg"
-                w="156px"
-              >
-                {item?.image ? 
-                  <Image borderRadius='4em' boxSize="84px" src={item?.image} alt={item?.name} />
-                  :
-                  <Image borderRadius='4em' boxSize="84px" src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp" alt="" />
-                }
-                
-              </Center>
+              key={item?.id}
+              marginY="32px"
+              borderRadius="16px"
+              boxShadow="lg"
+              w="100%"
+            >
               <Box
-                alignItems="center"
-                justifyContent="center"
+                backgroundColor="#0D5099"
+                borderTopRadius="16px"
                 height="100px"
-                backgroundColor="#fff"
-                marginTop="-50px"
-                boxShadow="lg"
-                padding="12px"
-                w="100%"
-                borderRadius="10px"
-              >
-                <Text fontWeight="bold" fontSize="16px">
-                  {item?.name || ''}
-                </Text>
-                <Text fontWeight="light" fontSize="12px" height="38px">
-                  {item?.address || ''}
-                </Text>
-                <Text fontWeight="semibold" fontSize="10px">
-                  Kategori {item?.category?.name || ''}
-                </Text>
-              </Box>
-            </Flex>
-            <Flex justifyContent="space-between" gap={3} p={8}>
-              {[...Array(3)].map((item, idx) => (
-                <Box key={idx}>
-                  <Product isLanding />
-                </Box>
-              ))}
-            </Flex>
-          </Box>
-        ))}
+              ></Box>
+              <Flex paddingX="32px" width="100%" gap={4}>
+                <Center
+                  rounded="full"
+                  boxSize="100px"
+                  backgroundColor="#fff"
+                  marginTop="-50px"
+                  boxShadow="lg"
+                  w="156px"
+                >
+                  {item?.image ? (
+                    <Image
+                      borderRadius="4em"
+                      boxSize="84px"
+                      src={item?.image}
+                      alt={item?.name}
+                    />
+                  ) : (
+                    <Image
+                      borderRadius="4em"
+                      boxSize="84px"
+                      src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
+                      alt=""
+                    />
+                  )}
+                </Center>
+                <Flex
+                  flexDirection="column"
+                  justifyContent="space-between"
+                  height="100px"
+                  backgroundColor="#fff"
+                  marginTop="-50px"
+                  boxShadow="lg"
+                  padding="12px"
+                  w="100%"
+                  borderRadius="10px"
+                >
+                  <Text fontWeight="bold" fontSize="md">
+                    {item?.name || ''}
+                  </Text>
+                  <Text fontWeight="light" fontSize="sm" noOfLines={2}>
+                    {item?.address || ''}
+                  </Text>
+                  <Text fontWeight="semibold" fontSize="sm">
+                    Kategori {item?.category?.name || ''}
+                  </Text>
+                </Flex>
+              </Flex>
+              <Flex justifyContent="space-between" gap={3} p={8}>
+                {[...Array(3)].map((item, idx) => (
+                  <Box key={idx}>
+                    <Product isLanding />
+                  </Box>
+                ))}
+              </Flex>
+            </Box>
+          ))}
       </Flex>
     </>
   );
@@ -305,17 +321,18 @@ function HomePageContainerDesktop(props) {
         <Text fontWeight="extrabold" fontSize="32px">
           Artikel
         </Text>
-        <Button color="#fff" fontWeight="bold" colorScheme="blue">
-          Lihat semua artikel
+        <Button variant="link" rightIcon={<BiChevronRight />}>
+          Lihat semua
         </Button>
       </Flex>
-      <Flex gap={6}>
-        {isSuccessBlogs && dataBlogs?.data?.map(item => (
-          <Box key={item?.id}>
-            <BlogCard {...item} />
-          </Box>
-        ))}
-      </Flex>
+      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+        {isSuccessBlogs &&
+          dataBlogs?.data?.slice(0, 3).map((item) => (
+            <GridItem key={item?.id}>
+              <BlogCard {...item} />
+            </GridItem>
+          ))}
+      </Grid>
     </>
   );
 
