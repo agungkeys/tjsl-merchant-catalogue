@@ -312,7 +312,7 @@ function HomePageContainerDesktop(props) {
             <BlogCard {...item} />
           </Box>
         ))}
-      </Grid>
+      </Flex>
     </>
   );
 

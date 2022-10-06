@@ -4,7 +4,6 @@ import NextLink from '../NextLink';
 import { populateAdditionalImage } from '../../helpers/utils';
 
 function BlogCardDesktop(props) {
-  console.log("🚀 ~ file: BlogCardDesktop.js ~ line 6 ~ BlogCardDesktop ~ props", props)
   const { title, category, shortDescription, additionalImage, author } =
     props;
   return (
@@ -43,34 +42,6 @@ function BlogCardDesktop(props) {
             <Text fontSize="sm">30 September 2022</Text>
             <Text fontSize="sm">{`Posted by ${author || '-'}`}</Text>
           </Flex>
-        </Box>
-        <Box borderRadius="16px" boxShadow="lg">
-          <Image
-            borderTopRadius="16px"
-            src="./pancake.jpg"
-            alt=""
-            objectFit="cover"
-            width="100%"
-            height="250px"
-          />
-          <Box padding="16px">
-            <Text fontSize="xl" fontWeight="extrabold">
-              Apa itu KamiUMKM?
-            </Text>
-            <Text
-              fontWeight="light"
-              marginTop="12px"
-              fontSize="md"
-              noOfLines={2}
-            >
-              KamiUMKM merupakan Katalog Mitra UMKM Binaan TJSL PT. PUPUK KALTIM
-              Mitra UMKM Binaan TJSL PT. PUPUK KALTIM
-            </Text>
-            <Flex justifyContent="space-between" marginTop="12px">
-              <Text fontSize="sm">30 September 2022</Text>
-              <Text fontSize="sm">Posted by admin</Text>
-            </Flex>
-          </Box>
         </Box>
       </Box>
     </NextLink>
