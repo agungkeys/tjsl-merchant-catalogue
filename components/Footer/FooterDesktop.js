@@ -99,7 +99,7 @@ function FooterDesktop(props) {
         alignItems="center"
       >
         <Text fontWeight="bold" fontSize="lg" color="#00264d">
-          KamiUMKM | Copyright @ 2022 All Rights Reserved
+          KamiUMKM | Copyright &copy; 2022 All Rights Reserved
         </Text>
       </Flex>
     </>

@@ -4,10 +4,10 @@ import NextLink from '../NextLink';
 import { populateAdditionalImage } from '../../helpers/utils';
 
 function BlogCardDesktop(props) {
-  const { title, category, shortDescription, additionalImage, author } =
+  const { title, category, shortDescription, additionalImage, author, slug } =
     props;
   return (
-    <NextLink link="">
+    <NextLink link={`/blog/${slug}`}>
       <Box
         borderRightRadius="8px"
         backgroundColor="#fff"
@@ -22,20 +22,31 @@ function BlogCardDesktop(props) {
           {category?.name || ''}
         </Text>
       </Box>
-      <Box borderRadius="8px" boxShadow="lg" width="385px">
+      <Box borderRadius="8px" boxShadow="lg">
         <Image
           borderTopRadius="8px"
-          src={populateAdditionalImage({...additionalImage, height: 250, width: 385, extension: 'webp'})}
+          src={populateAdditionalImage({
+            ...additionalImage,
+            height: 250,
+            width: 385,
+            extension: 'webp',
+          })}
           alt=""
           objectFit="cover"
           width="100%"
           height="250px"
         />
         <Box padding="16px">
-          <Text fontSize="xl" fontWeight="extrabold" height='45px'>
+          <Text fontSize="xl" fontWeight="extrabold" height="45px">
             {title || ''}
           </Text>
-          <Text fontWeight="light" marginTop="12px" fontSize="md" noOfLines={2} height='50px'>
+          <Text
+            fontWeight="light"
+            marginTop="12px"
+            fontSize="md"
+            noOfLines={2}
+            height="50px"
+          >
             {shortDescription || ''}
           </Text>
           <Flex justifyContent="space-between" marginTop="12px">
@@ -55,6 +66,7 @@ BlogCardDesktop.propTypes = {
   category: PropTypes.object,
   author: PropTypes.string,
   date: PropTypes.string,
+  slug: PropTypes.string,
 };
 
 export default BlogCardDesktop;
