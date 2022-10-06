@@ -104,10 +104,13 @@ function HomePageContainerDesktop(props) {
           </Text>
         </Box>
         <Text fontSize="16px" fontWeight="regular">
-          Adalah program persembahan TJSL Pupuk Kaltim sebagai bentuk kontribusi
-          nyata terhadap pertumbuhan dan kemajuan UMKM di seluruh Indonesia,
-          khususnya Kalimantan Timur dengan berkolaborasi bersama para
-          profesional dan pemangku kepentingan
+          Merupakan suatu program persembahan Pupuk Kaltim dalam hal menghimpun
+          seluruh UMKM binaan unggulan PT Pupuk Kaltim dalam suatu wadah
+          digital. Dengan tujuan mempromosikan dan memperkenalkan produk UMKM
+          lokal ke masyarakat luas. <b>KamiUMKM</b> adalah bentuk kontribusi
+          nyata PT Pupuk Kaltim terhadap pertumbuhan dan kemajuan UMKM di
+          seluruh Indonesia, khususnya Kalimantan Timur dengan berkolaborasi
+          bersama para profesional dan pemangku kepentingan.
         </Text>
       </GridItem>
       <GridItem>

@@ -135,8 +135,8 @@ function HomePageContainerMobile(props) {
   ];
 
   const HeroSection = () => (
-    <Flex gap={4} alignItems="center" marginY="42px" flexDirection="column">
-      <Image src="/home.png" alt="" width="250px" />
+    <Flex gap={4} marginY="42px" flexDirection="column">
+      <Image src="/home.png" alt="" width="250px" alignSelf="center" />
       <Text
         fontWeight="extrabold"
         fontSize="48px"
@@ -153,11 +153,17 @@ function HomePageContainerMobile(props) {
       >
         Katalog Mitra UMKM
       </Text>
-      <Text fontSize="sm" fontWeight="regular" textAlign="center">
-        Adalah program persembahan TJSL Pupuk Kaltim sebagai bentuk kontribusi
-        nyata terhadap pertumbuhan dan kemajuan UMKM di seluruh Indonesia,
-        khususnya Kalimantan Timur dengan berkolaborasi bersama para profesional
-        dan pemangku kepentingan
+      <Text fontSize="sm" fontWeight="regular">
+        Merupakan suatu program persembahan Pupuk Kaltim dalam hal menghimpun
+        seluruh UMKM binaan unggulan PT Pupuk Kaltim dalam suatu wadah digital.
+        Dengan tujuan mempromosikan dan memperkenalkan produk UMKM lokal ke
+        masyarakat luas.
+      </Text>
+      <Text fontSize="sm" fontWeight="regular">
+        <b>KamiUMKM</b> adalah bentuk kontribusi nyata PT Pupuk Kaltim terhadap
+        pertumbuhan dan kemajuan UMKM di seluruh Indonesia, khususnya Kalimantan
+        Timur dengan berkolaborasi bersama para profesional dan pemangku
+        kepentingan.
       </Text>
     </Flex>
   );
@@ -238,8 +244,9 @@ function HomePageContainerMobile(props) {
         }}
         transition="all 0.5s ease-in-out"
         borderRadius="16px"
-        height="300px"
-        justifyContent="space-between"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665033486/tjsl-core/categories/bg-top-campaign_1_vjtn2j.svg"
+        backgroundRepeat="no-repeat"
+        backgroundSize="contain"
       >
         <Box boxSize="64px">
           <Image
@@ -254,10 +261,10 @@ function HomePageContainerMobile(props) {
             fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
           />
         </Box>
-        <Text fontWeight="extrabold" fontSize="24px">
+        <Text fontWeight="extrabold" fontSize="18px">
           {item?.name || ''}
         </Text>
-        <Text fontWeight="light" fontSize="16px">
+        <Text fontWeight="light" fontSize="12px">
           {item?.description || ''}
         </Text>
         <Flex justifyContent="end">
