@@ -8,9 +8,11 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
-import { BlogCard } from '../../components';
+import { Router, useRouter } from 'next/router';
+import { BlogCard, NextLink } from '../../components';
 
 function BlogsPageContainerDesktop() {
+  const router = useRouter();
   return (
     <Box>
       <Container maxW="container.xl" paddingY="32px">
@@ -20,12 +22,12 @@ function BlogsPageContainerDesktop() {
         <Grid
           h="500px"
           templateRows="repeat(2, 1fr)"
-          templateColumns="repeat(2, 1fr)"
-          gap={2}
+          templateColumns="repeat(5, 1fr)"
+          gap={4}
         >
           <GridItem
             rowSpan={2}
-            colSpan={1}
+            colSpan={3}
             padding="16px"
             borderRadius="16px"
             sx={{
@@ -33,6 +35,8 @@ function BlogsPageContainerDesktop() {
                 'linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./pancake.jpg)',
               backgroundSize: 'cover',
             }}
+            onClick={() => router.push('/')}
+            cursor="pointer"
           >
             <Box display="inline-block">
               <Badge colorScheme="purple" borderRadius="xl">
@@ -43,6 +47,7 @@ function BlogsPageContainerDesktop() {
               </Text>
             </Box>
           </GridItem>
+
           <GridItem
             colSpan={2}
             borderRadius="16px"
@@ -53,6 +58,8 @@ function BlogsPageContainerDesktop() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
+            onClick={() => router.push('/')}
+            cursor="pointer"
           >
             <Box display="inline-block">
               <Badge colorScheme="purple" borderRadius="xl">
@@ -63,6 +70,7 @@ function BlogsPageContainerDesktop() {
               </Text>
             </Box>
           </GridItem>
+
           <GridItem
             colSpan={2}
             borderRadius="16px"
@@ -73,6 +81,8 @@ function BlogsPageContainerDesktop() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
+            onClick={() => router.push('/')}
+            cursor="pointer"
           >
             <Box display="inline-block">
               <Badge colorScheme="purple" borderRadius="xl">
@@ -83,22 +93,15 @@ function BlogsPageContainerDesktop() {
               </Text>
             </Box>
           </GridItem>
-          <GridItem colSpan={4} bg="tomato" />
         </Grid>
 
-        <Flex
-          width="100%"
-          flexWrap="wrap"
-          gap={6}
-          justifyContent="center"
-          marginY="32px"
-        >
+        <Grid templateColumns="repeat(3, 1fr)" gap={4} marginY="32px">
           {[...Array(6)].map((item, idx) => (
-            <Box key={idx}>
+            <GridItem key={idx}>
               <BlogCard />
-            </Box>
+            </GridItem>
           ))}
-        </Flex>
+        </Grid>
       </Container>
     </Box>
   );

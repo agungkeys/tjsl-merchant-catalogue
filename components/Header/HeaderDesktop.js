@@ -25,7 +25,7 @@ function HeaderDesktop(props) {
       <Box
         position={headerPosition}
         boxShadow="lg"
-        padding="20px"
+        padding="10px"
         zIndex="999"
         backdropFilter="blur(100px)"
         width="100%"
