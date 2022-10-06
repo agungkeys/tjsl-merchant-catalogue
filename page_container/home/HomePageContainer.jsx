@@ -4,6 +4,8 @@ import HomePageContainerMobile from "./HomePageContainerMobile";
 
 import { useQuery } from 'react-query';
 import { fetchCategories } from "../../hooks/useCategories";
+import { fetchMerchants } from "../../hooks/useMerchants";
+import { fetchBlogs } from "../../hooks/useBlogs";
 function HomePageContainer(props) {
   const { isMobile } = props;
 
@@ -20,6 +22,34 @@ function HomePageContainer(props) {
       staleTime: 0,
 		},
   );
+
+  const { 
+    data: dataMerchants, 
+    isError: isErrorMerchants, 
+    isLoading: isLoadingMerchants, 
+    isFetching: isFetchingMerchants, 
+    isSuccess: isSuccessMerchants
+  } = useQuery(
+    ['merchants'],
+		() => fetchMerchants(),
+		{
+      staleTime: 0,
+		},
+  );
+
+  const { 
+    data: dataBlogs, 
+    isError: isErrorBlogs, 
+    isLoading: isLoadingBlogs, 
+    isFetching: isFetchingBlogs, 
+    isSuccess: isSuccessBlogs
+  } = useQuery(
+    ['blogs'],
+		() => fetchBlogs(),
+		{
+      staleTime: 0,
+		},
+  );
     
   props = {
     ...props,
@@ -27,7 +57,17 @@ function HomePageContainer(props) {
     isErrorCategories,
     isLoadingCategories,
     isFetchingCategories,
-    isSuccessCategories
+    isSuccessCategories,
+    dataMerchants,
+    isErrorMerchants, 
+    isLoadingMerchants, 
+    isFetchingMerchants, 
+    isSuccessMerchants,
+    dataBlogs,
+    isErrorBlogs,
+    isLoadingBlogs,
+    isFetchingBlogs,
+    isSuccessBlogs,
   }
 
 

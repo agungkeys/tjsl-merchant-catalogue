@@ -30,7 +30,13 @@ function HomePageContainerDesktop(props) {
     isLoadingCategories,
     isFetchingCategories,
     isSuccessCategories,
+    dataMerchants,
+    isSuccessMerchants,
+    dataBlogs,
+    isSuccessBlogs,
   } = props;
+    console.log("🚀 ~ file: HomePageContainerDesktop.jsx ~ line 38 ~ HomePageContainerDesktop ~ dataBlogs", dataBlogs)
+    console.log("🚀 ~ file: HomePageContainerDesktop.jsx ~ line 39 ~ HomePageContainerDesktop ~ dataMerchants", dataMerchants)
 
   const itemBanners = [
     {
@@ -192,7 +198,7 @@ function HomePageContainerDesktop(props) {
           borderRadius="16px"
           w="230px"
           h="100%"
-          backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665033486/tjsl-core/categories/bg-top-campaign_1_vjtn2j.svg"
+          backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665033486/tjsl-core/categories/bg-top-campaign_1_vjtn2j.webp"
           backgroundRepeat="no-repeat"
           backgroundSize="contain"
         >
@@ -229,9 +235,9 @@ function HomePageContainerDesktop(props) {
         Mitra Unggulan KAMI
       </Text>
       <Flex gap={8} width="100%">
-        {[...Array(3)].map((item, idx) => (
+        {isSuccessMerchants && dataMerchants?.data?.slice(0, 3).map(item => (
           <Box
-            key={idx}
+            key={item?.id}
             marginY="32px"
             borderRadius="16px"
             boxShadow="lg"
@@ -251,7 +257,12 @@ function HomePageContainerDesktop(props) {
                 boxShadow="lg"
                 w="156px"
               >
-                <Image boxSize="84px" src="/home.png" alt="" />
+                {item?.image ? 
+                  <Image borderRadius='4em' boxSize="84px" src={item?.image} alt={item?.name} />
+                  :
+                  <Image borderRadius='4em' boxSize="84px" src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp" alt="" />
+                }
+                
               </Center>
               <Box
                 alignItems="center"
@@ -265,13 +276,13 @@ function HomePageContainerDesktop(props) {
                 borderRadius="10px"
               >
                 <Text fontWeight="bold" fontSize="16px">
-                  Rumah Habati
+                  {item?.name || ''}
                 </Text>
-                <Text fontWeight="light" fontSize="12px">
-                  Jl Gunung Arjuna No.3 BSD, Rumah Habati
+                <Text fontWeight="light" fontSize="12px" height="38px">
+                  {item?.address || ''}
                 </Text>
                 <Text fontWeight="semibold" fontSize="10px">
-                  Kategori Makanan dan Minuman
+                  Kategori {item?.category?.name || ''}
                 </Text>
               </Box>
             </Flex>
@@ -298,13 +309,13 @@ function HomePageContainerDesktop(props) {
           Lihat semua artikel
         </Button>
       </Flex>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-        {[...Array(3)].map((item, idx) => (
-          <GridItem key={idx}>
-            <BlogCard />
-          </GridItem>
+      <Flex gap={6}>
+        {isSuccessBlogs && dataBlogs?.data?.map(item => (
+          <Box key={item?.id}>
+            <BlogCard {...item} />
+          </Box>
         ))}
-      </Grid>
+      </Flex>
     </>
   );
 
@@ -350,6 +361,10 @@ HomePageContainerDesktop.propTypes = {
   isLoadingCategories: PropTypes.bool,
   isFetchingCategories: PropTypes.bool,
   isSuccessCategories: PropTypes.bool,
+  dataMerchants: PropTypes.object,
+  isSuccessMerchants: PropTypes.bool,
+  dataBlogs: PropTypes.object,
+  isSuccessBlogs: PropTypes.bool,
 };
 
 export default HomePageContainerDesktop;

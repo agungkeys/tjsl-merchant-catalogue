@@ -3,7 +3,7 @@ import ENV from '../../constants/env';
 import ENDPOINTS from '../../constants/endpoints';
 import { paramsToString } from '../../helpers/utils';
 
-const fetchMerchants = async (limit = 10, sort = 'asc') => {
+const fetchBlogs = async (limit = 10, sort = 'asc') => {
   const requestOptions = {
     method: 'GET',
     headers: { 
@@ -18,8 +18,8 @@ const fetchMerchants = async (limit = 10, sort = 'asc') => {
   }
 
   const params = paramsToString(queryParams);
-  const result = await fetch(`${ENV.CURRENT_API}${ENDPOINTS.MERCHANTS}${params}`, requestOptions).then(response => response.json() || [])
+  const result = await fetch(`${ENV.CURRENT_API}${ENDPOINTS.BLOGS}${params}`, requestOptions).then(response => response.json() || [])
   return result
 }
 
-export { fetchMerchants }
+export { fetchBlogs }
