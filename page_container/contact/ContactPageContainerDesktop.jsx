@@ -8,7 +8,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
-import Map from '../../components/Map/Map';
+import Maps from '../../components/Maps';
 
 function ContactPageContainerDesktop(props) {
   return (
@@ -19,8 +19,8 @@ function ContactPageContainerDesktop(props) {
             Kontak Kami
           </Text>
         </Box>
-        <Flex>
-          <Map />
+        <Flex w={'80%'}>
+          <Maps />
         </Flex>
         <Flex w="89%" m={20} pt={4}>
           <Box w={'50%'} p={20} pt={0}>
