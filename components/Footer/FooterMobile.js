@@ -93,12 +93,12 @@ function FooterMobile() {
       </Box>
       <Flex
         bgColor="f0f8ff"
-        paddingY={2}
         justifyContent="center"
         alignItems="center"
+        padding={4}
       >
         <Text fontWeight="bold" fontSize="lg" color="#00264d">
-          KamiUMKM | Copyright @ 2022 All Rights Reserved
+          KamiUMKM | Copyright &copy; 2022 All Rights Reserved
         </Text>
       </Flex>
     </>
