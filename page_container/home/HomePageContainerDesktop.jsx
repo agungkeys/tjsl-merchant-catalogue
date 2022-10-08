@@ -34,6 +34,8 @@ function HomePageContainerDesktop(props) {
     isSuccessCategories,
     dataMerchants,
     isSuccessMerchants,
+    isLoadingMerchants,
+    isFetchingMerchants,
     dataBlogs,
     isSuccessBlogs,
   } = props;
@@ -254,6 +256,65 @@ function HomePageContainerDesktop(props) {
         Mitra Unggulan KAMI
       </Text>
       <Flex gap={8} width="100%">
+        {isLoadingMerchants &&
+          isFetchingMerchants &&
+          [...Array(3)].map((item, idx) => (
+            <Box
+              key={item?.id}
+              marginY="32px"
+              borderRadius="16px"
+              boxShadow="lg"
+              w="395px"
+              border="1px solid #e1eaf7"
+            >
+              <Box
+                border="1px solid #e1eaf7"
+                borderTopRadius="16px"
+                height="100px"
+              />
+              <Flex paddingX="32px" width="100%" gap={4}>
+                <Skeleton
+                  rounded="full"
+                  boxSize="100px"
+                  backgroundColor="#fff"
+                  marginTop="-50px"
+                  boxShadow="lg"
+                  w="156px"
+                />
+
+                <Box
+                  height="100px"
+                  backgroundColor="#fff"
+                  marginTop="-50px"
+                  boxShadow="lg"
+                  padding="12px"
+                  w="100%"
+                  borderRadius="10px"
+                >
+                  <SkeletonText noOfLines={3} />
+                </Box>
+              </Flex>
+              <Grid templateColumns="repeat(3, 1fr)" gap={3} p={8}>
+                {[...Array(3)].map((item, idx) => (
+                  <GridItem key={idx}>
+                    <Box
+                      borderRadius="16px"
+                      border="1px solid #e1eaf7"
+                      width="100%"
+                      height="162px"
+                    >
+                      <Skeleton borderTopRadius="16px" boxSize="102px" />
+                      <SkeletonText
+                        marginX={2}
+                        noOfLines={2}
+                        marginTop="12px"
+                      />
+                    </Box>
+                  </GridItem>
+                ))}
+              </Grid>
+            </Box>
+          ))}
         {isSuccessMerchants &&
           dataMerchants?.data?.slice(0, 3).map((item) => (
             <Box
@@ -396,6 +457,8 @@ HomePageContainerDesktop.propTypes = {
   isSuccessCategories: PropTypes.bool,
   dataMerchants: PropTypes.object,
   isSuccessMerchants: PropTypes.bool,
+  isLoadingMerchants: PropTypes.bool,
+  isFetchingMerchants: PropTypes.bool,
   dataBlogs: PropTypes.object,
   isSuccessBlogs: PropTypes.bool,
 };
