@@ -7,6 +7,8 @@ import {
   Grid,
   GridItem,
   Image,
+  Skeleton,
+  SkeletonText,
   Text,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -35,14 +37,6 @@ function HomePageContainerDesktop(props) {
     dataBlogs,
     isSuccessBlogs,
   } = props;
-  console.log(
-    '🚀 ~ file: HomePageContainerDesktop.jsx ~ line 38 ~ HomePageContainerDesktop ~ dataBlogs',
-    dataBlogs,
-  );
-  console.log(
-    '🚀 ~ file: HomePageContainerDesktop.jsx ~ line 39 ~ HomePageContainerDesktop ~ dataMerchants',
-    dataMerchants,
-  );
 
   const itemBanners = [
     {
@@ -177,6 +171,25 @@ function HomePageContainerDesktop(props) {
         Kategori Mitra Binaan KAMI
       </Text>
       <Flex gap={6} justifyContent="center">
+        {isLoadingCategories &&
+          isFetchingCategories &&
+          [...Array(5)].map((item, idx) => (
+            <Box key={idx}>
+              <Box key={idx}>
+                <Box
+                  width="230px"
+                  borderRadius="16px"
+                  height="175px"
+                  marginY="16px"
+                  border="1px solid #e1eaf7"
+                  padding="24px"
+                >
+                  <Skeleton boxSize="64px" borderRadius="16px" />
+                  <SkeletonText noOfLines={3} marginY="24px" />
+                </Box>
+              </Box>
+            </Box>
+          ))}
         {isSuccessCategories &&
           dataCategories?.data?.map((item, idx) => (
             <Box key={idx} marginY="16px">
