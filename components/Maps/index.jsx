@@ -1,4 +1,5 @@
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import PropTypes from 'prop-types';
 
 function Maps(props) {
   const { isMobile } = props;
@@ -26,5 +27,9 @@ function Maps(props) {
     </>
   );
 }
+
+Maps.propTypes = {
+  isMobile: PropTypes.bool,
+};
 
 export default Maps;
