@@ -6,6 +6,8 @@ import {
   Flex,
   Grid,
   Image,
+  Skeleton,
+  SkeletonText,
   Text,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -165,6 +167,24 @@ function HomePageContainerMobile(props) {
         Kategori Mitra Binaan KAMI
       </Text>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        {isLoadingCategories &&
+          isFetchingCategories &&
+          [...Array(5)].map((item, idx) => (
+            <Box key={idx}>
+              <Box key={idx}>
+                <Box
+                  width="188px"
+                  borderRadius="16px"
+                  height="178px"
+                  border="1px solid #e1eaf7"
+                  padding="24px"
+                >
+                  <Skeleton boxSize="64px" borderRadius="16px" />
+                  <SkeletonText noOfLines={3} marginY="24px" />
+                </Box>
+              </Box>
+            </Box>
+          ))}
         {isSuccessCategories &&
           dataCategories?.data?.map((item, idx) => (
             <Box key={idx}>
