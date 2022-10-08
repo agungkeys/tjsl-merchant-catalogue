@@ -264,7 +264,10 @@ function HomePageContainerDesktop(props) {
               w="100%"
             >
               <Box
-                backgroundColor="#0D5099"
+                // backgroundColor="#0D5099"
+                backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.png"
+                backgroundRepeat="no-repeat"
+                backgroundSize="contain"
                 borderTopRadius="16px"
                 height="100px"
               ></Box>
