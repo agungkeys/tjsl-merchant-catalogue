@@ -32,19 +32,19 @@ function ContactPageContainerDesktop(props) {
             <Flex p={5}>
               <HiPhone />
               <Text ml={2} mt={-1}>
-                +62 111-555-9876
+                +62 812345678
               </Text>
             </Flex>
             <Flex p={5}>
               <HiMail />
               <Text ml={2} mt={-1}>
-                abcdefg123@gmail.com
+                info@kamiumkm.com
               </Text>
             </Flex>
             <Flex p={5}>
               <HiLocationMarker />
               <Text ml={2} mt={-1}>
-                Jl. Re Martadinata Rt.34 No.39
+                Jl. James Simandjuntak No. 1. Bontang 75313. Kalimantan Timur, Indonesia.
               </Text>
             </Flex>
           </Box>
