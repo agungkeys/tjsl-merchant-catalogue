@@ -15,6 +15,7 @@ const fetchMerchants = async (limit = 10, sort = 'asc') => {
   const queryParams = {
     limit,
     sort,
+    favorite: 1,
   }
 
   const params = paramsToString(queryParams);

@@ -1,9 +1,9 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { priceFormat } from '../../helpers/utils';
+import { priceFormat, populateAdditionalImage } from '../../helpers/utils';
 
 function ProductDesktop(props) {
-  const { isLanding, isShowPrice, isDetail } = props;
+  const { isLanding, isShowPrice, isDetail, name, additionalImage } = props;
   return (
     <>
       {isLanding ? (
@@ -17,16 +17,17 @@ function ProductDesktop(props) {
           }}
         >
           <Image
-            // src="./pancake.jpg"
-            src={isDetail ? '../../pancake.jpg' : './pancake.jpg'}
-            alt=""
+            src={populateAdditionalImage({ ...additionalImage[0], height: 102, width: 102, extension: 'webp'})}
+            fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+            alt={name}
             borderTopRadius="16px"
             width="100%"
+            h="102"
             objectFit="cover"
           />
           <Box my="0px" p="12px">
-            <Text fontSize="sm" fontWeight="semibold" noOfLines={2}>
-              Pancake Coklat Lezat, enak dan bergizi
+            <Text h={10} fontSize="sm" fontWeight="semibold" noOfLines={2}>
+              {name}
             </Text>
             {isShowPrice && (
               <Text pt={1} fontWeight="normal" fontSize="sm">
@@ -77,6 +78,8 @@ ProductDesktop.propTypes = {
   isLanding: PropTypes.bool,
   isShowPrice: PropTypes.bool,
   isDetail: PropTypes.bool,
+  name: PropTypes.string,
+  additionalImage: PropTypes.object,
 };
 
 export default ProductDesktop;
