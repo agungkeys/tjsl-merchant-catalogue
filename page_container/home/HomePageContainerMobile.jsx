@@ -30,6 +30,8 @@ function HomePageContainerMobile(props) {
     isFetchingMerchants,
     dataBlogs,
     isSuccessBlogs,
+    isLoadingBlogs,
+    isFetchingBlogs,
   } = props;
 
   const itemBanners = [
@@ -159,6 +161,19 @@ function HomePageContainerMobile(props) {
     </Box>
   );
 
+  const SkeletonCategory = () => (
+    <Box
+      width="188px"
+      borderRadius="16px"
+      height="178px"
+      border="1px solid #e1eaf7"
+      padding="24px"
+    >
+      <Skeleton boxSize="64px" borderRadius="16px" />
+      <SkeletonText noOfLines={3} marginY="24px" />
+    </Box>
+  );
+
   const CategoriesSection = () => (
     <Box paddingY="24px" marginY="32px">
       <Text
@@ -174,18 +189,7 @@ function HomePageContainerMobile(props) {
           isFetchingCategories &&
           [...Array(5)].map((item, idx) => (
             <Box key={idx}>
-              <Box key={idx}>
-                <Box
-                  width="188px"
-                  borderRadius="16px"
-                  height="178px"
-                  border="1px solid #e1eaf7"
-                  padding="24px"
-                >
-                  <Skeleton boxSize="64px" borderRadius="16px" />
-                  <SkeletonText noOfLines={3} marginY="24px" />
-                </Box>
-              </Box>
+              <SkeletonCategory />
             </Box>
           ))}
         {isSuccessCategories &&
@@ -237,6 +241,28 @@ function HomePageContainerMobile(props) {
     </NextLink>
   );
 
+  const SkeletonBlog = () => (
+    <Box
+      flexDirection="column"
+      gap={3}
+      bgColor="#fff"
+      borderRadius="16px"
+      padding="9px"
+      boxShadow="md"
+      border="1px solid #e1eaf7"
+      marginY="8px"
+    >
+      <Skeleton height="150px" borderRadius="8px" />
+      <Box marginY="16px">
+        <SkeletonText noOfLines={4} />
+        <Flex marginTop="24px" justifyContent="space-between">
+          <SkeletonText noOfLines={1} width="80px" />
+          <SkeletonText noOfLines={1} width="80px" />
+        </Flex>
+      </Box>
+    </Box>
+  );
+
   const BlogSection = () => (
     <>
       <Flex justifyContent="space-between" alignItems="center">
@@ -250,6 +276,13 @@ function HomePageContainerMobile(props) {
         </NextLink>
       </Flex>
       <Flex flexDirection="column">
+        {isLoadingBlogs &&
+          isFetchingBlogs &&
+          [...Array(3)].map((item, idx) => (
+            <Box key={idx}>
+              <SkeletonBlog />
+            </Box>
+          ))}
         {isSuccessBlogs &&
           dataBlogs?.data?.slice(0, 3).map((item, idx) => (
             <Box key={idx}>
@@ -353,6 +386,8 @@ HomePageContainerMobile.propTypes = {
   isFetchingMerchants: PropTypes.bool,
   dataBlogs: PropTypes.object,
   isSuccessBlogs: PropTypes.bool,
+  isLoadingBlogs: PropTypes.bool,
+  isFetchingBlogs: PropTypes.bool,
 };
 
 export default HomePageContainerMobile;
