@@ -38,6 +38,8 @@ function HomePageContainerDesktop(props) {
     isFetchingMerchants,
     dataBlogs,
     isSuccessBlogs,
+    isLoadingBlogs,
+    isFetchingBlogs,
   } = props;
 
   const itemBanners = [
@@ -167,6 +169,22 @@ function HomePageContainerDesktop(props) {
     </>
   );
 
+  const SkeletonCategories = () => (
+    <Box>
+      <Box
+        width="230px"
+        borderRadius="16px"
+        height="175px"
+        marginY="16px"
+        border="1px solid #e1eaf7"
+        padding="24px"
+      >
+        <Skeleton boxSize="64px" borderRadius="16px" />
+        <SkeletonText noOfLines={3} marginY="24px" />
+      </Box>
+    </Box>
+  );
+
   const CategoriesSection = () => (
     <Box paddingY="16px" marginY="64px">
       <Text fontWeight="extrabold" fontSize="32px">
@@ -177,19 +195,7 @@ function HomePageContainerDesktop(props) {
           isFetchingCategories &&
           [...Array(5)].map((item, idx) => (
             <Box key={idx}>
-              <Box key={idx}>
-                <Box
-                  width="230px"
-                  borderRadius="16px"
-                  height="175px"
-                  marginY="16px"
-                  border="1px solid #e1eaf7"
-                  padding="24px"
-                >
-                  <Skeleton boxSize="64px" borderRadius="16px" />
-                  <SkeletonText noOfLines={3} marginY="24px" />
-                </Box>
-              </Box>
+              <SkeletonCategories />
             </Box>
           ))}
         {isSuccessCategories &&
@@ -250,6 +256,55 @@ function HomePageContainerDesktop(props) {
     </>
   );
 
+  const SkeletonMerchant = () => (
+    <Box
+      marginY="32px"
+      borderRadius="16px"
+      boxShadow="lg"
+      w="395px"
+      border="1px solid #e1eaf7"
+    >
+      <Box border="1px solid #e1eaf7" borderTopRadius="16px" height="100px" />
+      <Flex paddingX="32px" width="100%" gap={4}>
+        <Skeleton
+          rounded="full"
+          boxSize="100px"
+          backgroundColor="#fff"
+          marginTop="-50px"
+          boxShadow="lg"
+          w="156px"
+        />
+
+        <Box
+          height="100px"
+          backgroundColor="#fff"
+          marginTop="-50px"
+          boxShadow="lg"
+          padding="12px"
+          w="100%"
+          borderRadius="10px"
+        >
+          <SkeletonText noOfLines={3} />
+        </Box>
+      </Flex>
+      <Grid templateColumns="repeat(3, 1fr)" gap={3} p={8}>
+        {[...Array(3)].map((item, idx) => (
+          <GridItem key={idx}>
+            <Box
+              borderRadius="16px"
+              border="1px solid #e1eaf7"
+              width="100%"
+              height="162px"
+            >
+              <Skeleton borderTopRadius="16px" boxSize="102px" />
+              <SkeletonText marginX={2} noOfLines={2} marginTop="12px" />
+            </Box>
+          </GridItem>
+        ))}
+      </Grid>
+    </Box>
+  );
+
   const MerchantSection = () => (
     <>
       <Text fontWeight="extrabold" fontSize="32px">
@@ -259,60 +314,8 @@ function HomePageContainerDesktop(props) {
         {isLoadingMerchants &&
           isFetchingMerchants &&
           [...Array(3)].map((item, idx) => (
-            <Box
-              key={item?.id}
-              marginY="32px"
-              borderRadius="16px"
-              boxShadow="lg"
-              w="395px"
-              border="1px solid #e1eaf7"
-            >
-              <Box
-                border="1px solid #e1eaf7"
-                borderTopRadius="16px"
-                height="100px"
-              />
-              <Flex paddingX="32px" width="100%" gap={4}>
-                <Skeleton
-                  rounded="full"
-                  boxSize="100px"
-                  backgroundColor="#fff"
-                  marginTop="-50px"
-                  boxShadow="lg"
-                  w="156px"
-                />
-
-                <Box
-                  height="100px"
-                  backgroundColor="#fff"
-                  marginTop="-50px"
-                  boxShadow="lg"
-                  padding="12px"
-                  w="100%"
-                  borderRadius="10px"
-                >
-                  <SkeletonText noOfLines={3} />
-                </Box>
-              </Flex>
-              <Grid templateColumns="repeat(3, 1fr)" gap={3} p={8}>
-                {[...Array(3)].map((item, idx) => (
-                  <GridItem key={idx}>
-                    <Box
-                      borderRadius="16px"
-                      border="1px solid #e1eaf7"
-                      width="100%"
-                      height="162px"
-                    >
-                      <Skeleton borderTopRadius="16px" boxSize="102px" />
-                      <SkeletonText
-                        marginX={2}
-                        noOfLines={2}
-                        marginTop="12px"
-                      />
-                    </Box>
-                  </GridItem>
-                ))}
-              </Grid>
+            <Box key={idx}>
+              <SkeletonMerchant />
             </Box>
           ))}
         {isSuccessMerchants &&
@@ -392,6 +395,24 @@ function HomePageContainerDesktop(props) {
     </>
   );
 
+  const SkeletonBlog = () => (
+    <Box
+      marginY="32px"
+      borderRadius="16px"
+      boxShadow="lg"
+      border="1px solid #e1eaf7"
+    >
+      <Skeleton width="100%" height="250px" borderTopRadius="8px" />
+      <Box padding="16px">
+        <SkeletonText noOfLines={4} />
+        <Flex justifyContent="space-between" marginTop="12px">
+          <SkeletonText width="120px" noOfLines={1} />
+          <SkeletonText width="120px" noOfLines={1} />
+        </Flex>
+      </Box>
+    </Box>
+  );
+
   const BlogSection = () => (
     <>
       <Flex alignItems="center" justifyContent="space-between">
@@ -403,6 +424,13 @@ function HomePageContainerDesktop(props) {
         </Button>
       </Flex>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+        {isLoadingBlogs &&
+          isFetchingBlogs &&
+          [...Array(3)].map((item, idx) => (
+            <Box key={idx}>
+              <SkeletonBlog />
+            </Box>
+          ))}
         {isSuccessBlogs &&
           dataBlogs?.data?.slice(0, 3).map((item) => (
             <GridItem key={item?.id}>
@@ -461,6 +489,8 @@ HomePageContainerDesktop.propTypes = {
   isFetchingMerchants: PropTypes.bool,
   dataBlogs: PropTypes.object,
   isSuccessBlogs: PropTypes.bool,
+  isLoadingBlogs: PropTypes.bool,
+  isFetchingBlogs: PropTypes.bool,
 };
 
 export default HomePageContainerDesktop;
