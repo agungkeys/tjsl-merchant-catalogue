@@ -447,7 +447,7 @@ function HomePageContainerDesktop(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      <Box
+      {/* <Box
         marginY="42px"
         backgroundColor="#f0f8ff"
         height="270px"
@@ -456,7 +456,7 @@ function HomePageContainerDesktop(props) {
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
-      </Box>
+      </Box> */}
       <Container maxW="container.xl">
         <CategoriesSection />
       </Container>
