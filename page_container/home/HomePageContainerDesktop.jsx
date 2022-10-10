@@ -394,9 +394,10 @@ function HomePageContainerDesktop(props) {
                   {item?.image ? (
                     <Image
                       borderRadius="4em"
-                      boxSize="84px"
+                      boxSize="100%"
                       src={item?.image}
                       alt={item?.name}
+                      fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
                     />
                   ) : (
                     <Image
