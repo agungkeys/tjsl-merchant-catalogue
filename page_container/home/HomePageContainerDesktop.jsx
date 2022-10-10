@@ -338,7 +338,7 @@ function HomePageContainerDesktop(props) {
 
   const MerchantSection = () => (
     <>
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" alignItems="center">
         <Text fontWeight="extrabold" fontSize="32px">
           Mitra Unggulan KAMI
         </Text>
