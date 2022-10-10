@@ -47,16 +47,18 @@ function HeaderDesktop(props) {
               <NextLink link="/">
                 <Text
                   fontSize="lg"
-                  color="gray.60"
+                  fontWeight="semibold"
+                  // color="#1746a2"
                   p={2}
                   px={3}
-                  borderRadius="8px"
+                  borderRadius="2em"
                   sx={{
                     _hover: {
-                      bg: 'blue.10',
-                      color: 'gray.80',
+                      bg: '#ff731d',
+                      color: 'white',
                     },
                   }}
+                  transition="all 0.3s ease-in-out"
                 >
                   Beranda
                 </Text>
@@ -64,16 +66,18 @@ function HeaderDesktop(props) {
               <NextLink link="/merchants">
                 <Text
                   fontSize="lg"
-                  color="gray.60"
+                  fontWeight="semibold"
+                  // color="#1746a2"
                   p={2}
                   px={3}
-                  borderRadius="8px"
+                  borderRadius="2em"
                   sx={{
                     _hover: {
-                      bg: 'blue.10',
-                      color: 'gray.80',
+                      bg: '#ff731d',
+                      color: 'white',
                     },
                   }}
+                  transition="all 0.3s ease-in-out"
                 >
                   Mitra Kami
                 </Text>
@@ -81,16 +85,18 @@ function HeaderDesktop(props) {
               <NextLink link="/blog">
                 <Text
                   fontSize="lg"
-                  color="gray.60"
+                  fontWeight="semibold"
+                  // color="#1746a2"
                   p={2}
                   px={3}
-                  borderRadius="8px"
+                  borderRadius="2em"
                   sx={{
                     _hover: {
-                      bg: 'blue.10',
-                      color: 'gray.80',
+                      bg: '#ff731d',
+                      color: 'white',
                     },
                   }}
+                  transition="all 0.3s ease-in-out"
                 >
                   Blog Kami
                 </Text>
@@ -98,16 +104,18 @@ function HeaderDesktop(props) {
               <NextLink link="/contact">
                 <Text
                   fontSize="lg"
-                  color="gray.60"
+                  fontWeight="semibold"
+                  // color="#1746a2"
                   p={2}
                   px={3}
-                  borderRadius="8px"
+                  borderRadius="2em"
                   sx={{
                     _hover: {
-                      bg: 'blue.10',
-                      color: 'gray.80',
+                      bg: '#ff731d',
+                      color: 'white',
                     },
                   }}
+                  transition="all 0.3s ease-in-out"
                 >
                   Kontak
                 </Text>

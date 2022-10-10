@@ -14,20 +14,20 @@ function FooterDesktop(props) {
   return (
     <>
       <Flex
-        backgroundColor="#00264d"
+        backgroundColor="#1746a2"
         color="#fff"
         alignItems="center"
         paddingY="42px"
       >
         <Container maxW="container.xl">
           <Flex justifyContent="space-between">
-            <Flex flexDirection="column" gap={4} width="300px">
+            <Flex flexDirection="column" gap={1} width="300px">
               <Image
                 src="https://res.cloudinary.com/borneos-co/image/upload/v1664949490/tjsl-core/icon-logo/kamiumkm_white_gfc8kf.png"
                 alt="Logo KamiUMKM"
                 width="250px"
               />
-              <Text fontWeight="light" fontSize="md">
+              <Text fontWeight="light" fontSize="sm">
                 KamiUMKM adalah program Pupuk Kaltim untuk menghimpun seluruh
                 UMKM binaan PT Pupuk Kaltim dalam suatu wadah digital.
               </Text>
@@ -46,7 +46,7 @@ function FooterDesktop(props) {
                 <Text>Tentang</Text>
               </NextLink>
             </Flex>
-            <Flex flexDirection="column" gap={4} width="300px">
+            <Flex flexDirection="column" gap={2} width="300px">
               <Text fontWeight="semibold" fontSize="3xl">
                 Alamat Kantor
               </Text>
@@ -55,7 +55,7 @@ function FooterDesktop(props) {
                 Utara, Kota Bontang, Kalimantan Timur 75313
               </Text>
             </Flex>
-            <Flex flexDirection="column" gap={4} width="300px">
+            <Flex flexDirection="column" gap={2} width="300px">
               <Text fontWeight="semibold" fontSize="3xl">
                 Ikuti Kami
               </Text>
@@ -65,7 +65,7 @@ function FooterDesktop(props) {
                   target="_blank"
                 >
                   <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
+                    <Button h="full" color="white" variant="unstyled">
                       <FaInstagram />
                     </Button>
                   </Center>
@@ -75,7 +75,7 @@ function FooterDesktop(props) {
                   target="_blank"
                 >
                   <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
+                    <Button h="full" color="white" variant="unstyled">
                       <FaTwitter />
                     </Button>
                   </Center>
@@ -85,7 +85,7 @@ function FooterDesktop(props) {
                   target="_blank"
                 >
                   <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
+                    <Button h="full" color="white" variant="unstyled">
                       <FaYoutube />
                     </Button>
                   </Center>
@@ -95,7 +95,7 @@ function FooterDesktop(props) {
                   target="_blank"
                 >
                   <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
+                    <Button h="full" color="white" variant="unstyled">
                       <FaTiktok />
                     </Button>
                   </Center>
@@ -112,8 +112,8 @@ function FooterDesktop(props) {
         justifyContent="center"
         alignItems="center"
       >
-        <Text fontWeight="bold" fontSize="lg" color="#00264d">
-          KamiUMKM | Copyright &copy; 2022 All Rights Reserved
+        <Text fontWeight="normal" fontSize="14px" color="#00264d">
+          KamiUMKM | Copyright &copy; 2022 - TJSL PT. Pupuk Kalimantan Timur
         </Text>
       </Flex>
     </>

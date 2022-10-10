@@ -91,7 +91,7 @@ function HomePageContainerDesktop(props) {
     <Grid
       templateColumns="repeat(2, 1fr)"
       gap={6}
-      marginY="48px"
+      marginY="16px"
       alignItems="center"
     >
       <GridItem>
@@ -99,16 +99,16 @@ function HomePageContainerDesktop(props) {
           <Text
             fontWeight="extrabold"
             fontSize="48px"
-            color="#F57921"
+            color="#FF731D"
             lineHeight={1}
           >
-            KamiUMKM
+            KaMiUMKM
           </Text>
           <Text
-            fontSize="3xl"
+            fontSize="23px"
             fontWeight="bold"
             textTransform="uppercase"
-            color="#0D5099"
+            color="#5f9df7"
           >
             Katalog Mitra UMKM
           </Text>
@@ -125,7 +125,7 @@ function HomePageContainerDesktop(props) {
       </GridItem>
       <GridItem>
         <Flex justifyContent="center">
-          <Image src="/home.png" alt="" width="420px" />
+          <Image src="/home.png" alt="" width="320px" />
         </Flex>
       </GridItem>
     </Grid>
@@ -134,8 +134,12 @@ function HomePageContainerDesktop(props) {
   const BenefitSection = () => (
     <Flex gap={3}>
       <Box width="40%">
-        <Text fontSize="24px" fontWeight="bold" textTransform="uppercase">
-          Visi KaMiUMKM
+        <Text 
+          color="white"
+          fontWeight="bold" 
+          fontSize="5xl"
+        >
+          Visi
         </Text>
         <Flex
           marginY="8px"
@@ -146,9 +150,8 @@ function HomePageContainerDesktop(props) {
           padding="16px"
           height="192px"
         >
-          <Flex gap={4}>
+          <Flex gap={1}>
             <Image src="./service_2.png" alt="" boxSize="92px" />
-
             <Text fontSize="lg" fontWeight="normal">
               Terwujudnya masyarakat mandiri dan berkelanjutan berbasis hubungan
               yang harmonis antara perusahaan dan masyarakat.
@@ -157,8 +160,12 @@ function HomePageContainerDesktop(props) {
         </Flex>
       </Box>
       <Box width="60%">
-        <Text fontSize="24px" fontWeight="bold" textTransform="uppercase">
-          Misi KaMiUMKM
+        <Text 
+          color="white"
+          fontWeight="bold" 
+          fontSize="5xl"
+        >
+          Misi
         </Text>
         <Flex
           marginY="8px"
@@ -170,7 +177,6 @@ function HomePageContainerDesktop(props) {
         >
           <Flex gap={8} alignItems="start">
             <Image src="./service_3.png" alt="" boxSize="92px" />
-
             <Box paddingY="8px">
               <ul>
                 <li>
@@ -217,8 +223,8 @@ function HomePageContainerDesktop(props) {
   );
 
   const CategoriesSection = () => (
-    <Box paddingY="16px" marginY="64px">
-      <Text fontWeight="extrabold" fontSize="32px">
+    <Box paddingY="18px" marginY="32px">
+      <Text fontWeight="bold" fontSize="5xl">
         Kategori Mitra Binaan KAMI
       </Text>
       <Flex gap={6} justifyContent="center">
@@ -250,7 +256,8 @@ function HomePageContainerDesktop(props) {
           padding="24px"
           _hover={{
             transform: 'translate(-0.5rem, -0.5rem)',
-            bg: '#f0f8ff',
+            bg: '#ff731d',
+            color: '#fff'
           }}
           transition="all 0.5s ease-in-out"
           borderRadius="16px"
@@ -273,7 +280,7 @@ function HomePageContainerDesktop(props) {
               fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
             />
           </Box>
-          <Text fontWeight="extrabold" fontSize="xl" color="gray.70">
+          <Text fontWeight="extrabold" fontSize="xl">
             {item?.name || ''}
           </Text>
           <Text fontWeight="light" fontSize="sm">
@@ -339,7 +346,7 @@ function HomePageContainerDesktop(props) {
   const MerchantSection = () => (
     <>
       <Flex justifyContent="space-between" alignItems="center">
-        <Text fontWeight="extrabold" fontSize="32px">
+        <Text fontWeight="bold" fontSize="5xl">
           Mitra Unggulan KAMI
         </Text>
         <NextLink link="/merchants">
@@ -371,6 +378,7 @@ function HomePageContainerDesktop(props) {
                 backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.png"
                 backgroundRepeat="no-repeat"
                 backgroundSize="contain"
+                backgroundPosition="top-right"
                 borderTopRadius="16px"
                 height="100px"
               ></Box>
@@ -455,7 +463,7 @@ function HomePageContainerDesktop(props) {
   const BlogSection = () => (
     <>
       <Flex alignItems="center" justifyContent="space-between">
-        <Text fontWeight="extrabold" fontSize="32px">
+        <Text fontWeight="bold" fontSize="5xl">
           Blog Kami
         </Text>
         <NextLink link="/blog">
@@ -489,10 +497,9 @@ function HomePageContainerDesktop(props) {
         <HeroSection />
       </Container>
       <Box
-        marginY="42px"
-        backgroundColor="#f0f8ff"
-        height="290px"
-        paddingY="24px"
+        mt="32px"
+        backgroundColor="#5f9df7"
+        paddingY="32px"
       >
         <Container maxW="container.xl">
           <BenefitSection />
@@ -505,7 +512,7 @@ function HomePageContainerDesktop(props) {
         <MerchantSection />
       </Container>
       <Box
-        backgroundImage="linear-gradient(#f0f8ff, white)"
+        backgroundImage="linear-gradient(#fff7e9, white)"
         marginY="32px"
         paddingY="24px"
       >

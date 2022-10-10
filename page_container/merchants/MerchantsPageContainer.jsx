@@ -4,9 +4,24 @@ import MerchantsPageContainerMobile from "./MerchantsPageContainerMobile";
 
 import { useQuery } from 'react-query';
 import { fetchMerchants } from "../../hooks/useMerchants";
+import { fetchCategories } from "../../hooks/useCategories";
 
 function MerchantsPageContainer(props) {
   const { isMobile } = props;
+
+  const { 
+    data: dataCategories, 
+    isError: isErrorCategories, 
+    isLoading: isLoadingCategories, 
+    isFetching: isFetchingCategories, 
+    isSuccess: isSuccessCategories
+  } = useQuery(
+    ['categories'],
+		() => fetchCategories(),
+		{
+      staleTime: 0,
+		},
+  );
 
   const { 
     data: dataMerchants, 
@@ -16,7 +31,7 @@ function MerchantsPageContainer(props) {
     isSuccess: isSuccessMerchants
   } = useQuery(
     ['merchants'],
-		() => fetchMerchants({ isFavorite: null }),
+		() => fetchMerchants({}),
     {
       staleTime: 0,
     },
@@ -24,6 +39,11 @@ function MerchantsPageContainer(props) {
 
   props = {
     ...props,
+    dataCategories,
+    isErrorCategories,
+    isLoadingCategories,
+    isFetchingCategories,
+    isSuccessCategories,
     dataMerchants,
     isErrorMerchants, 
     isLoadingMerchants, 

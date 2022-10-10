@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
-import { Box, Flex, Center, Image, Text, Grid } from '@chakra-ui/react';
+import { Box, Button, Flex, Center, Container, Image, Text, Grid, GridItem } from '@chakra-ui/react';
 import { Product, Pagination, NextLink } from '../../components';
 
 import { populateAdditionalImage } from '../../helpers/utils';
 
 function MerchantsPageContainerDesktop(props) {
   const {
+    dataCategories,
+    isErrorCategories,
+    isLoadingCategories,
+    isFetchingCategories,
+    isSuccessCategories,
     dataMerchants,
     isErrorMerchants, 
     isLoadingMerchants, 
@@ -13,13 +18,18 @@ function MerchantsPageContainerDesktop(props) {
     isSuccessMerchants,
   } = props;
   const MerchantSection = () => (
-    <>
+    <Container maxW="container.xl">
+      <Box py={4}>
+        <Flex gap={2}>
+          {dataCategories?.data?.map(item => 
+            <Button colorScheme='facebook' key={item?.id} borderRadius='2em'>{item?.name}</Button>
+          )}
+        </Flex>
+      </Box>
       <Grid
         templateColumns="repeat(3, 1fr)"
         gap={8}
         width="100%"
-        pr="5%"
-        pl="5%"
       >
         {dataMerchants?.data?.map((item, idx) => (
           <NextLink key={item?.id} link={`/merchants/${item?.slug}`}>
@@ -89,7 +99,7 @@ function MerchantsPageContainerDesktop(props) {
           </NextLink>
         ))}
       </Grid>
-    </>
+    </Container>
   );
   return (
     <Flex>
@@ -119,6 +129,11 @@ function MerchantsPageContainerDesktop(props) {
 
 MerchantsPageContainerDesktop.propTypes = {
   isMobile: PropTypes.bool,
+  dataCategories: PropTypes.object,
+  isErrorCategories: PropTypes.bool,
+  isLoadingCategories: PropTypes.bool,
+  isFetchingCategories: PropTypes.bool,
+  isSuccessCategories: PropTypes.bool,
   dataMerchants: PropTypes.object,
   isSuccessMerchants: PropTypes.bool,
   dataBlogs: PropTypes.object,
