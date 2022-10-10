@@ -31,7 +31,7 @@ function HomePageContainer(props) {
     isSuccess: isSuccessMerchants
   } = useQuery(
     ['merchants'],
-		() => fetchMerchants(),
+		() => fetchMerchants({ isFavorite: 1 }),
 		{
       staleTime: 0,
 		},

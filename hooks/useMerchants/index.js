@@ -3,7 +3,13 @@ import ENV from '../../constants/env';
 import ENDPOINTS from '../../constants/endpoints';
 import { paramsToString } from '../../helpers/utils';
 
-const fetchMerchants = async (limit = 10, sort = 'asc') => {
+const fetchMerchants = async (props) => {
+  console.log("🚀 ~ file: index.js ~ line 7 ~ fetchMerchants ~ props", props)
+  const {
+    limit = 15, 
+    sort = 'asc', 
+    isFavorite,
+  } = props;
   const requestOptions = {
     method: 'GET',
     headers: { 
@@ -15,7 +21,7 @@ const fetchMerchants = async (limit = 10, sort = 'asc') => {
   const queryParams = {
     limit,
     sort,
-    favorite: 1,
+    isFavorite
   }
 
   const params = paramsToString(queryParams);
