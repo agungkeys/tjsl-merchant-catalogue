@@ -16,7 +16,9 @@ function MerchantPageContainerDesktop(props) {
   return (
     <Grid>
       <Box
-        bgImage="https://res.cloudinary.com/borneos-co/image/upload/h_600/v1658911436/images/favourites/Featured_d8mpdr.webp"
+        bgImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.png"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
         w="100%"
         minH={300}
         display="flex"

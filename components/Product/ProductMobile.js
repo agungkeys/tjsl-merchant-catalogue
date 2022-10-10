@@ -1,9 +1,10 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { priceFormat } from '../../helpers/utils';
+import { populateAdditionalImage, priceFormat } from '../../helpers/utils';
 
 function ProductMobile(props) {
-  const { isLanding, isShowPrice, items } = props;
+  const { isLanding, isShowPrice, name, additionalImage } = props;
+
   return (
     <>
       {isLanding ? (
@@ -17,15 +18,20 @@ function ProductMobile(props) {
           }}
         >
           <Image
-            src="./pancake.jpg"
+            src={populateAdditionalImage({
+              ...additionalImage[0],
+              height: 120,
+              width: 120,
+              extension: 'webp',
+            })}
             alt=""
             borderTopRadius="16px"
             width="100%"
-            objectFit="cover"
+            fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
           />
           <Box my="0px" p="12px">
             <Text fontSize="sm" fontWeight="semibold" noOfLines={2}>
-              {items.productName}
+              {name}
             </Text>
             {isShowPrice && (
               <Text pt={1} fontWeight="normal" fontSize="sm">
@@ -44,7 +50,8 @@ function ProductMobile(props) {
 ProductMobile.propTypes = {
   isLanding: PropTypes.bool,
   isShowPrice: PropTypes.bool,
-  items: PropTypes.object,
+  name: PropTypes.string,
+  additionalImage: PropTypes.array,
 };
 
 export default ProductMobile;

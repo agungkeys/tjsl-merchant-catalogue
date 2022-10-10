@@ -25,8 +25,8 @@ function FooterMobile() {
                 KamiUMKM
               </Text>
               <Text fontWeight="light" fontSize="md">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                KamiUMKM adalah program Pupuk Kaltim untuk menghimpun seluruh
+                UMKM binaan PT Pupuk Kaltim dalam suatu wadah digital.
               </Text>
             </Box>
             <Flex flexDirection="column" gap={2}>

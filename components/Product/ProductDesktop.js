@@ -16,9 +16,18 @@ function ProductDesktop(props) {
             transform: 'translate(-0.5rem, -0.5rem)',
           }}
         >
-          {additionalImage?.length > 0 || additionalImage !== null ? 
+          {additionalImage?.length > 0 || additionalImage !== null ? (
             <Image
-              src={additionalImage?.length > 0 ? populateAdditionalImage({ ...additionalImage[0], height: 102, width: 102, extension: 'webp'}) : '' }
+              src={
+                additionalImage?.length > 0
+                  ? populateAdditionalImage({
+                      ...additionalImage[0],
+                      height: 102,
+                      width: 102,
+                      extension: 'webp',
+                    })
+                  : ''
+              }
               fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
               alt={name}
               borderTopRadius="16px"
@@ -26,7 +35,7 @@ function ProductDesktop(props) {
               h="102"
               objectFit="cover"
             />
-            :
+          ) : (
             <Image
               src="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
               fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
@@ -36,8 +45,8 @@ function ProductDesktop(props) {
               h="102"
               objectFit="cover"
             />
-        }
-          
+          )}
+
           <Box my="0px" p="12px">
             <Text h={10} fontSize="sm" fontWeight="semibold" noOfLines={2}>
               {name}
