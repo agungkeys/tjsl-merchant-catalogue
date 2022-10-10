@@ -17,7 +17,7 @@ function ProductDesktop(props) {
           }}
         >
           <Image
-            src={populateAdditionalImage({ ...additionalImage[0], height: 102, width: 102, extension: 'webp'})}
+            // src={populateAdditionalImage({ ...additionalImage[0], height: 102, width: 102, extension: 'webp'})}
             fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
             alt={name}
             borderTopRadius="16px"
