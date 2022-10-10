@@ -350,11 +350,11 @@ function HomePageContainerMobile(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      <Box backgroundColor="#f0f8ff">
+      {/* <Box backgroundColor="#f0f8ff">
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
-      </Box>
+      </Box> */}
       <Container>
         <CategoriesSection />
         {isLoadingMerchants && isFetchingMerchants && <SkeletonMerchant />}

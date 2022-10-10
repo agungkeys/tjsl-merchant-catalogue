@@ -1,4 +1,5 @@
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { HiMenuAlt3 } from 'react-icons/hi';
 import {
   Box,
   Button,
@@ -14,20 +15,45 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import NextLink from '../NextLink';
+import { useEffect, useState } from 'react';
 
 function HeaderMobile(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
 
+  const [headerPosition, setHeaderPosition] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('scroll', stickNavbar);
+    return () => window.removeEventListener('scroll', stickNavbar);
+  }, []);
+
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 10 ? setHeaderPosition('fixed') : setHeaderPosition('');
+    }
+  };
+
   return (
-    <Box width="100%" boxShadow="lg" paddingY="16px" marginBottom="16px">
+    <Box
+      width="100%"
+      boxShadow="xl"
+      paddingY="12px"
+      marginBottom="16px"
+      backdropFilter="blur(100px)"
+      position={headerPosition}
+      zIndex={999}
+    >
       <Container maxW="container.xl">
-        <Box onClick={onOpen}>
-          <HamburgerIcon />
-        </Box>
+        <Flex justifyContent="flex-end">
+          <Button onClick={onOpen} variant="unstyled">
+            <HiMenuAlt3 size={42} />
+          </Button>
+        </Flex>
       </Container>
 
-      <Drawer placement="left" onClose={onClose} isOpen={isOpen} size="xs">
+      <Drawer placement="right" onClose={onClose} isOpen={isOpen} size="xs">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerBody padding="32px">
@@ -38,7 +64,13 @@ function HeaderMobile(props) {
                 height="50px"
                 objectFit="cover"
               />
-              <NextLink link="/">
+              <NextLink
+                link="/"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                }}
+              >
                 <Button
                   variant={router.pathname === '/' ? 'secondary' : ''}
                   width="100%"
@@ -46,25 +78,44 @@ function HeaderMobile(props) {
                   Beranda
                 </Button>
               </NextLink>
-              <NextLink link="/mitra-kami">
+              <NextLink
+                link="/merchants"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                }}
+              >
                 <Button
-                  variant={router.pathname === '/mitra-kami' ? 'secondary' : ''}
+                  variant={router.pathname === '/merchants' ? 'secondary' : ''}
+                  width="100%"
                 >
                   Mitra Kami
                 </Button>
               </NextLink>
-              <NextLink link="/blog">
+              <NextLink
+                link="/blog"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                }}
+              >
                 <Button
                   variant={router.pathname === '/blog' ? 'secondary' : ''}
+                  width="100%"
                 >
                   Blog
                 </Button>
               </NextLink>
-              <NextLink link="/kontak-kami">
+              <NextLink
+                link="/tentang"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                }}
+              >
                 <Button
-                  variant={
-                    router.pathname === '/kontak-kami' ? 'secondary' : ''
-                  }
+                  variant={router.pathname === '/tentang' ? 'secondary' : ''}
+                  width="100%"
                 >
                   Kontak Kami
                 </Button>
