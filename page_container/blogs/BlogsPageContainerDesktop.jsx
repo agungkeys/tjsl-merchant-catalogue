@@ -60,80 +60,12 @@ function BlogsPageContainerDesktop(props) {
             </GridItem>
 
           )}
-          {/* <GridItem
-            rowSpan={2}
-            colSpan={3}
-            padding="16px"
-            borderRadius="16px"
-            sx={{
-              background:
-                'linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./pancake.jpg)',
-              backgroundSize: 'cover',
-            }}
-            onClick={() => router.push('/')}
-            cursor="pointer"
-          >
-            <Box display="inline-block">
-              <Badge colorScheme="purple" borderRadius="xl">
-                New
-              </Badge>
-              <Text fontWeight="bold" fontSize="5xl" color="#fff">
-                Blog
-              </Text>
-            </Box>
-          </GridItem>
-
-          <GridItem
-            colSpan={2}
-            borderRadius="16px"
-            padding="16px"
-            sx={{
-              background:
-                'linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./pancake.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-            onClick={() => router.push('/')}
-            cursor="pointer"
-          >
-            <Box display="inline-block">
-              <Badge colorScheme="purple" borderRadius="xl">
-                New
-              </Badge>
-              <Text fontWeight="bold" fontSize="5xl" color="#fff">
-                Blog
-              </Text>
-            </Box>
-          </GridItem>
-
-          <GridItem
-            colSpan={2}
-            borderRadius="16px"
-            padding="16px"
-            sx={{
-              background:
-                'linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./pancake.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-            onClick={() => router.push('/')}
-            cursor="pointer"
-          >
-            <Box display="inline-block">
-              <Badge colorScheme="purple" borderRadius="xl">
-                New
-              </Badge>
-              <Text fontWeight="bold" fontSize="5xl" color="#fff">
-                Blog
-              </Text>
-            </Box>
-          </GridItem> */}
         </Grid>
 
         <Grid templateColumns="repeat(3, 1fr)" gap={4} marginY="32px">
-          {[...Array(6)].map((item, idx) => (
+          {dataBlogs?.data?.slice(3,9).map((item, idx) => (
             <GridItem key={idx}>
-              <BlogCard />
+              <BlogCard {...item} />
             </GridItem>
           ))}
         </Grid>
