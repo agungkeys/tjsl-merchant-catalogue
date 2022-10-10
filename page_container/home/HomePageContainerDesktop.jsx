@@ -382,13 +382,13 @@ function HomePageContainerDesktop(props) {
                   </Text>
                 </Flex>
               </Flex>
-              <Flex justifyContent="space-between" gap={3} p={8}>
-                {[...Array(3)].map((item, idx) => (
-                  <Box key={idx}>
-                    <Product isLanding />
-                  </Box>
+              <Grid gap={3} p={8} templateColumns="repeat(3, 1fr)">
+                {item?.products?.map((item, idx) => (
+                  <GridItem key={idx}>
+                    <Product isLanding {...item} />
+                  </GridItem>
                 ))}
-              </Flex>
+              </Grid>
             </Box>
           ))}
       </Flex>
