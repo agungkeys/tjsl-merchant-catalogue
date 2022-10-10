@@ -7,6 +7,8 @@ import {
   Grid,
   GridItem,
   Image,
+  Skeleton,
+  SkeletonText,
   Text,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -32,8 +34,12 @@ function HomePageContainerDesktop(props) {
     isSuccessCategories,
     dataMerchants,
     isSuccessMerchants,
+    isLoadingMerchants,
+    isFetchingMerchants,
     dataBlogs,
     isSuccessBlogs,
+    isLoadingBlogs,
+    isFetchingBlogs,
   } = props;
 
   const itemBanners = [
@@ -126,41 +132,88 @@ function HomePageContainerDesktop(props) {
   );
 
   const BenefitSection = () => (
-    <>
-      <Text fontSize="24px" fontWeight="bold">
-        Nilai [BRAND TJSL]
-      </Text>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-        {itemServices.map((item, idx) => (
-          <GridItem
-            key={idx}
-            padding="16px"
-            borderRadius="16px"
-            boxShadow="xl"
-            backgroundColor="#fff"
-            marginY="12px"
-            transition="all 0.5s ease-in-out"
-            _hover={{
-              transform: 'translate(-0.5rem, -0.5rem)',
-            }}
-            cursor="context-menu"
-          >
-            <Flex justifyContent="space-between" alignItems="center">
-              <Image src={item.image} alt="" boxSize="128px" />
-              <Box>
-                <Text fontWeight="bold" fontSize="16px">
-                  {item.name}
-                </Text>
-                <Text fontWeight="light" fontSize="12px">
-                  {' '}
-                  {item.description}{' '}
-                </Text>
-              </Box>
-            </Flex>
-          </GridItem>
-        ))}
-      </Grid>
-    </>
+    <Flex gap={3}>
+      <Box width="40%">
+        <Text fontSize="24px" fontWeight="bold" textTransform="uppercase">
+          Visi KaMiUMKM
+        </Text>
+        <Flex
+          marginY="8px"
+          alignItems="start"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          padding="16px"
+          height="192px"
+        >
+          <Flex gap={4}>
+            <Image src="./service_2.png" alt="" boxSize="92px" />
+
+            <Text fontSize="lg" fontWeight="normal">
+              Terwujudnya masyarakat mandiri dan berkelanjutan berbasis hubungan
+              yang harmonis antara perusahaan dan masyarakat.
+            </Text>
+          </Flex>
+        </Flex>
+      </Box>
+      <Box width="60%">
+        <Text fontSize="24px" fontWeight="bold" textTransform="uppercase">
+          Misi KaMiUMKM
+        </Text>
+        <Flex
+          marginY="8px"
+          alignItems="start"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          padding="16px"
+        >
+          <Flex gap={8} alignItems="start">
+            <Image src="./service_3.png" alt="" boxSize="92px" />
+
+            <Box paddingY="8px">
+              <ul>
+                <li>
+                  <Text fontSize="lg" fontWeight="normal">
+                    Memberdayakan potensi sumber daya lokal dengan membentuk
+                    kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
+                    kemandirian masyarakat,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="lg" fontWeight="normal">
+                    Menciptakan keserasian lingkungan sekitar dengan membangun
+                    infrastruktur pendukung secara berkelanjutan,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="lg" fontWeight="normal">
+                    Meningkatkan sinergi dan citra positif perusahaan dengan
+                    stakeholder untuk berkelanjutan operasional perusahaan.
+                  </Text>
+                </li>
+              </ul>
+            </Box>
+          </Flex>
+        </Flex>
+      </Box>
+    </Flex>
+  );
+
+  const SkeletonCategories = () => (
+    <Box>
+      <Box
+        width="230px"
+        borderRadius="16px"
+        height="175px"
+        marginY="16px"
+        border="1px solid #e1eaf7"
+        padding="24px"
+      >
+        <Skeleton boxSize="64px" borderRadius="16px" />
+        <SkeletonText noOfLines={3} marginY="24px" />
+      </Box>
+    </Box>
   );
 
   const CategoriesSection = () => (
@@ -169,6 +222,13 @@ function HomePageContainerDesktop(props) {
         Kategori Mitra Binaan KAMI
       </Text>
       <Flex gap={6} justifyContent="center">
+        {isLoadingCategories &&
+          isFetchingCategories &&
+          [...Array(5)].map((item, idx) => (
+            <Box key={idx}>
+              <SkeletonCategories />
+            </Box>
+          ))}
         {isSuccessCategories &&
           dataCategories?.data?.map((item, idx) => (
             <Box key={idx} marginY="16px">
@@ -227,12 +287,76 @@ function HomePageContainerDesktop(props) {
     </>
   );
 
+  const SkeletonMerchant = () => (
+    <Box
+      marginY="32px"
+      borderRadius="16px"
+      boxShadow="lg"
+      w="395px"
+      border="1px solid #e1eaf7"
+    >
+      <Box border="1px solid #e1eaf7" borderTopRadius="16px" height="100px" />
+      <Flex paddingX="32px" width="100%" gap={4}>
+        <Skeleton
+          rounded="full"
+          boxSize="100px"
+          backgroundColor="#fff"
+          marginTop="-50px"
+          boxShadow="lg"
+          w="156px"
+        />
+
+        <Box
+          height="100px"
+          backgroundColor="#fff"
+          marginTop="-50px"
+          boxShadow="lg"
+          padding="12px"
+          w="100%"
+          borderRadius="10px"
+        >
+          <SkeletonText noOfLines={3} />
+        </Box>
+      </Flex>
+      <Grid templateColumns="repeat(3, 1fr)" gap={3} p={8}>
+        {[...Array(3)].map((item, idx) => (
+          <GridItem key={idx}>
+            <Box
+              borderRadius="16px"
+              border="1px solid #e1eaf7"
+              width="100%"
+              height="162px"
+            >
+              <Skeleton borderTopRadius="16px" boxSize="102px" />
+              <SkeletonText marginX={2} noOfLines={2} marginTop="12px" />
+            </Box>
+          </GridItem>
+        ))}
+      </Grid>
+    </Box>
+  );
+
   const MerchantSection = () => (
     <>
-      <Text fontWeight="extrabold" fontSize="32px">
-        Mitra Unggulan KAMI
-      </Text>
+      <Flex justifyContent="space-between">
+        <Text fontWeight="extrabold" fontSize="32px">
+          Mitra Unggulan KAMI
+        </Text>
+        <NextLink link="/merchants">
+          <Button variant="link" rightIcon={<BiChevronRight />}>
+            Lihat semua
+          </Button>
+        </NextLink>
+      </Flex>
+
       <Flex gap={8} width="100%">
+        {isLoadingMerchants &&
+          isFetchingMerchants &&
+          [...Array(3)].map((item, idx) => (
+            <Box key={idx}>
+              <SkeletonMerchant />
+            </Box>
+          ))}
         {isSuccessMerchants &&
           dataMerchants?.data?.slice(0, 3).map((item) => (
             <Box
@@ -243,7 +367,10 @@ function HomePageContainerDesktop(props) {
               w="100%"
             >
               <Box
-                backgroundColor="#0D5099"
+                // backgroundColor="#0D5099"
+                backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.png"
+                backgroundRepeat="no-repeat"
+                backgroundSize="contain"
                 borderTopRadius="16px"
                 height="100px"
               ></Box>
@@ -307,17 +434,44 @@ function HomePageContainerDesktop(props) {
     </>
   );
 
+  const SkeletonBlog = () => (
+    <Box
+      marginY="32px"
+      borderRadius="16px"
+      boxShadow="lg"
+      border="1px solid #e1eaf7"
+    >
+      <Skeleton width="100%" height="250px" borderTopRadius="8px" />
+      <Box padding="16px">
+        <SkeletonText noOfLines={4} />
+        <Flex justifyContent="space-between" marginTop="12px">
+          <SkeletonText width="120px" noOfLines={1} />
+          <SkeletonText width="120px" noOfLines={1} />
+        </Flex>
+      </Box>
+    </Box>
+  );
+
   const BlogSection = () => (
     <>
       <Flex alignItems="center" justifyContent="space-between">
         <Text fontWeight="extrabold" fontSize="32px">
           Blog Kami
         </Text>
-        <Button variant="link" rightIcon={<BiChevronRight />}>
-          Lihat semua
-        </Button>
+        <NextLink link="/blog">
+          <Button variant="link" rightIcon={<BiChevronRight />}>
+            Lihat semua
+          </Button>
+        </NextLink>
       </Flex>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+        {isLoadingBlogs &&
+          isFetchingBlogs &&
+          [...Array(3)].map((item, idx) => (
+            <Box key={idx}>
+              <SkeletonBlog />
+            </Box>
+          ))}
         {isSuccessBlogs &&
           dataBlogs?.data?.slice(0, 3).map((item) => (
             <GridItem key={item?.id}>
@@ -337,7 +491,7 @@ function HomePageContainerDesktop(props) {
       <Box
         marginY="42px"
         backgroundColor="#f0f8ff"
-        height="270px"
+        height="290px"
         paddingY="24px"
       >
         <Container maxW="container.xl">
@@ -372,8 +526,12 @@ HomePageContainerDesktop.propTypes = {
   isSuccessCategories: PropTypes.bool,
   dataMerchants: PropTypes.object,
   isSuccessMerchants: PropTypes.bool,
+  isLoadingMerchants: PropTypes.bool,
+  isFetchingMerchants: PropTypes.bool,
   dataBlogs: PropTypes.object,
   isSuccessBlogs: PropTypes.bool,
+  isLoadingBlogs: PropTypes.bool,
+  isFetchingBlogs: PropTypes.bool,
 };
 
 export default HomePageContainerDesktop;

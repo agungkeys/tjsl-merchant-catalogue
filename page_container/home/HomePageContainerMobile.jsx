@@ -5,7 +5,10 @@ import {
   Container,
   Flex,
   Grid,
+  GridItem,
   Image,
+  Skeleton,
+  SkeletonText,
   Text,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -23,8 +26,12 @@ function HomePageContainerMobile(props) {
     isSuccessCategories,
     dataMerchants,
     isSuccessMerchants,
+    isLoadingMerchants,
+    isFetchingMerchants,
     dataBlogs,
     isSuccessBlogs,
+    isLoadingBlogs,
+    isFetchingBlogs,
   } = props;
 
   const itemBanners = [
@@ -114,43 +121,98 @@ function HomePageContainerMobile(props) {
 
   const BenefitSection = () => (
     <Box paddingY="24px">
-      <Text
-        textAlign="center"
-        fontSize="24px"
-        marginBottom="16px"
-        fontWeight="bold"
-      >
-        Nilai [BRAND TJSL]
-      </Text>
       <Flex flexDirection="column" gap={4}>
-        {itemServices.map((item, idx) => (
-          <Box
-            key={idx}
-            padding="16px"
-            borderRadius="16px"
-            boxShadow="xl"
-            backgroundColor="#fff"
-            transition="all 0.5s ease-in-out"
-            _hover={{
-              transform: 'translate(-0.5rem, -0.5rem)',
-            }}
-            cursor="context-menu"
+        <Box
+          padding="16px"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          transition="all 0.5s ease-in-out"
+          _hover={{
+            transform: 'translate(-0.5rem, -0.5rem)',
+          }}
+          cursor="context-menu"
+        >
+          <Text
+            textAlign="center"
+            fontSize="24px"
+            marginBottom="16px"
+            fontWeight="bold"
+            textTransform="uppercase"
           >
-            <Flex justifyContent="space-between" alignItems="center">
-              <Image src={item.image} alt="" boxSize="128px" />
-              <Box>
-                <Text fontWeight="bold" fontSize="16px">
-                  {item.name}
-                </Text>
-                <Text fontWeight="light" fontSize="12px">
-                  {' '}
-                  {item.description}{' '}
-                </Text>
-              </Box>
-            </Flex>
-          </Box>
-        ))}
+            Visi KaMiUMKM
+          </Text>
+          <Flex gap={3} alignItems="center">
+            <Image src="./service_2.png" alt="" boxSize="128px" />
+            <Box>
+              <Text fontWeight="normal" fontSize="md">
+                Terwujudnya masyarakat mandiri dan berkelanjutan berbasis
+                hubungan yang harmonis antara perusahaan dan masyarakat.
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
+        <Box
+          padding="16px"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          transition="all 0.5s ease-in-out"
+          _hover={{
+            transform: 'translate(-0.5rem, -0.5rem)',
+          }}
+          cursor="context-menu"
+        >
+          <Text
+            textAlign="center"
+            fontSize="24px"
+            marginBottom="16px"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
+            Misi KaMiUMKM
+          </Text>
+          <Flex gap={3} alignItems="center">
+            <Image src="./service_3.png" alt="" boxSize="128px" />
+            <Box>
+              <ul>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Memberdayakan potensi sumber daya lokal dengan membentuk
+                    kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
+                    kemandirian masyarakat,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Menciptakan keserasian lingkungan sekitar dengan membangun
+                    infrastruktur pendukung secara berkelanjutan,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Meningkatkan sinergi dan citra positif perusahaan dengan
+                    stakeholder untuk berkelanjutan operasional perusahaan.
+                  </Text>
+                </li>
+              </ul>
+            </Box>
+          </Flex>
+        </Box>
       </Flex>
+    </Box>
+  );
+
+  const SkeletonCategory = () => (
+    <Box
+      width="188px"
+      borderRadius="16px"
+      height="178px"
+      border="1px solid #e1eaf7"
+      padding="24px"
+    >
+      <Skeleton boxSize="64px" borderRadius="16px" />
+      <SkeletonText noOfLines={3} marginY="24px" />
     </Box>
   );
 
@@ -165,6 +227,13 @@ function HomePageContainerMobile(props) {
         Kategori Mitra Binaan KAMI
       </Text>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        {isLoadingCategories &&
+          isFetchingCategories &&
+          [...Array(5)].map((item, idx) => (
+            <Box key={idx}>
+              <SkeletonCategory />
+            </Box>
+          ))}
         {isSuccessCategories &&
           dataCategories?.data?.map((item, idx) => (
             <Box key={idx}>
@@ -214,6 +283,28 @@ function HomePageContainerMobile(props) {
     </NextLink>
   );
 
+  const SkeletonBlog = () => (
+    <Box
+      flexDirection="column"
+      gap={3}
+      bgColor="#fff"
+      borderRadius="16px"
+      padding="9px"
+      boxShadow="md"
+      border="1px solid #e1eaf7"
+      marginY="8px"
+    >
+      <Skeleton height="150px" borderRadius="8px" />
+      <Box marginY="16px">
+        <SkeletonText noOfLines={4} />
+        <Flex marginTop="24px" justifyContent="space-between">
+          <SkeletonText noOfLines={1} width="80px" />
+          <SkeletonText noOfLines={1} width="80px" />
+        </Flex>
+      </Box>
+    </Box>
+  );
+
   const BlogSection = () => (
     <>
       <Flex justifyContent="space-between" alignItems="center">
@@ -227,6 +318,13 @@ function HomePageContainerMobile(props) {
         </NextLink>
       </Flex>
       <Flex flexDirection="column">
+        {isLoadingBlogs &&
+          isFetchingBlogs &&
+          [...Array(3)].map((item, idx) => (
+            <Box key={idx}>
+              <SkeletonBlog />
+            </Box>
+          ))}
         {isSuccessBlogs &&
           dataBlogs?.data?.slice(0, 3).map((item, idx) => (
             <Box key={idx}>
@@ -236,6 +334,57 @@ function HomePageContainerMobile(props) {
       </Flex>
     </>
   );
+
+  const SkeletonMerchant = () =>
+    [...Array(1)].map((item, idx) => (
+      <Box
+        key={idx}
+        marginY="32px"
+        borderRadius="16px"
+        boxShadow="lg"
+        w="100%"
+        border="1px solid #e1eaf7"
+      >
+        <Box border="1px solid #e1eaf7" borderTopRadius="16px" height="100px" />
+        <Flex paddingX="32px" width="100%" gap={4}>
+          <Skeleton
+            rounded="full"
+            boxSize="100px"
+            backgroundColor="#fff"
+            marginTop="-50px"
+            boxShadow="lg"
+            w="156px"
+          />
+
+          <Box
+            height="100px"
+            backgroundColor="#fff"
+            marginTop="-50px"
+            boxShadow="lg"
+            padding="12px"
+            w="100%"
+            borderRadius="10px"
+          >
+            <SkeletonText noOfLines={3} />
+          </Box>
+        </Flex>
+        <Grid templateColumns="repeat(3, 1fr)" gap={3} p={8}>
+          {[...Array(3)].map((item, idx) => (
+            <GridItem key={idx}>
+              <Box
+                borderRadius="16px"
+                border="1px solid #e1eaf7"
+                width="100%"
+                height="162px"
+              >
+                <Skeleton borderTopRadius="16px" boxSize="102px" />
+                <SkeletonText marginX={2} noOfLines={2} marginTop="12px" />
+              </Box>
+            </GridItem>
+          ))}
+        </Grid>
+      </Box>
+    ));
 
   return (
     <Box>
@@ -250,7 +399,8 @@ function HomePageContainerMobile(props) {
       </Box>
       <Container>
         <CategoriesSection />
-        <CarouselMerchant items={dataMerchants} />
+        {isLoadingMerchants && isFetchingMerchants && <SkeletonMerchant />}
+        {isSuccessMerchants && <CarouselMerchant items={dataMerchants} />}
       </Container>
       <Box
         backgroundImage="linear-gradient(#f0f8ff, white)"
@@ -274,8 +424,12 @@ HomePageContainerMobile.propTypes = {
   isSuccessCategories: PropTypes.bool,
   dataMerchants: PropTypes.object,
   isSuccessMerchants: PropTypes.bool,
+  isLoadingMerchants: PropTypes.bool,
+  isFetchingMerchants: PropTypes.bool,
   dataBlogs: PropTypes.object,
   isSuccessBlogs: PropTypes.bool,
+  isLoadingBlogs: PropTypes.bool,
+  isFetchingBlogs: PropTypes.bool,
 };
 
 export default HomePageContainerMobile;
