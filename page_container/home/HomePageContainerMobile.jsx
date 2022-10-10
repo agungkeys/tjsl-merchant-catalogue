@@ -296,7 +296,7 @@ function HomePageContainerMobile(props) {
   const SkeletonMerchant = () =>
     [...Array(1)].map((item, idx) => (
       <Box
-        key={item?.id}
+        key={idx}
         marginY="32px"
         borderRadius="16px"
         boxShadow="lg"

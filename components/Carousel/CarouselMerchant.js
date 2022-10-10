@@ -1,4 +1,12 @@
-import { Box, Center, Flex, Image, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Slider from 'react-slick';
@@ -35,7 +43,9 @@ function CarouselMerchant(props) {
                   w="100%"
                 >
                   <Box
-                    backgroundColor="#0D5099"
+                    backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.png"
+                    backgroundRepeat="no-repeat"
+                    backgroundSize="contain"
                     borderTopRadius="16px"
                     height="100px"
                   ></Box>
@@ -86,13 +96,13 @@ function CarouselMerchant(props) {
                       </Text>
                     </Flex>
                   </Flex>
-                  <Flex gap={3} p={4}>
-                    {item?.product?.slice(0, 2).map((product, idx) => (
-                      <Box key={idx}>
-                        <Product items={product} isLanding isMobile />
-                      </Box>
+                  <Grid templateColumns="repeat(2, 1fr)" gap={3} p={4}>
+                    {item?.products?.slice(0, 2).map((product, idx) => (
+                      <GridItem key={idx}>
+                        <Product isLanding isMobile {...product} />
+                      </GridItem>
                     ))}
-                  </Flex>
+                  </Grid>
                 </Box>
               ))}
           </Slider>
