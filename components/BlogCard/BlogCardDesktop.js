@@ -40,15 +40,7 @@ function BlogCardDesktop(props) {
           <Text fontSize="xl" fontWeight="extrabold" height="45px">
             {title || ''}
           </Text>
-          <Text
-            fontWeight="light"
-            marginTop="12px"
-            fontSize="md"
-            noOfLines={2}
-            height="50px"
-          >
-            {shortDescription || ''}
-          </Text>
+
           <Flex justifyContent="space-between" marginTop="12px">
             <Text fontSize="sm">30 September 2022</Text>
             <Text fontSize="sm">{`Posted by ${author || '-'}`}</Text>
