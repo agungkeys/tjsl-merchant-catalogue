@@ -121,42 +121,84 @@ function HomePageContainerMobile(props) {
 
   const BenefitSection = () => (
     <Box paddingY="24px">
-      <Text
-        textAlign="center"
-        fontSize="24px"
-        marginBottom="16px"
-        fontWeight="bold"
-      >
-        Nilai [BRAND TJSL]
-      </Text>
       <Flex flexDirection="column" gap={4}>
-        {itemServices.map((item, idx) => (
-          <Box
-            key={idx}
-            padding="16px"
-            borderRadius="16px"
-            boxShadow="xl"
-            backgroundColor="#fff"
-            transition="all 0.5s ease-in-out"
-            _hover={{
-              transform: 'translate(-0.5rem, -0.5rem)',
-            }}
-            cursor="context-menu"
+        <Box
+          padding="16px"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          transition="all 0.5s ease-in-out"
+          _hover={{
+            transform: 'translate(-0.5rem, -0.5rem)',
+          }}
+          cursor="context-menu"
+        >
+          <Text
+            textAlign="center"
+            fontSize="24px"
+            marginBottom="16px"
+            fontWeight="bold"
+            textTransform="uppercase"
           >
-            <Flex justifyContent="space-between" alignItems="center">
-              <Image src={item.image} alt="" boxSize="128px" />
-              <Box>
-                <Text fontWeight="bold" fontSize="16px">
-                  {item.name}
-                </Text>
-                <Text fontWeight="light" fontSize="12px">
-                  {' '}
-                  {item.description}{' '}
-                </Text>
-              </Box>
-            </Flex>
-          </Box>
-        ))}
+            Visi KaMiUMKM
+          </Text>
+          <Flex gap={3} alignItems="center">
+            <Image src="./service_2.png" alt="" boxSize="128px" />
+            <Box>
+              <Text fontWeight="normal" fontSize="md">
+                Terwujudnya masyarakat mandiri dan berkelanjutan berbasis
+                hubungan yang harmonis antara perusahaan dan masyarakat.
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
+        <Box
+          padding="16px"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          transition="all 0.5s ease-in-out"
+          _hover={{
+            transform: 'translate(-0.5rem, -0.5rem)',
+          }}
+          cursor="context-menu"
+        >
+          <Text
+            textAlign="center"
+            fontSize="24px"
+            marginBottom="16px"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
+            Misi KaMiUMKM
+          </Text>
+          <Flex gap={3} alignItems="center">
+            <Image src="./service_3.png" alt="" boxSize="128px" />
+            <Box>
+              <ul>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Memberdayakan potensi sumber daya lokal dengan membentuk
+                    kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
+                    kemandirian masyarakat,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Menciptakan keserasian lingkungan sekitar dengan membangun
+                    infrastruktur pendukung secara berkelanjutan,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Meningkatkan sinergi dan citra positif perusahaan dengan
+                    stakeholder untuk berkelanjutan operasional perusahaan.
+                  </Text>
+                </li>
+              </ul>
+            </Box>
+          </Flex>
+        </Box>
       </Flex>
     </Box>
   );
@@ -350,11 +392,11 @@ function HomePageContainerMobile(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      {/* <Box backgroundColor="#f0f8ff">
+      <Box backgroundColor="#f0f8ff">
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
-      </Box> */}
+      </Box>
       <Container>
         <CategoriesSection />
         {isLoadingMerchants && isFetchingMerchants && <SkeletonMerchant />}

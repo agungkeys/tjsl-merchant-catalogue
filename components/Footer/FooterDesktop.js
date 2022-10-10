@@ -4,7 +4,9 @@ import {
   FaFacebookSquare,
   FaInstagram,
   FaLinkedin,
+  FaTiktok,
   FaTwitter,
+  FaYoutube,
 } from 'react-icons/fa';
 import NextLink from '../NextLink';
 
@@ -26,8 +28,8 @@ function FooterDesktop(props) {
                 width="250px"
               />
               <Text fontWeight="light" fontSize="md">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                KamiUMKM adalah program Pupuk Kaltim untuk menghimpun seluruh
+                UMKM binaan PT Pupuk Kaltim dalam suatu wadah digital.
               </Text>
             </Flex>
             <Flex flexDirection="column" gap={4}>
@@ -38,10 +40,10 @@ function FooterDesktop(props) {
                 <Text>Beranda</Text>
               </NextLink>
               <NextLink link={'/'}>
-                <Text>Tentang</Text>
+                <Text>Mitra</Text>
               </NextLink>
               <NextLink link={'/'}>
-                <Text>Informasi</Text>
+                <Text>Tentang</Text>
               </NextLink>
             </Flex>
             <Flex flexDirection="column" gap={4} width="300px">
@@ -58,31 +60,43 @@ function FooterDesktop(props) {
                 Ikuti Kami
               </Text>
               <Flex gap={2}>
-                <NextLink link="">
-                  <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
-                      <FaFacebookSquare />
-                    </Button>
-                  </Center>
-                </NextLink>
-                <NextLink link="">
-                  <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
-                      <FaLinkedin />
-                    </Button>
-                  </Center>
-                </NextLink>
-                <NextLink link="">
+                <NextLink
+                  link="https://instagram.com/pupukkaltim_id?igshid=YmMyMTA2M2Y="
+                  target="_blank"
+                >
                   <Center w="48px" h="48px" borderRadius="8px">
                     <Button h="full" color="#718096" variant="unstyled">
                       <FaInstagram />
                     </Button>
                   </Center>
                 </NextLink>
-                <NextLink link="">
+                <NextLink
+                  link="https://twitter.com/pupukkaltim_id?s=11&t=tu09Rmou7btYxsDThRKzmg"
+                  target="_blank"
+                >
                   <Center w="48px" h="48px" borderRadius="8px">
                     <Button h="full" color="#718096" variant="unstyled">
                       <FaTwitter />
+                    </Button>
+                  </Center>
+                </NextLink>
+                <NextLink
+                  link="https://youtube.com/channel/UCEOm2rbBBTJ2qYOB0WKYWGQ"
+                  target="_blank"
+                >
+                  <Center w="48px" h="48px" borderRadius="8px">
+                    <Button h="full" color="#718096" variant="unstyled">
+                      <FaYoutube />
+                    </Button>
+                  </Center>
+                </NextLink>
+                <NextLink
+                  link="https://www.tiktok.com/@tjsl_pupukkaltim?_t=8WNp7cCpa3F&_r=1"
+                  target="_blank"
+                >
+                  <Center w="48px" h="48px" borderRadius="8px">
+                    <Button h="full" color="#718096" variant="unstyled">
+                      <FaTiktok />
                     </Button>
                   </Center>
                 </NextLink>

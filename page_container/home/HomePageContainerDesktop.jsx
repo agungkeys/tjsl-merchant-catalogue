@@ -132,41 +132,72 @@ function HomePageContainerDesktop(props) {
   );
 
   const BenefitSection = () => (
-    <>
-      <Text fontSize="24px" fontWeight="bold">
-        Nilai [BRAND TJSL]
-      </Text>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-        {itemServices.map((item, idx) => (
-          <GridItem
-            key={idx}
-            padding="16px"
-            borderRadius="16px"
-            boxShadow="xl"
-            backgroundColor="#fff"
-            marginY="12px"
-            transition="all 0.5s ease-in-out"
-            _hover={{
-              transform: 'translate(-0.5rem, -0.5rem)',
-            }}
-            cursor="context-menu"
-          >
-            <Flex justifyContent="space-between" alignItems="center">
-              <Image src={item.image} alt="" boxSize="128px" />
-              <Box>
-                <Text fontWeight="bold" fontSize="16px">
-                  {item.name}
-                </Text>
-                <Text fontWeight="light" fontSize="12px">
-                  {' '}
-                  {item.description}{' '}
-                </Text>
-              </Box>
-            </Flex>
-          </GridItem>
-        ))}
-      </Grid>
-    </>
+    <Flex gap={3}>
+      <Box width="40%">
+        <Text fontSize="24px" fontWeight="bold" textTransform="uppercase">
+          Visi KaMiUMKM
+        </Text>
+        <Flex
+          marginY="8px"
+          alignItems="start"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          padding="16px"
+          height="192px"
+        >
+          <Flex gap={4}>
+            <Image src="./service_2.png" alt="" boxSize="92px" />
+
+            <Text fontSize="lg" fontWeight="normal">
+              Terwujudnya masyarakat mandiri dan berkelanjutan berbasis hubungan
+              yang harmonis antara perusahaan dan masyarakat.
+            </Text>
+          </Flex>
+        </Flex>
+      </Box>
+      <Box width="60%">
+        <Text fontSize="24px" fontWeight="bold" textTransform="uppercase">
+          Misi KaMiUMKM
+        </Text>
+        <Flex
+          marginY="8px"
+          alignItems="start"
+          borderRadius="16px"
+          boxShadow="xl"
+          backgroundColor="#fff"
+          padding="16px"
+        >
+          <Flex gap={8} alignItems="start">
+            <Image src="./service_3.png" alt="" boxSize="92px" />
+
+            <Box paddingY="8px">
+              <ul>
+                <li>
+                  <Text fontSize="lg" fontWeight="normal">
+                    Memberdayakan potensi sumber daya lokal dengan membentuk
+                    kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
+                    kemandirian masyarakat,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="lg" fontWeight="normal">
+                    Menciptakan keserasian lingkungan sekitar dengan membangun
+                    infrastruktur pendukung secara berkelanjutan,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="lg" fontWeight="normal">
+                    Meningkatkan sinergi dan citra positif perusahaan dengan
+                    stakeholder untuk berkelanjutan operasional perusahaan.
+                  </Text>
+                </li>
+              </ul>
+            </Box>
+          </Flex>
+        </Flex>
+      </Box>
+    </Flex>
   );
 
   const SkeletonCategories = () => (
@@ -307,9 +338,17 @@ function HomePageContainerDesktop(props) {
 
   const MerchantSection = () => (
     <>
-      <Text fontWeight="extrabold" fontSize="32px">
-        Mitra Unggulan KAMI
-      </Text>
+      <Flex justifyContent="space-between">
+        <Text fontWeight="extrabold" fontSize="32px">
+          Mitra Unggulan KAMI
+        </Text>
+        <NextLink link="/merchants">
+          <Button variant="link" rightIcon={<BiChevronRight />}>
+            Lihat semua
+          </Button>
+        </NextLink>
+      </Flex>
+
       <Flex gap={8} width="100%">
         {isLoadingMerchants &&
           isFetchingMerchants &&
@@ -419,9 +458,11 @@ function HomePageContainerDesktop(props) {
         <Text fontWeight="extrabold" fontSize="32px">
           Artikel
         </Text>
-        <Button variant="link" rightIcon={<BiChevronRight />}>
-          Lihat semua
-        </Button>
+        <NextLink link="/blog">
+          <Button variant="link" rightIcon={<BiChevronRight />}>
+            Lihat semua
+          </Button>
+        </NextLink>
       </Flex>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {isLoadingBlogs &&
@@ -447,16 +488,16 @@ function HomePageContainerDesktop(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      {/* <Box
+      <Box
         marginY="42px"
         backgroundColor="#f0f8ff"
-        height="270px"
+        height="290px"
         paddingY="24px"
       >
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
-      </Box> */}
+      </Box>
       <Container maxW="container.xl">
         <CategoriesSection />
       </Container>
