@@ -1,7 +1,17 @@
+import PropTypes from 'prop-types';
 import { Box, Flex, Center, Image, Text, Grid } from '@chakra-ui/react';
 import { Product, Pagination, NextLink } from '../../components';
 
+import { populateAdditionalImage } from '../../helpers/utils';
+
 function MerchantsPageContainerDesktop(props) {
+  const {
+    dataMerchants,
+    isErrorMerchants, 
+    isLoadingMerchants, 
+    isFetchingMerchants, 
+    isSuccessMerchants,
+  } = props;
   const MerchantSection = () => (
     <>
       <Grid
@@ -11,8 +21,8 @@ function MerchantsPageContainerDesktop(props) {
         pr="5%"
         pl="5%"
       >
-        {[...Array(12)].map((item, idx) => (
-          <NextLink link="/merchants/rumah-habati">
+        {dataMerchants?.data?.map((item, idx) => (
+          <NextLink key={item?.id} link={`/merchants/${item?.slug}`}>
             <Box
               key={idx}
               marginY={1}
@@ -34,7 +44,17 @@ function MerchantsPageContainerDesktop(props) {
                   boxShadow="lg"
                   w="156px"
                 >
-                  <Image boxSize="84px" src="/home.png" alt="" />
+                  <Image
+                    boxSize="64px"
+                    src={populateAdditionalImage({
+                      ...item.additionalImage,
+                      height: 64,
+                      width: 64,
+                      extension: 'webp',
+                    })}
+                    alt={item?.name || ''}
+                    fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+                  />
                 </Center>
                 <Box
                   alignItems="center"
@@ -59,9 +79,9 @@ function MerchantsPageContainerDesktop(props) {
                 </Box>
               </Flex>
               <Flex justifyContent="space-between" gap={3} p={8}>
-                {[...Array(3)].map((item, idx) => (
+                {item?.products?.map((item, idx) => (
                   <Box key={idx}>
-                    <Product isLanding />
+                    <Product isLanding {...item} />
                   </Box>
                 ))}
               </Flex>
@@ -96,5 +116,13 @@ function MerchantsPageContainerDesktop(props) {
     </Flex>
   );
 }
+
+MerchantsPageContainerDesktop.propTypes = {
+  isMobile: PropTypes.bool,
+  dataMerchants: PropTypes.object,
+  isSuccessMerchants: PropTypes.bool,
+  dataBlogs: PropTypes.object,
+  isSuccessBlogs: PropTypes.bool,
+};
 
 export default MerchantsPageContainerDesktop;
