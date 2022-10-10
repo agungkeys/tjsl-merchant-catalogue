@@ -45,7 +45,7 @@ function HomePageContainer(props) {
     isSuccess: isSuccessBlogs
   } = useQuery(
     ['blogs'],
-		() => fetchBlogs(),
+		() => fetchBlogs({ sort: 'desc' }),
 		{
       staleTime: 0,
 		},

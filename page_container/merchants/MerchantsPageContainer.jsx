@@ -16,10 +16,10 @@ function MerchantsPageContainer(props) {
     isSuccess: isSuccessMerchants
   } = useQuery(
     ['merchants'],
-		() => fetchMerchants({ isFavorite: null}),
-		{
+		() => fetchMerchants(),
+    {
       staleTime: 0,
-		},
+    },
   );
 
   props = {

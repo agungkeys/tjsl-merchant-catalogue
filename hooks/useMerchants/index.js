@@ -4,7 +4,6 @@ import ENDPOINTS from '../../constants/endpoints';
 import { paramsToString } from '../../helpers/utils';
 
 const fetchMerchants = async (props) => {
-  console.log("🚀 ~ file: index.js ~ line 7 ~ fetchMerchants ~ props", props)
   const {
     limit = 15, 
     sort = 'asc', 

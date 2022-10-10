@@ -311,7 +311,7 @@ function HomePageContainerDesktop(props) {
     <>
       <Flex alignItems="center" justifyContent="space-between">
         <Text fontWeight="extrabold" fontSize="32px">
-          Artikel
+          Blog Kami
         </Text>
         <Button variant="link" rightIcon={<BiChevronRight />}>
           Lihat semua
