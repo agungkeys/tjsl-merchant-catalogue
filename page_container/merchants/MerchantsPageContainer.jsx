@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import MerchantsPageContainerDesktop from "./MerchantsPageContainerDesktop";
 import MerchantsPageContainerMobile from "./MerchantsPageContainerMobile";
@@ -7,7 +9,9 @@ import { fetchMerchants } from "../../hooks/useMerchants";
 import { fetchCategories } from "../../hooks/useCategories";
 
 function MerchantsPageContainer(props) {
-  const { isMobile } = props;
+  const { isMobile, query } = props;
+  const { page, perPage } = query;
+  const Router = useRouter();
 
   const { 
     data: dataCategories, 
@@ -28,17 +32,35 @@ function MerchantsPageContainer(props) {
     isError: isErrorMerchants, 
     isLoading: isLoadingMerchants, 
     isFetching: isFetchingMerchants, 
-    isSuccess: isSuccessMerchants
+    isSuccess: isSuccessMerchants,
+    refetch: refetchMerchants,
   } = useQuery(
     ['merchants'],
-		() => fetchMerchants({}),
+		() => fetchMerchants({ page, perPage }),
     {
       staleTime: 0,
     },
   );
 
+  function fetchPagination(page) {
+    page = JSON.stringify(page);
+    // if (category) {
+    //   Router.push(
+    //     `/merchants/${category}?page=${page}&perPage=${perPage}`,
+    //   );
+    // }
+    Router.push(`/merchants?page=${page}&perPage=${perPage || `9`}`);
+  }
+
+  useEffect(() => {
+    if (page || perPage) {
+      refetchMerchants();
+    }
+  }, [page, perPage]);
+
   props = {
     ...props,
+    fetchPagination,
     dataCategories,
     isErrorCategories,
     isLoadingCategories,
@@ -60,6 +82,9 @@ function MerchantsPageContainer(props) {
 
 MerchantsPageContainer.propTypes = {
   isMobile: PropTypes.bool,
+  query: PropTypes.object,
+  page: PropTypes.string,
+  perPage: PropTypes.string,
 };
 
 export default MerchantsPageContainer;

@@ -13,6 +13,13 @@ import { Product, Pagination, NextLink } from '../../components';
 import { HiLink, HiShare } from 'react-icons/hi';
 
 function MerchantPageContainerDesktop(props) {
+  const {
+    data,
+    isError,
+    isLoading,
+    isFetching,
+    isSuccess
+  } = props;
   return (
     <Grid>
       <Box

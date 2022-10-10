@@ -5,7 +5,7 @@ import MainLayout from '../../layout/MainLayout';
 import HeadHome from '../../components/Heads/HeadHome';
 
 function Merchant(props) {
-  const { isMobile } = props;
+  const { isMobile, query } = props;
   return (
     <MainLayout
       isMobile={isMobile}
@@ -34,6 +34,7 @@ function Merchant(props) {
 
 Merchant.propTypes = {
   isMobile: PropTypes.bool,
+  query: PropTypes.object,
 };
 
 Merchant.getInitialProps = async (props) => {

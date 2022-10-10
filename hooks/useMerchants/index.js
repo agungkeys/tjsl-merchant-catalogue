@@ -5,7 +5,8 @@ import { paramsToString } from '../../helpers/utils';
 
 const fetchMerchants = async (props) => {
   const {
-    limit = 15, 
+    perPage = 9, 
+    page= 1,
     sort = 'asc', 
     isFavorite,
   } = props;
@@ -18,7 +19,8 @@ const fetchMerchants = async (props) => {
   };
 
   const queryParams = {
-    limit,
+    perPage,
+    page,
     sort,
     isFavorite
   }

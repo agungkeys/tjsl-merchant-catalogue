@@ -16,6 +16,7 @@ import { populateAdditionalImage } from '../../helpers/utils';
 
 function MerchantsPageContainerDesktop(props) {
   const {
+    fetchPagination,
     dataCategories,
     isErrorCategories,
     isLoadingCategories,
@@ -129,13 +130,15 @@ function MerchantsPageContainerDesktop(props) {
           pt={5}
           pb={5}
         >
-          <Pagination
-            siblingCount={2}
-            currentPage={2}
-            totalCount={300}
-            pageSize={12}
-            // onPageChange={(page) => fetchPagination(page)}
-          />
+          {isSuccessMerchants &&
+            <Pagination
+              siblingCount={2}
+              currentPage={dataMerchants?.meta?.pagination?.page}
+              totalCount={dataMerchants?.meta?.pagination?.total}
+              pageSize={dataMerchants?.meta?.pagination?.perPage}
+              onPageChange={(page) => fetchPagination(page)}
+            />
+          || null}
         </Box>
       </Box>
     </Flex>
@@ -144,6 +147,7 @@ function MerchantsPageContainerDesktop(props) {
 
 MerchantsPageContainerDesktop.propTypes = {
   isMobile: PropTypes.bool,
+  fetchPagination: PropTypes.func,
   dataCategories: PropTypes.object,
   isErrorCategories: PropTypes.bool,
   isLoadingCategories: PropTypes.bool,

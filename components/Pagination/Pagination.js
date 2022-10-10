@@ -56,7 +56,7 @@ function Pagination(props) {
             boxShadow="lg"
             border="1px"
             borderColor="gray.20"
-            borderRadius="8px"
+            borderRadius="2em"
             alignItems="center"
             justifyContent="center"
             boxSize={isMobile ? 9 : 10}
@@ -88,9 +88,9 @@ function Pagination(props) {
             {(pageNumber === currentPage && (
               <Box
                 display="flex"
-                bg="orange.400"
+                bg="#ff731d"
                 color="white"
-                borderRadius="8px"
+                borderRadius="2em"
                 alignItems="center"
                 justifyContent="center"
                 boxSize={isMobile ? 9 : 10}
@@ -102,7 +102,7 @@ function Pagination(props) {
             )) || (
               <Box
                 display="flex"
-                borderRadius="8px"
+                borderRadius="2em"
                 alignItems="center"
                 justifyContent="center"
                 boxSize={isMobile ? 9 : 10}
@@ -126,7 +126,7 @@ function Pagination(props) {
             boxShadow="lg"
             border="1px"
             borderColor="gray.20"
-            borderRadius="8px"
+            borderRadius="2em"
             alignItems="center"
             justifyContent="center"
             boxSize={isMobile ? 9 : 10}
