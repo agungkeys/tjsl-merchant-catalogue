@@ -68,13 +68,13 @@ function MerchantsPageContainerDesktop(props) {
                   borderRadius="10px"
                 >
                   <Text fontWeight="bold" fontSize="16px">
-                    Rumah Habati
+                    {item?.name || ''}
                   </Text>
                   <Text fontWeight="light" fontSize="12px">
-                    Jl Gunung Arjuna No.3 BSD, Rumah Habati
+                    {item?.address || ''}
                   </Text>
                   <Text fontWeight="semibold" fontSize="10px">
-                    Kategori Makanan dan Minuman
+                    Kategori {item?.category?.name || ''}
                   </Text>
                 </Box>
               </Flex>
