@@ -105,16 +105,15 @@ function HomePageContainerMobile(props) {
         Katalog Mitra UMKM
       </Text>
       <Text fontSize="14px" fontWeight="regular">
-        Merupakan suatu program persembahan Pupuk Kaltim dalam hal menghimpun
-        seluruh UMKM binaan unggulan PT Pupuk Kaltim dalam suatu wadah digital.
-        Dengan tujuan mempromosikan dan memperkenalkan produk UMKM lokal ke
+        KaMiUMKM merupakan suatu program persembahan TJSL PKT dalam menghimpun
+        seluruh UMKM binaan unggulan PKT dalam suatu wadah digital dengan tujuan
+        mempromosikan dan memperkenalkan produk UMKM lokal Kota Bontang ke
         masyarakat luas.
       </Text>
       <Text fontSize="14px" fontWeight="regular">
-        <b>KamiUMKM</b> adalah bentuk kontribusi nyata PT Pupuk Kaltim terhadap
-        pertumbuhan dan kemajuan UMKM di seluruh Indonesia, khususnya Kalimantan
-        Timur dengan berkolaborasi bersama para profesional dan pemangku
-        kepentingan.
+        <b>KamiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
+        pertumbuhan dan kemajuan UMKM di Indonesia, khususnya Kalimantan Timur
+        dengan berkolaborasi dengan pemangku kepentingan dan para profesional.
       </Text>
     </Flex>
   );
@@ -403,7 +402,7 @@ function HomePageContainerMobile(props) {
         {isSuccessMerchants && <CarouselMerchant items={dataMerchants} />}
       </Container>
       <Box
-        backgroundImage="linear-gradient(#f0f8ff, white)"
+        backgroundImage="linear-gradient(#fff7e9, white)"
         marginY="32px"
         paddingY="24px"
       >

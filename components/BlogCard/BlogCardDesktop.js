@@ -4,8 +4,15 @@ import NextLink from '../NextLink';
 import { populateAdditionalImage } from '../../helpers/utils';
 
 function BlogCardDesktop(props) {
-  const { title, category, shortDescription, additionalImage, author, slug } =
-    props;
+  const {
+    title,
+    category,
+    shortDescription,
+    additionalImage,
+    author,
+    slug,
+    dateCreate,
+  } = props;
   return (
     <NextLink link={`/blog/${slug}`}>
       <Box
@@ -42,7 +49,7 @@ function BlogCardDesktop(props) {
           </Text>
 
           <Flex justifyContent="space-between" marginTop="12px">
-            <Text fontSize="sm">30 September 2022</Text>
+            <Text fontSize="sm">{dateCreate}</Text>
             <Text fontSize="sm">{`Posted by ${author || '-'}`}</Text>
           </Flex>
         </Box>
@@ -57,7 +64,7 @@ BlogCardDesktop.propTypes = {
   additionalImage: PropTypes.object,
   category: PropTypes.object,
   author: PropTypes.string,
-  date: PropTypes.string,
+  dateCreate: PropTypes.string,
   slug: PropTypes.string,
 };
 

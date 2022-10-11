@@ -36,7 +36,7 @@ function HeaderMobile(props) {
   };
 
   return (
-    <Box
+    <Flex
       width="100%"
       boxShadow="xl"
       paddingY="12px"
@@ -45,6 +45,14 @@ function HeaderMobile(props) {
       position={headerPosition}
       zIndex={999}
     >
+      <Container maxW="container.xl">
+        <Image
+          src="https://res.cloudinary.com/borneos-co/image/upload/v1664949744/tjsl-core/icon-logo/favicon_lns2zu.png"
+          alt=""
+          height="50px"
+          objectFit="cover"
+        />
+      </Container>
       <Container maxW="container.xl">
         <Flex justifyContent="flex-end">
           <Button onClick={onOpen} variant="unstyled">
@@ -124,7 +132,7 @@ function HeaderMobile(props) {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </Box>
+    </Flex>
   );
 }
 

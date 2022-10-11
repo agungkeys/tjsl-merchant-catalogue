@@ -13,20 +13,19 @@ import {
 } from '@chakra-ui/react';
 import { Product, Pagination, NextLink } from '../../components';
 import { HiLink, HiShare } from 'react-icons/hi';
+import { populateAdditionalImage } from '../../helpers/utils';
+import { HiDotsVertical } from 'react-icons/hi';
 
 function MerchantPageContainerDesktop(props) {
-  const {
+  const { data, isError, isLoading, isFetching, isSuccess } = props;
+  console.log(
+    '🚀 ~ file: MerchantPageContainerDesktop.jsx ~ line 24 ~ MerchantPageContainerDesktop ~ data',
     data,
-    isError,
-    isLoading,
-    isFetching,
-    isSuccess
-  } = props;
-    console.log("🚀 ~ file: MerchantPageContainerDesktop.jsx ~ line 24 ~ MerchantPageContainerDesktop ~ data", data)
+  );
   return (
     <Box>
       <Box
-        bgImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.webp"
+        bgImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
         w="100%"
@@ -45,11 +44,22 @@ function MerchantPageContainerDesktop(props) {
               boxShadow="lg"
               // w="156px"
             >
-              <Image boxSize="100%" src="/home.png" alt="" />
+              <Image
+                boxSize="100%"
+                src={populateAdditionalImage({
+                  ...data?.data?.additionalImage,
+                  height: 136,
+                  width: 136,
+                  extension: 'webp',
+                })}
+                borderRadius="full"
+                alt=""
+                fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+              />
             </Center>
             <Center p={3} al>
               <Text fontSize="38px" fontWeight="semibold">
-                Rumah Habati
+                {data?.data?.name || 'Merchant Name'}
               </Text>
             </Center>
           </Flex>
@@ -70,27 +80,39 @@ function MerchantPageContainerDesktop(props) {
             p={5}
           >
             <Box>
-            <Text fontSize="14px" fontWeight="semibold" color="primary.0">Kategori Makanan dan Minuman</Text>
-              <Text fontSize="lg" color="gray.60">Jl Gunung Arjuna No.3 BSD, Rumah Habati</Text>
+              <Text fontSize="14px" fontWeight="semibold" color="primary.0">
+                Kategori {data?.data?.category?.name || 'Merchant Category'}
+              </Text>
+              <Text fontSize="lg" color="gray.60">
+                {data?.data?.address || 'Merchant Address'}
+              </Text>
             </Box>
             <Spacer />
             <Box>
-              <Button colorScheme="orange" borderRadius="2em" leftIcon={<HiShare />}>Bagikan Halaman</Button>
+              <Button
+                colorScheme="orange"
+                borderRadius="2em"
+                leftIcon={<HiShare />}
+              >
+                Bagikan Halaman
+              </Button>
             </Box>
           </Flex>
         </VStack>
       </Container>
-      
 
-      <Container maxW="container.lg" mt="80px">
+      <Container maxW="container.lg" my="128px">
+        <Text fontSize="4xl" fontWeight="bold">
+          Produk {data?.data?.name}{' '}
+        </Text>
         <Grid
-          templateColumns="repeat(3, 1fr)"
+          templateColumns="repeat(4, 1fr)"
           justifyContent="space-between"
-          gap={5}
+          gap={4}
         >
-          {[...Array(9)].map((item, idx) => (
+          {data?.data?.products?.map((item, idx) => (
             <Box key={idx}>
-              <Product isShowPrice isDetail />
+              <Product {...item} isShowPrice isDetail />
             </Box>
           ))}
         </Grid>

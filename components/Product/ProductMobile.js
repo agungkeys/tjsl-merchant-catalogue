@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { populateAdditionalImage, priceFormat } from '../../helpers/utils';
 
 function ProductMobile(props) {
-  const { isLanding, isShowPrice, name, additionalImage } = props;
+  const { isLanding, isShowPrice, name, additionalImage, price } = props;
 
   return (
     <>
@@ -41,7 +41,34 @@ function ProductMobile(props) {
           </Box>
         </Box>
       ) : (
-        'tes'
+        <Box borderRadius="16px" boxShadow="lg">
+          <Image
+            src={
+              additionalImage?.length > 0
+                ? populateAdditionalImage({
+                    ...additionalImage[0],
+                    height: 230,
+                    width: 230,
+                    extension: 'webp',
+                  })
+                : ''
+            }
+            alt={name}
+            borderTopRadius="8px"
+          />
+          <Box padding="12px">
+            <Text fontSize="sm" fontWeight="bold">
+              {' '}
+              {name}{' '}
+            </Text>
+            {isShowPrice && (
+              <Text fontSize="sm" fontWeight="bold">
+                {' '}
+                {price}{' '}
+              </Text>
+            )}
+          </Box>
+        </Box>
       )}
     </>
   );
@@ -51,6 +78,7 @@ ProductMobile.propTypes = {
   isLanding: PropTypes.bool,
   isShowPrice: PropTypes.bool,
   name: PropTypes.string,
+  price: PropTypes.number,
   additionalImage: PropTypes.array,
 };
 
