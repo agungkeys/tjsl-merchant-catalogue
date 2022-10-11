@@ -6,14 +6,16 @@ import {
   FaFacebookSquare,
   FaInstagram,
   FaLinkedin,
+  FaTiktok,
   FaTwitter,
+  FaYoutube,
 } from 'react-icons/fa';
 
 function FooterMobile() {
   return (
     <>
       <Box
-        backgroundColor="#00264d"
+        backgroundColor="#1746a2"
         color="#fff"
         alignItems="center"
         paddingY="42px"
@@ -57,31 +59,43 @@ function FooterMobile() {
                 Ikuti Kami
               </Text>
               <Flex gap={2}>
-                <NextLink link="">
+                <NextLink
+                  link="https://instagram.com/pupukkaltim_id?igshid=YmMyMTA2M2Y="
+                  target="_blank"
+                >
                   <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
-                      <FaFacebookSquare />
-                    </Button>
-                  </Center>
-                </NextLink>
-                <NextLink link="">
-                  <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
-                      <FaLinkedin />
-                    </Button>
-                  </Center>
-                </NextLink>
-                <NextLink link="">
-                  <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
+                    <Button h="full" color="white" variant="unstyled">
                       <FaInstagram />
                     </Button>
                   </Center>
                 </NextLink>
-                <NextLink link="">
+                <NextLink
+                  link="https://twitter.com/pupukkaltim_id?s=11&t=tu09Rmou7btYxsDThRKzmg"
+                  target="_blank"
+                >
                   <Center w="48px" h="48px" borderRadius="8px">
-                    <Button h="full" color="#718096" variant="unstyled">
+                    <Button h="full" color="white" variant="unstyled">
                       <FaTwitter />
+                    </Button>
+                  </Center>
+                </NextLink>
+                <NextLink
+                  link="https://youtube.com/channel/UCEOm2rbBBTJ2qYOB0WKYWGQ"
+                  target="_blank"
+                >
+                  <Center w="48px" h="48px" borderRadius="8px">
+                    <Button h="full" color="white" variant="unstyled">
+                      <FaYoutube />
+                    </Button>
+                  </Center>
+                </NextLink>
+                <NextLink
+                  link="https://www.tiktok.com/@tjsl_pupukkaltim?_t=8WNp7cCpa3F&_r=1"
+                  target="_blank"
+                >
+                  <Center w="48px" h="48px" borderRadius="8px">
+                    <Button h="full" color="white" variant="unstyled">
+                      <FaTiktok />
                     </Button>
                   </Center>
                 </NextLink>

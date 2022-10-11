@@ -1,83 +1,72 @@
 import PropTypes from 'prop-types';
-import { Box, Button, Container, Flex, Image, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Flex,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { NextLink } from '../../components';
+import { dateFormat, populateAdditionalImage } from '../../helpers/utils';
 
 function BlogPageContainerDesktop(props) {
-  const {
-    data,
-    isError,
-    isLoading,
-    isFetching,
-    isSuccess
-  } = props;
+  const { data, isError, isLoading, isFetching, isSuccess } = props;
 
   const item = data?.data[0];
-    console.log("🚀 ~ file: BlogPageContainerDesktop.jsx ~ line 17 ~ BlogPageContainerDesktop ~ item", item)
-    console.log("🚀 ~ file: BlogPageContainerDesktop.jsx ~ line 15 ~ BlogPageContainerDesktop ~ data", data)
+
   return (
     <Box>
-      <Container maxW="container.xl" paddingY="56px">
-        <Flex gap={6}>
+      <Container maxW="container.xl">
+        <Flex gap={8}>
           <Box width="70%" minH="100vh">
-            <Image
-              src={item?.image}
-              height="575px"
-              width="100%"
-              objectFit="cover"
-              alt=""
-              borderRadius="16px"
-            />
-            <Box marginY="16px">
-              <Flex alignItems="center" justifyContent="space-between">
-                <Text fontWeight="extrabold" fontSize="5xl">
-                  Apa Itu KamiUMKM?
-                </Text>
-                <Text>02 Oktober 2022</Text>
-              </Flex>
-              <Text fontSize="lg">Posted by admin</Text>
-            </Box>
-            <Box paddingY="16px">
-              <Text fontSize="xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perferendis dolor mollitia impedit tenetur fugit culpa et?
-                Assumenda modi deleniti non at dolorem reprehenderit ad
-                repudiandae esse asperiores labore tenetur nostrum voluptate
-                placeat et nisi maxime voluptatibus corrupti eaque, nobis, nemo
-                unde ipsa dolorum! Cupiditate similique eos quod sed laudantium
-                necessitatibus, odit ab omnis sit et enim. Accusantium aut
-                aliquid, eaque atque velit maxime deleniti quaerat nostrum?
-                Minima quam consectetur ad soluta magni ducimus nemo ipsa
-                quisquam quae tenetur deleniti inventore, fugit ab quaerat enim
-                odio quos. Quos dolor veniam consectetur tempora culpa obcaecati
-                veritatis quia, cupiditate totam ipsa corrupti voluptatibus
-                aliquam earum est amet quaerat quod quasi dolore! Error iste
-                deleniti tempora, praesentium minus repellendus at nostrum.
-                Quidem recusandae dolore labore quis placeat et. Est, nam.
-                Voluptatibus cumque commodi quo animi, similique explicabo ipsa
-                aperiam sequi, natus repudiandae architecto non ab dolores?
-                Expedita sit culpa aut recusandae architecto. Suscipit ducimus
-                totam fugiat aspernatur nemo odit repellendus architecto
-                voluptatem, possimus et nam saepe provident vitae hic nesciunt!
-                Veniam, quidem necessitatibus. Unde quod qui placeat dicta
-                dolorum hic asperiores odit provident in, sapiente laboriosam
-                culpa adipisci maxime eum consequuntur inventore laudantium
-                similique tempore nemo fugiat rem dolores? Debitis iste ex vitae
-                commodi.
+            <Box marginY="32px">
+              <Text fontWeight="extrabold" fontSize="5xl">
+                {item?.title}
+              </Text>
+
+              <Text fontSize="lg">
+                Posted by {item?.author} - {item?.dateCreate}
               </Text>
             </Box>
+            <Image
+              src={item?.image}
+              height="350"
+              width="650px"
+              objectFit="cover"
+              alt=""
+              borderRadius="10px"
+              margin="0 auto"
+            />
+
+            <Box
+              marginY="42px"
+              fontSize="lg"
+              fontWeight="normal"
+              paddingRight="32px"
+            >
+              <div
+                dangerouslySetInnerHTML={{ __html: item?.description }}
+                className="description"
+              ></div>
+            </Box>
             <Flex justifyContent="space-between" marginY="16px">
-              <Button leftIcon={<BiChevronLeft />} variant="link">
-                Artikel Sebelumnya
-              </Button>
-              <Button rightIcon={<BiChevronRight />} variant="link">
-                Artikel Selanjutnya
-              </Button>
+              <Flex gap={3} alignItems="center">
+                <Text>Tags : </Text>
+                <Box borderRadius="10px" bgColor="#FFF7E9" padding="8px">
+                  {item?.tags}
+                </Box>{' '}
+              </Flex>
             </Flex>
           </Box>
-          <Box width="30%">
-            <Text fontWeight="extrabold" fontSize="5xl">
+          <Box width="5%" minHeight="100vh">
+            <Divider orientation="vertical" width="20px" />
+          </Box>
+          <Box width="25%">
+            {/* <Text fontWeight="extrabold" fontSize="5xl">
               Artikel Terbaru
             </Text>
             <Flex flexDirection="column" gap={6}>
@@ -103,7 +92,7 @@ function BlogPageContainerDesktop(props) {
                   </NextLink>
                 </Box>
               ))}
-            </Flex>
+            </Flex> */}
           </Box>
         </Flex>
       </Container>

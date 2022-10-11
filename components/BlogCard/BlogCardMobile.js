@@ -8,8 +8,8 @@ function BlogCardMobile(props) {
     props;
 
   return (
-    <>
-      <NextLink link={`/blog/${slug}`}>
+    <NextLink link={`/blog/${slug}`}>
+      <Box paddingBottom={3}>
         <Box
           borderRightRadius="8px"
           backgroundColor="#fff"
@@ -47,16 +47,13 @@ function BlogCardMobile(props) {
           <Text fontSize="md" fontWeight="extrabold">
             {title}
           </Text>
-          <Text fontWeight="light" fontSize="sm" noOfLines={2}>
-            {shortDescription}
-          </Text>
           <Flex justifyContent="space-between">
             <Text fontSize="sm">30 September 2022</Text>
             <Text fontSize="sm">Posted by {author}</Text>
           </Flex>
         </Flex>
-      </NextLink>
-    </>
+      </Box>
+    </NextLink>
   );
 }
 

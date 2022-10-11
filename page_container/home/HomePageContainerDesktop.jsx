@@ -11,6 +11,7 @@ import {
   SkeletonText,
   Text,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { BiChevronRight, BiChevronRightCircle } from 'react-icons/bi';
 import {
@@ -87,6 +88,8 @@ function HomePageContainerDesktop(props) {
     },
   ];
 
+  const router = useRouter();
+
   const HeroSection = () => (
     <Grid
       templateColumns="repeat(2, 1fr)"
@@ -114,13 +117,13 @@ function HomePageContainerDesktop(props) {
           </Text>
         </Box>
         <Text fontSize="16px" fontWeight="regular">
-          Merupakan suatu program persembahan Pupuk Kaltim dalam hal menghimpun
-          seluruh UMKM binaan unggulan PT Pupuk Kaltim dalam suatu wadah
-          digital. Dengan tujuan mempromosikan dan memperkenalkan produk UMKM
-          lokal ke masyarakat luas. <b>KamiUMKM</b> adalah bentuk kontribusi
-          nyata PT Pupuk Kaltim terhadap pertumbuhan dan kemajuan UMKM di
-          seluruh Indonesia, khususnya Kalimantan Timur dengan berkolaborasi
-          bersama para profesional dan pemangku kepentingan.
+          KaMiUMKM merupakan suatu program persembahan TJSL PKT dalam menghimpun
+          seluruh UMKM binaan unggulan PKT dalam suatu wadah digital dengan
+          tujuan mempromosikan dan memperkenalkan produk UMKM lokal Kota Bontang
+          ke masyarakat luas.<b>KamiUMKM</b> juga merupakan bentuk kontribusi
+          nyata PKT terhadap pertumbuhan dan kemajuan UMKM di Indonesia,
+          khususnya Kalimantan Timur dengan berkolaborasi dengan pemangku
+          kepentingan dan para profesional.
         </Text>
       </GridItem>
       <GridItem>
@@ -134,11 +137,7 @@ function HomePageContainerDesktop(props) {
   const BenefitSection = () => (
     <Flex gap={3}>
       <Box width="40%">
-        <Text 
-          color="white"
-          fontWeight="bold" 
-          fontSize="5xl"
-        >
+        <Text color="white" fontWeight="bold" fontSize="5xl">
           Visi
         </Text>
         <Flex
@@ -160,11 +159,7 @@ function HomePageContainerDesktop(props) {
         </Flex>
       </Box>
       <Box width="60%">
-        <Text 
-          color="white"
-          fontWeight="bold" 
-          fontSize="5xl"
-        >
+        <Text color="white" fontWeight="bold" fontSize="5xl">
           Misi
         </Text>
         <Flex
@@ -257,13 +252,13 @@ function HomePageContainerDesktop(props) {
           _hover={{
             transform: 'translate(-0.5rem, -0.5rem)',
             bg: '#ff731d',
-            color: '#fff'
+            color: '#fff',
           }}
           transition="all 0.5s ease-in-out"
           borderRadius="16px"
           w="230px"
           h="100%"
-          backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665441978/tjsl-core/categories/bg-top-campaign-1-vjtn2j_kuyfsf.webp"
+          backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665454114/tjsl-core/categories/bg-top-campaign_1_3_jrj0kt.webp"
           backgroundRepeat="no-repeat"
           backgroundSize="contain"
           backgroundPosition="top"
@@ -367,78 +362,86 @@ function HomePageContainerDesktop(props) {
           ))}
         {isSuccessMerchants &&
           dataMerchants?.data?.slice(0, 3).map((item) => (
-            <Box
+            <NextLink
               key={item?.id}
-              marginY="32px"
-              borderRadius="16px"
-              boxShadow="lg"
-              w="100%"
+              style={{
+                width: '100%',
+              }}
+              link={`/merchants/${item?.slug}`}
             >
               <Box
-                // backgroundColor="#0D5099"
-                backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.png"
-                backgroundRepeat="no-repeat"
-                backgroundSize="contain"
-                backgroundPosition="top-right"
-                borderTopRadius="16px"
-                height="100px"
-              ></Box>
-              <Flex paddingX="32px" width="100%" gap={4}>
-                <Center
-                  rounded="full"
-                  boxSize="100px"
-                  backgroundColor="#fff"
-                  marginTop="-50px"
-                  boxShadow="lg"
-                  w="156px"
-                >
-                  {item?.image ? (
-                    <Image
-                      borderRadius="4em"
-                      boxSize="100%"
-                      src={item?.image}
-                      alt={item?.name}
-                      fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
-                    />
-                  ) : (
-                    <Image
-                      borderRadius="4em"
-                      boxSize="84px"
-                      src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
-                      alt=""
-                    />
-                  )}
-                </Center>
-                <Flex
-                  flexDirection="column"
-                  justifyContent="space-between"
+                marginY="32px"
+                borderRadius="16px"
+                boxShadow="lg"
+                w="100%"
+                cursor="pointer"
+              >
+                <Box
+                  // backgroundColor="#0D5099"
+                  backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
+                  backgroundRepeat="no-repeat"
+                  backgroundSize="contain"
+                  backgroundPosition="top-right"
+                  borderTopRadius="16px"
                   height="100px"
-                  backgroundColor="#fff"
-                  marginTop="-50px"
-                  boxShadow="lg"
-                  padding="12px"
-                  w="100%"
-                  borderRadius="10px"
-                >
-                  <Text fontWeight="bold" fontSize="md">
-                    {item?.name || ''}
-                  </Text>
-                  <Text fontWeight="semibold" fontSize="sm" color="primary.0">
-                    Kategori {item?.category?.name || ''}
-                  </Text>
-                  <Text fontWeight="light" fontSize="sm" noOfLines={2}>
-                    {item?.address || ''}
-                  </Text>
+                ></Box>
+                <Flex paddingX="32px" width="100%" gap={4}>
+                  <Center
+                    rounded="full"
+                    boxSize="100px"
+                    backgroundColor="#fff"
+                    marginTop="-50px"
+                    boxShadow="lg"
+                    w="156px"
+                  >
+                    {item?.image ? (
+                      <Image
+                        borderRadius="4em"
+                        boxSize="100%"
+                        src={item?.image}
+                        alt={item?.name}
+                        fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
+                      />
+                    ) : (
+                      <Image
+                        borderRadius="4em"
+                        boxSize="84px"
+                        src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
+                        alt=""
+                      />
+                    )}
+                  </Center>
+                  <Flex
+                    flexDirection="column"
+                    justifyContent="space-between"
+                    height="100px"
+                    backgroundColor="#fff"
+                    marginTop="-50px"
+                    boxShadow="lg"
+                    padding="12px"
+                    w="100%"
+                    borderRadius="10px"
+                  >
+                    <Text fontWeight="bold" fontSize="md">
+                      {item?.name || ''}
+                    </Text>
+                    <Text fontWeight="semibold" fontSize="sm" color="primary.0">
+                      Kategori {item?.category?.name || ''}
+                    </Text>
+                    <Text fontWeight="light" fontSize="sm" noOfLines={2}>
+                      {item?.address || ''}
+                    </Text>
+                  </Flex>
                 </Flex>
-              </Flex>
-              <Grid gap={3} p={8} templateColumns="repeat(3, 1fr)">
-                {item?.products?.map((item, idx) => (
-                  <GridItem key={idx}>
-                    <Product isLanding {...item} />
-                  </GridItem>
-                ))}
-              </Grid>
-            </Box>
+                <Grid gap={3} p={8} templateColumns="repeat(3, 1fr)">
+                  {item?.products?.map((item, idx) => (
+                    <GridItem key={idx}>
+                      <Product isLanding {...item} />
+                    </GridItem>
+                  ))}
+                </Grid>
+              </Box>
+            </NextLink>
           ))}
       </Flex>
     </>
@@ -498,11 +501,7 @@ function HomePageContainerDesktop(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      <Box
-        mt="32px"
-        backgroundColor="#5f9df7"
-        paddingY="32px"
-      >
+      <Box mt="32px" backgroundColor="#5f9df7" paddingY="32px">
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
