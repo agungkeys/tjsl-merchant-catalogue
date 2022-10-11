@@ -11,6 +11,7 @@ import {
   SkeletonText,
   Text,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { BiChevronRight, BiChevronRightCircle } from 'react-icons/bi';
 import {
@@ -87,6 +88,8 @@ function HomePageContainerDesktop(props) {
     },
   ];
 
+  const router = useRouter();
+
   const HeroSection = () => (
     <Grid
       templateColumns="repeat(2, 1fr)"
@@ -134,11 +137,7 @@ function HomePageContainerDesktop(props) {
   const BenefitSection = () => (
     <Flex gap={3}>
       <Box width="40%">
-        <Text 
-          color="white"
-          fontWeight="bold" 
-          fontSize="5xl"
-        >
+        <Text color="white" fontWeight="bold" fontSize="5xl">
           Visi
         </Text>
         <Flex
@@ -160,11 +159,7 @@ function HomePageContainerDesktop(props) {
         </Flex>
       </Box>
       <Box width="60%">
-        <Text 
-          color="white"
-          fontWeight="bold" 
-          fontSize="5xl"
-        >
+        <Text color="white" fontWeight="bold" fontSize="5xl">
           Misi
         </Text>
         <Flex
@@ -257,7 +252,7 @@ function HomePageContainerDesktop(props) {
           _hover={{
             transform: 'translate(-0.5rem, -0.5rem)',
             bg: '#ff731d',
-            color: '#fff'
+            color: '#fff',
           }}
           transition="all 0.5s ease-in-out"
           borderRadius="16px"
@@ -372,6 +367,8 @@ function HomePageContainerDesktop(props) {
               borderRadius="16px"
               boxShadow="lg"
               w="100%"
+              onClick={() => router.push(`/merchants/${item?.slug}`)}
+              cursor="pointer"
             >
               <Box
                 // backgroundColor="#0D5099"
@@ -497,11 +494,7 @@ function HomePageContainerDesktop(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      <Box
-        mt="32px"
-        backgroundColor="#5f9df7"
-        paddingY="32px"
-      >
+      <Box mt="32px" backgroundColor="#5f9df7" paddingY="32px">
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
