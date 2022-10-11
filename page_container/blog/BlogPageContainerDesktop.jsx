@@ -1,16 +1,28 @@
+import PropTypes from 'prop-types';
 import { Box, Button, Container, Flex, Image, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { NextLink } from '../../components';
 
 function BlogPageContainerDesktop(props) {
+  const {
+    data,
+    isError,
+    isLoading,
+    isFetching,
+    isSuccess
+  } = props;
+
+  const item = data?.data[0];
+    console.log("🚀 ~ file: BlogPageContainerDesktop.jsx ~ line 17 ~ BlogPageContainerDesktop ~ item", item)
+    console.log("🚀 ~ file: BlogPageContainerDesktop.jsx ~ line 15 ~ BlogPageContainerDesktop ~ data", data)
   return (
     <Box>
       <Container maxW="container.xl" paddingY="56px">
         <Flex gap={6}>
           <Box width="70%" minH="100vh">
             <Image
-              src="https://res.cloudinary.com/borneos-co/image/upload/v1660148191/cld-sample-4.jpg"
+              src={item?.image}
               height="575px"
               width="100%"
               objectFit="cover"
@@ -98,5 +110,15 @@ function BlogPageContainerDesktop(props) {
     </Box>
   );
 }
+
+BlogPageContainerDesktop.propTypes = {
+  isMobile: PropTypes.bool.isRequired,
+  data: PropTypes.object,
+  isError: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  isFetching: PropTypes.bool,
+  isSuccess: PropTypes.bool,
+  query: PropTypes.object,
+};
 
 export default BlogPageContainerDesktop;

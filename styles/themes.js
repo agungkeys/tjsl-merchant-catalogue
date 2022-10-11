@@ -9,6 +9,7 @@ const config = {
 
 const colors = {
   primary: {
+    0: "#ff731d",
     10: "#FEEED2",
     20: "#FED9A6",
     30: "#FCBE79",
@@ -20,6 +21,7 @@ const colors = {
     90: "#751A06",
   },
   secondary: {
+    0: "#5f9df7",
     10: "#CEEFFB",
     20: "#9EDCF7",
     30: "#6ABBE8",
