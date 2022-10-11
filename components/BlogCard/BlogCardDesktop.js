@@ -12,8 +12,8 @@ function BlogCardDesktop(props) {
         borderRightRadius="8px"
         backgroundColor="#fff"
         padding="8px"
-        position="relative"
-        top="80px"
+        position="absolute"
+        mt="30px"
         boxShadow="md"
         display="inline-block"
         zIndex={2}

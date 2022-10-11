@@ -258,9 +258,10 @@ function HomePageContainerDesktop(props) {
           borderRadius="16px"
           w="230px"
           h="100%"
-          backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665033486/tjsl-core/categories/bg-top-campaign_1_vjtn2j.webp"
+          backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665441978/tjsl-core/categories/bg-top-campaign-1-vjtn2j_kuyfsf.webp"
           backgroundRepeat="no-repeat"
           backgroundSize="contain"
+          backgroundPosition="top"
         >
           <Box boxSize="64px">
             <Image
@@ -419,11 +420,11 @@ function HomePageContainerDesktop(props) {
                   <Text fontWeight="bold" fontSize="md">
                     {item?.name || ''}
                   </Text>
+                  <Text fontWeight="semibold" fontSize="sm" color="primary.0">
+                    Kategori {item?.category?.name || ''}
+                  </Text>
                   <Text fontWeight="light" fontSize="sm" noOfLines={2}>
                     {item?.address || ''}
-                  </Text>
-                  <Text fontWeight="semibold" fontSize="sm">
-                    Kategori {item?.category?.name || ''}
                   </Text>
                 </Flex>
               </Flex>

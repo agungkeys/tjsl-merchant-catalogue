@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Container,
   Flex,
   Input,
   Text,
@@ -12,13 +13,11 @@ import Maps from '../../components/Maps';
 
 function ContactPageContainerDesktop(props) {
   return (
-    <Flex>
+    <Container maxW="container.xl" paddingY="16px">
       <VStack w="100%">
-        <Box m={2} mb={0}>
-          <Text fontSize={'36px'} fontWeight="bold">
-            Kontak Kami
-          </Text>
-        </Box>
+        <Text mb="24px" mt="8px" fontWeight="extrabold" fontSize="5xl">
+          Kontak Kami
+        </Text>
         <Flex w={'80%'}>
           <Maps />
         </Flex>
@@ -73,7 +72,7 @@ function ContactPageContainerDesktop(props) {
           </Box>
         </Flex>
       </VStack>
-    </Flex>
+    </Container>
   );
 }
 
