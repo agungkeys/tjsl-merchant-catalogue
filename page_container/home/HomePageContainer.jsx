@@ -6,6 +6,7 @@ import { useQuery } from 'react-query';
 import { fetchCategories } from "../../hooks/useCategories";
 import { fetchMerchants } from "../../hooks/useMerchants";
 import { fetchBlogs } from "../../hooks/useBlogs";
+import { fetchBanners } from "../../hooks/useBanners";
 function HomePageContainer(props) {
   const { isMobile } = props;
 
@@ -50,6 +51,20 @@ function HomePageContainer(props) {
       staleTime: 0,
 		},
   );
+
+  const { 
+    data: dataBanners, 
+    isError: isErrorBanners, 
+    isLoading: isLoadingBanners, 
+    isFetching: isFetchingBanners, 
+    isSuccess: isSuccessBanners
+  } = useQuery(
+    ['banners'],
+		() => fetchBanners({ sort: 'desc' }),
+		{
+      staleTime: 0,
+		},
+  );
     
   props = {
     ...props,
@@ -68,6 +83,11 @@ function HomePageContainer(props) {
     isLoadingBlogs,
     isFetchingBlogs,
     isSuccessBlogs,
+    dataBanners,
+    isErrorBanners,
+    isLoadingBanners,
+    isFetchingBanners,
+    isSuccessBanners,
   }
 
 

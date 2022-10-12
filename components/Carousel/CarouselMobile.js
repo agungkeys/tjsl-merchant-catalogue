@@ -37,7 +37,12 @@ function CarouselMobile(props) {
                   className={idx === imageIndex ? 'slide activeSlide' : 'slide'}
                 >
                   <Image
-                    src={banner.image}
+                    src={populateAdditionalImage({
+                      ...banner?.additionalImage,
+                      height: 283,
+                      width: 803,
+                      extension: 'webp',
+                    })}
                     alt={banner.title}
                     variant="banner"
                     w="100%"
@@ -54,7 +59,7 @@ function CarouselMobile(props) {
 }
 
 CarouselMobile.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.object,
   onClick: PropTypes.func,
   isMerchant: PropTypes.bool,
   children: PropTypes.node,

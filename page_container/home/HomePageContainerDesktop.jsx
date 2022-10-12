@@ -41,6 +41,11 @@ function HomePageContainerDesktop(props) {
     isSuccessBlogs,
     isLoadingBlogs,
     isFetchingBlogs,
+    dataBanners,
+    isErrorBanners,
+    isLoadingBanners,
+    isFetchingBanners,
+    isSuccessBanners,
   } = props;
 
   const itemBanners = [
@@ -503,7 +508,7 @@ function HomePageContainerDesktop(props) {
 
   return (
     <Box>
-      <Carousel items={itemBanners} />
+      <Carousel items={dataBanners} />
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
@@ -546,6 +551,11 @@ HomePageContainerDesktop.propTypes = {
   isSuccessBlogs: PropTypes.bool,
   isLoadingBlogs: PropTypes.bool,
   isFetchingBlogs: PropTypes.bool,
+  dataBanners: PropTypes.object,
+  isErrorBanners: PropTypes.bool,
+  isLoadingBanners: PropTypes.bool,
+  isFetchingBanners: PropTypes.bool,
+  isSuccessBanners: PropTypes.bool,
 };
 
 export default HomePageContainerDesktop;
