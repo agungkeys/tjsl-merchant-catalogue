@@ -85,19 +85,18 @@ function CarouselDesktop(props) {
     <Box className="banner-container" py={6}>
       <Slider {...settings}>
         {items &&
-          items.map((banner, idx) => (
+          items?.data?.map((banner, idx) => (
             <NextLink key={idx} link={banner.link} style={{ width: '100%' }}>
               <Box
                 className={idx === imageIndex ? 'slide activeSlide' : 'slide'}
               >
                 <Image
-                  // src={populateAdditionalImage({
-                  //   ...banner?.additionalImage,
-                  //   height: 283,
-                  //   width: 803,
-                  //   extension: 'webp',
-                  // })}
-                  src={banner.image}
+                  src={populateAdditionalImage({
+                    ...banner?.additionalImage,
+                    height: 283,
+                    width: 803,
+                    extension: 'webp',
+                  })}
                   alt={banner.title}
                   p={1}
                   variant="banner"

@@ -155,7 +155,7 @@ ProductDesktop.propTypes = {
   isShowPrice: PropTypes.bool,
   isDetail: PropTypes.bool,
   name: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   additionalImage: PropTypes.array,
 };
 
