@@ -52,13 +52,13 @@ function HomePageContainerDesktop(props) {
     {
       id: 0,
       image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1660137793/images/banners/cy1iztwb4bf6xbp89x1g.webp',
+        'https://res.cloudinary.com/borneos-co/image/upload/v1665563297/tjsl-core/banners/uikzhvdl8w6ch7jybjbw.png',
       title: 'image-banner-0',
     },
     {
       id: 1,
       image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1660137643/images/banners/v3pxsshr9tybdalab3js.webp',
+        'https://res.cloudinary.com/borneos-co/image/upload/v1665562462/tjsl-core/banners/vwbmhcx8ysvmeruicvhj.png',
       title: 'image-banner-1',
     },
     {

@@ -78,7 +78,7 @@ ProductMobile.propTypes = {
   isLanding: PropTypes.bool,
   isShowPrice: PropTypes.bool,
   name: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   additionalImage: PropTypes.array,
 };
 

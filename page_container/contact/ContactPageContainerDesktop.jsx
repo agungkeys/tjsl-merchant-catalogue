@@ -31,7 +31,7 @@ function ContactPageContainerDesktop(props) {
             <Flex p={5}>
               <HiPhone />
               <Text ml={2} mt={-1}>
-                +62 812345678
+                +62 811-591-270
               </Text>
             </Flex>
             <Flex p={5}>
@@ -43,7 +43,8 @@ function ContactPageContainerDesktop(props) {
             <Flex p={5}>
               <HiLocationMarker />
               <Text ml={2} mt={-1}>
-                Jl. James Simandjuntak No. 1. Bontang 75313. Kalimantan Timur, Indonesia.
+                Jl. James Simandjuntak No. 1. Bontang 75313. Kalimantan Timur,
+                Indonesia.
               </Text>
             </Flex>
           </Box>
