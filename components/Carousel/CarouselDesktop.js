@@ -113,7 +113,7 @@ function CarouselDesktop(props) {
 }
 
 CarouselDesktop.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.object,
   onClick: PropTypes.func,
 };
 

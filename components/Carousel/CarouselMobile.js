@@ -59,7 +59,7 @@ function CarouselMobile(props) {
 }
 
 CarouselMobile.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.object,
   onClick: PropTypes.func,
   isMerchant: PropTypes.bool,
   children: PropTypes.node,
