@@ -15,6 +15,7 @@ import { Product, Pagination, NextLink } from '../../components';
 import { HiLink, HiShare } from 'react-icons/hi';
 import { populateAdditionalImage } from '../../helpers/utils';
 import { HiDotsVertical } from 'react-icons/hi';
+import SocialShare from '../../components/SocialShare';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
@@ -89,13 +90,27 @@ function MerchantPageContainerDesktop(props) {
             </Box>
             <Spacer />
             <Box>
-              <Button
+              {/* <Button
                 colorScheme="orange"
                 borderRadius="2em"
                 leftIcon={<HiShare />}
               >
                 Bagikan Halaman
-              </Button>
+              </Button> */}
+              <SocialShare
+                facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
+                twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
+                whatsappLink={`https://wa.me/?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
+                telegramLink={`https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}&text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya!`}
+                shopeeLink={data?.data?.linkShopee}
+                tokopediaLink={data?.data?.linkTokopedia}
+                bukalapakLink={data?.data?.linkBukalapak}
+                borneosLink={data?.data?.linkBorneos}
+                websitePageLink={data?.data?.website}
+                facebookPageLink={data?.data?.socFb}
+                twitterPageLink={data?.data?.socTwitter}
+                instagramPageLink={data?.data?.socIg}
+              />
             </Box>
           </Flex>
         </VStack>

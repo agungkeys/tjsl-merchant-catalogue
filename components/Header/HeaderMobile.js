@@ -115,14 +115,14 @@ function HeaderMobile(props) {
                 </Button>
               </NextLink>
               <NextLink
-                link="/tentang"
+                link="/contact"
                 style={{
                   display: 'block',
                   width: '100%',
                 }}
               >
                 <Button
-                  variant={router.pathname === '/tentang' ? 'secondary' : ''}
+                  variant={router.pathname === '/contact' ? 'secondary' : ''}
                   width="100%"
                 >
                   Kontak Kami
