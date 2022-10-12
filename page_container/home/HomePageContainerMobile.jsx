@@ -81,13 +81,6 @@ function HomePageContainerMobile(props) {
 
   const HeroSection = () => (
     <Flex gap={4} marginY="42px" flexDirection="column">
-      <Image
-        src="/home.png"
-        alt=""
-        width="250px"
-        alignSelf="center"
-        marginY="24px"
-      />
       <Text
         fontWeight="extrabold"
         fontSize="48px"
@@ -115,6 +108,14 @@ function HomePageContainerMobile(props) {
         pertumbuhan dan kemajuan UMKM di Indonesia, khususnya Kalimantan Timur
         dengan berkolaborasi dengan pemangku kepentingan dan para profesional.
       </Text>
+      <Image
+        src="https://res.cloudinary.com/borneos-co/image/upload/v1665562112/tjsl-core/hero-section/Manipulasi_1_btinhk.png"
+        alt=""
+        width="350px"
+        alignSelf="center"
+        marginY="24px"
+        className="image-hero"
+      />
     </Flex>
   );
 
