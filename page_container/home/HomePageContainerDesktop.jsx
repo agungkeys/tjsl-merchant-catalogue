@@ -127,8 +127,14 @@ function HomePageContainerDesktop(props) {
         </Text>
       </GridItem>
       <GridItem>
-        <Flex justifyContent="center">
-          <Image src="/home.png" alt="" width="320px" />
+        <Flex>
+          <Image
+            src="https://res.cloudinary.com/borneos-co/image/upload/v1665562112/tjsl-core/hero-section/Manipulasi_1_btinhk.png"
+            alt=""
+            width="550px"
+            className="image-hero"
+            marginTop="-120px"
+          />
         </Flex>
       </GridItem>
     </Grid>
