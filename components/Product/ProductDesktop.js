@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { priceFormat, populateAdditionalImage } from '../../helpers/utils';
 
 function ProductDesktop(props) {
-  const { isLanding, isShowPrice, isDetail, name, additionalImage } = props;
+  const { isLanding, isShowPrice, isDetail, name, additionalImage, price } =
+    props;
   return (
     <>
       {isLanding ? (
@@ -62,50 +63,52 @@ function ProductDesktop(props) {
         <Box
           borderRadius="16px"
           width="100%"
-          boxShadow="md"
+          boxShadow="lg"
           transition="all 0.5s ease-in-out"
           _hover={{
             transform: 'translate(-0.5rem, -0.5rem)',
           }}
         >
-          {additionalImage?.length > 0 || additionalImage !== null ? (
-            <Image
-              src={
-                additionalImage?.length > 0
-                  ? populateAdditionalImage({
-                      ...additionalImage[0],
-                      height: 230,
-                      width: 230,
-                      extension: 'webp',
-                    })
-                  : ''
-              }
-              fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
-              alt={name}
-              borderTopRadius="16px"
-              width="100%"
-              h="102"
-              objectFit="cover"
-            />
-          ) : (
-            <Image
-              src="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
-              fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
-              alt={name}
-              borderTopRadius="16px"
-              width="100%"
-              h="102"
-              objectFit="cover"
-            />
-          )}
+          <Box>
+            {additionalImage?.length > 0 || additionalImage !== null ? (
+              <Image
+                src={
+                  additionalImage?.length > 0
+                    ? populateAdditionalImage({
+                        ...additionalImage[0],
+                        height: 230,
+                        width: 230,
+                        extension: 'webp',
+                      })
+                    : ''
+                }
+                fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+                alt={name}
+                borderTopRadius="10px"
+                width="100%"
+                height="200px"
+                objectFit="cover"
+              />
+            ) : (
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+                fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+                alt={name}
+                borderTopRadius="16px"
+                width="100%"
+                h="102"
+                objectFit="cover"
+              />
+            )}
+          </Box>
 
           <Box my="0px" p="12px">
-            <Text h={10} fontSize="sm" fontWeight="semibold" noOfLines={2}>
+            <Text h={10} fontSize="md" fontWeight="bold" noOfLines={2}>
               {name}
             </Text>
             {isShowPrice && (
-              <Text pt={1} fontWeight="normal" fontSize="sm">
-                {priceFormat(20000)}
+              <Text pt={1} fontWeight="normal" fontSize="md">
+                {priceFormat(price)}
               </Text>
             )}
           </Box>
@@ -152,6 +155,7 @@ ProductDesktop.propTypes = {
   isShowPrice: PropTypes.bool,
   isDetail: PropTypes.bool,
   name: PropTypes.string,
+  price: PropTypes.number,
   additionalImage: PropTypes.array,
 };
 

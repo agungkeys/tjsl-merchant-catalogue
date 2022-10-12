@@ -63,7 +63,7 @@ function BlogsPageContainerDesktop(props) {
               </Box>
               <Flex justifyContent="space-between">
                 <Text fontSize="lg" color="#fff">
-                  10 Oktober 2022
+                  {item?.dateCreate}
                 </Text>
                 <Text fontSize="lg" color="#fff">
                   Posted by {item?.author}
