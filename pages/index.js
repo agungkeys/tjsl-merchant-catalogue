@@ -17,12 +17,12 @@ function Home(props) {
       onSubmit={(e) => console.log(e)}
     >
       <HeadHome
-        title="KamiUMKM | Mitra Merchant TJSL"
-        description="KamiUMKM | Mitra Merchant TJSL"
-        keyword="KamiUMKM | Mitra Merchant TJSL"
-        ogTitle="KamiUMKM | Mitra Merchant TJSL"
-        ogDescription="KamiUMKM | Mitra Merchant TJSL"
-        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/w_561,h_461,c_fill/v1659268660/images/seo_image_borneos_gls9un.png"
+        title="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
+        description="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
+        keyword="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
+        ogTitle="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
+        ogDescription="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
+        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/v1664949691/tjsl-core/icon-logo/favicon_cen5ia.png"
         ogImageAlt="KamiUmkm"
         ogImageType="image/png"
         ogImageHeight="461"
