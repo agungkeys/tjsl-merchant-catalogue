@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   Flex,
   Grid,
@@ -9,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { BiChevronRight } from 'react-icons/bi';
 import Slider from 'react-slick';
 import NextLink from '../NextLink';
 import Product from '../Product';
@@ -28,9 +30,16 @@ function CarouselMerchant(props) {
   };
   return (
     <>
-      <Text fontWeight="extrabold" fontSize="32px" textAlign="center">
-        Mitra Unggulan KAMI
-      </Text>
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text fontWeight="extrabold" fontSize="18px" textAlign="center">
+          Mitra Unggulan KaMi
+        </Text>
+        <NextLink link="/merchants">
+          <Button variant="link" rightIcon={<BiChevronRight />}>
+            Lihat semua
+          </Button>
+        </NextLink>
+      </Flex>
       <Box className="banner-container-mobile">
         {items?.data && (
           <Slider {...settings}>

@@ -75,11 +75,13 @@ function CarouselSkeletonDesktop() {
   };
 
   return (
-    <Slider {...settings}>
-      <Skeleton height="259px" borderRadius="1em" />
-      <Skeleton height="259px" borderRadius="1em" />
-      <Skeleton height="259px" borderRadius="1em" />
-    </Slider>
+    <Box marginY="24px">
+      <Slider {...settings}>
+        <Skeleton height="259px" borderRadius="1em" />
+        <Skeleton height="259px" borderRadius="1em" />
+        <Skeleton height="259px" borderRadius="1em" />
+      </Slider>
+    </Box>
   );
 }
 

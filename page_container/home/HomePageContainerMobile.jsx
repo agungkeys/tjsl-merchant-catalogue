@@ -32,55 +32,15 @@ function HomePageContainerMobile(props) {
     isSuccessBlogs,
     isLoadingBlogs,
     isFetchingBlogs,
+    dataBanners,
+    isErrorBanners,
+    isLoadingBanners,
+    isFetchingBanners,
+    isSuccessBanners,
   } = props;
 
-  const itemBanners = [
-    {
-      id: 0,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1665563297/tjsl-core/banners/uikzhvdl8w6ch7jybjbw.png',
-      title: 'image-banner-0',
-    },
-    {
-      id: 1,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1665562462/tjsl-core/banners/vwbmhcx8ysvmeruicvhj.png',
-      title: 'image-banner-1',
-    },
-    {
-      id: 2,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1660137500/images/banners/j6ptjrhj8szcrp3r0xpi.webp',
-      title: 'image-banner-2',
-    },
-  ];
-
-  const itemServices = [
-    {
-      id: 0,
-      image: 'service_1.png',
-      name: 'Manfaat',
-      description:
-        'Memberikan kemanfaatan bagi pembangunan ekonomi, sosial, lingkungan, hukum dan tata kelola bagi perusahaan.',
-    },
-    {
-      id: 1,
-      image: 'service_2.png',
-      name: 'Kontribusi',
-      description:
-        'Berkontribusi meningkatkan nilai tambah dengan prinsip yang terintegrasi, terarah dan terukur dampaknya serta akuntabel.',
-    },
-    {
-      id: 2,
-      image: 'service_3.png',
-      name: 'Pembinaan',
-      description:
-        'Membina usaha mikro dan usaha kecil agar lebih tangguh dan mandiri serta masyarakat sekitar perusahaan.',
-    },
-  ];
-
   const HeroSection = () => (
-    <Flex gap={4} marginY="42px" flexDirection="column">
+    <Flex gap={4} marginY="42px" flexDirection="column" paddingY="16px">
       <Text
         fontWeight="extrabold"
         fontSize="48px"
@@ -98,13 +58,13 @@ function HomePageContainerMobile(props) {
         Katalog Mitra UMKM
       </Text>
       <Text fontSize="14px" fontWeight="regular">
-        KaMiUMKM merupakan suatu program persembahan TJSL PKT dalam menghimpun
-        seluruh UMKM binaan unggulan PKT dalam suatu wadah digital dengan tujuan
-        mempromosikan dan memperkenalkan produk UMKM lokal Kota Bontang ke
-        masyarakat luas.
+        <b>KaMiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
+        menghimpun seluruh UMKM binaan unggulan PKT dalam suatu wadah digital
+        dengan tujuan mempromosikan dan memperkenalkan produk UMKM lokal Kota
+        Bontang ke masyarakat luas.
       </Text>
       <Text fontSize="14px" fontWeight="regular">
-        <b>KamiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
+        <b>KaMiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
         pertumbuhan dan kemajuan UMKM di Indonesia, khususnya Kalimantan Timur
         dengan berkolaborasi dengan pemangku kepentingan dan para profesional.
       </Text>
@@ -113,8 +73,8 @@ function HomePageContainerMobile(props) {
         alt=""
         width="350px"
         alignSelf="center"
-        marginY="24px"
         className="image-hero"
+        marginTop="-50px"
       />
     </Flex>
   );
@@ -133,6 +93,7 @@ function HomePageContainerMobile(props) {
           }}
           cursor="context-menu"
         >
+          <Image src="./service_2.png" alt="" boxSize="128px" margin="0 auto" />
           <Text
             textAlign="center"
             fontSize="24px"
@@ -140,17 +101,15 @@ function HomePageContainerMobile(props) {
             fontWeight="bold"
             textTransform="uppercase"
           >
-            Visi KaMiUMKM
+            Visi
           </Text>
-          <Flex gap={3} alignItems="center">
-            <Image src="./service_2.png" alt="" boxSize="128px" />
-            <Box>
-              <Text fontWeight="normal" fontSize="md">
-                Terwujudnya masyarakat mandiri dan berkelanjutan berbasis
-                hubungan yang harmonis antara perusahaan dan masyarakat.
-              </Text>
-            </Box>
-          </Flex>
+
+          <Box>
+            <Text fontWeight="normal" fontSize="md" textAlign="center">
+              Terwujudnya masyarakat mandiri dan berkelanjutan berbasis hubungan
+              yang harmonis antara perusahaan dan masyarakat.
+            </Text>
+          </Box>
         </Box>
         <Box
           padding="16px"
@@ -163,6 +122,7 @@ function HomePageContainerMobile(props) {
           }}
           cursor="context-menu"
         >
+          <Image src="./service_3.png" alt="" boxSize="128px" margin="0 auto" />
           <Text
             textAlign="center"
             fontSize="24px"
@@ -170,34 +130,31 @@ function HomePageContainerMobile(props) {
             fontWeight="bold"
             textTransform="uppercase"
           >
-            Misi KaMiUMKM
+            Misi
           </Text>
-          <Flex gap={3} alignItems="center">
-            <Image src="./service_3.png" alt="" boxSize="128px" />
-            <Box>
-              <ul>
-                <li>
-                  <Text fontSize="sm" fontWeight="normal">
-                    Memberdayakan potensi sumber daya lokal dengan membentuk
-                    kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
-                    kemandirian masyarakat,
-                  </Text>
-                </li>
-                <li>
-                  <Text fontSize="sm" fontWeight="normal">
-                    Menciptakan keserasian lingkungan sekitar dengan membangun
-                    infrastruktur pendukung secara berkelanjutan,
-                  </Text>
-                </li>
-                <li>
-                  <Text fontSize="sm" fontWeight="normal">
-                    Meningkatkan sinergi dan citra positif perusahaan dengan
-                    stakeholder untuk berkelanjutan operasional perusahaan.
-                  </Text>
-                </li>
-              </ul>
-            </Box>
-          </Flex>
+          <Box paddingX="12px">
+            <ul>
+              <li>
+                <Text fontSize="sm" fontWeight="normal">
+                  Memberdayakan potensi sumber daya lokal dengan membentuk
+                  kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
+                  kemandirian masyarakat,
+                </Text>
+              </li>
+              <li>
+                <Text fontSize="sm" fontWeight="normal">
+                  Menciptakan keserasian lingkungan sekitar dengan membangun
+                  infrastruktur pendukung secara berkelanjutan,
+                </Text>
+              </li>
+              <li>
+                <Text fontSize="sm" fontWeight="normal">
+                  Meningkatkan sinergi dan citra positif perusahaan dengan
+                  stakeholder untuk berkelanjutan operasional perusahaan.
+                </Text>
+              </li>
+            </ul>
+          </Box>
         </Box>
       </Flex>
     </Box>
@@ -218,13 +175,8 @@ function HomePageContainerMobile(props) {
 
   const CategoriesSection = () => (
     <Box paddingY="24px" marginY="32px">
-      <Text
-        fontWeight="extrabold"
-        fontSize="4xl"
-        textAlign="center"
-        marginBottom="16px"
-      >
-        Kategori Mitra Binaan KAMI
+      <Text fontWeight="extrabold" fontSize="18px" marginBottom="16px">
+        Kategori Mitra Binaan KaMi
       </Text>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         {isLoadingCategories &&
@@ -308,8 +260,8 @@ function HomePageContainerMobile(props) {
   const BlogSection = () => (
     <>
       <Flex justifyContent="space-between" alignItems="center">
-        <Text fontWeight="extrabold" fontSize="24px">
-          Artikel
+        <Text fontWeight="extrabold" fontSize="18px">
+          Blog KaMi
         </Text>
         <NextLink link="/blog">
           <Button variant="link" rightIcon={<BiChevronRight />}>
@@ -388,7 +340,10 @@ function HomePageContainerMobile(props) {
 
   return (
     <Box>
-      <Carousel items={itemBanners} isMobile />
+      {isLoadingBanners && isFetchingBanners && (
+        <Carousel isSkeleton isMobile />
+      )}
+      {isSuccessBanners && <Carousel items={dataBanners} isMobile />}
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
@@ -430,6 +385,11 @@ HomePageContainerMobile.propTypes = {
   isSuccessBlogs: PropTypes.bool,
   isLoadingBlogs: PropTypes.bool,
   isFetchingBlogs: PropTypes.bool,
+  dataBanners: PropTypes.object,
+  isErrorBanners: PropTypes.bool,
+  isLoadingBanners: PropTypes.bool,
+  isFetchingBanners: PropTypes.bool,
+  isSuccessBanners: PropTypes.bool,
 };
 
 export default HomePageContainerMobile;
