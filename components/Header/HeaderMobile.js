@@ -80,7 +80,7 @@ function HeaderMobile(props) {
                 }}
               >
                 <Button
-                  variant={router.pathname === '/' ? 'secondary' : ''}
+                  variant={router.pathname === '/' ? 'primary' : ''}
                   width="100%"
                 >
                   Beranda
@@ -94,7 +94,9 @@ function HeaderMobile(props) {
                 }}
               >
                 <Button
-                  variant={router.pathname === '/merchants' ? 'secondary' : ''}
+                  variant={
+                    router.pathname.includes('/merchants') ? 'primary' : ''
+                  }
                   width="100%"
                 >
                   Mitra Kami
@@ -108,7 +110,7 @@ function HeaderMobile(props) {
                 }}
               >
                 <Button
-                  variant={router.pathname === '/blog' ? 'secondary' : ''}
+                  variant={router.pathname.includes('/blog') ? 'primary' : ''}
                   width="100%"
                 >
                   Blog
@@ -122,7 +124,9 @@ function HeaderMobile(props) {
                 }}
               >
                 <Button
-                  variant={router.pathname === '/contact' ? 'secondary' : ''}
+                  variant={
+                    router.pathname.includes('/contact') ? 'primary' : ''
+                  }
                   width="100%"
                 >
                   Kontak Kami

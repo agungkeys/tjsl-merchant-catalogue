@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 // import { Card, Grid, Link, Text, Spacer } from "@nextui-org/react";
-import { Box, Container, Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Image, Text } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import NextLink from '../NextLink';
 import { populateAdditionalImage } from '../../helpers/utils';
+import { useRouter } from 'next/router';
 
 function HeaderDesktop(props) {
   const [headerPosition, setHeaderPosition] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     window.addEventListener('scroll', stickNavbar);
@@ -45,12 +47,9 @@ function HeaderDesktop(props) {
                 objectFit="cover"
               />
               <NextLink link="/">
-                <Text
+                <Button
                   fontSize="lg"
                   fontWeight="semibold"
-                  // color="#1746a2"
-                  p={2}
-                  px={3}
                   borderRadius="2em"
                   sx={{
                     _hover: {
@@ -59,17 +58,15 @@ function HeaderDesktop(props) {
                     },
                   }}
                   transition="all 0.3s ease-in-out"
+                  variant={router.pathname === '/' ? 'primary' : ''}
                 >
                   Beranda
-                </Text>
+                </Button>
               </NextLink>
               <NextLink link="/merchants">
-                <Text
+                <Button
                   fontSize="lg"
                   fontWeight="semibold"
-                  // color="#1746a2"
-                  p={2}
-                  px={3}
                   borderRadius="2em"
                   sx={{
                     _hover: {
@@ -78,17 +75,17 @@ function HeaderDesktop(props) {
                     },
                   }}
                   transition="all 0.3s ease-in-out"
+                  variant={
+                    router.pathname.includes('/merchants') ? 'primary' : ''
+                  }
                 >
                   Mitra Kami
-                </Text>
+                </Button>
               </NextLink>
               <NextLink link="/blog">
-                <Text
+                <Button
                   fontSize="lg"
                   fontWeight="semibold"
-                  // color="#1746a2"
-                  p={2}
-                  px={3}
                   borderRadius="2em"
                   sx={{
                     _hover: {
@@ -97,17 +94,15 @@ function HeaderDesktop(props) {
                     },
                   }}
                   transition="all 0.3s ease-in-out"
+                  variant={router.pathname.includes('/blog') ? 'primary' : ''}
                 >
                   Blog Kami
-                </Text>
+                </Button>
               </NextLink>
               <NextLink link="/contact">
-                <Text
+                <Button
                   fontSize="lg"
                   fontWeight="semibold"
-                  // color="#1746a2"
-                  p={2}
-                  px={3}
                   borderRadius="2em"
                   sx={{
                     _hover: {
@@ -116,9 +111,12 @@ function HeaderDesktop(props) {
                     },
                   }}
                   transition="all 0.3s ease-in-out"
+                  variant={
+                    router.pathname.includes('/contact') ? 'primary' : ''
+                  }
                 >
                   Kontak
-                </Text>
+                </Button>
               </NextLink>
             </Flex>
           </Flex>

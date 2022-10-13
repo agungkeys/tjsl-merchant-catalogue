@@ -48,51 +48,6 @@ function HomePageContainerDesktop(props) {
     isSuccessBanners,
   } = props;
 
-  const itemBanners = [
-    {
-      id: 0,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1665563297/tjsl-core/banners/uikzhvdl8w6ch7jybjbw.png',
-      title: 'image-banner-0',
-    },
-    {
-      id: 1,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1665562462/tjsl-core/banners/vwbmhcx8ysvmeruicvhj.png',
-      title: 'image-banner-1',
-    },
-    {
-      id: 2,
-      image:
-        'https://res.cloudinary.com/borneos-co/image/upload/v1660137500/images/banners/j6ptjrhj8szcrp3r0xpi.webp',
-      title: 'image-banner-2',
-    },
-  ];
-
-  const itemServices = [
-    {
-      id: 0,
-      image: 'service_1.png',
-      name: 'Manfaat',
-      description:
-        'Memberikan kemanfaatan bagi pembangunan ekonomi, sosial, lingkungan, hukum dan tata kelola bagi perusahaan.',
-    },
-    {
-      id: 1,
-      image: 'service_2.png',
-      name: 'Kontribusi',
-      description:
-        'Berkontribusi meningkatkan nilai tambah dengan prinsip yang terintegrasi, terarah dan terukur dampaknya serta akuntabel.',
-    },
-    {
-      id: 2,
-      image: 'service_3.png',
-      name: 'Pembinaan',
-      description:
-        'Membina usaha mikro dan usaha kecil agar lebih tangguh dan mandiri serta masyarakat sekitar perusahaan.',
-    },
-  ];
-
   const router = useRouter();
 
   const HeroSection = () => (
@@ -122,13 +77,15 @@ function HomePageContainerDesktop(props) {
           </Text>
         </Box>
         <Text fontSize="16px" fontWeight="regular">
-          KaMiUMKM merupakan suatu program persembahan TJSL PKT dalam menghimpun
-          seluruh UMKM binaan unggulan PKT dalam suatu wadah digital dengan
-          tujuan mempromosikan dan memperkenalkan produk UMKM lokal Kota Bontang
-          ke masyarakat luas.<b>KamiUMKM</b> juga merupakan bentuk kontribusi
-          nyata PKT terhadap pertumbuhan dan kemajuan UMKM di Indonesia,
-          khususnya Kalimantan Timur dengan berkolaborasi dengan pemangku
-          kepentingan dan para profesional.
+          <b>KaMiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
+          menghimpun seluruh UMKM binaan unggulan PKT dalam suatu wadah digital
+          dengan tujuan mempromosikan dan memperkenalkan produk UMKM lokal Kota
+          Bontang ke masyarakat luas. <br />
+        </Text>
+        <Text fontSize="16px" fontWeight="regular">
+          <b>KaMiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
+          pertumbuhan dan kemajuan UMKM di Indonesia, khususnya Kalimantan Timur
+          dengan berkolaborasi dengan pemangku kepentingan dan para profesional.
         </Text>
       </GridItem>
       <GridItem>
@@ -231,7 +188,7 @@ function HomePageContainerDesktop(props) {
   const CategoriesSection = () => (
     <Box paddingY="18px" marginY="32px">
       <Text fontWeight="bold" fontSize="5xl">
-        Kategori Mitra Binaan KAMI
+        Kategori Mitra Binaan KaMi
       </Text>
       <Flex gap={6} justifyContent="center">
         {isLoadingCategories &&
@@ -354,7 +311,7 @@ function HomePageContainerDesktop(props) {
     <>
       <Flex justifyContent="space-between" alignItems="center">
         <Text fontWeight="bold" fontSize="5xl">
-          Mitra Unggulan KAMI
+          Mitra Unggulan KaMi
         </Text>
         <NextLink link="/merchants">
           <Button variant="link" rightIcon={<BiChevronRight />}>
@@ -480,7 +437,7 @@ function HomePageContainerDesktop(props) {
     <>
       <Flex alignItems="center" justifyContent="space-between">
         <Text fontWeight="bold" fontSize="5xl">
-          Blog Kami
+          Blog KaMi
         </Text>
         <NextLink link="/blog">
           <Button variant="link" rightIcon={<BiChevronRight />}>
@@ -508,7 +465,8 @@ function HomePageContainerDesktop(props) {
 
   return (
     <Box>
-      <Carousel items={dataBanners} />
+      {isLoadingBanners && isFetchingBanners && <Carousel isSkeleton />}
+      {isSuccessBanners && <Carousel items={dataBanners} />}
       <Container maxW="container.xl">
         <HeroSection />
       </Container>

@@ -36,14 +36,14 @@ function FooterDesktop(props) {
               <Text fontWeight="semibold" fontSize="3xl">
                 Tautan Cepat
               </Text>
-              <NextLink link={'/'}>
+              <NextLink link="/">
                 <Text>Beranda</Text>
               </NextLink>
-              <NextLink link={'/'}>
+              <NextLink link="/merchants">
                 <Text>Mitra</Text>
               </NextLink>
-              <NextLink link={'/'}>
-                <Text>Tentang</Text>
+              <NextLink link="/contact">
+                <Text>Kontak</Text>
               </NextLink>
             </Flex>
             <Flex flexDirection="column" gap={2} width="300px">
