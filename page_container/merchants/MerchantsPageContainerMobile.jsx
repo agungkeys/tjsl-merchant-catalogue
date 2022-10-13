@@ -16,6 +16,8 @@ import { NextLink, Pagination, Product } from '../../components';
 
 function MerchantsPageContainerMobile(props) {
   const {
+    category,
+    fetchResetMerchants,
     fetchPagination,
     dataCategories,
     isErrorCategories,
@@ -204,6 +206,8 @@ function MerchantsPageContainerMobile(props) {
 
 MerchantsPageContainerMobile.propTypes = {
   isMobile: PropTypes.bool,
+  category: PropTypes.string,
+  fetchResetMerchants: PropTypes.func,
   fetchPagination: PropTypes.func,
   dataCategories: PropTypes.object,
   isErrorCategories: PropTypes.bool,

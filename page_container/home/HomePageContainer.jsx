@@ -9,7 +9,6 @@ import { fetchBlogs } from "../../hooks/useBlogs";
 import { fetchBanners } from "../../hooks/useBanners";
 function HomePageContainer(props) {
   const { isMobile } = props;
-
   const { 
     data: dataCategories, 
     isError: isErrorCategories, 
@@ -32,7 +31,7 @@ function HomePageContainer(props) {
     isSuccess: isSuccessMerchants
   } = useQuery(
     ['merchants'],
-		() => fetchMerchants({ isFavorite: 1 }),
+		() => fetchMerchants({ isFavoriteProduct: 'all' }),
 		{
       staleTime: 0,
 		},

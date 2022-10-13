@@ -10,7 +10,7 @@ import { fetchCategories } from "../../hooks/useCategories";
 
 function MerchantsPageContainer(props) {
   const { isMobile, query } = props;
-  const { page, perPage } = query;
+  const { category, page, perPage } = query;
   const Router = useRouter();
 
   const { 
@@ -36,7 +36,7 @@ function MerchantsPageContainer(props) {
     refetch: refetchMerchants,
   } = useQuery(
     ['merchants'],
-		() => fetchMerchants({ page, perPage }),
+		() => fetchMerchants({ page, perPage, isFavoriteProduct: 1, category }),
     {
       staleTime: 0,
     },
@@ -44,22 +44,23 @@ function MerchantsPageContainer(props) {
 
   function fetchPagination(page) {
     page = JSON.stringify(page);
-    // if (category) {
-    //   Router.push(
-    //     `/merchants/${category}?page=${page}&perPage=${perPage}`,
-    //   );
-    // }
-    Router.push(`/merchants?page=${page}&perPage=${perPage || `9`}`);
+    Router.push(`/merchants?category=${category || ''}&page=${page || 1}&perPage=${perPage || `9`}`);
+  }
+
+  function fetchResetMerchants() {
+    Router.push(`/merchants?category=&page=1&perPage=9`);
   }
 
   useEffect(() => {
-    if (page || perPage) {
+    if (page || perPage || category) {
       refetchMerchants();
     }
-  }, [page, perPage]);
+  }, [page, perPage, category]);
 
   props = {
     ...props,
+    category,
+    fetchResetMerchants,
     fetchPagination,
     dataCategories,
     isErrorCategories,
