@@ -29,7 +29,7 @@ function BlogCardDesktop(props) {
           {category?.name || ''}
         </Text>
       </Box>
-      <Box borderRadius="8px" boxShadow="lg">
+      <Box borderRadius="8px" boxShadow="lg" backgroundColor="#fff">
         <Image
           borderTopRadius="8px"
           src={populateAdditionalImage({
@@ -44,7 +44,7 @@ function BlogCardDesktop(props) {
           height="250px"
         />
         <Box padding="16px">
-          <Text fontSize="xl" fontWeight="bold" height="45px">
+          <Text fontSize="xl" fontWeight="bold" noOfLines={2}>
             {title || ''}
           </Text>
 

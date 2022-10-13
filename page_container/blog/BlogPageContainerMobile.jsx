@@ -19,7 +19,7 @@ function BlogPageContainerMobile(props) {
       <Box marginY="16px">
         <Image src={item?.image} alt={item?.title} borderRadius="10px" />
       </Box>
-      <Box fontSize="md">
+      <Box fontSize="md" paddingX={2}>
         <div
           className="description"
           dangerouslySetInnerHTML={{ __html: item?.description }}

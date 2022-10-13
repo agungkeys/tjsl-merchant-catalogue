@@ -44,27 +44,49 @@ function HomePageContainerMobile(props) {
       <Text
         fontWeight="extrabold"
         fontSize="48px"
-        color="#F57921"
+        color="#FF731D"
         lineHeight={1}
       >
         KamiUMKM
       </Text>
-      <Text
-        fontSize="3xl"
-        fontWeight="bold"
-        textTransform="uppercase"
-        color="#0D5099"
-      >
-        Katalog Mitra UMKM
+      <Flex gap={2} alignItems="center">
+        <Text
+          fontSize="14px"
+          fontWeight="bold"
+          textTransform="uppercase"
+          color="#5f9df7"
+        >
+          Katalog Mitra UMKM Binaan
+        </Text>
+        <Image
+          src="https://res.cloudinary.com/borneos-co/image/upload/v1664423538/images/sponsor/125144863_1_1_truasu.png"
+          alt="Pupuk Kaltim"
+          height="17px"
+        />
+      </Flex>
+
+      <Text fontSize="14px" fontWeight="regular">
+        Pupuk Kaltim terus berkomitmen melaksanakan Program Tanggung Jawab
+        Sosial (TJSL) dan program pendanaan Usaha Mikro Kecil (UMK) dalam
+        mewujudkan masyarakat mandiri dan berkelanjutan berbasis hubungan
+        harmonis antara perusahaan dan masyarakat.
       </Text>
       <Text fontSize="14px" fontWeight="regular">
-        <b>KaMiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
+        Pelaksanaan program TJSL Pupuk Kaltim direalisasikan sejalan dengan
+        salah satu tujuan pendirian Badan Usaha Milik Negara (BUMN) yaitu aktif
+        memberikan bimbingan dan bantuan kepada pengusaha golongan ekonomi
+        lemah, koperasi dan masyarakat sebagaimana tertuang dalam Undang-Undang
+        No. 19 tentang Badan Usaha Milik Negara.
+      </Text>
+
+      <Text fontSize="14px" fontWeight="regular">
+        <b>KamiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
         menghimpun seluruh UMKM binaan unggulan PKT dalam suatu wadah digital
         dengan tujuan mempromosikan dan memperkenalkan produk UMKM lokal Kota
         Bontang ke masyarakat luas.
       </Text>
       <Text fontSize="14px" fontWeight="regular">
-        <b>KaMiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
+        <b>KamiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
         pertumbuhan dan kemajuan UMKM di Indonesia, khususnya Kalimantan Timur
         dengan berkolaborasi dengan pemangku kepentingan dan para profesional.
       </Text>
@@ -80,84 +102,104 @@ function HomePageContainerMobile(props) {
   );
 
   const BenefitSection = () => (
-    <Box paddingY="24px">
-      <Flex flexDirection="column" gap={4}>
-        <Box
-          padding="16px"
-          borderRadius="16px"
-          boxShadow="xl"
-          backgroundColor="#fff"
-          transition="all 0.5s ease-in-out"
-          _hover={{
-            transform: 'translate(-0.5rem, -0.5rem)',
-          }}
-          cursor="context-menu"
+    <>
+      <Box paddingY="24px">
+        <Text
+          fontWeight="bold"
+          fontSize="24px"
+          textAlign="center"
+          marginBottom="12px"
         >
-          <Image src="./service_2.png" alt="" boxSize="128px" margin="0 auto" />
-          <Text
-            textAlign="center"
-            fontSize="24px"
-            marginBottom="16px"
-            fontWeight="bold"
-            textTransform="uppercase"
+          Visi Misi TJSL Pupuk Kaltim
+        </Text>
+        <Flex flexDirection="column" gap={4}>
+          <Box
+            padding="16px"
+            borderRadius="16px"
+            boxShadow="xl"
+            backgroundColor="#fff"
+            transition="all 0.5s ease-in-out"
+            _hover={{
+              transform: 'translate(-0.5rem, -0.5rem)',
+            }}
+            cursor="context-menu"
           >
-            Visi
-          </Text>
-
-          <Box>
-            <Text fontWeight="normal" fontSize="md" textAlign="center">
-              Terwujudnya masyarakat mandiri dan berkelanjutan berbasis hubungan
-              yang harmonis antara perusahaan dan masyarakat.
+            <Image
+              src="./service_2.png"
+              alt=""
+              boxSize="128px"
+              margin="0 auto"
+            />
+            <Text
+              textAlign="center"
+              fontSize="24px"
+              marginBottom="16px"
+              fontWeight="bold"
+              textTransform="uppercase"
+            >
+              Visi
             </Text>
+
+            <Box>
+              <Text fontWeight="normal" fontSize="md" textAlign="center">
+                Terwujudnya masyarakat mandiri dan berkelanjutan berbasis
+                hubungan yang harmonis antara perusahaan dan masyarakat.
+              </Text>
+            </Box>
           </Box>
-        </Box>
-        <Box
-          padding="16px"
-          borderRadius="16px"
-          boxShadow="xl"
-          backgroundColor="#fff"
-          transition="all 0.5s ease-in-out"
-          _hover={{
-            transform: 'translate(-0.5rem, -0.5rem)',
-          }}
-          cursor="context-menu"
-        >
-          <Image src="./service_3.png" alt="" boxSize="128px" margin="0 auto" />
-          <Text
-            textAlign="center"
-            fontSize="24px"
-            marginBottom="16px"
-            fontWeight="bold"
-            textTransform="uppercase"
+          <Box
+            padding="16px"
+            borderRadius="16px"
+            boxShadow="xl"
+            backgroundColor="#fff"
+            transition="all 0.5s ease-in-out"
+            _hover={{
+              transform: 'translate(-0.5rem, -0.5rem)',
+            }}
+            cursor="context-menu"
           >
-            Misi
-          </Text>
-          <Box paddingX="12px">
-            <ul>
-              <li>
-                <Text fontSize="sm" fontWeight="normal">
-                  Memberdayakan potensi sumber daya lokal dengan membentuk
-                  kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
-                  kemandirian masyarakat,
-                </Text>
-              </li>
-              <li>
-                <Text fontSize="sm" fontWeight="normal">
-                  Menciptakan keserasian lingkungan sekitar dengan membangun
-                  infrastruktur pendukung secara berkelanjutan,
-                </Text>
-              </li>
-              <li>
-                <Text fontSize="sm" fontWeight="normal">
-                  Meningkatkan sinergi dan citra positif perusahaan dengan
-                  stakeholder untuk berkelanjutan operasional perusahaan.
-                </Text>
-              </li>
-            </ul>
+            <Image
+              src="./service_3.png"
+              alt=""
+              boxSize="128px"
+              margin="0 auto"
+            />
+            <Text
+              textAlign="center"
+              fontSize="24px"
+              marginBottom="16px"
+              fontWeight="bold"
+              textTransform="uppercase"
+            >
+              Misi
+            </Text>
+            <Box paddingX="12px">
+              <ul>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Memberdayakan potensi sumber daya lokal dengan membentuk
+                    kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
+                    kemandirian masyarakat,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Menciptakan keserasian lingkungan sekitar dengan membangun
+                    infrastruktur pendukung secara berkelanjutan,
+                  </Text>
+                </li>
+                <li>
+                  <Text fontSize="sm" fontWeight="normal">
+                    Meningkatkan sinergi dan citra positif perusahaan dengan
+                    stakeholder untuk berkelanjutan operasional perusahaan.
+                  </Text>
+                </li>
+              </ul>
+            </Box>
           </Box>
-        </Box>
-      </Flex>
-    </Box>
+        </Flex>
+      </Box>
+    </>
   );
 
   const SkeletonCategory = () => (
@@ -176,7 +218,7 @@ function HomePageContainerMobile(props) {
   const CategoriesSection = () => (
     <Box paddingY="24px" marginY="32px">
       <Text fontWeight="extrabold" fontSize="18px" marginBottom="16px">
-        Kategori Mitra Binaan KaMi
+        Kategori Mitra Binaan Kami
       </Text>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         {isLoadingCategories &&
@@ -259,16 +301,6 @@ function HomePageContainerMobile(props) {
 
   const BlogSection = () => (
     <>
-      <Flex justifyContent="space-between" alignItems="center">
-        <Text fontWeight="extrabold" fontSize="18px">
-          Blog KaMi
-        </Text>
-        <NextLink link="/blog">
-          <Button variant="link" rightIcon={<BiChevronRight />}>
-            Lihat semua
-          </Button>
-        </NextLink>
-      </Flex>
       <Flex flexDirection="column">
         {isLoadingBlogs &&
           isFetchingBlogs &&
@@ -280,7 +312,7 @@ function HomePageContainerMobile(props) {
         {isSuccessBlogs &&
           dataBlogs?.data?.slice(0, 3).map((item, idx) => (
             <Box key={idx}>
-              <BlogCard {...item} isMobile />
+              <BlogCard key={idx} {...item} isMobile />
             </Box>
           ))}
       </Flex>
@@ -356,11 +388,21 @@ function HomePageContainerMobile(props) {
         <CategoriesSection />
         {isLoadingMerchants && isFetchingMerchants && <SkeletonMerchant />}
         {isSuccessMerchants && <CarouselMerchant items={dataMerchants} />}
+        <Flex justifyContent="space-between" alignItems="center">
+          <Text fontWeight="extrabold" fontSize="18px">
+            Blog Kami
+          </Text>
+          <NextLink link="/blog">
+            <Button variant="link" rightIcon={<BiChevronRight />}>
+              Lihat semua
+            </Button>
+          </NextLink>
+        </Flex>
       </Container>
       <Box
-        backgroundImage="linear-gradient(#fff7e9, white)"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.png"
+        backgroundSize="cover"
         marginY="32px"
-        paddingY="24px"
       >
         <Container maxW="container.xl">
           <BlogSection />

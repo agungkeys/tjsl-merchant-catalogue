@@ -31,6 +31,14 @@ function MerchantsPageContainerMobile(props) {
     isSuccessMerchants,
   } = props;
 
+  function handleLink(slug) {
+    return {
+      pathname: `/merchants?category=${slug}`,
+      query: { category: slug },
+      asPath: `/merchants?category=${slug}`,
+    };
+  }
+
   const BreadCrumb = () => (
     <>
       <Text fontWeight="bold" fontSize="xl">
@@ -38,11 +46,22 @@ function MerchantsPageContainerMobile(props) {
       </Text>
       <Flex gap={2} paddingY="16px" overflowX="scroll">
         {dataCategories?.data?.map((item) => (
-          <Box key={item?.id} paddingY="8px">
-            <Button colorScheme="facebook" borderRadius="2em">
+          <NextLink key={item?.id} link={handleLink(item?.slug)}>
+            <Button
+              // colorScheme="orange"
+              borderRadius="2em"
+              backgroundColor={category === item?.slug ? `#ff731d` : `#e2eeff`}
+              color={category === item?.slug ? `#fff` : `#000`}
+              sx={{
+                ':hover': {
+                  backgroundColor:
+                    category === item?.slug ? `#ff731d` : `#c2dbff`,
+                },
+              }}
+            >
               {item?.name}
             </Button>
-          </Box>
+          </NextLink>
         ))}
       </Flex>
     </>
