@@ -8,7 +8,9 @@ const fetchMerchants = async (props) => {
     perPage = 9, 
     page= 1,
     sort = 'asc', 
-    isFavorite,
+    isFavorite = 'all',
+    isFavoriteProduct,
+    category,
   } = props;
   const requestOptions = {
     method: 'GET',
@@ -22,7 +24,9 @@ const fetchMerchants = async (props) => {
     perPage,
     page,
     sort,
-    isFavorite
+    isFavorite,
+    isFavoriteProduct,
+    category
   }
 
   const params = paramsToString(queryParams);
