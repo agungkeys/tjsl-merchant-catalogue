@@ -118,6 +118,23 @@ function HeaderDesktop(props) {
                   Kontak
                 </Button>
               </NextLink>
+              <NextLink link="/about">
+                <Button
+                  fontSize="lg"
+                  fontWeight="semibold"
+                  borderRadius="2em"
+                  sx={{
+                    _hover: {
+                      bg: '#ff731d',
+                      color: 'white',
+                    },
+                  }}
+                  transition="all 0.3s ease-in-out"
+                  variant={router.pathname.includes('/about') ? 'primary' : ''}
+                >
+                  Tentang KamiUMKM
+                </Button>
+              </NextLink>
             </Flex>
           </Flex>
         </Container>
