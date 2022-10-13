@@ -197,7 +197,7 @@ function HomePageContainerMobile(props) {
   );
 
   const Category = (item) => (
-    <NextLink>
+    <NextLink link={`/merchants?category=${item?.slug}`}>
       <Flex
         flexDirection="column"
         boxShadow="lg"

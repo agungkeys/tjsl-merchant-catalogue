@@ -210,7 +210,7 @@ function HomePageContainerDesktop(props) {
 
   const Category = (item) => (
     <>
-      <NextLink>
+      <NextLink link={`/merchants?category=${item?.slug}`}>
         <Flex
           flexDirection="column"
           alignItems="start"

@@ -19,7 +19,7 @@ function BlogsPageContainerMobile(props) {
     <>
       <Text>Blog Lainnya</Text>
       {dataBlogs?.data?.slice(3, 9).map((item, idx) => (
-        <NextLink key={idx} link={`blogs/${item?.slug}`}>
+        <NextLink key={idx} link={`blog/${item?.slug}`}>
           <Flex
             marginY="16px"
             gap={3}
