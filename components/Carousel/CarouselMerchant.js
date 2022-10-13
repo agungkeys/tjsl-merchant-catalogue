@@ -68,11 +68,13 @@ function CarouselMerchant(props) {
                     <Flex paddingX="16px" width="100%" gap={4}>
                       <Center
                         rounded="full"
-                        boxSize="100px"
+                        // boxSize="100px"
+                        boxSize="80px"
+                        maxH="55px"
                         backgroundColor="#fff"
-                        marginTop="-50px"
+                        marginTop="-30px"
                         boxShadow="lg"
-                        w="192px"
+                        w="80px"
                       >
                         {item?.image ? (
                           <Image

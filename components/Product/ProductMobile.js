@@ -30,7 +30,7 @@ function ProductMobile(props) {
             fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
           />
           <Box my="0px" p="12px">
-            <Text fontSize="sm" fontWeight="semibold" noOfLines={2}>
+            <Text fontSize="sm" fontWeight="semibold" noOfLines={2} h="35px">
               {name}
             </Text>
             {isShowPrice && (
@@ -58,13 +58,11 @@ function ProductMobile(props) {
           />
           <Box padding="12px">
             <Text fontSize="sm" fontWeight="bold">
-              {' '}
-              {name}{' '}
+              {name}
             </Text>
             {isShowPrice && (
               <Text fontSize="sm" fontWeight="bold">
-                {' '}
-                {price}{' '}
+                {price}
               </Text>
             )}
           </Box>
