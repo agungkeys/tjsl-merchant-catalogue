@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import {
+  Badge,
   Box,
   Button,
+  CloseButton,
   Flex,
   Center,
   Image,
@@ -16,6 +18,8 @@ import { populateAdditionalImage } from '../../helpers/utils';
 
 function MerchantsPageContainerDesktop(props) {
   const {
+    category,
+    fetchResetMerchants,
     fetchPagination,
     dataCategories,
     isErrorCategories,
@@ -28,16 +32,54 @@ function MerchantsPageContainerDesktop(props) {
     isFetchingMerchants,
     isSuccessMerchants,
   } = props;
+  
+  function handleLink(slug) {
+    return (
+      {
+        pathname: `/merchants?category=${slug}`,
+        query: { category: slug },
+        asPath: `/merchants?category=${slug}`
+      }
+    )
+  };
+
   const MerchantSection = () => (
     <Container maxW="container.xl">
       <Box py={6}>
         <Flex gap={2}>
-          {dataCategories?.data?.map((item) => (
-            <Button colorScheme="facebook" key={item?.id} borderRadius="2em">
-              {item?.name}
-            </Button>
-          ))}
+          {dataCategories?.data?.map((item) => 
+            <NextLink key={item?.id} link={handleLink(item?.slug)}>
+              <Button 
+                // colorScheme="orange" 
+                borderRadius="2em"
+                backgroundColor={category === item?.slug ? `#ff731d` : `#e2eeff`}
+                color={category === item?.slug ? `#fff` : `#000`}
+                sx={{
+                  ':hover': {
+                    backgroundColor: category === item?.slug ? `#ff731d` : `#c2dbff`
+                  }}
+                }
+              >
+                {item?.name}
+              </Button>
+            </NextLink>
+          )}
         </Flex>
+        <Box my={4}>
+          {category ?
+            <Flex color="gray.60" alignItems="center">
+              <Text fontSize="14px">{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant untuk kategori:`}</Text>
+              <Box ml={2} px={2} py={1} backgroundColor="gray.30" borderRadius="2em">
+                <Flex alignItems="center">
+                  <Text fontWeight="bold" fontSize="14px" mr={1}>{dataMerchants?.data[0].category?.name}</Text>
+                  <CloseButton onClick={fetchResetMerchants} sx={{ width: '20px', height: '20px', fontSize: '8px', borderRadius: '2em' }} />
+                </Flex>
+              </Box>
+            </Flex>
+            :
+            <Text color="gray.60" fontSize="14px">{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant dari semua kategori`}</Text>
+          }
+        </Box>
       </Box>
       <Grid templateColumns="repeat(3, 1fr)" gap={8} width="100%">
         {dataMerchants?.data?.map((item, idx) => (
@@ -159,6 +201,8 @@ function MerchantsPageContainerDesktop(props) {
 
 MerchantsPageContainerDesktop.propTypes = {
   isMobile: PropTypes.bool,
+  category: PropTypes.string,
+  fetchResetMerchants: PropTypes.func,
   fetchPagination: PropTypes.func,
   dataCategories: PropTypes.object,
   isErrorCategories: PropTypes.bool,
