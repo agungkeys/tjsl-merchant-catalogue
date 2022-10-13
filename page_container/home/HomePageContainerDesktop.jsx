@@ -51,122 +51,184 @@ function HomePageContainerDesktop(props) {
   const router = useRouter();
 
   const HeroSection = () => (
-    <Grid
-      templateColumns="repeat(2, 1fr)"
-      gap={6}
-      marginY="16px"
-      alignItems="center"
-    >
-      <GridItem>
-        <Box marginBottom="8px">
-          <Text
-            fontWeight="extrabold"
-            fontSize="48px"
-            color="#FF731D"
-            lineHeight={1}
-          >
-            KaMiUMKM
+    <>
+      <Grid
+        templateColumns="repeat(2, 1fr)"
+        gap={6}
+        marginY="16px"
+        alignItems="center"
+      >
+        <GridItem>
+          <Box marginBottom="8px">
+            <Text
+              fontWeight="extrabold"
+              fontSize="48px"
+              color="#FF731D"
+              lineHeight={1}
+            >
+              KamiUMKM
+            </Text>
+            <Flex gap={2}>
+              <Text
+                fontSize="23px"
+                fontWeight="bold"
+                textTransform="uppercase"
+                color="#5f9df7"
+              >
+                Katalog Mitra UMKM Binaan
+              </Text>
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1664423538/images/sponsor/125144863_1_1_truasu.png"
+                alt="Pupuk Kaltim"
+                height="30px"
+              />
+            </Flex>
+          </Box>
+
+          <Text fontSize="16px" fontWeight="regular">
+            Pupuk Kaltim terus berkomitmen melaksanakan Program Tanggung Jawab
+            Sosial (TJSL) dan program pendanaan Usaha Mikro Kecil (UMK) dalam
+            mewujudkan masyarakat mandiri dan berkelanjutan berbasis hubungan
+            harmonis antara perusahaan dan masyarakat.
           </Text>
-          <Text
-            fontSize="23px"
-            fontWeight="bold"
-            textTransform="uppercase"
-            color="#5f9df7"
-          >
-            Katalog Mitra UMKM
+          <Text fontSize="16px" fontWeight="regular" marginTop="12px">
+            Pelaksanaan program TJSL Pupuk Kaltim direalisasikan sejalan dengan
+            salah satu tujuan pendirian Badan Usaha Milik Negara (BUMN) yaitu
+            aktif memberikan bimbingan dan bantuan kepada pengusaha golongan
+            ekonomi lemah, koperasi dan masyarakat sebagaimana tertuang dalam
+            Undang-Undang No. 19 tentang Badan Usaha Milik Negara.
           </Text>
-        </Box>
-        <Text fontSize="16px" fontWeight="regular">
-          <b>KaMiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
+          <Text fontSize="16px" fontWeight="regular" marginTop="12px">
+            Pelaksanaan program TJSL juga sebagai wujud dari pelaksanaan prinsip
+            Good Corporate Governance (GCG) dan tanggung jawab sosial perusahaan
+            sebagai Badan Usaha Milik Negara (BUMN) berdasarkan Peraturan
+            Menteri BUMN nomor PER-05/mbu/04/2021 tentang program Tanggung Jawab
+            Sosial dan Lingkungan Badan Usaha Milik Negara.
+          </Text>
+        </GridItem>
+        <GridItem>
+          <Flex>
+            <Image
+              src="https://res.cloudinary.com/borneos-co/image/upload/v1665562112/tjsl-core/hero-section/Manipulasi_1_btinhk.png"
+              alt=""
+              width="550px"
+              className="image-hero"
+              marginTop="-120px"
+            />
+          </Flex>
+        </GridItem>
+      </Grid>
+      <Box
+        alignItems="start"
+        borderRadius="16px"
+        boxShadow="xl"
+        backgroundColor="#FF731D"
+        padding="16px"
+        color="#fff"
+      >
+        <Text fontSize="18px" fontWeight="regular">
+          <b>KamiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
           menghimpun seluruh UMKM binaan unggulan PKT dalam suatu wadah digital
           dengan tujuan mempromosikan dan memperkenalkan produk UMKM lokal Kota
           Bontang ke masyarakat luas. <br />
         </Text>
-        <Text fontSize="16px" fontWeight="regular">
-          <b>KaMiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
+        <Text fontSize="18px" fontWeight="regular" marginTop="12px">
+          <b>KamiUMKM</b> juga merupakan bentuk kontribusi nyata PKT terhadap
           pertumbuhan dan kemajuan UMKM di Indonesia, khususnya Kalimantan Timur
           dengan berkolaborasi dengan pemangku kepentingan dan para profesional.
         </Text>
-      </GridItem>
-      <GridItem>
-        <Flex>
-          <Image
-            src="https://res.cloudinary.com/borneos-co/image/upload/v1665562112/tjsl-core/hero-section/Manipulasi_1_btinhk.png"
-            alt=""
-            width="550px"
-            className="image-hero"
-            marginTop="-120px"
-          />
-        </Flex>
-      </GridItem>
-    </Grid>
+      </Box>
+    </>
   );
 
   const BenefitSection = () => (
-    <Flex gap={3}>
-      <Box width="40%">
-        <Text color="white" fontWeight="bold" fontSize="5xl">
-          Visi
-        </Text>
-        <Flex
-          marginY="8px"
-          alignItems="start"
-          borderRadius="16px"
-          boxShadow="xl"
-          backgroundColor="#fff"
-          padding="16px"
-          height="192px"
-        >
-          <Flex gap={1}>
-            <Image src="./service_2.png" alt="" boxSize="92px" />
-            <Text fontSize="lg" fontWeight="normal">
-              Terwujudnya masyarakat mandiri dan berkelanjutan berbasis hubungan
-              yang harmonis antara perusahaan dan masyarakat.
-            </Text>
+    <>
+      <Text color="white" fontWeight="bold" fontSize="5xl" textAlign="center">
+        Visi Misi TJSL Pupuk Kaltim
+      </Text>
+      <Flex gap={3} marginY="16px">
+        <Box width="40%">
+          <Text
+            color="white"
+            fontWeight="bold"
+            fontSize="5xl"
+            textAlign="center"
+          >
+            Visi
+          </Text>
+          <Flex
+            marginY="8px"
+            alignItems="start"
+            borderRadius="16px"
+            boxShadow="xl"
+            backgroundColor="#fff"
+            padding="16px"
+            height="192px"
+          >
+            <Flex gap={1}>
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1665650542/tjsl-core/icon-logo/service_2_lbbo2x.webp"
+                alt=""
+                boxSize="92px"
+              />
+              <Text fontSize="lg" fontWeight="normal">
+                Terwujudnya masyarakat mandiri dan berkelanjutan berbasis
+                hubungan yang harmonis antara perusahaan dan masyarakat.
+              </Text>
+            </Flex>
           </Flex>
-        </Flex>
-      </Box>
-      <Box width="60%">
-        <Text color="white" fontWeight="bold" fontSize="5xl">
-          Misi
-        </Text>
-        <Flex
-          marginY="8px"
-          alignItems="start"
-          borderRadius="16px"
-          boxShadow="xl"
-          backgroundColor="#fff"
-          padding="16px"
-        >
-          <Flex gap={8} alignItems="start">
-            <Image src="./service_3.png" alt="" boxSize="92px" />
-            <Box paddingY="8px">
-              <ul>
-                <li>
-                  <Text fontSize="lg" fontWeight="normal">
-                    Memberdayakan potensi sumber daya lokal dengan membentuk
-                    kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
-                    kemandirian masyarakat,
-                  </Text>
-                </li>
-                <li>
-                  <Text fontSize="lg" fontWeight="normal">
-                    Menciptakan keserasian lingkungan sekitar dengan membangun
-                    infrastruktur pendukung secara berkelanjutan,
-                  </Text>
-                </li>
-                <li>
-                  <Text fontSize="lg" fontWeight="normal">
-                    Meningkatkan sinergi dan citra positif perusahaan dengan
-                    stakeholder untuk berkelanjutan operasional perusahaan.
-                  </Text>
-                </li>
-              </ul>
-            </Box>
+        </Box>
+        <Box width="60%">
+          <Text
+            color="white"
+            fontWeight="bold"
+            fontSize="5xl"
+            textAlign="center"
+          >
+            Misi
+          </Text>
+          <Flex
+            marginY="8px"
+            alignItems="start"
+            borderRadius="16px"
+            boxShadow="xl"
+            backgroundColor="#fff"
+            padding="16px"
+          >
+            <Flex gap={8} alignItems="start">
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1665650541/tjsl-core/icon-logo/service_3_wa5xp7.webp"
+                alt=""
+                boxSize="92px"
+              />
+              <Box paddingY="8px">
+                <ul>
+                  <li>
+                    <Text fontSize="lg" fontWeight="normal">
+                      Memberdayakan potensi sumber daya lokal dengan membentuk
+                      kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
+                      kemandirian masyarakat,
+                    </Text>
+                  </li>
+                  <li>
+                    <Text fontSize="lg" fontWeight="normal">
+                      Menciptakan keserasian lingkungan sekitar dengan membangun
+                      infrastruktur pendukung secara berkelanjutan,
+                    </Text>
+                  </li>
+                  <li>
+                    <Text fontSize="lg" fontWeight="normal">
+                      Meningkatkan sinergi dan citra positif perusahaan dengan
+                      stakeholder untuk berkelanjutan operasional perusahaan.
+                    </Text>
+                  </li>
+                </ul>
+              </Box>
+            </Flex>
           </Flex>
-        </Flex>
-      </Box>
-    </Flex>
+        </Box>
+      </Flex>
+    </>
   );
 
   const SkeletonCategories = () => (
@@ -188,7 +250,7 @@ function HomePageContainerDesktop(props) {
   const CategoriesSection = () => (
     <Box paddingY="18px" marginY="32px">
       <Text fontWeight="bold" fontSize="5xl">
-        Kategori Mitra Binaan KaMi
+        Kategori Mitra Binaan Kami
       </Text>
       <Flex gap={6} justifyContent="center">
         {isLoadingCategories &&
@@ -311,7 +373,7 @@ function HomePageContainerDesktop(props) {
     <>
       <Flex justifyContent="space-between" alignItems="center">
         <Text fontWeight="bold" fontSize="5xl">
-          Mitra Unggulan KaMi
+          Mitra Unggulan Kami
         </Text>
         <NextLink link="/merchants">
           <Button variant="link" rightIcon={<BiChevronRight />}>
@@ -435,16 +497,6 @@ function HomePageContainerDesktop(props) {
 
   const BlogSection = () => (
     <>
-      <Flex alignItems="center" justifyContent="space-between">
-        <Text fontWeight="bold" fontSize="5xl">
-          Blog KaMi
-        </Text>
-        <NextLink link="/blog">
-          <Button variant="link" rightIcon={<BiChevronRight />}>
-            Lihat semua
-          </Button>
-        </NextLink>
-      </Flex>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {isLoadingBlogs &&
           isFetchingBlogs &&
@@ -480,9 +532,24 @@ function HomePageContainerDesktop(props) {
       </Container>
       <Container maxW="container.xl">
         <MerchantSection />
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          marginTop="16px"
+        >
+          <Text fontWeight="bold" fontSize="5xl">
+            Blog Kami
+          </Text>
+          <NextLink link="/blog">
+            <Button variant="link" rightIcon={<BiChevronRight />}>
+              Lihat semua
+            </Button>
+          </NextLink>
+        </Flex>
       </Container>
       <Box
-        backgroundImage="linear-gradient(#fff7e9, white)"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.png"
+        backgroundSize="cover"
         marginY="32px"
         paddingY="24px"
       >

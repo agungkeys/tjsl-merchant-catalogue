@@ -32,7 +32,7 @@ function CarouselMerchant(props) {
     <>
       <Flex justifyContent="space-between" alignItems="center">
         <Text fontWeight="extrabold" fontSize="18px" textAlign="center">
-          Mitra Unggulan KaMi
+          Mitra Unggulan Kami
         </Text>
         <NextLink link="/merchants">
           <Button variant="link" rightIcon={<BiChevronRight />}>

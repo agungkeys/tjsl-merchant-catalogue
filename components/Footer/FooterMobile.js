@@ -53,6 +53,10 @@ function FooterMobile() {
                 Jl. James Simanjuntak Simandjuntak No.1, Guntung, Kec. Bontang
                 Utara, Kota Bontang, Kalimantan Timur 75313
               </Text>
+              <Text>Hotline</Text>
+              <NextLink link="https://wa.me/62811591270" target="_blank">
+                <Text>0811-591-270</Text>
+              </NextLink>
             </Flex>
             <Flex flexDirection="column" gap={4} width="300px">
               <Text fontWeight="semibold" fontSize="3xl">
@@ -100,10 +104,6 @@ function FooterMobile() {
                   </Center>
                 </NextLink>
               </Flex>
-              <Text>Hotline</Text>
-              <NextLink link="https://wa.me/62811591270" target="_blank">
-                <Text>0811-591-270</Text>
-              </NextLink>
             </Flex>
           </Flex>
         </Container>
@@ -114,7 +114,7 @@ function FooterMobile() {
         alignItems="center"
         padding={4}
       >
-        <Text fontWeight="bold" fontSize="lg" color="#00264d">
+        <Text fontWeight="bold" fontSize="sm" color="#00264d">
           KamiUMKM | Copyright &copy; 2022 All Rights Reserved
         </Text>
       </Flex>

@@ -47,9 +47,9 @@ function HeaderMobile(props) {
     >
       <Container maxW="container.xl">
         <Image
-          src="https://res.cloudinary.com/borneos-co/image/upload/v1664949744/tjsl-core/icon-logo/favicon_lns2zu.png"
-          alt=""
-          height="50px"
+          src="https://res.cloudinary.com/borneos-co/image/upload/v1664872088/tjsl-core/icon-logo/kamiumkm_g0bnvq.png"
+          alt="KamiUMKM"
+          height="40px"
           objectFit="cover"
         />
       </Container>

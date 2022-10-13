@@ -4,12 +4,19 @@ import PropTypes from 'prop-types';
 import { populateAdditionalImage } from '../../helpers/utils';
 
 function BlogCardMobile(props) {
-  const { title, category, shortDescription, additionalImage, author, slug } =
-    props;
+  const {
+    title,
+    category,
+    shortDescription,
+    additionalImage,
+    author,
+    slug,
+    dateCreate,
+  } = props;
 
   return (
-    <NextLink link={`/blog/${slug}`}>
-      <Box paddingBottom={3}>
+    <>
+      <NextLink link={`/blog/${slug}`}>
         <Box
           borderRightRadius="8px"
           backgroundColor="#fff"
@@ -44,16 +51,16 @@ function BlogCardMobile(props) {
             height="150px"
             objectFit="cover"
           />
-          <Text fontSize="md" fontWeight="extrabold">
+          <Text fontSize="md" fontWeight="extrabold" noOfLines={2}>
             {title}
           </Text>
           <Flex justifyContent="space-between">
-            <Text fontSize="sm">30 September 2022</Text>
+            <Text fontSize="sm">{dateCreate}</Text>
             <Text fontSize="sm">Posted by {author}</Text>
           </Flex>
         </Flex>
-      </Box>
-    </NextLink>
+      </NextLink>
+    </>
   );
 }
 
@@ -63,7 +70,7 @@ BlogCardMobile.propTypes = {
   additionalImage: PropTypes.object,
   category: PropTypes.object,
   author: PropTypes.string,
-  date: PropTypes.string,
+  dateCreate: PropTypes.string,
   slug: PropTypes.string,
 };
 

@@ -41,7 +41,7 @@ function HeaderDesktop(props) {
               alignItems="center"
             >
               <Image
-                src="https://res.cloudinary.com/borneos-co/image/upload/v1664949744/tjsl-core/icon-logo/favicon_lns2zu.png"
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1664872088/tjsl-core/icon-logo/kamiumkm_g0bnvq.webp"
                 alt=""
                 height="50px"
                 objectFit="cover"
