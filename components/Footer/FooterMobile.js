@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Center, Container, Flex, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Center,
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 import NextLink from '../NextLink';
 import {
   FaFacebookSquare,
@@ -104,6 +114,32 @@ function FooterMobile() {
                   </Center>
                 </NextLink>
               </Flex>
+              <Grid templateColumns="repeat(3, 1fr)" gap={3}>
+                <GridItem>
+                  <Image
+                    src="https://res.cloudinary.com/borneos-co/image/upload/v1664423538/images/sponsor/125144863_1_1_truasu.png"
+                    alt="PT Pupuk Kaltim"
+                    height="50px"
+                    objectFit="contain"
+                  />
+                </GridItem>
+                <GridItem>
+                  <Image
+                    src="https://res.cloudinary.com/borneos-co/image/upload/v1664423539/images/sponsor/logo-pkt-sahabat-umkm_ofbadt.png"
+                    alt="PKT Sahabat UMKM"
+                    height="50px"
+                    objectFit="contain"
+                  />
+                </GridItem>
+                <GridItem>
+                  <Image
+                    src="https://res.cloudinary.com/borneos-co/image/upload/v1665659247/tjsl-core/icon-logo/logo-bangga-buatan-indonesia-4_qbbbut.png"
+                    alt="Bangga Produk Indonesia"
+                    height="50px"
+                    objectFit="contain"
+                  />
+                </GridItem>
+              </Grid>
             </Flex>
           </Flex>
         </Container>
