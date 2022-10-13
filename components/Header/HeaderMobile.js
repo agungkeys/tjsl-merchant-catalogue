@@ -132,6 +132,20 @@ function HeaderMobile(props) {
                   Kontak Kami
                 </Button>
               </NextLink>
+              <NextLink
+                link="/about"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                }}
+              >
+                <Button
+                  variant={router.pathname.includes('/about') ? 'primary' : ''}
+                  width="100%"
+                >
+                  Tentang KamiUMKM
+                </Button>
+              </NextLink>
             </Flex>
           </DrawerBody>
         </DrawerContent>

@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { BiChevronRight } from 'react-icons/bi';
+import { HiChevronRight } from 'react-icons/hi';
 import { BlogCard, Carousel, NextLink, Product } from '../../components';
 import CarouselMerchant from '../../components/Carousel/CarouselMerchant';
 import { populateAdditionalImage } from '../../helpers/utils';
@@ -64,21 +65,6 @@ function HomePageContainerMobile(props) {
           height="17px"
         />
       </Flex>
-
-      <Text fontSize="14px" fontWeight="regular">
-        Pupuk Kaltim terus berkomitmen melaksanakan Program Tanggung Jawab
-        Sosial (TJSL) dan program pendanaan Usaha Mikro Kecil (UMK) dalam
-        mewujudkan masyarakat mandiri dan berkelanjutan berbasis hubungan
-        harmonis antara perusahaan dan masyarakat.
-      </Text>
-      <Text fontSize="14px" fontWeight="regular">
-        Pelaksanaan program TJSL Pupuk Kaltim direalisasikan sejalan dengan
-        salah satu tujuan pendirian Badan Usaha Milik Negara (BUMN) yaitu aktif
-        memberikan bimbingan dan bantuan kepada pengusaha golongan ekonomi
-        lemah, koperasi dan masyarakat sebagaimana tertuang dalam Undang-Undang
-        No. 19 tentang Badan Usaha Milik Negara.
-      </Text>
-
       <Text fontSize="14px" fontWeight="regular">
         <b>KamiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
         menghimpun seluruh UMKM binaan unggulan PKT dalam suatu wadah digital
@@ -90,6 +76,17 @@ function HomePageContainerMobile(props) {
         pertumbuhan dan kemajuan UMKM di Indonesia, khususnya Kalimantan Timur
         dengan berkolaborasi dengan pemangku kepentingan dan para profesional.
       </Text>
+      <NextLink link="/about">
+        <Button
+          fontSize="sm"
+          variant="primary"
+          rightIcon={<HiChevronRight />}
+          marginY="16px"
+          boxShadow="lg"
+        >
+          Selengkapnya
+        </Button>
+      </NextLink>
       <Image
         src="https://res.cloudinary.com/borneos-co/image/upload/v1665562112/tjsl-core/hero-section/Manipulasi_1_btinhk.png"
         alt=""
