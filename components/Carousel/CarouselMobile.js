@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import NextLink from '../NextLink';
 
+import { populateAdditionalImage } from '../../helpers/utils';
+
 function CarouselMobile(props) {
   const { items } = props;
 
