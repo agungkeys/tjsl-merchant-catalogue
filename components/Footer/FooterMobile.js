@@ -101,6 +101,9 @@ function FooterMobile() {
                 </NextLink>
               </Flex>
               <Text>Hotline</Text>
+              <NextLink link="https://wa.me/62811591270" target="_blank">
+                <Text>0811-591-270</Text>
+              </NextLink>
             </Flex>
           </Flex>
         </Container>
