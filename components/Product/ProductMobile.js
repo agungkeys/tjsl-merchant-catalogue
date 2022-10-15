@@ -58,11 +58,11 @@ function ProductMobile(props) {
           />
           <Box padding="12px">
             <Text fontSize="sm" fontWeight="bold">
-              {name}
+              {name || null}
             </Text>
             {isShowPrice && (
               <Text fontSize="sm" fontWeight="bold">
-                {price}
+                {price === '0' ? '' : priceFormat(price)}
               </Text>
             )}
           </Box>

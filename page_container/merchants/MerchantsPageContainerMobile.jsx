@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  CloseButton,
   Container,
   Flex,
   Grid,
@@ -64,6 +65,40 @@ function MerchantsPageContainerMobile(props) {
           </NextLink>
         ))}
       </Flex>
+      <Box my={4}>
+        {category ? (
+          <Flex color="gray.60" alignItems="center">
+            <Text fontSize="10px">{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant untuk kategori:`}</Text>
+            <Box
+              ml={2}
+              px={2}
+              py={1}
+              backgroundColor="gray.30"
+              borderRadius="2em"
+            >
+              <Flex alignItems="center">
+                <Text fontWeight="bold" fontSize="10px" mr={1}>
+                  {dataMerchants?.data[0].category?.name}
+                </Text>
+                <CloseButton
+                  onClick={fetchResetMerchants}
+                  sx={{
+                    width: '20px',
+                    height: '20px',
+                    fontSize: '8px',
+                    borderRadius: '2em',
+                  }}
+                />
+              </Flex>
+            </Box>
+          </Flex>
+        ) : (
+          <Text
+            color="gray.60"
+            fontSize="10px"
+          >{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant dari semua kategori`}</Text>
+        )}
+      </Box>
     </>
   );
 
