@@ -106,6 +106,7 @@ function HomePageContainerMobile(props) {
           fontSize="24px"
           textAlign="center"
           marginBottom="12px"
+          color="#fff"
         >
           Visi Misi TJSL Pupuk Kaltim
         </Text>
@@ -376,7 +377,7 @@ function HomePageContainerMobile(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      <Box backgroundColor="#f0f8ff">
+      <Box backgroundColor="#5f9df7">
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
