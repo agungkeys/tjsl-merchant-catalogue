@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -12,6 +13,12 @@ import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
 import Maps from '../../components/Maps';
 
 function ContactPageContainerDesktop(props) {
+  const { 
+    register,
+    handleSubmit,
+    errors,
+    onSubmit
+  } = props;
   return (
     <Container maxW="container.xl" paddingY="16px">
       <VStack w="100%">
@@ -48,33 +55,46 @@ function ContactPageContainerDesktop(props) {
               </Text>
             </Flex>
           </Box>
-          <Box w="45%" borderLeft={'1px'} borderColor="gray.100" p={5} pt={0}>
-            <Box p={2} pt={0}>
-              <Text>Nama</Text>
-              <Input w={'100%'} name="nama" />
-            </Box>
-            <Box p={2}>
-              <Text>Email</Text>
-              <Input w={'100%'} name="email" type={'email'} />
-            </Box>
-            <Box p={2}>
-              <Text>Nomor Telepon</Text>
-              <Input w={'100%'} name="telp" />
-            </Box>
-            <Box p={2}>
-              <Text>Pesan</Text>
-              <Textarea name="pesan" w={'100%'} />
-            </Box>
-            <Box p={2}>
-              <Button bgColor={'#00A3FF'} fontWeight="bold">
-                Kirim
-              </Button>
-            </Box>
+          <Box w="45%" borderLeft="1px" borderColor="gray.100" p={5} pt={0}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Box p={2} pt={0}>
+                <Text>Nama</Text>
+                <Input isInvalid={errors?.name} {...register("name")} w="100%" />
+                {errors?.name && <Text color="red.60" fontSize="md">{errors?.name?.message}</Text> || null}
+              </Box>
+              <Box p={2}>
+                <Text>Email</Text>
+                <Input isInvalid={errors?.email}  {...register("email")} w="100%" />
+                {errors?.email && <Text color="red.60" fontSize="md">{errors?.email?.message}</Text> || null}
+              </Box>
+              <Box p={2}>
+                <Text>Nomor Telepon</Text>
+                <Input isInvalid={errors?.telp}  {...register("telp")} w="100%" />
+                {errors?.telp && <Text color="red.60" fontSize="md">{errors?.telp?.message}</Text> || null}
+              </Box>
+              <Box p={2}>
+                <Text>Pesan</Text>
+                <Textarea isInvalid={errors?.message}  {...register("message")} w="100%" />
+                {errors?.message && <Text color="red.60" fontSize="md">{errors?.message?.message}</Text> || null}
+              </Box>
+              <Box p={2}>
+                <Button mt={3} variant="primary" fontWeight="bold" w="100%">
+                  Kirim
+                </Button>
+              </Box>
+            </form>
           </Box>
         </Flex>
       </VStack>
     </Container>
   );
 }
+
+ContactPageContainerDesktop.propTypes = {
+  register: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  errors: PropTypes.object,
+  onSubmit: PropTypes.func
+};
 
 export default ContactPageContainerDesktop;
