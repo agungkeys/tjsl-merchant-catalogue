@@ -69,7 +69,7 @@ function NextLink(props) {
 }
 
 NextLink.propTypes = {
-  link: PropTypes.string,
+  link: PropTypes.any,
   children: PropTypes.node,
   className: PropTypes.string,
   passHref: PropTypes.string,
