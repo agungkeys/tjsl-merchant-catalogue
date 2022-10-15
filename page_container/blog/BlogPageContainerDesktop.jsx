@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { NextLink } from '../../components';
 import { dateFormat, populateAdditionalImage } from '../../helpers/utils';
+import SocialShare from '../../components/SocialShare';
 
 function BlogPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
@@ -24,9 +25,18 @@ function BlogPageContainerDesktop(props) {
         <Flex gap={8}>
           <Box width="70%" minH="100vh">
             <Box marginY="32px">
-              <Text fontWeight="extrabold" fontSize="5xl">
-                {item?.title}
-              </Text>
+              <Flex justifyContent="space-between">
+                <Text fontWeight="extrabold" fontSize="5xl">
+                  {item?.title}
+                </Text>
+                <SocialShare
+                  facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
+                  twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya ${item?.title}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
+                  whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya ${item?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
+                  telegramLink={`https://t.me/share/url?url=https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${item?.title}`}
+                  isBlogPage
+                />
+              </Flex>
 
               <Text fontSize="lg">
                 Posted by {item?.author} - {item?.dateCreate}
