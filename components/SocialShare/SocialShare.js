@@ -1,6 +1,11 @@
 import {
   Box,
   Button,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
   Grid,
   GridItem,
   Image,
@@ -12,6 +17,7 @@ import {
   PopoverHeader,
   PopoverTrigger,
   Text,
+  useDisclosure,
   useToast,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -31,6 +37,7 @@ import NextLink from '../NextLink';
 function SocialShare(props) {
   const {
     isMobile,
+    isBlogPage,
     facebookLink,
     twitterLink,
     whatsappLink,
@@ -110,107 +117,213 @@ function SocialShare(props) {
     },
   ];
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <Popover placement="bottom-end" isLazy>
-      <PopoverTrigger>
-        {isMobile ? (
+    <>
+      {isMobile ? (
+        <>
           <Button
             fontSize="18px"
             fontWeight="semibold"
             color="#00001a"
             variant="link"
             leftIcon={isMobile ? '' : <HiShare />}
+            onClick={onOpen}
           >
             <HiDotsVertical />
           </Button>
-        ) : (
-          <Button
-            fontSize="20px"
-            fontWeight="semibold"
-            // color="primary.60"
-            borderRadius="full"
-            boxSize="46px"
-            variant="primary"
-          >
-            <HiDotsVertical />
-          </Button>
-        )}
-      </PopoverTrigger>
-      <PopoverContent>
-        <PopoverArrow />
-        <PopoverCloseButton />
-        <PopoverBody paddingY="16px">
-          <Text fontWeight="semibold">Bagikan ke</Text>
-          <Grid templateColumns="repeat(5, 1fr)" gap={2} marginY="8px">
-            <NextLink link={facebookLink} target="_blank">
-              <Button colorScheme="facebook">{<FaFacebook />}</Button>
-            </NextLink>
-            <NextLink link={twitterLink} target="_blank">
-              <Button colorScheme="twitter">{<FaTwitter />}</Button>
-            </NextLink>
-            <NextLink link={whatsappLink} target="_blank">
-              <Button colorScheme="whatsapp">{<FaWhatsapp />}</Button>
-            </NextLink>
-            <NextLink link={telegramLink} target="_blank">
-              <Button colorScheme="telegram">{<FaTelegram />}</Button>
-            </NextLink>
-            <NextLink disabled>
+          <Drawer placement="bottom" onClose={onClose} isOpen={isOpen}>
+            <DrawerOverlay />
+            <DrawerContent>
+              <DrawerBody>
+                <Text fontWeight="semibold">Bagikan ke</Text>
+                <Grid templateColumns="repeat(5, 1fr)" gap={2} marginY="8px">
+                  <NextLink link={facebookLink} target="_blank">
+                    <Button colorScheme="facebook">{<FaFacebook />}</Button>
+                  </NextLink>
+                  <NextLink link={twitterLink} target="_blank">
+                    <Button colorScheme="twitter">{<FaTwitter />}</Button>
+                  </NextLink>
+                  <NextLink link={whatsappLink} target="_blank">
+                    <Button colorScheme="whatsapp">{<FaWhatsapp />}</Button>
+                  </NextLink>
+                  <NextLink link={telegramLink} target="_blank">
+                    <Button colorScheme="telegram">{<FaTelegram />}</Button>
+                  </NextLink>
+                  <NextLink disabled>
+                    <Button
+                      colorScheme="gray"
+                      onClick={() =>
+                        setTimeout(() => {
+                          navigator.clipboard.writeText(window.location.href);
+                          toast({
+                            position: 'top-right',
+                            title: 'Link telah disalin',
+                            description:
+                              'Kamu bisa bagikan tautan ini kemanapun kamu mau',
+                            status: 'success',
+                            duration: 3000,
+                            isClosable: true,
+                          });
+                        }, 500)
+                      }
+                    >
+                      {<HiLink />}
+                    </Button>
+                  </NextLink>
+                </Grid>
+                {!isBlogPage && (
+                  <>
+                    <Text fontWeight="semibold" marginY="8px">
+                      Kunjungi juga di
+                    </Text>
+                    <Grid
+                      templateColumns="repeat(5, 1fr)"
+                      gap={2}
+                      alignItems="center"
+                    >
+                      {dataMarketplace.map((item, idx) =>
+                        item.link && handleValidationLink(item.link) ? (
+                          <Box key={idx}>
+                            <GridItem>
+                              {item.link && handleValidationLink(item.link) && (
+                                <NextLink link={item.link} target="_blank">
+                                  {typeof item.image === 'string' ? (
+                                    <Image
+                                      src={item.image}
+                                      alt={item.name}
+                                      width="28px"
+                                      objectFit="cover"
+                                    />
+                                  ) : (
+                                    item.image
+                                  )}
+                                </NextLink>
+                              )}
+                            </GridItem>
+                          </Box>
+                        ) : null,
+                      )}
+                    </Grid>
+                  </>
+                )}
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        </>
+      ) : (
+        <Popover placement="bottom-end" isLazy>
+          <PopoverTrigger>
+            {isMobile ? (
               <Button
-                colorScheme="gray"
-                onClick={() =>
-                  setTimeout(() => {
-                    navigator.clipboard.writeText(window.location.href);
-                    toast({
-                      position: 'top-right',
-                      title: 'Link telah disalin',
-                      description:
-                        'Kamu bisa bagikan tautan ini kemanapun kamu mau',
-                      status: 'success',
-                      duration: 3000,
-                      isClosable: true,
-                    });
-                  }, 500)
-                }
+                fontSize="18px"
+                fontWeight="semibold"
+                color="#00001a"
+                variant="link"
+                leftIcon={isMobile ? '' : <HiShare />}
               >
-                {<HiLink />}
+                <HiDotsVertical />
               </Button>
-            </NextLink>
-          </Grid>
-          <Text fontWeight="semibold" marginY="8px">
-            Kunjungi juga di
-          </Text>
-          <Grid templateColumns="repeat(5, 1fr)" gap={2} alignItems="center">
-            {dataMarketplace.map((item, idx) =>
-              item.link && handleValidationLink(item.link) ? (
-                <Box key={idx}>
-                  <GridItem>
-                    {item.link && handleValidationLink(item.link) && (
-                      <NextLink link={item.link} target="_blank">
-                        {typeof item.image === 'string' ? (
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            width="28px"
-                            objectFit="cover"
-                          />
-                        ) : (
-                          item.image
-                        )}
-                      </NextLink>
-                    )}
-                  </GridItem>
-                </Box>
-              ) : null,
+            ) : (
+              <Button
+                fontSize="20px"
+                fontWeight="semibold"
+                // color="primary.60"
+                borderRadius="full"
+                boxSize="46px"
+                variant="primary"
+              >
+                <HiDotsVertical />
+              </Button>
             )}
-          </Grid>
-        </PopoverBody>
-      </PopoverContent>
-    </Popover>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody paddingY="16px">
+              <Text fontWeight="semibold">Bagikan ke</Text>
+              <Grid templateColumns="repeat(5, 1fr)" gap={2} marginY="8px">
+                <NextLink link={facebookLink} target="_blank">
+                  <Button colorScheme="facebook">{<FaFacebook />}</Button>
+                </NextLink>
+                <NextLink link={twitterLink} target="_blank">
+                  <Button colorScheme="twitter">{<FaTwitter />}</Button>
+                </NextLink>
+                <NextLink link={whatsappLink} target="_blank">
+                  <Button colorScheme="whatsapp">{<FaWhatsapp />}</Button>
+                </NextLink>
+                <NextLink link={telegramLink} target="_blank">
+                  <Button colorScheme="telegram">{<FaTelegram />}</Button>
+                </NextLink>
+                <NextLink disabled>
+                  <Button
+                    colorScheme="gray"
+                    onClick={() =>
+                      setTimeout(() => {
+                        navigator.clipboard.writeText(window.location.href);
+                        toast({
+                          position: 'top-right',
+                          title: 'Link telah disalin',
+                          description:
+                            'Kamu bisa bagikan tautan ini kemanapun kamu mau',
+                          status: 'success',
+                          duration: 3000,
+                          isClosable: true,
+                        });
+                      }, 500)
+                    }
+                  >
+                    {<HiLink />}
+                  </Button>
+                </NextLink>
+              </Grid>
+              {!isBlogPage && (
+                <>
+                  <Text fontWeight="semibold" marginY="8px">
+                    Kunjungi juga di
+                  </Text>
+                  <Grid
+                    templateColumns="repeat(5, 1fr)"
+                    gap={2}
+                    alignItems="center"
+                  >
+                    {dataMarketplace.map((item, idx) =>
+                      item.link && handleValidationLink(item.link) ? (
+                        <Box key={idx}>
+                          <GridItem>
+                            {item.link && handleValidationLink(item.link) && (
+                              <NextLink link={item.link} target="_blank">
+                                {typeof item.image === 'string' ? (
+                                  <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    width="28px"
+                                    objectFit="cover"
+                                  />
+                                ) : (
+                                  item.image
+                                )}
+                              </NextLink>
+                            )}
+                          </GridItem>
+                        </Box>
+                      ) : null,
+                    )}
+                  </Grid>
+                </>
+              )}
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+      )}
+    </>
   );
 }
 
 SocialShare.propTypes = {
   isMobile: PropTypes.bool,
+  isBlogPage: PropTypes.bool,
   facebookLink: PropTypes.string,
   twitterLink: PropTypes.string,
   telegramLink: PropTypes.string,
