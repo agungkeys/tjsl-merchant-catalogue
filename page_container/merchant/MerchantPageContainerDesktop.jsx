@@ -101,7 +101,7 @@ function MerchantPageContainerDesktop(props) {
                 facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
                 twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
                 whatsappLink={`https://wa.me/?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
-                telegramLink={`https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}&text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya!`}
+                telegramLink={`https://t.me/share/url?url=https://btjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}&text=Cek Mitra UMKM yok, namanya ${data?.data?.name}`}
                 shopeeLink={data?.data?.linkShopee}
                 tokopediaLink={data?.data?.linkTokopedia}
                 bukalapakLink={data?.data?.linkBukalapak}

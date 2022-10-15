@@ -108,7 +108,7 @@ function ProductDesktop(props) {
             </Text>
             {isShowPrice && (
               <Text pt={1} fontWeight="normal" fontSize="md">
-                {priceFormat(price)}
+                {price === '0' ? '' : priceFormat(price)}
               </Text>
             )}
           </Box>

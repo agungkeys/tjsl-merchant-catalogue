@@ -117,7 +117,7 @@ function FooterMobile() {
               <Grid templateColumns="repeat(3, 1fr)" gap={3}>
                 <GridItem>
                   <Image
-                    src="https://res.cloudinary.com/borneos-co/image/upload/v1664423538/images/sponsor/125144863_1_1_truasu.png"
+                    src="https://res.cloudinary.com/borneos-co/image/upload/v1665804074/tjsl-core/icon-logo/Logo_PKT_2_rxv6vu.png"
                     alt="PT Pupuk Kaltim"
                     height="50px"
                     objectFit="contain"
@@ -125,7 +125,7 @@ function FooterMobile() {
                 </GridItem>
                 <GridItem>
                   <Image
-                    src="https://res.cloudinary.com/borneos-co/image/upload/v1664423539/images/sponsor/logo-pkt-sahabat-umkm_ofbadt.png"
+                    src="https://res.cloudinary.com/borneos-co/image/upload/v1665804073/tjsl-core/icon-logo/Sahabat_ukceak.png"
                     alt="PKT Sahabat UMKM"
                     height="50px"
                     objectFit="contain"
