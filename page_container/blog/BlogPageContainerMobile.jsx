@@ -15,8 +15,8 @@ function BlogPageContainerMobile(props) {
         </Text>
         <SocialShare
           facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
-          twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya ${item?.title}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
-          whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya ${item?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
+          twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
+          whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
           telegramLink={`https://t.me/share/url?url=https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${item?.title}`}
           isMobile
           isBlogPage

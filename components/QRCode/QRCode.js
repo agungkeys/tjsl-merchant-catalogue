@@ -39,11 +39,15 @@ function QRCode(props) {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>QRCode</ModalHeader>
+          <ModalHeader>QRCODE</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex justifyContent="center">
-              <QRCodeCanvas />
+              <QRCodeCanvas
+                value={value}
+                size={size}
+                imageSettings={imageSettings}
+              />
             </Flex>
           </ModalBody>
 

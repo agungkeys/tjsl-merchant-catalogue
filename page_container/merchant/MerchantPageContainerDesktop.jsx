@@ -91,14 +91,16 @@ function MerchantPageContainerDesktop(props) {
             </Box>
             <Spacer />
             <Flex gap={3} alignItems="center">
-              {/* <Button
-                colorScheme="orange"
-                borderRadius="2em"
-                leftIcon={<HiShare />}
-              >
-                Bagikan Halaman
-              </Button> */}
-              <QRCode />
+              <QRCode
+                value={`https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
+                size={192}
+                imageSettings={{
+                  src: 'https://res.cloudinary.com/borneos-co/image/upload/v1664949744/tjsl-core/icon-logo/favicon_lns2zu.webp',
+                  height: 36,
+                  width: 36,
+                  excavate: true,
+                }}
+              />
               <SocialShare
                 facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
                 twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
