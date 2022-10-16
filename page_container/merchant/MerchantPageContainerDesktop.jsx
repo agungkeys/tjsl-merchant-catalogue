@@ -16,6 +16,7 @@ import { HiLink, HiShare } from 'react-icons/hi';
 import { populateAdditionalImage } from '../../helpers/utils';
 import { HiDotsVertical } from 'react-icons/hi';
 import SocialShare from '../../components/SocialShare';
+import QRCode from '../../components/QRCode';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
@@ -89,7 +90,7 @@ function MerchantPageContainerDesktop(props) {
               </Text>
             </Box>
             <Spacer />
-            <Box>
+            <Flex gap={3} alignItems="center">
               {/* <Button
                 colorScheme="orange"
                 borderRadius="2em"
@@ -97,6 +98,7 @@ function MerchantPageContainerDesktop(props) {
               >
                 Bagikan Halaman
               </Button> */}
+              <QRCode />
               <SocialShare
                 facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
                 twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
@@ -111,7 +113,7 @@ function MerchantPageContainerDesktop(props) {
                 twitterPageLink={data?.data?.socTwitter}
                 instagramPageLink={data?.data?.socIg}
               />
-            </Box>
+            </Flex>
           </Flex>
         </VStack>
       </Container>
