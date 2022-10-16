@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Flex,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -9,7 +8,6 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -18,6 +16,7 @@ import { HiQrcode } from 'react-icons/hi';
 
 function QRCode(props) {
   const {
+    isMobile,
     value,
     renderAs,
     size,
@@ -32,23 +31,31 @@ function QRCode(props) {
 
   return (
     <Box>
-      <Button onClick={onOpen} variant="unstyled">
-        <HiQrcode size="32px" />
-      </Button>
+      <Box onClick={onOpen} cursor="pointer">
+        {<HiQrcode size={isMobile ? '24px' : '40px'} />}
+      </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered
+        size={isMobile ? 'full' : 'md'}
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>QRCODE</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <Flex justifyContent="center">
-              <QRCodeCanvas
-                value={value}
-                size={size}
-                imageSettings={imageSettings}
-              />
-            </Flex>
+          <ModalBody
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            display="flex"
+          >
+            <QRCodeCanvas
+              value={value}
+              size={size}
+              imageSettings={imageSettings}
+            />
           </ModalBody>
 
           <ModalFooter>
@@ -63,6 +70,7 @@ function QRCode(props) {
 }
 
 QRCode.propTypes = {
+  isMobile: PropTypes.bool,
   value: PropTypes.string,
   renderAs: PropTypes.string,
   size: PropTypes.number,

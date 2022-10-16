@@ -128,7 +128,6 @@ function SocialShare(props) {
             fontWeight="semibold"
             color="#00001a"
             variant="link"
-            leftIcon={isMobile ? '' : <HiShare />}
             onClick={onOpen}
           >
             <HiDotsVertical />
