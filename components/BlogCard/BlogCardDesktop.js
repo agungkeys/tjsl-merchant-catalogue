@@ -44,7 +44,7 @@ function BlogCardDesktop(props) {
           height="250px"
         />
         <Box padding="16px">
-          <Text fontSize="xl" fontWeight="bold" noOfLines={2}>
+          <Text fontSize="xl" fontWeight="bold" noOfLines={2} height="55px">
             {title || ''}
           </Text>
 

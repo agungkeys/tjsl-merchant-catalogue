@@ -21,7 +21,6 @@ import ENV from '../../constants/env';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
-
   return (
     <Box>
       <Box
@@ -119,7 +118,7 @@ function MerchantPageContainerDesktop(props) {
       </Container>
 
       <Container maxW="container.lg" my="128px">
-        <Text fontSize="4xl" fontWeight="bold">
+        <Text fontSize="4xl" fontWeight="bold" mb={5}>
           Produk {data?.data?.name}{' '}
         </Text>
         <Grid

@@ -1,6 +1,9 @@
+import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types';
 import ContactPageContainerDesktop from './ContactPageContainerDesktop';
 import ContactPageContainerMobile from './ContactPageContainerMobile';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
 function ContactPageContainer(props) {
   const { isMobile } = props;
@@ -12,7 +15,7 @@ function ContactPageContainer(props) {
   }
 }
 
-ContactPageContainer.prototype = {
+ContactPageContainer.propTypes = {
   isMobile: PropTypes.bool,
 };
 
