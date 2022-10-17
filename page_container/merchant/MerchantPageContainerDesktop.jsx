@@ -20,10 +20,6 @@ import QRCode from '../../components/QRCode';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
-  console.log(
-    '🚀 ~ file: MerchantPageContainerDesktop.jsx ~ line 24 ~ MerchantPageContainerDesktop ~ data',
-    data,
-  );
   return (
     <Box>
       <Box
@@ -121,7 +117,7 @@ function MerchantPageContainerDesktop(props) {
       </Container>
 
       <Container maxW="container.lg" my="128px">
-        <Text fontSize="4xl" fontWeight="bold">
+        <Text fontSize="4xl" fontWeight="bold" mb={5}>
           Produk {data?.data?.name}{' '}
         </Text>
         <Grid

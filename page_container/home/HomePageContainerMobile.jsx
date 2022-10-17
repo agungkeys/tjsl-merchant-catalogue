@@ -171,23 +171,23 @@ function HomePageContainerMobile(props) {
             >
               Misi
             </Text>
-            <Box paddingX="12px">
+            <Box p={2} px={4}>
               <ul>
                 <li>
-                  <Text fontSize="sm" fontWeight="normal">
+                  <Text fontSize="md" fontWeight="normal">
                     Memberdayakan potensi sumber daya lokal dengan membentuk
                     kegiatan usaha yang dapat meningkatkan taraf ekonomi dan
                     kemandirian masyarakat,
                   </Text>
                 </li>
                 <li>
-                  <Text fontSize="sm" fontWeight="normal">
+                  <Text fontSize="md" fontWeight="normal">
                     Menciptakan keserasian lingkungan sekitar dengan membangun
                     infrastruktur pendukung secara berkelanjutan,
                   </Text>
                 </li>
                 <li>
-                  <Text fontSize="sm" fontWeight="normal">
+                  <Text fontSize="md" fontWeight="normal">
                     Meningkatkan sinergi dan citra positif perusahaan dengan
                     stakeholder untuk berkelanjutan operasional perusahaan.
                   </Text>
@@ -386,7 +386,7 @@ function HomePageContainerMobile(props) {
         <CategoriesSection />
         {isLoadingMerchants && isFetchingMerchants && <SkeletonMerchant />}
         {isSuccessMerchants && <CarouselMerchant items={dataMerchants} />}
-        <Flex justifyContent="space-between" alignItems="center">
+        <Flex justifyContent="space-between" alignItems="center" mt={4}>
           <Text fontWeight="extrabold" fontSize="18px">
             Blog Kami
           </Text>

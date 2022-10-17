@@ -1,16 +1,15 @@
+import PropTypes from 'prop-types';
 import {
   Box,
-  Button,
   Container,
   Flex,
-  Input,
   Text,
-  Textarea,
 } from '@chakra-ui/react';
 import { HiLocationMarker, HiMail, HiPhone } from 'react-icons/hi';
 import Maps from '../../components/Maps';
+import ContactForm from './ContactForm';
 
-function ContactPageContainerMobile(props) {
+function ContactPageContainerMobile() {
   return (
     <Box>
       <Container maxW="container.xl">
@@ -48,32 +47,19 @@ function ContactPageContainerMobile(props) {
             </Flex>
           </Flex>
         </Box>
-        <Box marginY="24px">
-          <Box p={2} pt={0}>
-            <Text>Nama</Text>
-            <Input w={'100%'} name="nama" />
-          </Box>
-          <Box p={2}>
-            <Text>Email</Text>
-            <Input w={'100%'} name="email" type={'email'} />
-          </Box>
-          <Box p={2}>
-            <Text>Nomor Telepon</Text>
-            <Input w={'100%'} name="telp" />
-          </Box>
-          <Box p={2}>
-            <Text>Pesan</Text>
-            <Textarea name="pesan" w={'100%'} />
-          </Box>
-          <Box p={2}>
-            <Button bgColor={'#00A3FF'} fontWeight="bold">
-              Kirim
-            </Button>
-          </Box>
+        <Box py={4}>
+          <ContactForm />
         </Box>
       </Container>
     </Box>
   );
 }
+
+ContactPageContainerMobile.propTypes = {
+  register: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  errors: PropTypes.object,
+  onSubmit: PropTypes.func
+};
 
 export default ContactPageContainerMobile;
