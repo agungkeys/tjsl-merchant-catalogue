@@ -1,6 +1,15 @@
 import { Box, Container, Image, Text } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
+import CarouselMerchant from '../../components/Carousel/CarouselMerchant';
 
 function AboutPageContainerMobile(props) {
+  const {
+    dataMerchants,
+    isSuccessMerchants,
+    isLoadingMerchants,
+    isFetchingMerchants,
+  } = props;
+
   return (
     <>
       <Container maxW="container.xl">
@@ -52,9 +61,19 @@ function AboutPageContainerMobile(props) {
             profesional.
           </Text>
         </Box>
+        <Box marginY="32px">
+          <CarouselMerchant items={dataMerchants} isAboutPage />
+        </Box>
       </Container>
     </>
   );
 }
+
+AboutPageContainerMobile.propTypes = {
+  dataMerchants: PropTypes.array,
+  isSuccessMerchants: PropTypes.bool,
+  isLoadingMerchants: PropTypes.bool,
+  isFetchingMerchants: PropTypes.bool,
+};
 
 export default AboutPageContainerMobile;

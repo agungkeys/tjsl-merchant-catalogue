@@ -16,6 +16,8 @@ import { HiLink, HiShare } from 'react-icons/hi';
 import { populateAdditionalImage } from '../../helpers/utils';
 import { HiDotsVertical } from 'react-icons/hi';
 import SocialShare from '../../components/SocialShare';
+import QRCode from '../../components/QRCode';
+import ENV from '../../constants/env';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
@@ -85,19 +87,22 @@ function MerchantPageContainerDesktop(props) {
               </Text>
             </Box>
             <Spacer />
-            <Box>
-              {/* <Button
-                colorScheme="orange"
-                borderRadius="2em"
-                leftIcon={<HiShare />}
-              >
-                Bagikan Halaman
-              </Button> */}
+            <Flex gap={3} alignItems="center">
+              <QRCode
+                value={`${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
+                size={192}
+                imageSettings={{
+                  src: 'https://res.cloudinary.com/borneos-co/image/upload/v1664949744/tjsl-core/icon-logo/favicon_lns2zu.webp',
+                  height: 32,
+                  width: 32,
+                  excavate: true,
+                }}
+              />
               <SocialShare
-                facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
-                twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
-                whatsappLink={`https://wa.me/?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}`}
-                telegramLink={`https://t.me/share/url?url=https://btjsl-merchant-catalogue.vercel.app/merchants/${data?.data?.slug}&text=Cek Mitra UMKM yok, namanya ${data?.data?.name}`}
+                facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
+                twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
+                whatsappLink={`https://wa.me/?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
+                telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}&text=Cek Mitra UMKM yok, namanya ${data?.data?.name}`}
                 shopeeLink={data?.data?.linkShopee}
                 tokopediaLink={data?.data?.linkTokopedia}
                 bukalapakLink={data?.data?.linkBukalapak}
@@ -107,7 +112,7 @@ function MerchantPageContainerDesktop(props) {
                 twitterPageLink={data?.data?.socTwitter}
                 instagramPageLink={data?.data?.socIg}
               />
-            </Box>
+            </Flex>
           </Flex>
         </VStack>
       </Container>
