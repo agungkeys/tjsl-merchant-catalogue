@@ -16,7 +16,7 @@ import NextLink from '../NextLink';
 import Product from '../Product';
 
 function CarouselMerchant(props) {
-  const { items } = props;
+  const { items, isAboutPage } = props;
 
   const [imageIndex, setImageIndex] = useState(0);
   const settings = {
@@ -31,9 +31,19 @@ function CarouselMerchant(props) {
   return (
     <>
       <Flex justifyContent="space-between" alignItems="center">
-        <Text fontWeight="extrabold" fontSize="18px" textAlign="center">
-          Mitra Unggulan Kami
-        </Text>
+        {isAboutPage ? (
+          <>
+            <Text fontWeight="extrabold" fontSize="18px">
+              Kunjungi juga mitra unggulan Kami
+            </Text>
+          </>
+        ) : (
+          <>
+            <Text fontWeight="extrabold" fontSize="18px" textAlign="center">
+              Mitra Unggulan Kami
+            </Text>
+          </>
+        )}
         <NextLink link="/merchants">
           <Button variant="link" rightIcon={<BiChevronRight />}>
             Lihat semua
@@ -137,6 +147,7 @@ function CarouselMerchant(props) {
 
 CarouselMerchant.propTypes = {
   items: PropTypes.object,
+  isAboutPage: PropTypes.bool,
 };
 
 export default CarouselMerchant;
