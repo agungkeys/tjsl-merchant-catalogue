@@ -1,6 +1,7 @@
 import { Box, Container, Flex, Image, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import SocialShare from '../../components/SocialShare';
+import ENV from '../../constants/env';
 
 function BlogPageContainerMobile(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
@@ -14,10 +15,10 @@ function BlogPageContainerMobile(props) {
           {item?.title}{' '}
         </Text>
         <SocialShare
-          facebookLink={`https://www.facebook.com/sharer/sharer.php?u=https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
-          twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
-          whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}`}
-          telegramLink={`https://t.me/share/url?url=https://tjsl-merchant-catalogue.vercel.app/blog/${item?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${item?.title}`}
+          facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/blog/${item?.slug}`}
+          twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
+          whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
+          telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST}/blog/${item?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${item?.title}`}
           isMobile
           isBlogPage
         />
