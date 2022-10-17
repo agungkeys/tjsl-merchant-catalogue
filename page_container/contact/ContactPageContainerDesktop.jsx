@@ -1,24 +1,16 @@
 import PropTypes from 'prop-types';
 import {
   Box,
-  Button,
   Container,
   Flex,
-  Input,
   Text,
-  Textarea,
   VStack,
 } from '@chakra-ui/react';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
 import Maps from '../../components/Maps';
+import ContactForm from './ContactForm';
 
-function ContactPageContainerDesktop(props) {
-  const { 
-    register,
-    handleSubmit,
-    errors,
-    onSubmit
-  } = props;
+function ContactPageContainerDesktop() {
   return (
     <Container maxW="container.xl" paddingY="16px">
       <VStack w="100%">
@@ -56,33 +48,7 @@ function ContactPageContainerDesktop(props) {
             </Flex>
           </Box>
           <Box w="45%" borderLeft="1px" borderColor="gray.100" p={5} pt={0}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Box p={2} pt={0}>
-                <Text>Nama</Text>
-                <Input isInvalid={errors?.name} {...register("name")} w="100%" />
-                {errors?.name && <Text color="red.60" fontSize="md">{errors?.name?.message}</Text> || null}
-              </Box>
-              <Box p={2}>
-                <Text>Email</Text>
-                <Input isInvalid={errors?.email}  {...register("email")} w="100%" />
-                {errors?.email && <Text color="red.60" fontSize="md">{errors?.email?.message}</Text> || null}
-              </Box>
-              <Box p={2}>
-                <Text>Nomor Telepon</Text>
-                <Input isInvalid={errors?.telp}  {...register("telp")} w="100%" />
-                {errors?.telp && <Text color="red.60" fontSize="md">{errors?.telp?.message}</Text> || null}
-              </Box>
-              <Box p={2}>
-                <Text>Pesan</Text>
-                <Textarea isInvalid={errors?.message}  {...register("message")} w="100%" />
-                {errors?.message && <Text color="red.60" fontSize="md">{errors?.message?.message}</Text> || null}
-              </Box>
-              <Box p={2}>
-                <Button mt={3} variant="primary" fontWeight="bold" w="100%">
-                  Kirim
-                </Button>
-              </Box>
-            </form>
+            <ContactForm />
           </Box>
         </Flex>
       </VStack>
