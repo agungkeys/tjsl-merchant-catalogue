@@ -28,6 +28,8 @@ const ENDPOINTS = {
   PRODUCTS_MERCHANT_LANDING: '/product-list-merchant-landing',
   PRODUCT: '/products',
   PRODUCT_RECOMENDATIONS: '/product-recomendations',
+  // R
+  RESPONDER: '/responder',
   // S
   SEARCH: '/restaurants/search',
 };
