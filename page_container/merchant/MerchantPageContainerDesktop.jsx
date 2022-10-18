@@ -10,6 +10,14 @@ import {
   VStack,
   Spacer,
   Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
 } from '@chakra-ui/react';
 import { Product, Pagination, NextLink } from '../../components';
 import { HiLink, HiShare } from 'react-icons/hi';
@@ -18,9 +26,47 @@ import { HiDotsVertical } from 'react-icons/hi';
 import SocialShare from '../../components/SocialShare';
 import QRCode from '../../components/QRCode';
 import ENV from '../../constants/env';
+import { useState } from 'react';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
+  console.log(
+    '🚀 ~ file: MerchantPageContainerDesktop.jsx ~ line 33 ~ MerchantPageContainerDesktop ~ data',
+    data,
+  );
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [productName, setProductName] = useState();
+
+  const handleClickProduct = (product) => (
+    <Modal onClose={onClose} size="xl" isOpen={onOpen} isCentered>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Modal Title</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>{product.name}</ModalBody>
+        <ModalFooter>
+          <Button onClick={onClose}>Close</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+  // // setProductName(product);
+  // onOpen();
+  // return (
+  //   <Modal onClose={onClose} size="xl" isOpen={onOpen} isCentered>
+  //     <ModalOverlay />
+  //     <ModalContent>
+  //       <ModalHeader>Modal Title</ModalHeader>
+  //       <ModalCloseButton />
+  //       <ModalBody>tes</ModalBody>
+  //       <ModalFooter>
+  //         <Button onClick={onClose}>Close</Button>
+  //       </ModalFooter>
+  //     </ModalContent>
+  //   </Modal>
+  // );
+  // console.log(product);
+
   return (
     <Box>
       <Box
@@ -127,7 +173,11 @@ function MerchantPageContainerDesktop(props) {
           gap={4}
         >
           {data?.data?.products?.map((item, idx) => (
-            <Box key={idx}>
+            <Box
+              key={idx}
+              onClick={() => handleClickProduct(item)}
+              cursor="pointer"
+            >
               <Product {...item} isShowPrice isDetail />
             </Box>
           ))}
