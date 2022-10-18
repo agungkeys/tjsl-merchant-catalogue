@@ -10,17 +10,36 @@ import {
   VStack,
   Spacer,
   Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  GridItem,
 } from '@chakra-ui/react';
 import { Product, Pagination, NextLink } from '../../components';
 import { HiLink, HiShare } from 'react-icons/hi';
-import { populateAdditionalImage } from '../../helpers/utils';
+import { populateAdditionalImage, priceFormat } from '../../helpers/utils';
 import { HiDotsVertical } from 'react-icons/hi';
 import SocialShare from '../../components/SocialShare';
 import QRCode from '../../components/QRCode';
 import ENV from '../../constants/env';
+import { useState } from 'react';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [productDetail, setProductDetail] = useState({});
+
+  const handleClickProduct = (product) => {
+    onOpen();
+    setProductDetail(product);
+  };
+
   return (
     <Box>
       <Box
@@ -127,12 +146,61 @@ function MerchantPageContainerDesktop(props) {
           gap={4}
         >
           {data?.data?.products?.map((item, idx) => (
-            <Box key={idx}>
+            <Box
+              key={idx}
+              onClick={() => handleClickProduct(item)}
+              cursor="pointer"
+            >
               <Product {...item} isShowPrice isDetail />
             </Box>
           ))}
         </Grid>
       </Container>
+      <Modal onClose={onClose} size="xl" isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader> {productDetail?.merchant?.name} </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box>
+              <Image
+                src={
+                  productDetail?.additionalImage?.length > 0
+                    ? populateAdditionalImage({
+                        ...productDetail?.additionalImage[0],
+                        height: 1600,
+                        extension: 'webp',
+                      })
+                    : ''
+                }
+                alt={productDetail?.name}
+                fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_1183,h_318,c_thumb/v1659589646/images/no-image-banner_uni0rj.webp"
+                objectFit="contain"
+              />
+              <Flex flexDirection="column" gap={2} marginTop="16px">
+                <Text fontWeight="bold" fontSize="xl">
+                  {productDetail?.name || ''}
+                </Text>
+                <Text fontSize="xl">
+                  {priceFormat(productDetail?.price) || ''}
+                </Text>
+                {productDetail?.description ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: productDetail?.description,
+                    }}
+                  ></div>
+                ) : (
+                  ''
+                )}
+              </Flex>
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }
