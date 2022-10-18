@@ -1,20 +1,36 @@
 import {
   Box,
   Container,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
   Flex,
   Grid,
   GridItem,
   Image,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { HiDotsVertical } from 'react-icons/hi';
+import { useState } from 'react';
 import { Product } from '../../components';
 import QRCode from '../../components/QRCode';
 import SocialShare from '../../components/SocialShare';
 import ENV from '../../constants/env';
+import { populateAdditionalImage, priceFormat } from '../../helpers/utils';
 function MerchantPageContainerMobile(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [productDetail, setProductDetail] = useState({});
+
+  const handleClickProduct = (product) => {
+    onOpen();
+    setProductDetail(product);
+  };
+
   return (
     <Box>
       <Box
@@ -90,13 +106,57 @@ function MerchantPageContainerMobile(props) {
           </Text>
           <Grid templateColumns="repeat(2, 1fr)" gap={4} marginY="16px">
             {data?.data?.products?.map((item, idx) => (
-              <GridItem key={idx}>
+              <GridItem key={idx} onClick={() => handleClickProduct(item)}>
                 <Product {...item} isMobile isShowPrice />
               </GridItem>
             ))}
           </Grid>
         </Box>
       </Container>
+      <Drawer placement="bottom" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerHeader borderBottomWidth="1px">
+            {' '}
+            {productDetail?.merchant?.name}{' '}
+          </DrawerHeader>
+          <DrawerBody>
+            <Box>
+              <Image
+                src={
+                  productDetail?.additionalImage?.length > 0
+                    ? populateAdditionalImage({
+                        ...productDetail?.additionalImage[0],
+                        height: 1600,
+                        extension: 'webp',
+                      })
+                    : ''
+                }
+                alt={productDetail?.name}
+                fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_1183,h_318,c_thumb/v1659589646/images/no-image-banner_uni0rj.webp"
+                objectFit="contain"
+              />
+              <Flex flexDirection="column" gap={2} marginTop="16px">
+                <Text fontWeight="bold" fontSize="xl">
+                  {productDetail?.name || ''}
+                </Text>
+                <Text fontSize="xl">
+                  {priceFormat(productDetail?.price) || ''}
+                </Text>
+                {productDetail?.description ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: productDetail?.description,
+                    }}
+                  ></div>
+                ) : (
+                  ''
+                )}
+              </Flex>
+            </Box>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Box>
   );
 }

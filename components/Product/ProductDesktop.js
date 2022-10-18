@@ -1,6 +1,6 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { priceFormat, populateAdditionalImage } from '../../helpers/utils';
+import { populateAdditionalImage, priceFormat } from '../../helpers/utils';
 
 function ProductDesktop(props) {
   const { isLanding, isShowPrice, isDetail, name, additionalImage, price } =
@@ -68,6 +68,7 @@ function ProductDesktop(props) {
           _hover={{
             transform: 'translate(-0.5rem, -0.5rem)',
           }}
+          height="300px"
         >
           <Box>
             {additionalImage?.length > 0 || additionalImage !== null ? (
@@ -103,7 +104,7 @@ function ProductDesktop(props) {
           </Box>
 
           <Box my="0px" p="12px">
-            <Text h={10} fontSize="md" fontWeight="bold" noOfLines={2}>
+            <Text fontSize="md" fontWeight="bold" noOfLines={2}>
               {name}
             </Text>
             {isShowPrice && (
