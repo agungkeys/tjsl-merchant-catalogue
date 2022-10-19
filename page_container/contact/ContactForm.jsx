@@ -24,6 +24,7 @@ function ContactForm() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -44,6 +45,13 @@ function ContactForm() {
     onSuccess: async (data) => {
       console.log(data);
       setIsLoading(false);
+      reset((formValues) => ({
+        ...formValues,
+        name: '',
+        email: '',
+        telp: '',
+        message: '',
+      }));
       toast({
         position: 'top-right',
         title: 'Pesanan Sukses Dibuat',
