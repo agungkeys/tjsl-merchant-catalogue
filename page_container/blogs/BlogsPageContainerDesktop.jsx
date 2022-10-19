@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
   Badge,
   Box,
@@ -6,11 +5,11 @@ import {
   Flex,
   Grid,
   GridItem,
-  Image,
   Text,
 } from '@chakra-ui/react';
-import { Router, useRouter } from 'next/router';
-import { BlogCard, NextLink } from '../../components';
+import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
+import { BlogCard, Pagination } from '../../components';
 
 function BlogsPageContainerDesktop(props) {
   const router = useRouter();
@@ -20,6 +19,7 @@ function BlogsPageContainerDesktop(props) {
     isLoadingBlogs,
     isFetchingBlogs,
     isSuccessBlogs,
+    fetchPagination,
   } = props;
 
   return (
@@ -81,6 +81,20 @@ function BlogsPageContainerDesktop(props) {
           </GridItem>
         ))}
       </Grid>
+      <Flex justifyContent="center">
+        <Box>
+          {(isSuccessBlogs && (
+            <Pagination
+              siblingCount={2}
+              currentPage={dataBlogs?.meta?.pagination?.page}
+              totalCount={dataBlogs?.meta?.pagination?.total}
+              pageSize={dataBlogs?.meta?.pagination?.perPage}
+              onPageChange={(page) => fetchPagination(page)}
+            />
+          )) ||
+            null}
+        </Box>
+      </Flex>
     </Container>
   );
 }
@@ -91,6 +105,7 @@ BlogsPageContainerDesktop.propTypes = {
   isErrorBlogs: PropTypes.bool,
   isLoadingBlogs: PropTypes.bool,
   isFetchingBlogs: PropTypes.bool,
+  fetchPagination: PropTypes.func,
 };
 
 export default BlogsPageContainerDesktop;
