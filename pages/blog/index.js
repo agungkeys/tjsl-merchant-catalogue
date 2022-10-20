@@ -36,4 +36,19 @@ BlogList.propTypes = {
   isMobile: PropTypes.bool,
 };
 
+BlogList.getInitialProps = async (props) => {
+  const { store, isServer, query, params, res, req } = props.ctx;
+  // const dataBanners = await fetchBanners();
+  // const dataCategories = await fetchCategories();
+  // const dataMerchantFavorites = await fetchMerchantFavorites();
+  // const dataMerchants = await fetchMerchants();
+  return {
+    query,
+    // dataBanners,
+    // dataCategories,
+    // dataMerchantFavorites,
+    // dataMerchants,
+  };
+};
+
 export default BlogList;

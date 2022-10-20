@@ -1,7 +1,7 @@
 import { Box, Container, Flex, Image, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { NextLink } from '../../components';
+import { NextLink, Pagination } from '../../components';
 import CarouselBlog from '../../components/Carousel/CarouselBlog';
 import { populateAdditionalImage } from '../../helpers/utils';
 
@@ -13,8 +13,8 @@ function BlogsPageContainerMobile(props) {
     isLoadingBlogs,
     isFetchingBlogs,
     isSuccessBlogs,
+    fetchPagination,
   } = props;
-
   const Blogs = () => (
     <>
       <Text>Blog Lainnya</Text>
@@ -76,6 +76,20 @@ function BlogsPageContainerMobile(props) {
         <Box marginY="32px">
           <Blogs />
         </Box>
+        <Flex justifyContent="center" marginBottom={5}>
+          <Box>
+            {(isSuccessBlogs && (
+              <Pagination
+                siblingCount={2}
+                currentPage={dataBlogs?.meta?.pagination?.page}
+                totalCount={dataBlogs?.meta?.pagination?.total}
+                pageSize={dataBlogs?.meta?.pagination?.perPage}
+                onPageChange={(page) => fetchPagination(page)}
+              />
+            )) ||
+              null}
+          </Box>
+        </Flex>
       </Container>
     </Box>
   );
@@ -87,6 +101,7 @@ BlogsPageContainerMobile.propTypes = {
   isErrorBlogs: PropTypes.bool,
   isLoadingBlogs: PropTypes.bool,
   isFetchingBlogs: PropTypes.bool,
+  fetchPagination: PropTypes.func,
 };
 
 export default BlogsPageContainerMobile;
