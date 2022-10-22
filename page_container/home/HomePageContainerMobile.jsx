@@ -377,7 +377,12 @@ function HomePageContainerMobile(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      <Box backgroundColor="#5f9df7">
+      <Box
+        backgroundColor="#5f9df7"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.png"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+      >
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
