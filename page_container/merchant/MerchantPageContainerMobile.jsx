@@ -127,14 +127,14 @@ function MerchantPageContainerMobile(props) {
                   productDetail?.additionalImage?.length > 0
                     ? populateAdditionalImage({
                         ...productDetail?.additionalImage[0],
-                        height: 1600,
+
                         extension: 'webp',
                       })
                     : ''
                 }
                 alt={productDetail?.name}
                 fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_1183,h_318,c_thumb/v1659589646/images/no-image-banner_uni0rj.webp"
-                objectFit="contain"
+                objectFit="cover"
               />
               <Flex flexDirection="column" gap={2} marginTop="16px">
                 <Text fontWeight="bold" fontSize="xl">
