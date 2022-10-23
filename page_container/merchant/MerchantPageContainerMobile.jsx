@@ -34,7 +34,15 @@ function MerchantPageContainerMobile(props) {
   return (
     <Box>
       <Box
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
+        bgImage={
+          data?.data?.additionalImageCover
+            ? populateAdditionalImage({
+                ...data?.data?.additionalImageCover,
+
+                extension: 'webp',
+              })
+            : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+        }
         backgroundRepeat="no-repeat"
         backgroundSize="contain"
         w="100%"
@@ -58,7 +66,7 @@ function MerchantPageContainerMobile(props) {
             width="100%"
           >
             <Flex justifyContent="space-between">
-              <Text fontSize="md" fontWeight="bold">
+              <Text fontSize="md" fontWeight="bold" noOfLines={2}>
                 {' '}
                 {data?.data?.name}{' '}
               </Text>
@@ -135,6 +143,7 @@ function MerchantPageContainerMobile(props) {
                 alt={productDetail?.name}
                 fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_1183,h_318,c_thumb/v1659589646/images/no-image-banner_uni0rj.webp"
                 objectFit="cover"
+                borderRadius="4px"
               />
               <Flex flexDirection="column" gap={2} marginTop="16px">
                 <Text fontWeight="bold" fontSize="xl">
@@ -143,15 +152,17 @@ function MerchantPageContainerMobile(props) {
                 <Text fontSize="xl">
                   {priceFormat(productDetail?.price) || ''}
                 </Text>
-                {productDetail?.description ? (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: productDetail?.description,
-                    }}
-                  ></div>
-                ) : (
-                  ''
-                )}
+                <Text fontSize="13px">
+                  {productDetail?.description ? (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: productDetail?.description,
+                      }}
+                    ></div>
+                  ) : (
+                    ''
+                  )}
+                </Text>
               </Flex>
             </Box>
           </DrawerBody>

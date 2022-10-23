@@ -43,7 +43,15 @@ function MerchantPageContainerDesktop(props) {
   return (
     <Box>
       <Box
-        bgImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
+        bgImage={
+          data?.data?.additionalImageCover
+            ? populateAdditionalImage({
+                ...data?.data?.additionalImageCover,
+
+                extension: 'webp',
+              })
+            : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+        }
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
         w="100%"
@@ -162,39 +170,47 @@ function MerchantPageContainerDesktop(props) {
           <ModalHeader> {productDetail?.merchant?.name} </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Box>
-              <Image
-                src={
-                  productDetail?.additionalImage?.length > 0
-                    ? populateAdditionalImage({
-                        ...productDetail?.additionalImage[0],
-                        height: 1600,
-                        extension: 'webp',
-                      })
-                    : ''
-                }
-                alt={productDetail?.name}
-                fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_1183,h_318,c_thumb/v1659589646/images/no-image-banner_uni0rj.webp"
-                objectFit="contain"
-              />
-              <Flex flexDirection="column" gap={2} marginTop="16px">
-                <Text fontWeight="bold" fontSize="xl">
-                  {productDetail?.name || ''}
-                </Text>
-                <Text fontSize="xl">
-                  {priceFormat(productDetail?.price) || ''}
-                </Text>
-                {productDetail?.description ? (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: productDetail?.description,
-                    }}
-                  ></div>
-                ) : (
-                  ''
-                )}
-              </Flex>
-            </Box>
+            <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+              <GridItem>
+                <Image
+                  src={
+                    productDetail?.additionalImage?.length > 0
+                      ? populateAdditionalImage({
+                          ...productDetail?.additionalImage[0],
+                          // height: 1200,
+                          extension: 'webp',
+                        })
+                      : ''
+                  }
+                  alt={productDetail?.name}
+                  fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_1183,h_318,c_thumb/v1659589646/images/no-image-banner_uni0rj.webp"
+                  objectFit="cover"
+                  borderRadius="4px"
+                  minHeight="200px"
+                />
+              </GridItem>
+              <GridItem>
+                <Flex flexDirection="column" gap={2}>
+                  <Text fontWeight="bold" fontSize="xl">
+                    {productDetail?.name || ''}
+                  </Text>
+                  <Text fontSize="xl">
+                    {priceFormat(productDetail?.price) || ''}
+                  </Text>
+                  <Text fontSize="13px">
+                    {productDetail?.description ? (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: productDetail?.description,
+                        }}
+                      ></div>
+                    ) : (
+                      ''
+                    )}
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
