@@ -170,14 +170,15 @@ function MerchantPageContainerDesktop(props) {
           <ModalHeader> {productDetail?.merchant?.name} </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-              <GridItem>
+            <Box>
+              <Box>
                 <Image
                   src={
                     productDetail?.additionalImage?.length > 0
                       ? populateAdditionalImage({
                           ...productDetail?.additionalImage[0],
-                          // height: 1200,
+                          height: 400,
+                          width: 528,
                           extension: 'webp',
                         })
                       : ''
@@ -188,8 +189,8 @@ function MerchantPageContainerDesktop(props) {
                   borderRadius="4px"
                   minHeight="200px"
                 />
-              </GridItem>
-              <GridItem>
+              </Box>
+              <Box marginTop="10px">
                 <Flex flexDirection="column" gap={2}>
                   <Text fontWeight="bold" fontSize="xl">
                     {productDetail?.name || ''}
@@ -209,8 +210,8 @@ function MerchantPageContainerDesktop(props) {
                     )}
                   </Text>
                 </Flex>
-              </GridItem>
-            </Grid>
+              </Box>
+            </Box>
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>

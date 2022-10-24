@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { BiChevronRight } from 'react-icons/bi';
 import Slider from 'react-slick';
+import { populateAdditionalImage } from '../../helpers/utils';
 import NextLink from '../NextLink';
 import Product from '../Product';
 
@@ -69,7 +70,15 @@ function CarouselMerchant(props) {
                     w="100%"
                   >
                     <Box
-                      backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
+                      bgImage={
+                        item?.additionalImageCover
+                          ? populateAdditionalImage({
+                              ...item?.additionalImageCover,
+
+                              extension: 'webp',
+                            })
+                          : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+                      }
                       backgroundRepeat="no-repeat"
                       backgroundSize="contain"
                       borderTopRadius="16px"

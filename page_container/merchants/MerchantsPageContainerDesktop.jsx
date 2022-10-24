@@ -118,7 +118,15 @@ function MerchantsPageContainerDesktop(props) {
               w="100%"
             >
               <Box
-                backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665197952/tjsl-core/merchants/cover_image/merchant_header_lon2ob.webp"
+                bgImage={
+                  item?.additionalImageCover
+                    ? populateAdditionalImage({
+                        ...item?.additionalImageCover,
+
+                        extension: 'webp',
+                      })
+                    : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+                }
                 backgroundRepeat="no-repeat"
                 backgroundSize="contain"
                 borderTopRadius="16px"

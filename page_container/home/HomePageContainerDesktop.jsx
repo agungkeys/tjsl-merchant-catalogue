@@ -383,7 +383,15 @@ function HomePageContainerDesktop(props) {
               >
                 <Box
                   // backgroundColor="#0D5099"
-                  backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
+                  bgImage={
+                    item?.additionalImageCover
+                      ? populateAdditionalImage({
+                          ...item?.additionalImageCover,
+
+                          extension: 'webp',
+                        })
+                      : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+                  }
                   backgroundRepeat="no-repeat"
                   backgroundSize="contain"
                   backgroundPosition="top-right"
