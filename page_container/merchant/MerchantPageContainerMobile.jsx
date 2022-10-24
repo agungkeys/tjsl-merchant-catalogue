@@ -49,7 +49,7 @@ function MerchantPageContainerMobile(props) {
         height="110px"
       ></Box>
       <Container maxW="container.xl">
-        <Flex marginTop="-60px" gap={3}>
+        <Flex marginTop="-50px" gap={3}>
           <Image
             src={data?.data?.image}
             height="120px"
