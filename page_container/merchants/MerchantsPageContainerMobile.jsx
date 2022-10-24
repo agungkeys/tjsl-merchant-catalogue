@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { NextLink, Pagination, Product } from '../../components';
+import { populateAdditionalImage } from '../../helpers/utils';
 
 function MerchantsPageContainerMobile(props) {
   const {
@@ -65,10 +66,10 @@ function MerchantsPageContainerMobile(props) {
           </NextLink>
         ))}
       </Flex>
-      <Box my={4}>
+      <Box my={3}>
         {category ? (
           <Flex color="gray.60" alignItems="center">
-            <Text fontSize="10px">{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant untuk kategori:`}</Text>
+            <Text fontSize="12px">{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant untuk kategori:`}</Text>
             <Box
               ml={2}
               px={2}
@@ -95,7 +96,7 @@ function MerchantsPageContainerMobile(props) {
         ) : (
           <Text
             color="gray.60"
-            fontSize="10px"
+            fontSize="12px"
           >{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant dari semua kategori`}</Text>
         )}
       </Box>
@@ -108,7 +109,15 @@ function MerchantsPageContainerMobile(props) {
         <NextLink key={idx} link={`merchants/${item?.slug}`}>
           <Box marginY="32px" borderRadius="16px" boxShadow="lg" w="100%">
             <Box
-              backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
+              bgImage={
+                item?.additionalImageCover
+                  ? populateAdditionalImage({
+                      ...item?.additionalImageCover,
+
+                      extension: 'webp',
+                    })
+                  : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+              }
               backgroundRepeat="no-repeat"
               backgroundSize="contain"
               borderTopRadius="16px"
