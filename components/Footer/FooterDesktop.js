@@ -54,6 +54,9 @@ function FooterDesktop(props) {
               <NextLink link="/contact">
                 <Text>Kontak</Text>
               </NextLink>
+              <NextLink link="https://www.borneos.co/">
+                <Text>Borneos.co</Text>
+              </NextLink>
             </Flex>
             <Flex flexDirection="column" gap={2} width="300px">
               <Text fontWeight="semibold" fontSize="3xl">
@@ -114,7 +117,11 @@ function FooterDesktop(props) {
                   </Center>
                 </NextLink>
               </Flex>
-              <Grid templateColumns="repeat(3, 1fr)" gap={3}>
+              <Grid
+                templateColumns="repeat(4, 1fr)"
+                gap={3}
+                alignItems="center"
+              >
                 <GridItem>
                   <Image
                     src="https://res.cloudinary.com/borneos-co/image/upload/v1665804074/tjsl-core/icon-logo/Logo_PKT_2_rxv6vu.png"
@@ -136,6 +143,14 @@ function FooterDesktop(props) {
                     src="https://res.cloudinary.com/borneos-co/image/upload/v1665659247/tjsl-core/icon-logo/logo-bangga-buatan-indonesia-4_qbbbut.png"
                     alt="Bangga Produk Indonesia"
                     height="50px"
+                    objectFit="contain"
+                  />
+                </GridItem>
+                <GridItem>
+                  <Image
+                    src="https://res.cloudinary.com/borneos-co/image/upload/v1666428552/tjsl-core/icon-logo/logo_borneos_white_zmxec7.png"
+                    alt="Bangga Produk Indonesia"
+                    height="80px"
                     objectFit="contain"
                   />
                 </GridItem>

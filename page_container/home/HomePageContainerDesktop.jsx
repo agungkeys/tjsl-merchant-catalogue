@@ -497,7 +497,13 @@ function HomePageContainerDesktop(props) {
       <Container maxW="container.xl">
         <HeroSection />
       </Container>
-      <Box mt="32px" backgroundColor="#5f9df7" paddingY="32px">
+      <Box
+        mt="32px"
+        backgroundColor="#5f9df7"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.png"
+        backgroundSize="contain"
+        paddingY="32px"
+      >
         <Container maxW="container.xl">
           <BenefitSection />
         </Container>
