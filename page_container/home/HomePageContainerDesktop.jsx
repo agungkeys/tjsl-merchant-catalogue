@@ -403,7 +403,7 @@ function HomePageContainerDesktop(props) {
                     rounded="full"
                     boxSize="100px"
                     backgroundColor="#fff"
-                    marginTop="-50px"
+                    marginTop="-30px"
                     boxShadow="lg"
                     w="156px"
                   >
@@ -429,7 +429,7 @@ function HomePageContainerDesktop(props) {
                     justifyContent="space-between"
                     height="100px"
                     backgroundColor="#fff"
-                    marginTop="-50px"
+                    marginTop="-30px"
                     boxShadow="lg"
                     padding="12px"
                     w="100%"
