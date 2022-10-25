@@ -513,7 +513,7 @@ function HomePageContainerDesktop(props) {
       </Box>
       <Box
         backgroundColor="#5f9df7"
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.png"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.webp"
         backgroundSize="contain"
         paddingY="32px"
       >
@@ -542,7 +542,7 @@ function HomePageContainerDesktop(props) {
         </Flex>
       </Container>
       <Box
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.png"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.webp"
         backgroundSize="cover"
         marginY="32px"
         paddingY="24px"
