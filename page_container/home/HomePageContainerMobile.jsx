@@ -375,7 +375,7 @@ function HomePageContainerMobile(props) {
       )}
       {isSuccessBanners && <Carousel items={dataBanners} isMobile />}
       <Box
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.png"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.webp"
         backgroundSize="cover"
       >
         <Container maxW="container.xl">
@@ -384,7 +384,7 @@ function HomePageContainerMobile(props) {
       </Box>
       <Box
         backgroundColor="#5f9df7"
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.png"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.webp"
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
       >
@@ -408,7 +408,7 @@ function HomePageContainerMobile(props) {
         </Flex>
       </Container>
       <Box
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.png"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.webp"
         backgroundSize="cover"
         marginY="32px"
       >
