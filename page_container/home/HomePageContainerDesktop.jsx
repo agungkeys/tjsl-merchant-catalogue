@@ -48,8 +48,8 @@ function HomePageContainerDesktop(props) {
       <Grid
         templateColumns="repeat(2, 1fr)"
         gap={6}
-        marginY="16px"
         alignItems="center"
+        backgroundSize="cover"
       >
         <GridItem>
           <Box marginBottom="8px">
@@ -502,11 +502,16 @@ function HomePageContainerDesktop(props) {
     <Box>
       {isLoadingBanners && isFetchingBanners && <Carousel isSkeleton />}
       {isSuccessBanners && <Carousel items={dataBanners} />}
-      <Container maxW="container.xl">
-        <HeroSection />
-      </Container>
       <Box
-        mt="32px"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666684629/tjsl-core/background/header_bg_vk0xwz.webp"
+        backgroundSize="cover"
+        paddingY="32px"
+      >
+        <Container maxW="container.xl">
+          <HeroSection />
+        </Container>
+      </Box>
+      <Box
         backgroundColor="#5f9df7"
         backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.png"
         backgroundSize="contain"
