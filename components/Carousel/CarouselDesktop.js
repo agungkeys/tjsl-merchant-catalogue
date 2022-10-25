@@ -82,7 +82,7 @@ function CarouselDesktop(props) {
   };
 
   return (
-    <Box className="banner-container" py={6}>
+    <Box className="banner-container" pt={6}>
       <Slider {...settings}>
         {items &&
           items?.data?.map((banner, idx) => (
