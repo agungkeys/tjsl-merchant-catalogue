@@ -1,17 +1,6 @@
+import { Box, Container, Divider, Flex, Image, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  Flex,
-  Image,
-  Text,
-} from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { NextLink } from '../../components';
-import { dateFormat, populateAdditionalImage } from '../../helpers/utils';
 import SocialShare from '../../components/SocialShare';
 import ENV from '../../constants/env';
 
@@ -76,7 +65,23 @@ function BlogPageContainerDesktop(props) {
           <Box width="5%" minHeight="100vh">
             <Divider orientation="vertical" width="20px" />
           </Box>
-          <Box width="25%">
+          <Box
+            width="25%"
+            marginY="16px"
+            position="sticky"
+            right={0}
+            top="10px"
+            marginRight="30px"
+            height="400px"
+            bottom="auto"
+          >
+            <NextLink link="https://www.borneos.co" target="_blank">
+              <Image
+                src="https://res.cloudinary.com/borneos-co/image/upload/v1666767680/tjsl-core/ads/Promosi_2_rtjck2.webp"
+                borderRadius="8px"
+                height="400px"
+              />
+            </NextLink>
             {/* <Text fontWeight="extrabold" fontSize="5xl">
               Artikel Terbaru
             </Text>

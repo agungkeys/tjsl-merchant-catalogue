@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Container,
-  Flex,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Container, Flex, Text, VStack } from '@chakra-ui/react';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
 import Maps from '../../components/Maps';
 import ContactForm from './ContactForm';
@@ -60,7 +54,7 @@ ContactPageContainerDesktop.propTypes = {
   register: PropTypes.func,
   handleSubmit: PropTypes.func,
   errors: PropTypes.object,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
 };
 
 export default ContactPageContainerDesktop;

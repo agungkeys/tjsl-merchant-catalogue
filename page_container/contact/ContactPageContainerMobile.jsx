@@ -1,10 +1,5 @@
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Container,
-  Flex,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Container, Flex, Text } from '@chakra-ui/react';
 import { HiLocationMarker, HiMail, HiPhone } from 'react-icons/hi';
 import Maps from '../../components/Maps';
 import ContactForm from './ContactForm';
@@ -59,7 +54,7 @@ ContactPageContainerMobile.propTypes = {
   register: PropTypes.func,
   handleSubmit: PropTypes.func,
   errors: PropTypes.object,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
 };
 
 export default ContactPageContainerMobile;

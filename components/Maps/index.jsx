@@ -17,7 +17,7 @@ function Maps(props) {
     <>
       <GoogleMap
         options={{ streetViewControl: false }}
-        zoom={20}
+        zoom={16}
         center={location}
         mapContainerStyle={containerStyle}
         mapContainerClassName="map-container"
