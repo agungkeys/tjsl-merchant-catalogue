@@ -61,7 +61,7 @@ function BlogPageContainerDesktop(props) {
             >
               <div
                 dangerouslySetInnerHTML={{ __html: item?.description }}
-                className="description"
+                className="blog-description"
               ></div>
             </Box>
             <Flex justifyContent="space-between" marginY="16px">
