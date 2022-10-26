@@ -67,8 +67,8 @@ function FooterMobile() {
                 Alamat Kantor
               </Text>
               <Text fontWeight="light" fontSize="md">
-                Jl. James Simanjuntak Simandjuntak No.1, Guntung, Kec. Bontang
-                Utara, Kota Bontang, Kalimantan Timur 75313
+                Jl. James Simandjuntak No. 1 Bontang 75313 Kalimantan Timur,
+                Indonesia
               </Text>
               <Text>Hotline</Text>
               <NextLink link="https://wa.me/62811591270" target="_blank">
