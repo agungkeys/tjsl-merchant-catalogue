@@ -144,10 +144,13 @@ function MerchantPageContainerDesktop(props) {
         </VStack>
       </Container>
 
-      <Container maxW="container.lg" my="128px">
-        <Text fontSize="4xl" fontWeight="bold" mb={5}>
-          Produk {data?.data?.name}{' '}
-        </Text>
+      <Container maxW="container.lg" my="64px">
+        <Box marginTop="82px" marginBottom="16px">
+          <Text fontSize="4xl" fontWeight="bold">
+            Produk {data?.data?.name}{' '}
+          </Text>
+          <Text fontSize="md">{data?.data?.description}</Text>
+        </Box>
         <Grid
           templateColumns="repeat(4, 1fr)"
           justifyContent="space-between"
