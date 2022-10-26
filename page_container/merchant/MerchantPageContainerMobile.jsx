@@ -161,6 +161,7 @@ function MerchantPageContainerMobile(props) {
                       dangerouslySetInnerHTML={{
                         __html: productDetail?.description,
                       }}
+                      className="product-description"
                     ></div>
                   ) : (
                     ''
