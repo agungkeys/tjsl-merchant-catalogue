@@ -137,7 +137,7 @@ function MerchantsPageContainerDesktop(props) {
                   rounded="full"
                   boxSize="100px"
                   backgroundColor="#fff"
-                  marginTop="-50px"
+                  marginTop="-30px"
                   boxShadow="lg"
                   w="156px"
                 >
@@ -167,7 +167,7 @@ function MerchantsPageContainerDesktop(props) {
                   justifyContent="center"
                   height="100px"
                   backgroundColor="#fff"
-                  marginTop="-50px"
+                  marginTop="-30px"
                   boxShadow="lg"
                   padding="12px"
                   w="100%"

@@ -96,7 +96,7 @@ function ContactForm() {
           null}
       </Box>
       <Box p={2}>
-        <Text>Pesan</Text>
+        <Text>Saran dan Masukan</Text>
         <Textarea
           isInvalid={errors?.message}
           {...register('message')}

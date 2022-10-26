@@ -31,7 +31,7 @@ function BlogPageContainerMobile(props) {
       </Box>
       <Box fontSize="md" paddingX={2}>
         <div
-          className="description"
+          className="blog-description"
           dangerouslySetInnerHTML={{ __html: item?.description }}
         ></div>
       </Box>

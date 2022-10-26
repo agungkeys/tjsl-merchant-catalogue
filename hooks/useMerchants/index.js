@@ -5,18 +5,19 @@ import { paramsToString } from '../../helpers/utils';
 
 const fetchMerchants = async (props) => {
   const {
-    perPage = 9, 
-    page= 1,
-    sort = 'asc', 
+    perPage = 9,
+    page = 1,
+    sort = 'asc',
     isFavorite = 'all',
     isFavoriteProduct,
     category,
+    status = 1,
   } = props;
   const requestOptions = {
     method: 'GET',
-    headers: { 
+    headers: {
       'Content-Type': 'application/json',
-      'tokenb': ENV.CURRENT_TOKENB,
+      tokenb: ENV.CURRENT_TOKENB,
     },
   };
 
@@ -26,12 +27,16 @@ const fetchMerchants = async (props) => {
     sort,
     isFavorite,
     isFavoriteProduct,
-    category
-  }
+    category,
+    status,
+  };
 
   const params = paramsToString(queryParams);
-  const result = await fetch(`${ENV.CURRENT_API}${ENDPOINTS.MERCHANTS}${params}`, requestOptions).then(response => response.json() || [])
-  return result
-}
+  const result = await fetch(
+    `${ENV.CURRENT_API}${ENDPOINTS.MERCHANTS}${params}`,
+    requestOptions,
+  ).then((response) => response.json() || []);
+  return result;
+};
 
-export { fetchMerchants }
+export { fetchMerchants };

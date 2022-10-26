@@ -107,10 +107,10 @@ function MerchantPageContainerDesktop(props) {
           >
             <Box>
               <Text fontSize="14px" fontWeight="semibold" color="primary.0">
-                Kategori {data?.data?.category?.name || 'Merchant Category'}
+                Kategori {data?.data?.category?.name || ''}
               </Text>
               <Text fontSize="lg" color="gray.60">
-                {data?.data?.address || 'Merchant Address'}
+                {data?.data?.address || ''}
               </Text>
             </Box>
             <Spacer />
@@ -144,10 +144,13 @@ function MerchantPageContainerDesktop(props) {
         </VStack>
       </Container>
 
-      <Container maxW="container.lg" my="128px">
-        <Text fontSize="4xl" fontWeight="bold" mb={5}>
-          Produk {data?.data?.name}{' '}
-        </Text>
+      <Container maxW="container.lg" my="64px">
+        <Box marginTop="82px" marginBottom="16px">
+          <Text fontSize="4xl" fontWeight="bold">
+            Produk {data?.data?.name}{' '}
+          </Text>
+          <Text fontSize="md">{data?.data?.description || ''}</Text>
+        </Box>
         <Grid
           templateColumns="repeat(4, 1fr)"
           justifyContent="space-between"
@@ -204,6 +207,7 @@ function MerchantPageContainerDesktop(props) {
                         dangerouslySetInnerHTML={{
                           __html: productDetail?.description,
                         }}
+                        className="product-description"
                       ></div>
                     ) : (
                       ''

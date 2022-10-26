@@ -41,7 +41,7 @@ function HomePageContainerMobile(props) {
   } = props;
 
   const HeroSection = () => (
-    <Flex gap={4} marginY="42px" flexDirection="column" paddingY="16px">
+    <Flex gap={4} marginTop="42px" flexDirection="column" paddingY="16px">
       <Text
         fontWeight="extrabold"
         fontSize="48px"
@@ -374,12 +374,17 @@ function HomePageContainerMobile(props) {
         <Carousel isSkeleton isMobile />
       )}
       {isSuccessBanners && <Carousel items={dataBanners} isMobile />}
-      <Container maxW="container.xl">
-        <HeroSection />
-      </Container>
+      <Box
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.webp"
+        backgroundSize="cover"
+      >
+        <Container maxW="container.xl">
+          <HeroSection />
+        </Container>
+      </Box>
       <Box
         backgroundColor="#5f9df7"
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.png"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1666428214/tjsl-core/background/blog_bg_amxfvf.webp"
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
       >
@@ -403,7 +408,7 @@ function HomePageContainerMobile(props) {
         </Flex>
       </Container>
       <Box
-        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.png"
+        backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665653072/tjsl-core/background/blog_bg_tnbbed.webp"
         backgroundSize="cover"
         marginY="32px"
       >

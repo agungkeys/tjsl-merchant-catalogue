@@ -102,16 +102,19 @@ function MerchantPageContainerMobile(props) {
               </Flex>
             </Flex>
             <Text fontSize="sm" color="primary.0">
-              Kategori {data?.data?.category?.name}
+              Kategori {data?.data?.category?.name || ''}
             </Text>
-            <Text fontSize="sm"> {data?.data?.address} </Text>
+            <Text fontSize="sm"> {data?.data?.address || ''} </Text>
           </Flex>
           <Box></Box>
         </Flex>
         <Box marginY="32px">
-          <Text fontWeight="bold" fontSize="lg">
-            Produk {data?.data?.name}
-          </Text>
+          <Box>
+            <Text fontWeight="bold" fontSize="lg">
+              Produk {data?.data?.name}
+            </Text>
+            <Text fontSize="sm"> {data?.data?.description || ''} </Text>
+          </Box>
           <Grid templateColumns="repeat(2, 1fr)" gap={4} marginY="16px">
             {data?.data?.products?.map((item, idx) => (
               <GridItem key={idx} onClick={() => handleClickProduct(item)}>
@@ -158,6 +161,7 @@ function MerchantPageContainerMobile(props) {
                       dangerouslySetInnerHTML={{
                         __html: productDetail?.description,
                       }}
+                      className="product-description"
                     ></div>
                   ) : (
                     ''

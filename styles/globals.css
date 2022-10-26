@@ -18,8 +18,22 @@ a {
   box-sizing: border-box;
 }
 
-.description p {
-  margin-bottom: 16px;
+.blog-description p {
+  margin: 0.75rem 0;
+}
+
+.blog-description a {
+  text-decoration: underline;
+  color: #1746a2;
+}
+
+.product-description a {
+  text-decoration: underline;
+  color: #1746a2;
+}
+
+.product-description p {
+  margin: 0.75rem 0;
 }
 
 .image-hero {
