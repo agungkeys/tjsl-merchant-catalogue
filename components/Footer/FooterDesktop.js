@@ -11,6 +11,7 @@ import {
 import React from 'react';
 import {
   FaFacebookSquare,
+  FaGlobe,
   FaInstagram,
   FaLinkedin,
   FaTiktok,
@@ -54,7 +55,10 @@ function FooterDesktop(props) {
               <NextLink link="/contact">
                 <Text>Kontak</Text>
               </NextLink>
-              <NextLink link="https://www.borneos.co/">
+              <NextLink link="https://www.pupukkaltim.com" target="_blank">
+                <Text>PT. Pupuk Kaltim</Text>
+              </NextLink>
+              <NextLink link="https://www.borneos.co/" target="_blank">
                 <Text>Borneos.co</Text>
               </NextLink>
             </Flex>
@@ -113,6 +117,13 @@ function FooterDesktop(props) {
                   <Center w="48px" h="48px" borderRadius="8px">
                     <Button h="full" color="white" variant="unstyled">
                       <FaTiktok />
+                    </Button>
+                  </Center>
+                </NextLink>
+                <NextLink link="https://www.pupukkaltim.com" target="_blank">
+                  <Center w="48px" h="48px" borderRadius="8px">
+                    <Button h="full" color="white" variant="unstyled">
+                      <FaGlobe />
                     </Button>
                   </Center>
                 </NextLink>
