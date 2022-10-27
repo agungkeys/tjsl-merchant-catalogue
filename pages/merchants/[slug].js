@@ -20,7 +20,7 @@ function Merchant(props) {
         keyword="KamiUMKM | Mitra Merchant TJSL"
         ogTitle="Mitra KamiUMKM"
         ogDescription="KamiUMKM | Mitra Merchant TJSL"
-        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/w_561,h_461,c_fill/v1659268660/images/seo_image_borneos_gls9un.png"
+        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/v1666752382/tjsl-core/seo-image/Icon_SEO_KamiUMKM_xrxf9m.png"
         ogImageAlt="KamiUmkm"
         ogImageType="image/png"
         ogImageHeight="461"
