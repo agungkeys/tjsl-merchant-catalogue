@@ -22,7 +22,7 @@ function Home(props) {
         keyword="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
         ogTitle="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
         ogDescription="KamiUMKM | Katalog Mitra Merchant by TJSL PT. Pupuk Kalimantan Timur"
-        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/v1664949691/tjsl-core/icon-logo/favicon_cen5ia.png"
+        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/v1666752382/tjsl-core/seo-image/Icon_SEO_KamiUMKM_xrxf9m.png"
         ogImageAlt="KamiUmkm"
         ogImageType="image/png"
         ogImageHeight="461"
