@@ -6,41 +6,44 @@ import ENV from '../../constants/env';
 function BlogPageContainerMobile(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
 
-  const item = data?.data[0];
   return (
     <Container maxW="container.xl" marginBottom="32px">
-      <Flex marginBottom="12px" justifyContent="space-between">
-        <Text fontSize="xl" fontWeight="bold">
-          {' '}
-          {item?.title}{' '}
-        </Text>
-        <SocialShare
-          facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/blog/${item?.slug}`}
-          twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
-          whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
-          telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST}/blog/${item?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${item?.title}`}
-          isMobile
-          isBlogPage
-        />
-      </Flex>
-      <Box>
-        <Text fontSize="sm"> {item?.author} - 10 Oktober 2022 </Text>
-      </Box>
-      <Box marginY="16px">
-        <Image src={item?.image} alt={item?.title} borderRadius="10px" />
-      </Box>
-      <Box fontSize="md" paddingX={2}>
-        <div
-          className="blog-description"
-          dangerouslySetInnerHTML={{ __html: item?.description }}
-        ></div>
-      </Box>
-      <Flex alignItems="center" fontSize="sm" marginY="16px">
-        <Text>Tags : </Text>
-        <Box borderRadius="10px" bgColor="#FFF7E9" padding="8px">
-          {item?.tags}
+      {data?.data?.map((item, idx) => (
+        <Box key={idx}>
+          <Flex marginBottom="12px" justifyContent="space-between">
+            <Text fontSize="xl" fontWeight="bold">
+              {' '}
+              {item?.title}{' '}
+            </Text>
+            <SocialShare
+              facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/blog/${item?.slug}`}
+              twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
+              whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
+              telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST}/blog/${item?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${item?.title}`}
+              isMobile
+              isBlogPage
+            />
+          </Flex>
+          <Box>
+            <Text fontSize="sm"> {item?.author} - 10 Oktober 2022 </Text>
+          </Box>
+          <Box marginY="16px">
+            <Image src={item?.image} alt={item?.title} borderRadius="10px" />
+          </Box>
+          <Box fontSize="md" paddingX={2}>
+            <div
+              className="blog-description"
+              dangerouslySetInnerHTML={{ __html: item?.description }}
+            ></div>
+          </Box>
+          <Flex alignItems="center" fontSize="sm" marginY="16px">
+            <Text>Tags : </Text>
+            <Box borderRadius="10px" bgColor="#FFF7E9" padding="8px">
+              {item?.tags}
+            </Box>
+          </Flex>
         </Box>
-      </Flex>
+      ))}
     </Container>
   );
 }

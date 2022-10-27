@@ -9,19 +9,15 @@ import STATUS_TYPES from '../../constants/statusTypes';
 function MerchantPageContainer(props) {
   const { isMobile, query, dataMerchant } = props;
 
-  const { 
-    data,
-    isError,
-    isLoading,
-    isFetching,
-    isSuccess
-  } = useQuery(
+  const { data, isError, isLoading, isFetching, isSuccess } = useQuery(
     ['merchant'],
-		() => fetchMerchant({ slug: query?.slug}),
-		{
+    () => fetchMerchant({ slug: query?.slug }),
+    {
       staleTime: 0,
-      initialData: dataMerchant?.status === STATUS_TYPES.SUCCESS && dataMerchant?.data || {},
-		},
+      initialData:
+        (dataMerchant?.status === STATUS_TYPES.SUCCESS && dataMerchant?.data) ||
+        {},
+    },
   );
 
   props = {
@@ -30,8 +26,8 @@ function MerchantPageContainer(props) {
     isError,
     isLoading,
     isFetching,
-    isSuccess
-  }
+    isSuccess,
+  };
   if (isMobile) {
     return <MerchantPageContainerMobile {...props} />;
   } else {
@@ -42,7 +38,7 @@ function MerchantPageContainer(props) {
 MerchantPageContainer.propTypes = {
   isMobile: PropTypes.bool,
   query: PropTypes.object,
-  dataMerchant: PropTypes.object
+  dataMerchant: PropTypes.object,
 };
 
 export default MerchantPageContainer;
