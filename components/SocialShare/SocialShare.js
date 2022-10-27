@@ -190,8 +190,8 @@ function SocialShare(props) {
                                 <NextLink link={item.link} target="_blank">
                                   {typeof item.image === 'string' ? (
                                     <Image
-                                      src={item.image}
-                                      alt={item.name}
+                                      src={item.image || ''}
+                                      alt={item.name || ''}
                                       width="28px"
                                       objectFit="cover"
                                     />

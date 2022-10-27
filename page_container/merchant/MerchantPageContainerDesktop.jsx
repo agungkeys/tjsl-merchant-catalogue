@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -27,7 +28,6 @@ import { HiDotsVertical } from 'react-icons/hi';
 import SocialShare from '../../components/SocialShare';
 import QRCode from '../../components/QRCode';
 import ENV from '../../constants/env';
-import { useState } from 'react';
 
 function MerchantPageContainerDesktop(props) {
   const { data, isError, isLoading, isFetching, isSuccess } = props;
@@ -43,11 +43,10 @@ function MerchantPageContainerDesktop(props) {
   return (
     <Box>
       <Box
-        bgImage={
+        backgroundImage={
           data?.data?.additionalImageCover
             ? populateAdditionalImage({
                 ...data?.data?.additionalImageCover,
-
                 extension: 'webp',
               })
             : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
@@ -66,24 +65,23 @@ function MerchantPageContainerDesktop(props) {
               rounded="full"
               boxSize="136px"
               backgroundColor="#fff"
-              // marginTop="-50px"
               boxShadow="lg"
-              // w="156px"
             >
               <Image
                 boxSize="100%"
-                src={populateAdditionalImage({
+                src={data?.data?.additionalImage ? populateAdditionalImage({
                   ...data?.data?.additionalImage,
                   height: 136,
                   width: 136,
                   extension: 'webp',
-                })}
+                }) : 
+                "https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
+              }
                 borderRadius="full"
-                alt=""
                 fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_68,h_68,c_fill/v1644554350/images/item-empty_iiuizg.webp"
               />
             </Center>
-            <Center p={3} al>
+            <Center p={3}>
               <Text fontSize="38px" fontWeight="semibold">
                 {data?.data?.name || 'Merchant Name'}
               </Text>
@@ -116,7 +114,7 @@ function MerchantPageContainerDesktop(props) {
             <Spacer />
             <Flex gap={3} alignItems="center">
               <QRCode
-                value={`${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
+                value={`${ENV.CURRENT_HOST}/merchants/${data?.data?.slug || ''}`}
                 size={192}
                 imageSettings={{
                   src: 'https://res.cloudinary.com/borneos-co/image/upload/v1664949744/tjsl-core/icon-logo/favicon_lns2zu.webp',
@@ -126,18 +124,18 @@ function MerchantPageContainerDesktop(props) {
                 }}
               />
               <SocialShare
-                facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
-                twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
-                whatsappLink={`https://wa.me/?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name}, kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}`}
-                telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST}/merchants/${data?.data?.slug}&text=Cek Mitra UMKM yok, namanya ${data?.data?.name}`}
-                shopeeLink={data?.data?.linkShopee}
-                tokopediaLink={data?.data?.linkTokopedia}
-                bukalapakLink={data?.data?.linkBukalapak}
-                borneosLink={data?.data?.linkBorneos}
-                websitePageLink={data?.data?.website}
-                facebookPageLink={data?.data?.socFb}
-                twitterPageLink={data?.data?.socTwitter}
-                instagramPageLink={data?.data?.socIg}
+                facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/merchants/${data?.data?.slug || ''}`}
+                twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name || ''}, kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/merchants/${data?.data?.slug || ''}`}
+                whatsappLink={`https://wa.me/?text=Hai! Cek Mitra UMKM yok, namanya ${data?.data?.name || ''}, kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/merchants/${data?.data?.slug || ''}`}
+                telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST || ''}/merchants/${data?.data?.slug || ''}&text=Cek Mitra UMKM yok, namanya ${data?.data?.name || ''}`}
+                shopeeLink={data?.data?.linkShopee || ''}
+                tokopediaLink={data?.data?.linkTokopedia || ''}
+                bukalapakLink={data?.data?.linkBukalapak || ''}
+                borneosLink={data?.data?.linkBorneos || ''}
+                websitePageLink={data?.data?.website || ''}
+                facebookPageLink={data?.data?.socFb || ''}
+                twitterPageLink={data?.data?.socTwitter || ''}
+                instagramPageLink={data?.data?.socIg || ''}
               />
             </Flex>
           </Flex>
@@ -186,7 +184,7 @@ function MerchantPageContainerDesktop(props) {
                         })
                       : ''
                   }
-                  alt={productDetail?.name}
+                  alt={productDetail?.name || ''}
                   fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/w_1183,h_318,c_thumb/v1659589646/images/no-image-banner_uni0rj.webp"
                   objectFit="cover"
                   borderRadius="4px"

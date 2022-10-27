@@ -4,9 +4,10 @@ import MerchantPageContainerMobile from './MerchantPageContainerMobile';
 
 import { useQuery } from 'react-query';
 import { fetchMerchant } from '../../hooks/useMerchant';
+import STATUS_TYPES from '../../constants/statusTypes';
 
 function MerchantPageContainer(props) {
-  const { isMobile, query } = props;
+  const { isMobile, query, dataMerchant } = props;
 
   const { 
     data,
@@ -19,6 +20,7 @@ function MerchantPageContainer(props) {
 		() => fetchMerchant({ slug: query?.slug}),
 		{
       staleTime: 0,
+      initialData: dataMerchant?.status === STATUS_TYPES.SUCCESS && dataMerchant?.data || {},
 		},
   );
 
@@ -40,6 +42,7 @@ function MerchantPageContainer(props) {
 MerchantPageContainer.propTypes = {
   isMobile: PropTypes.bool,
   query: PropTypes.object,
+  dataMerchant: PropTypes.object
 };
 
 export default MerchantPageContainer;

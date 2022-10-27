@@ -17,11 +17,11 @@ function MerchantList(props) {
     >
       <HeadHome
         title="Mitra KamiUMKM"
-        description="KamiUMKM | Mitra Merchant TJSL"
-        keyword="KamiUMKM | Mitra Merchant TJSL"
+        description="Mitra KamiUMKM | Mitra Merchant TJSL"
+        keyword="Mitra KamiUMKM | Mitra Merchant TJSL"
         ogTitle="Mitra KamiUMKM"
         ogDescription="KamiUMKM | Mitra Merchant TJSL"
-        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/w_561,h_461,c_fill/v1659268660/images/seo_image_borneos_gls9un.png"
+        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/v1666752382/tjsl-core/seo-image/Icon_SEO_KamiUMKM_xrxf9m.png"
         ogImageAlt="KamiUmkm"
         ogImageType="image/png"
         ogImageHeight="461"
@@ -39,16 +39,8 @@ MerchantList.propTypes = {
 
 MerchantList.getInitialProps = async (props) => {
   const { store, isServer, query, params, res, req } = props.ctx;
-  // const dataBanners = await fetchBanners();
-  // const dataCategories = await fetchCategories();
-  // const dataMerchantFavorites = await fetchMerchantFavorites();
-  // const dataMerchants = await fetchMerchants();
   return {
-    query,
-    // dataBanners,
-    // dataCategories,
-    // dataMerchantFavorites,
-    // dataMerchants,
+    query
   };
 };
 
