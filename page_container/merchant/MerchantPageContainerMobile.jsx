@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   Drawer,
   DrawerBody,
@@ -15,7 +16,8 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Product } from '../../components';
+import { FaMapMarked } from 'react-icons/fa';
+import { NextLink, Product } from '../../components';
 import QRCode from '../../components/QRCode';
 import SocialShare from '../../components/SocialShare';
 import ENV from '../../constants/env';
@@ -101,10 +103,20 @@ function MerchantPageContainerMobile(props) {
                 />
               </Flex>
             </Flex>
-            <Text fontSize="sm" color="primary.0">
-              Kategori {data?.data?.category?.name || ''}
-            </Text>
-            <Text fontSize="sm"> {data?.data?.address || ''} </Text>
+            <Flex flexDirection="column" gap={1} marginTop={2}>
+              <Text fontSize="sm" color="primary.0">
+                Kategori {data?.data?.category?.name || ''}
+              </Text>
+              <Text fontSize="sm"> {data?.data?.address || ''} </Text>
+              <NextLink
+                link={`https://maps.google.com/?q=${data?.data?.latitude}, ${data?.data?.longitude}`}
+                target="_blank"
+              >
+                <Button leftIcon={<FaMapMarked />} variant="link">
+                  Peta Alamat
+                </Button>
+              </NextLink>
+            </Flex>
           </Flex>
           <Box></Box>
         </Flex>
