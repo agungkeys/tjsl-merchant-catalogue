@@ -51,8 +51,8 @@ function BlogCardMobile(props) {
             height="150px"
             objectFit="cover"
           />
-          <Text fontSize="md" fontWeight="extrabold" noOfLines={2} height="55px">
-            {title}
+          <Text fontSize="md" fontWeight="extrabold" noOfLines={2}>
+            {title || ''}
           </Text>
           <Flex justifyContent="space-between">
             <Text fontSize="sm">{dateCreate}</Text>

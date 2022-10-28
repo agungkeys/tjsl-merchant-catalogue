@@ -12,57 +12,53 @@ function BlogPageContainerDesktop(props) {
       <Container maxW="container.xl">
         <Flex gap={8}>
           <Box width="70%" minH="100vh">
-            {data?.data?.map((item, idx) => (
-              <div key={idx}>
-                <Box marginY="32px">
-                  <Flex justifyContent="space-between">
-                    <Text fontWeight="extrabold" fontSize="5xl">
-                      {item?.title}
-                    </Text>
-                    <SocialShare
-                      facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/blog/${item?.slug}`}
-                      twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
-                      whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${item?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${item?.slug}`}
-                      telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST}/blog/${item?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${item?.title}`}
-                      isBlogPage
-                    />
-                  </Flex>
-
-                  <Text fontSize="lg">
-                    Posted by {item?.author} - {item?.dateCreate}
-                  </Text>
-                </Box>
-                <Image
-                  src={item?.image}
-                  height="350"
-                  width="650px"
-                  objectFit="cover"
-                  alt=""
-                  borderRadius="10px"
-                  margin="0 auto"
+            <Box marginY="32px">
+              <Flex justifyContent="space-between">
+                <Text fontWeight="extrabold" fontSize="5xl">
+                  {data?.data?.title || ''}
+                </Text>
+                <SocialShare
+                  facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${ENV.CURRENT_HOST}/blog/${data?.data?.slug}`}
+                  twitterLink={`https://twitter.com/intent/tweet?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${data?.data?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${data?.data?.slug}`}
+                  whatsappLink={`https://wa.me/?text=Hai! Cek blog dari KamiUMKM ini yok, judulnya "${data?.data?.title}", kamu bisa kunjungi link ini ya! ${ENV.CURRENT_HOST}/blog/${data?.data?.slug}`}
+                  telegramLink={`https://t.me/share/url?url=${ENV.CURRENT_HOST}/blog/${data?.data?.slug}&text=Cek blog dari KamiUMKM yok, judulnya ${data?.data?.title}`}
+                  isBlogPage
                 />
+              </Flex>
 
-                <Box
-                  marginY="42px"
-                  fontSize="lg"
-                  fontWeight="normal"
-                  paddingRight="32px"
-                >
-                  <div
-                    dangerouslySetInnerHTML={{ __html: item?.description }}
-                    className="blog-description"
-                  ></div>
-                </Box>
-                <Flex justifyContent="space-between" marginY="16px">
-                  <Flex gap={3} alignItems="center">
-                    <Text>Tags : </Text>
-                    <Box borderRadius="10px" bgColor="#FFF7E9" padding="8px">
-                      {item?.tags}
-                    </Box>{' '}
-                  </Flex>
-                </Flex>
-              </div>
-            ))}
+              <Text fontSize="lg">
+                Posted by {data?.data?.author} - {data?.data?.dateCreate}
+              </Text>
+            </Box>
+            <Image
+              src={data?.data?.image}
+              height="350"
+              width="650px"
+              objectFit="cover"
+              alt=""
+              borderRadius="10px"
+              margin="0 auto"
+            />
+
+            <Box
+              marginY="42px"
+              fontSize="lg"
+              fontWeight="normal"
+              paddingRight="32px"
+            >
+              <div
+                dangerouslySetInnerHTML={{ __html: data?.data?.description }}
+                className="blog-description"
+              ></div>
+            </Box>
+            <Flex justifyContent="space-between" marginY="16px">
+              <Flex gap={3} alignItems="center">
+                <Text>Tags : </Text>
+                <Box borderRadius="10px" bgColor="#FFF7E9" padding="8px">
+                  {data?.data?.tags}
+                </Box>{' '}
+              </Flex>
+            </Flex>
           </Box>
           <Box width="5%" minHeight="100vh">
             <Divider orientation="vertical" width="20px" />
@@ -93,7 +89,7 @@ function BlogPageContainerDesktop(props) {
 
 BlogPageContainerDesktop.propTypes = {
   isMobile: PropTypes.bool.isRequired,
-  data: PropTypes.any,
+  data: PropTypes.object,
   isError: PropTypes.bool,
   isLoading: PropTypes.bool,
   isFetching: PropTypes.bool,

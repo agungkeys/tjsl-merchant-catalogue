@@ -116,6 +116,9 @@ function MerchantPageContainerDesktop(props) {
               <NextLink
                 link={`https://maps.google.com/?q=${data?.data?.latitude}, ${data?.data?.longitude}`}
                 target="_blank"
+                style={{
+                  width: '50px',
+                }}
               >
                 <Button leftIcon={<FaMapMarked />} variant="link">
                   Peta Alamat
