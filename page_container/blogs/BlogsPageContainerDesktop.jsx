@@ -57,7 +57,12 @@ function BlogsPageContainerDesktop(props) {
                 <Badge colorScheme="purple" borderRadius="xl">
                   {item?.category?.name || ''}
                 </Badge>
-                <Text fontWeight="bold" fontSize="5xl" color="#fff">
+                <Text
+                  fontWeight="bold"
+                  fontSize="5xl"
+                  color="#fff"
+                  noOfLines={2}
+                >
                   {item?.title || ''}
                 </Text>
               </Box>
@@ -74,7 +79,7 @@ function BlogsPageContainerDesktop(props) {
         ))}
       </Grid>
 
-      <Grid templateColumns="repeat(3, 1fr)" gap={8} marginY="32px">
+      <Grid templateColumns="repeat(3, 1fr)" gap={8} marginY="42px">
         {dataBlogs?.data?.slice(3, 9).map((item, idx) => (
           <GridItem key={idx}>
             <BlogCard {...item} />
@@ -82,7 +87,7 @@ function BlogsPageContainerDesktop(props) {
         ))}
       </Grid>
       <Flex justifyContent="center">
-        <Box>
+        <Box marginY="16px">
           {(isSuccessBlogs && (
             <Pagination
               siblingCount={2}

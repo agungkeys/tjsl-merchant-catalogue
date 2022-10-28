@@ -8,7 +8,7 @@ import BlogPageContainer from '../../page_container/blog/BlogPageContainer';
 
 function Blog(props) {
   const { isMobile, query, dataBlog } = props;
-  const data = dataBlog?.data[0] || {};
+  const data = dataBlog?.data || {};
 
   props = {
     ...props,
@@ -28,8 +28,8 @@ function Blog(props) {
         keyword={`${data?.title} - KamiUMKM | Blog KamiUMKM`}
         ogTitle={`${data?.title} - Blog KamiUMKM`}
         ogDescription={`${data?.shortDescription} - KamiUMKM | Blog KamiUMKM`}
-        ogImageUrl=""
-        ogImageAlt={data?.title ? data?.image : 'KamiUMKM'}
+        ogImageUrl={data?.image}
+        ogImageAlt={data?.title ? data?.title : 'Blog KamiUMKM'}
         ogImageType="image/png"
         ogImageHeight="461"
         ogImageWidth="561"

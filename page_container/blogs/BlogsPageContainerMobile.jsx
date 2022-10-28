@@ -42,8 +42,8 @@ function BlogsPageContainerMobile(props) {
               width="100%"
             >
               <Box>
-                <Text fontSize="sm" fontWeight="bold">
-                  {item?.title}
+                <Text fontSize="sm" fontWeight="bold" noOfLines={2}>
+                  {item?.title || ''}
                 </Text>
                 <Text fontSize="sm" fontWeight="normal">
                   {item?.category?.name}
