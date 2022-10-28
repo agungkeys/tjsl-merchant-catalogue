@@ -1,11 +1,19 @@
 import { Box, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import HeadHome from '../../components/Heads/HeadHome';
+import { populateAdditionalImage } from '../../helpers/utils';
+import { fetchBlog } from '../../hooks/useBlog';
 import MainLayout from '../../layout/MainLayout';
 import BlogPageContainer from '../../page_container/blog/BlogPageContainer';
 
 function Blog(props) {
-  const { isMobile } = props;
+  const { isMobile, query, dataBlog } = props;
+  const data = dataBlog?.data[0] || {};
+
+  props = {
+    ...props,
+    dataBlog,
+  };
   return (
     <MainLayout
       isMobile={isMobile}
@@ -15,40 +23,37 @@ function Blog(props) {
       onSubmit={(e) => console.log(e)}
     >
       <HeadHome
-        title="KamiUMKM | Mitra Merchant TJSL"
-        description="KamiUMKM | Mitra Merchant TJSL"
-        keyword="KamiUMKM | Mitra Merchant TJSL"
-        ogTitle="KamiUMKM | Mitra Merchant TJSL"
-        ogDescription="KamiUMKM | Mitra Merchant TJSL"
-        ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/v1666752382/tjsl-core/seo-image/Icon_SEO_KamiUMKM_xrxf9m.png"
-        ogImageAlt="KamiUmkm"
+        title={`${data?.title} - Blog KamiUMKM`}
+        description={`${data?.shortDescription} - KamiUMKM | Blog KamiUMKM`}
+        keyword={`${data?.title} - KamiUMKM | Blog KamiUMKM`}
+        ogTitle={`${data?.title} - Blog KamiUMKM`}
+        ogDescription={`${data?.shortDescription} - KamiUMKM | Blog KamiUMKM`}
+        ogImageUrl=""
+        ogImageAlt={data?.title ? data?.image : 'KamiUMKM'}
         ogImageType="image/png"
         ogImageHeight="461"
         ogImageWidth="561"
-        ogUrl="https://www.kamiumkm.com,"
+        ogUrl={`https://www.kamiumkm.com/blog/${data?.slug},`}
       />
+
       <BlogPageContainer {...props} />
     </MainLayout>
   );
 }
 
-Blog.propTypes = {
-  isMobile: PropTypes.bool.isRequired,
-};
-
 Blog.getInitialProps = async (props) => {
-  const { store, isServer, query, params, res, req } = props.ctx;
-  // const dataBanners = await fetchBanners();
-  // const dataCategories = await fetchCategories();
-  // const dataMerchantFavorites = await fetchMerchantFavorites();
-  // const dataMerchants = await fetchMerchants();
+  const { query } = props.ctx;
+  const dataBlog = await fetchBlog({ slug: query.slug });
   return {
     query,
-    // dataBanners,
-    // dataCategories,
-    // dataMerchantFavorites,
-    // dataMerchants,
+    dataBlog,
   };
+};
+
+Blog.propTypes = {
+  isMobile: PropTypes.bool.isRequired,
+  query: PropTypes.object,
+  dataBlog: PropTypes.object,
 };
 
 export default Blog;

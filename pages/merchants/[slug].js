@@ -6,16 +6,12 @@ import HeadHome from '../../components/Heads/HeadHome';
 import { fetchMerchant } from '../../hooks/useMerchant';
 
 function Merchant(props) {
-  const { 
-    isMobile, 
-    query,
-    dataMerchant 
-  } = props;
+  const { isMobile, query, dataMerchant } = props;
   const data = dataMerchant?.data || {};
   props = {
     ...props,
-    dataMerchant
-  }
+    dataMerchant,
+  };
   return (
     <MainLayout
       isMobile={isMobile}
@@ -29,12 +25,12 @@ function Merchant(props) {
         keyword={`${data?.name} - KamiUMKM | Mitra Merchant TJSL`}
         ogTitle={`${data?.name} - Mitra KamiUMKM`}
         ogDescription={`${data?.description} - KamiUMKM | Mitra Merchant TJSL`}
-        ogImageUrl={data?.seoImage ? data.seoImage : data.image}
+        ogImageUrl={data?.seoImage ? data?.seoImage : data?.image}
         ogImageAlt={data?.name ? data?.name : 'KamiUMKM'}
         ogImageType="image/png"
         ogImageHeight="461"
         ogImageWidth="561"
-        ogUrl={`https://www.kamiumkm.com/merchants/`+data?.slug}
+        ogUrl={`https://www.kamiumkm.com/merchants/` + data?.slug}
       />
       <MerchantPageContainer {...props} />
     </MainLayout>
@@ -53,7 +49,7 @@ Merchant.getInitialProps = async (props) => {
 Merchant.propTypes = {
   isMobile: PropTypes.bool,
   query: PropTypes.object,
-  dataMerchant: PropTypes.object
+  dataMerchant: PropTypes.object,
 };
 
 export default Merchant;
