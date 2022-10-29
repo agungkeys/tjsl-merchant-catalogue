@@ -1,6 +1,8 @@
 import {
   Badge,
   Box,
+  Button,
+  CloseButton,
   Container,
   Flex,
   Grid,
@@ -9,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { BlogCard, Pagination } from '../../components';
+import { BlogCard, NextLink, Pagination } from '../../components';
 
 function BlogsPageContainerDesktop(props) {
   const router = useRouter();
@@ -22,11 +24,43 @@ function BlogsPageContainerDesktop(props) {
     fetchPagination,
   } = props;
 
+  // function handleLink(slug) {
+  //   return {
+  //     pathname: `/merchants?category=${slug}`,
+  //     query: { category: slug },
+  //     asPath: `/merchants?category=${slug}`,
+  //   };
+  // }
+
   return (
     <Container maxW="container.xl" paddingY="16px">
       <Text mb="24px" mt="8px" fontWeight="extrabold" fontSize="5xl">
         Blog Kami
       </Text>
+      <Flex gap={2} marginBottom="32px">
+        {dataBlogs?.data?.map((item) => (
+          <NextLink
+            key={item?.id}
+            // link={handleLink(item?.slug)}
+          >
+            <Button
+              borderRadius="2em"
+              backgroundColor="#e2eeff"
+              // backgroundColor={category === item?.slug ? `#ff731d` : `#e2eeff`}
+              color="#000"
+              // color={category === item?.slug ? `#fff` : `#000`}
+              sx={{
+                ':hover': {
+                  backgroundColor: '#c2dbff',
+                },
+              }}
+            >
+              {item?.category?.name}
+            </Button>
+          </NextLink>
+        ))}
+      </Flex>
+
       <Grid
         h="500px"
         templateRows="repeat(2, 1fr)"
