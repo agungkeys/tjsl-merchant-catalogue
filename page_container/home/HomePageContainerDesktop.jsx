@@ -357,106 +357,111 @@ function HomePageContainerDesktop(props) {
         </NextLink>
       </Flex>
 
-      <Flex gap={8} width="100%">
+      <Grid templateColumns="repeat(3, 1fr)" gap={8}>
         {isLoadingMerchants &&
           isFetchingMerchants &&
           [...Array(3)].map((item, idx) => (
-            <Box key={idx}>
+            <GridItem key={idx}>
               <SkeletonMerchant />
-            </Box>
+            </GridItem>
           ))}
+
         {isSuccessMerchants &&
-          dataMerchants?.data?.slice(0, 3).map((item) => (
-            <NextLink
-              key={item?.id}
-              style={{
-                width: '100%',
-              }}
-              link={`/merchants/${item?.slug}`}
-            >
-              <Box
-                marginY="32px"
-                borderRadius="16px"
-                boxShadow="lg"
-                w="100%"
-                cursor="pointer"
+          dataMerchants?.data.slice(0, 3).map((item, idx) => (
+            <GridItem key={item?.id}>
+              <NextLink
+                style={{
+                  width: '100%',
+                }}
+                link={`/merchants/${item?.slug}`}
               >
                 <Box
-                  // backgroundColor="#0D5099"
-                  bgImage={
-                    item?.additionalImageCover
-                      ? populateAdditionalImage({
-                          ...item?.additionalImageCover,
+                  marginY="32px"
+                  borderRadius="16px"
+                  boxShadow="lg"
+                  w="100%"
+                  cursor="pointer"
+                >
+                  <Box
+                    bgImage={
+                      item?.additionalImageCover
+                        ? populateAdditionalImage({
+                            ...item?.additionalImageCover,
 
-                          extension: 'webp',
-                        })
-                      : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
-                  }
-                  backgroundRepeat="no-repeat"
-                  backgroundSize="contain"
-                  backgroundPosition="top-right"
-                  borderTopRadius="16px"
-                  height="100px"
-                ></Box>
-                <Flex paddingX="32px" width="100%" gap={4}>
-                  <Center
-                    rounded="full"
-                    boxSize="100px"
-                    backgroundColor="#fff"
-                    marginTop="-30px"
-                    boxShadow="lg"
-                    w="156px"
-                  >
-                    {item?.image ? (
-                      <Image
-                        borderRadius="4em"
-                        boxSize="100%"
-                        src={item?.image}
-                        alt={item?.name}
-                        fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
-                      />
-                    ) : (
-                      <Image
-                        borderRadius="4em"
-                        boxSize="84px"
-                        src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
-                        alt=""
-                      />
-                    )}
-                  </Center>
-                  <Flex
-                    flexDirection="column"
-                    justifyContent="space-between"
+                            extension: 'webp',
+                          })
+                        : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+                    }
+                    backgroundRepeat="no-repeat"
+                    backgroundSize="contain"
+                    backgroundPosition="top-right"
+                    borderTopRadius="16px"
                     height="100px"
-                    backgroundColor="#fff"
-                    marginTop="-30px"
-                    boxShadow="lg"
-                    padding="12px"
-                    w="100%"
-                    borderRadius="10px"
-                  >
-                    <Text fontWeight="bold" fontSize="md">
-                      {item?.name || ''}
-                    </Text>
-                    <Text fontWeight="semibold" fontSize="sm" color="primary.0">
-                      Kategori {item?.category?.name || ''}
-                    </Text>
-                    <Text fontWeight="light" fontSize="sm" noOfLines={2}>
-                      {item?.address || ''}
-                    </Text>
+                  ></Box>
+                  <Flex paddingX="32px" width="100%" gap={4}>
+                    <Center
+                      rounded="full"
+                      boxSize="100px"
+                      backgroundColor="#fff"
+                      marginTop="-30px"
+                      boxShadow="lg"
+                      w="156px"
+                    >
+                      {item?.image ? (
+                        <Image
+                          borderRadius="4em"
+                          boxSize="100%"
+                          src={item?.image}
+                          alt={item?.name}
+                          fallbackSrc="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
+                        />
+                      ) : (
+                        <Image
+                          borderRadius="4em"
+                          boxSize="84px"
+                          src="https://res.cloudinary.com/borneos-co/image/upload/v1644554350/images/item-empty_iiuizg.webp"
+                          alt=""
+                        />
+                      )}
+                    </Center>
+                    <Flex
+                      flexDirection="column"
+                      justifyContent="space-between"
+                      height="100px"
+                      backgroundColor="#fff"
+                      marginTop="-30px"
+                      boxShadow="lg"
+                      padding="12px"
+                      w="100%"
+                      borderRadius="10px"
+                    >
+                      <Text fontWeight="bold" fontSize="md">
+                        {item?.name || ''}
+                      </Text>
+                      <Text
+                        fontWeight="semibold"
+                        fontSize="sm"
+                        color="primary.0"
+                      >
+                        Kategori {item?.category?.name || ''}
+                      </Text>
+                      <Text fontWeight="light" fontSize="sm" noOfLines={2}>
+                        {item?.address || ''}
+                      </Text>
+                    </Flex>
                   </Flex>
-                </Flex>
-                <Grid gap={3} p={8} templateColumns="repeat(3, 1fr)">
-                  {item?.products?.map((item, idx) => (
-                    <GridItem key={idx}>
-                      <Product isLanding {...item} />
-                    </GridItem>
-                  ))}
-                </Grid>
-              </Box>
-            </NextLink>
+                  <Grid gap={3} p={8} templateColumns="repeat(3, 1fr)">
+                    {item?.products?.map((item, idx) => (
+                      <GridItem key={idx}>
+                        <Product isLanding {...item} />
+                      </GridItem>
+                    ))}
+                  </Grid>
+                </Box>
+              </NextLink>
+            </GridItem>
           ))}
-      </Flex>
+      </Grid>
     </>
   );
 

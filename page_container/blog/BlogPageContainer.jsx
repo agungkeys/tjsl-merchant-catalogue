@@ -15,7 +15,7 @@ function BlogPageContainer(props) {
     {
       staleTime: 0,
       initialData:
-        (dataBlog?.status === STATUS_TYPES.SUCCESS && dataBlog?.data[0]) || {},
+        (dataBlog?.status === STATUS_TYPES.SUCCESS && dataBlog?.data) || {},
     },
   );
 
