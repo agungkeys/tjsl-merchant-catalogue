@@ -24,7 +24,7 @@ function Blog(props) {
     >
       <HeadHome
         title={`${data?.title} - Blog KamiUMKM`}
-        description={`${data?.shortDescription} - KamiUMKM | Blog KamiUMKM`}
+        description={`${data?.title} - KamiUMKM | Blog KamiUMKM`}
         keyword={`${data?.title} - KamiUMKM | Blog KamiUMKM`}
         ogTitle={`${data?.title} - Blog KamiUMKM`}
         ogDescription={`${data?.shortDescription} - KamiUMKM | Blog KamiUMKM`}
