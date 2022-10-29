@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Image, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { NextLink, Pagination } from '../../components';
@@ -68,8 +68,32 @@ function BlogsPageContainerMobile(props) {
     <Box>
       <Container maxW="container.xl">
         <Text fontSize="xl" fontWeight="bold">
-          Blog Terbaru
+          Blog Kami
         </Text>
+        <Flex gap={2} paddingBottom="12px" marginTop="16px" overflowX="scroll">
+          {dataBlogs?.data?.map((item) => (
+            <NextLink
+              key={item?.id}
+              // link={handleLink(item?.slug)}
+            >
+              <Button
+                borderRadius="2em"
+                backgroundColor="#e2eeff"
+                // backgroundColor={category === item?.slug ? `#ff731d` : `#e2eeff`}
+                color="#000"
+                // color={category === item?.slug ? `#fff` : `#000`}
+                sx={{
+                  ':hover': {
+                    backgroundColor: '#c2dbff',
+                  },
+                }}
+                fontSize="sm"
+              >
+                {item?.category?.name}
+              </Button>
+            </NextLink>
+          ))}
+        </Flex>
         <Box marginBottom="16px">
           <CarouselBlog items={dataBlogs} />
         </Box>
