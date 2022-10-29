@@ -184,15 +184,17 @@ function MerchantPageContainerDesktop(props) {
           justifyContent="space-between"
           gap={4}
         >
-          {data?.data?.products?.map((item, idx) => (
-            <Box
-              key={idx}
-              onClick={() => handleClickProduct(item)}
-              cursor="pointer"
-            >
-              <Product {...item} isShowPrice isDetail />
-            </Box>
-          ))}
+          {data?.data?.products?.length > 0
+            ? data?.data?.products?.map((item, idx) => (
+                <Box
+                  key={idx}
+                  onClick={() => handleClickProduct(item)}
+                  cursor="pointer"
+                >
+                  <Product {...item} isShowPrice isDetail />
+                </Box>
+              ))
+            : null}
         </Grid>
       </Container>
       <Modal onClose={onClose} size="xl" isOpen={isOpen} isCentered>

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { Box, Container, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Text } from '@chakra-ui/react';
 import { HiLocationMarker, HiMail, HiPhone } from 'react-icons/hi';
 import Maps from '../../components/Maps';
 import ContactForm from './ContactForm';
+import { NextLink } from '../../components';
 
 function ContactPageContainerMobile() {
   return (
@@ -22,16 +23,18 @@ function ContactPageContainerMobile() {
               </Text>
             </Flex>
             <Flex>
-              <HiPhone />
-              <Text ml={2} mt={-1}>
-                +62 811-591-270
-              </Text>
+              <NextLink link="tel:+62811591270" target="_blank">
+                <Button leftIcon={<HiPhone />} variant="link" color="#000">
+                  +62 811-591-270
+                </Button>
+              </NextLink>
             </Flex>
             <Flex>
-              <HiMail />
-              <Text ml={2} mt={-1}>
-                info@kamiumkm.com
-              </Text>
+              <NextLink link="mailto:info@kamiumkm.com" target="_blank">
+                <Button leftIcon={<HiMail />} variant="link" color="#000">
+                  info@kamiumkm.com
+                </Button>
+              </NextLink>
             </Flex>
             <Flex>
               <HiLocationMarker />

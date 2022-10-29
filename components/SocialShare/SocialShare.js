@@ -228,7 +228,6 @@ function SocialShare(props) {
               <Button
                 fontSize="20px"
                 fontWeight="semibold"
-                // color="primary.60"
                 borderRadius="full"
                 boxSize="46px"
                 variant="primary"

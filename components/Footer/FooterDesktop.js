@@ -120,7 +120,10 @@ function FooterDesktop(props) {
                     </Button>
                   </Center>
                 </NextLink>
-                <NextLink link="https://www.pupukkaltim.com" target="_blank">
+                <NextLink
+                  link="https://www.pupukkaltim.com/csr//id"
+                  target="_blank"
+                >
                   <Center w="48px" h="48px" borderRadius="8px">
                     <Button h="full" color="white" variant="unstyled">
                       <FaGlobe />

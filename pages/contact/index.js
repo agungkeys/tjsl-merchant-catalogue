@@ -16,11 +16,11 @@ function Contact(props) {
       onSubmit={(e) => console.log(e)}
     >
       <HeadHome
-        title="Mitra KamiUMKM"
-        description="KamiUMKM | Mitra Merchant TJSL"
-        keyword="KamiUMKM | Mitra Merchant TJSL"
-        ogTitle="Mitra KamiUMKM"
-        ogDescription="KamiUMKM | Mitra Merchant TJSL"
+        title="Kontak KamiUMKM"
+        description="Kontak KamiUMKM | KamiUMKM"
+        keyword="Kontak KamiUMKM | KamiUMKM"
+        ogTitle="Kontak KamiUMKM"
+        ogDescription="Kontak KamiUMKM | KamiUMKM"
         ogImageUrl="https://res.cloudinary.com/borneos-co/image/upload/v1666752382/tjsl-core/seo-image/Icon_SEO_KamiUMKM_xrxf9m.png"
         ogImageAlt="KamiUmkm"
         ogImageType="image/png"

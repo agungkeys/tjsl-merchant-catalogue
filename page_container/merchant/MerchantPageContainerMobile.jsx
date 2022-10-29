@@ -128,11 +128,13 @@ function MerchantPageContainerMobile(props) {
             <Text fontSize="sm"> {data?.data?.description || ''} </Text>
           </Box>
           <Grid templateColumns="repeat(2, 1fr)" gap={4} marginY="16px">
-            {data?.data?.products?.map((item, idx) => (
-              <GridItem key={idx} onClick={() => handleClickProduct(item)}>
-                <Product {...item} isMobile isShowPrice />
-              </GridItem>
-            ))}
+            {data?.data?.products?.length > 0
+              ? data?.data?.products?.map((item, idx) => (
+                  <GridItem key={idx} onClick={() => handleClickProduct(item)}>
+                    <Product {...item} isMobile isShowPrice />
+                  </GridItem>
+                ))
+              : null}
           </Grid>
         </Box>
       </Container>

@@ -27,9 +27,41 @@ a {
   color: #1746a2;
 }
 
+.blog-description h1 {
+  font-size: 2em;
+}
+
+.blog-description h2 {
+  font-size: 1.5em;
+}
+
+.blog-description h3 {
+  font-size: 1.17em;
+}
+
+.product-description h1 {
+  font-size: 2em;
+}
+
+.product-description h2 {
+  font-size: 1.5em;
+}
+
+.product-description h3 {
+  font-size: 1.17em;
+}
+
 .product-description a {
   text-decoration: underline;
   color: #1746a2;
+}
+
+.product-description ol {
+  padding-left: 2em;
+}
+
+.product-description ul {
+  padding-left: 2em;
 }
 
 .product-description p {

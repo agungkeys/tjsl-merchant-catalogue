@@ -69,29 +69,39 @@ function MerchantsPageContainerDesktop(props) {
         <Box my={4}>
           {category ? (
             <Flex color="gray.60" alignItems="center">
-              <Text fontSize="14px">{`Menampilkan ${dataMerchants?.meta?.pagination?.total} merchant untuk kategori:`}</Text>
-              <Box
-                ml={2}
-                px={2}
-                py={1}
-                backgroundColor="gray.30"
-                borderRadius="2em"
-              >
-                <Flex alignItems="center">
-                  <Text fontWeight="bold" fontSize="14px" mr={1}>
-                    {dataMerchants?.data[0].category?.name}
-                  </Text>
-                  <CloseButton
-                    onClick={fetchResetMerchants}
-                    sx={{
-                      width: '20px',
-                      height: '20px',
-                      fontSize: '8px',
-                      borderRadius: '2em',
-                    }}
-                  />
-                </Flex>
-              </Box>
+              <Text fontSize="14px">{`Menampilkan ${
+                dataMerchants?.meta?.pagination?.total || '0'
+              } merchant untuk kategori:`}</Text>
+              {dataMerchants?.data?.length > 0 ? (
+                <Box
+                  ml={2}
+                  px={2}
+                  py={1}
+                  backgroundColor="gray.30"
+                  borderRadius="2em"
+                >
+                  <Flex alignItems="center">
+                    <Text fontWeight="bold" fontSize="14px" mr={1}>
+                      {dataMerchants?.data?.length > 0
+                        ? dataMerchants?.data[0]?.category?.name
+                        : null}
+                    </Text>
+                    <CloseButton
+                      onClick={fetchResetMerchants}
+                      sx={{
+                        width: '20px',
+                        height: '20px',
+                        fontSize: '8px',
+                        borderRadius: '2em',
+                      }}
+                    />
+                  </Flex>
+                </Box>
+              ) : (
+                <>
+                  <Text>Merchant tidak ditemukan</Text>
+                </>
+              )}
             </Flex>
           ) : (
             <Text
@@ -185,7 +195,7 @@ function MerchantsPageContainerDesktop(props) {
                 </Box>
               </Flex>
               <Grid templateColumns="repeat(3, 1fr)" gap={3} p={8}>
-                {item?.products?.map((item, idx) => (
+                {item?.products?.slice(0, 3).map((item, idx) => (
                   <GridItem key={idx}>
                     <Product isLanding {...item} />
                   </GridItem>
@@ -211,7 +221,7 @@ function MerchantsPageContainerDesktop(props) {
           pt={5}
           pb={5}
         >
-          {(isSuccessMerchants && (
+          {(isSuccessMerchants && dataMerchants?.data?.length > 0 && (
             <Pagination
               siblingCount={2}
               currentPage={dataMerchants?.meta?.pagination?.page}
