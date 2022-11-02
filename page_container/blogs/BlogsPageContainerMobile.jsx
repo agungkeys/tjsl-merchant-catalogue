@@ -1,4 +1,12 @@
-import { Box, Container, Flex, Image, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  CloseButton,
+  Container,
+  Flex,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { NextLink, Pagination } from '../../components';
@@ -8,16 +16,31 @@ import { populateAdditionalImage } from '../../helpers/utils';
 function BlogsPageContainerMobile(props) {
   const router = useRouter();
   const {
+    category,
     dataBlogs,
     isErrorBlogs,
     isLoadingBlogs,
     isFetchingBlogs,
     isSuccessBlogs,
+    dataBlogCategories,
+    isErrorBlogCategories,
+    isLoadingBlogCategories,
+    isFetchingCategories,
+    isSuccessBlogCategories,
     fetchPagination,
+    fetchResetBlogs,
   } = props;
+
+  function handleLink(slug) {
+    return {
+      pathname: `/blog?category=${slug}`,
+      query: { category: slug },
+      asPath: `/blog?category=${slug}`,
+    };
+  }
+
   const Blogs = () => (
     <>
-      <Text>Blog Lainnya</Text>
       {dataBlogs?.data?.slice(3, 9).map((item, idx) => (
         <NextLink key={idx} link={`blog/${item?.slug}`}>
           <Flex
@@ -64,12 +87,79 @@ function BlogsPageContainerMobile(props) {
     </>
   );
 
+  const BlogCategories = () => (
+    <>
+      <Flex gap={2} paddingBottom="12px" marginTop="16px" overflowX="scroll">
+        {dataBlogCategories?.data?.map((item) => (
+          <NextLink key={item?.id} link={handleLink(item?.slug)}>
+            <Button
+              borderRadius="2em"
+              backgroundColor={category === item?.slug ? `#ff731d` : `#e2eeff`}
+              color={category === item?.slug ? `#fff` : `#000`}
+              sx={{
+                ':hover': {
+                  backgroundColor: '#c2dbff',
+                },
+              }}
+            >
+              {item?.name}
+            </Button>
+          </NextLink>
+        ))}
+      </Flex>
+      <Box my={2}>
+        {category ? (
+          <Flex color="gray.60" alignItems="center">
+            <Text fontSize="sm">{`Menampilkan ${
+              dataBlogs?.meta?.pagination?.total || '0'
+            } blog untuk kategori:`}</Text>
+            {dataBlogs?.data?.length > 0 ? (
+              <Box
+                ml={2}
+                px={2}
+                py={1}
+                backgroundColor="gray.30"
+                borderRadius="2em"
+              >
+                <Flex alignItems="center">
+                  <Text fontWeight="bold" fontSize="14px" mr={1}>
+                    {dataBlogs?.data?.length > 0
+                      ? dataBlogs?.data[0]?.category?.name
+                      : null}
+                  </Text>
+                  <CloseButton
+                    onClick={fetchResetBlogs}
+                    sx={{
+                      width: '20px',
+                      height: '20px',
+                      fontSize: '8px',
+                      borderRadius: '2em',
+                    }}
+                  />
+                </Flex>
+              </Box>
+            ) : (
+              <>
+                <Text>Blog tidak ditemukan</Text>
+              </>
+            )}
+          </Flex>
+        ) : (
+          <Text color="gray.60" fontSize="14px">{`Menampilkan ${
+            dataBlogs?.meta?.pagination?.total || ''
+          } blog dari semua kategori`}</Text>
+        )}
+      </Box>
+    </>
+  );
+
   return (
     <Box>
       <Container maxW="container.xl">
         <Text fontSize="xl" fontWeight="bold">
-          Blog Terbaru
+          Blog Kami
         </Text>
+        <BlogCategories />
         <Box marginBottom="16px">
           <CarouselBlog items={dataBlogs} />
         </Box>
@@ -96,12 +186,19 @@ function BlogsPageContainerMobile(props) {
 }
 
 BlogsPageContainerMobile.propTypes = {
+  category: PropTypes.string,
   dataBlogs: PropTypes.object,
   isSuccessBlogs: PropTypes.bool,
   isErrorBlogs: PropTypes.bool,
   isLoadingBlogs: PropTypes.bool,
   isFetchingBlogs: PropTypes.bool,
   fetchPagination: PropTypes.func,
+  fetchResetBlogs: PropTypes.func,
+  dataBlogCategories: PropTypes.object,
+  isErrorBlogCategories: PropTypes.bool,
+  isLoadingBlogCategories: PropTypes.bool,
+  isFetchingCategories: PropTypes.bool,
+  isSuccessBlogCategories: PropTypes.bool,
 };
 
 export default BlogsPageContainerMobile;

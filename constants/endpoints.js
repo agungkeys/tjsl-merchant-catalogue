@@ -4,6 +4,7 @@ const ENDPOINTS = {
   // B
   BANNERS: '/banners',
   BLOGS: '/blogs',
+  BLOG_CATEGORIES: '/blog-categories',
   // C
   CART_ORDER: '/orders',
   CART_ORDER_DETAIL: (prefix) => `/orders/${prefix}`,
