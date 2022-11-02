@@ -107,7 +107,7 @@ function BlogsPageContainerMobile(props) {
           </NextLink>
         ))}
       </Flex>
-      <Box my={4}>
+      <Box my={2}>
         {category ? (
           <Flex color="gray.60" alignItems="center">
             <Text fontSize="sm">{`Menampilkan ${

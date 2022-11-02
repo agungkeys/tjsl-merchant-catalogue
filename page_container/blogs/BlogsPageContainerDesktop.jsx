@@ -45,7 +45,7 @@ function BlogsPageContainerDesktop(props) {
       <Text mb="24px" mt="8px" fontWeight="extrabold" fontSize="5xl">
         Blog Kami
       </Text>
-      <Flex gap={2} marginBottom="32px">
+      <Flex gap={2} marginBottom="16px">
         {dataBlogCategories?.data?.map((item) => (
           <NextLink key={item?.id} link={handleLink(item?.slug)}>
             <Button
@@ -64,7 +64,7 @@ function BlogsPageContainerDesktop(props) {
           </NextLink>
         ))}
       </Flex>
-      <Box my={4}>
+      <Box marginTop="16px" marginBottom="32px">
         {category ? (
           <Flex color="gray.60" alignItems="center">
             <Text fontSize="14px">{`Menampilkan ${
