@@ -1,10 +1,8 @@
-import { useQuery } from 'react-query';
-import ENV from '../../constants/env';
 import ENDPOINTS from '../../constants/endpoints';
+import ENV from '../../constants/env';
 import { paramsToString } from '../../helpers/utils';
 
-const fetchBlogs = async (props) => {
-  const { perPage = 9, page = 1, limit = 10, sort = 'asc', category } = props;
+const fetchBlogCategories = async (limit = 10, sort = 'asc', category) => {
   const requestOptions = {
     method: 'GET',
     headers: {
@@ -16,17 +14,15 @@ const fetchBlogs = async (props) => {
   const queryParams = {
     limit,
     sort,
-    perPage,
-    page,
     category,
   };
 
   const params = paramsToString(queryParams);
   const result = await fetch(
-    `${ENV.CURRENT_API}${ENDPOINTS.BLOGS}${params}`,
+    `${ENV.CURRENT_API}${ENDPOINTS.BLOG_CATEGORIES}${params}`,
     requestOptions,
   ).then((response) => response.json() || []);
   return result;
 };
 
-export { fetchBlogs };
+export { fetchBlogCategories };
