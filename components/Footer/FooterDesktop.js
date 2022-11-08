@@ -21,6 +21,7 @@ import {
 import NextLink from '../NextLink';
 
 function FooterDesktop(props) {
+  const year = new Date();
   return (
     <>
       <Flex
@@ -180,7 +181,8 @@ function FooterDesktop(props) {
         alignItems="center"
       >
         <Text fontWeight="normal" fontSize="14px" color="#00264d">
-          KamiUMKM | Copyright &copy; 2022 - TJSL PT. Pupuk Kalimantan Timur
+          KamiUMKM | Copyright &copy; {year.getFullYear()} - TJSL PT. Pupuk
+          Kalimantan Timur
         </Text>
       </Flex>
     </>
