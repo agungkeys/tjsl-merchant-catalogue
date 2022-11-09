@@ -123,7 +123,7 @@ function HomePageContainerMobile(props) {
             cursor="context-menu"
           >
             <Image
-              src="./service_2.png"
+              src="https://res.cloudinary.com/borneos-co/image/upload/v1665650542/tjsl-core/icon-logo/service_2_lbbo2x.webp"
               alt=""
               boxSize="128px"
               margin="0 auto"
@@ -157,7 +157,7 @@ function HomePageContainerMobile(props) {
             cursor="context-menu"
           >
             <Image
-              src="./service_3.png"
+              src="https://res.cloudinary.com/borneos-co/image/upload/v1665650541/tjsl-core/icon-logo/service_3_wa5xp7.webp"
               alt=""
               boxSize="128px"
               margin="0 auto"
