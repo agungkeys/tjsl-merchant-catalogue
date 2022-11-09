@@ -160,7 +160,7 @@ function BlogsPageContainerMobile(props) {
           Blog Kami
         </Text>
         <BlogCategories />
-        <Box marginBottom="16px">
+        <Box>
           <CarouselBlog items={dataBlogs} />
         </Box>
         <Box marginY="32px">

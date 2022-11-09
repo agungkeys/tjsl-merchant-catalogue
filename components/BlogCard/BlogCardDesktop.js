@@ -22,7 +22,6 @@ function BlogCardDesktop(props) {
         position="absolute"
         mt="30px"
         boxShadow="md"
-        display="inline-block"
         zIndex={2}
       >
         <Text color="#0D5099" fontWeight="bold">

@@ -21,10 +21,9 @@ function BlogCardMobile(props) {
           borderRightRadius="8px"
           backgroundColor="#fff"
           padding="8px"
-          position="relative"
-          top="60px"
+          position="absolute"
+          marginTop="30px"
           boxShadow="md"
-          display="inline-block"
           zIndex={2}
         >
           <Text color="#0D5099" fontWeight="bold">
