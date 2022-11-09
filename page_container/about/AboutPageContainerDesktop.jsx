@@ -13,6 +13,7 @@ import {
 import PropTypes from 'prop-types';
 import { BiChevronRight } from 'react-icons/bi';
 import { NextLink, Product } from '../../components';
+import { populateAdditionalImage } from '../../helpers/utils';
 
 function AboutPageContainerDesktop(props) {
   const {
@@ -54,7 +55,15 @@ function AboutPageContainerDesktop(props) {
               >
                 <Box
                   // backgroundColor="#0D5099"
-                  backgroundImage="https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp"
+                  bgImage={
+                    item?.additionalImageCover
+                      ? populateAdditionalImage({
+                          ...item?.additionalImageCover,
+
+                          extension: 'webp',
+                        })
+                      : 'https://res.cloudinary.com/borneos-co/image/upload/v1665467026/tjsl-core/merchants/cover_image/cover_head_udsiml.webp'
+                  }
                   backgroundRepeat="no-repeat"
                   backgroundSize="contain"
                   backgroundPosition="top-right"
