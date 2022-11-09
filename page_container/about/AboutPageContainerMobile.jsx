@@ -43,10 +43,10 @@ function AboutPageContainerMobile(props) {
           </Text>
           <Text fontSize="md" fontWeight="regular" marginTop="12px">
             Pelaksanaan program TJSL juga sebagai wujud dari pelaksanaan prinsip
-            Good Corporate Governance (GCG) dan tanggung jawab sosial perusahaan
-            sebagai Badan Usaha Milik Negara (BUMN) berdasarkan Peraturan
-            Menteri BUMN nomor PER-05/mbu/04/2021 tentang program Tanggung Jawab
-            Sosial dan Lingkungan Badan Usaha Milik Negara.
+            <i> Good Corporate Governance</i> (GCG) dan tanggung jawab sosial
+            perusahaan sebagai Badan Usaha Milik Negara (BUMN) berdasarkan
+            Peraturan Menteri BUMN nomor PER-05/mbu/04/2021 tentang program
+            Tanggung Jawab Sosial dan Lingkungan Badan Usaha Milik Negara.
           </Text>
           <Text fontSize="md" fontWeight="regular" marginTop="12px">
             <b>KamiUMKM</b> merupakan suatu program persembahan TJSL PKT dalam
@@ -70,7 +70,7 @@ function AboutPageContainerMobile(props) {
 }
 
 AboutPageContainerMobile.propTypes = {
-  dataMerchants: PropTypes.array,
+  dataMerchants: PropTypes.object,
   isSuccessMerchants: PropTypes.bool,
   isLoadingMerchants: PropTypes.bool,
   isFetchingMerchants: PropTypes.bool,

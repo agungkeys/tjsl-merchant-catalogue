@@ -23,6 +23,7 @@ import {
 } from 'react-icons/fa';
 
 function FooterMobile() {
+  const year = new Date();
   return (
     <>
       <Box
@@ -179,8 +180,14 @@ function FooterMobile() {
         alignItems="center"
         padding={4}
       >
-        <Text fontWeight="bold" fontSize="sm" color="#00264d">
-          KamiUMKM | Copyright &copy; 2022 All Rights Reserved
+        <Text
+          fontWeight="bold"
+          fontSize="sm"
+          color="#00264d"
+          textAlign="center"
+        >
+          KamiUMKM | Copyright &copy; {year.getFullYear()} - TJSL PT. Pupuk
+          Kalimantan Timur
         </Text>
       </Flex>
     </>
