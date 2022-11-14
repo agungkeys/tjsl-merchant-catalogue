@@ -54,8 +54,8 @@ function ContactForm() {
       }));
       toast({
         position: 'top-right',
-        title: 'Pesanan Sukses Dibuat',
-        description: `Mohon menunggu beberapa saat`,
+        title: 'Pesan Sukses Dibuat',
+        description: `Mohon tunggu beberapa saat`,
         status: 'success',
         duration: 3000,
         isClosable: true,

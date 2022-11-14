@@ -31,7 +31,12 @@ import {
   FaTwitterSquare,
   FaWhatsapp,
 } from 'react-icons/fa';
-import { HiDotsVertical, HiLink, HiShare } from 'react-icons/hi';
+import {
+  HiDotsVertical,
+  HiLink,
+  HiOutlineGlobeAlt,
+  HiShare,
+} from 'react-icons/hi';
 import NextLink from '../NextLink';
 
 function SocialShare(props) {
@@ -112,7 +117,7 @@ function SocialShare(props) {
     {
       id: 7,
       name: 'Website',
-      image: <Button colorScheme="gray">{<HiLink />}</Button>,
+      image: <Button colorScheme="gray">{<HiOutlineGlobeAlt />}</Button>,
       link: websitePageLink,
     },
   ];

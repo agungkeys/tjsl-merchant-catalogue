@@ -166,21 +166,20 @@ function MerchantPageContainerMobile(props) {
                 <Text fontWeight="bold" fontSize="xl">
                   {productDetail?.name || ''}
                 </Text>
-                <Text fontSize="xl">
-                  {priceFormat(productDetail?.price) || ''}
-                </Text>
-                <Text fontSize="13px">
-                  {productDetail?.description ? (
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: productDetail?.description,
-                      }}
-                      className="product-description"
-                    ></div>
-                  ) : (
-                    ''
-                  )}
-                </Text>
+                {productDetail?.price !== '0' ? (
+                  <Text fontSize="xl">
+                    {priceFormat(productDetail?.price) || ''}
+                  </Text>
+                ) : (
+                  ''
+                )}
+                <Text
+                  fontSize="13px"
+                  dangerouslySetInnerHTML={{
+                    __html: productDetail?.description || '',
+                  }}
+                  className="product-description"
+                ></Text>
               </Flex>
             </Box>
           </DrawerBody>
