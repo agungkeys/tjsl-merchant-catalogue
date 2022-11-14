@@ -228,21 +228,20 @@ function MerchantPageContainerDesktop(props) {
                   <Text fontWeight="bold" fontSize="xl">
                     {productDetail?.name || ''}
                   </Text>
-                  <Text fontSize="xl">
-                    {priceFormat(productDetail?.price) || ''}
-                  </Text>
-                  <Text fontSize="13px">
-                    {productDetail?.description ? (
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: productDetail?.description,
-                        }}
-                        className="product-description"
-                      ></div>
-                    ) : (
-                      ''
-                    )}
-                  </Text>
+                  {productDetail?.price !== '0' ? (
+                    <Text fontSize="xl">
+                      {priceFormat(productDetail?.price) || ''}
+                    </Text>
+                  ) : (
+                    ''
+                  )}
+                  <Text
+                    fontSize="13px"
+                    className="product-description"
+                    dangerouslySetInnerHTML={{
+                      __html: productDetail?.description || '',
+                    }}
+                  ></Text>
                 </Flex>
               </Box>
             </Box>

@@ -122,7 +122,7 @@ function FooterMobile() {
                   </Center>
                 </NextLink>
                 <NextLink
-                  link="https://www.pupukkaltim.com/page/about-csr/id"
+                  link="https://www.pupukkaltim.com/csr//id"
                   target="_blank"
                 >
                   <Center w="48px" h="48px" borderRadius="8px">
