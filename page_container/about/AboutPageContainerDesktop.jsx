@@ -141,7 +141,7 @@ function AboutPageContainerDesktop(props) {
           </Text>
           <Box>
             <Image
-              src="https://res.cloudinary.com/borneos-co/image/upload/v1665562462/tjsl-core/banners/vwbmhcx8ysvmeruicvhj.png"
+              src="https://res.cloudinary.com/borneos-co/image/upload/v1668844436/tjsl-core/banners/banner_revisi_hsspun.webp"
               alt=""
               borderRadius="16px"
               boxShadow="xl"
